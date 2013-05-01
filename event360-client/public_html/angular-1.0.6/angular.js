@@ -106,7 +106,7 @@ function isArrayLike(obj) {
 
   // We have on object which has length property. Should we treat it as array?
   if (typeof obj.hasOwnProperty != 'function' &&
-      typeof obj.constructor != 'functions') {
+      typeof obj.constructor != 'function') {
     // This is here for IE8: it is a bogus object treat it as array;
     return true;
   } else  {
