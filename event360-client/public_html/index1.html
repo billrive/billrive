@@ -1,0 +1,82 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+        <script>
+             function TodoCtrl($scope){
+                 
+                 $scope.todos=
+                         [
+                     {text:'Hi There!',done:true},
+                     {text:"Yabba Dabba Doo!",done:false}
+                 ];
+                 
+                 
+                $scope.remaining= function()
+                 {
+                   var  count=0;
+                    angular.forEach($scope.todos, function(todo){
+                        
+                        count+=todo.done?0:1;
+                    });
+                     return count;
+                 };
+                 
+                 $scope.addTodo=function(){
+                     $scope.todos.push(
+                             {text:$scope.newText,done:false});
+                     $scope.newText='';
+                 };
+                 
+                 $scope.archive=function(){
+                     
+                     var oldTodos=$scope.todos;
+                     $scope.todos=[];
+                       angular.forEach(oldTodos, function(todo){
+                        
+                        !todo.done?$scope.todos.push(todo):false;
+                    });
+                 };
+                 
+             }
+            
+        </script>
+        <style>
+            .done-true {
+                text-decoration: line-through;
+                color: green;
+            }
+            .done-false {
+                
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-controller="TodoCtrl">
+            <h2>Todo</h2>
+            {{remaining()}} of {{todos.length}} remaining
+            [<a href="" ng-click="archive()">archive</a>]
+            <ul class=unstyled>
+            <li ng-repeat="todo in todos">
+                <input type="checkbox" ng-model="todo.done">
+                <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </li>
+                <form ng-submit="addTodo()">
+                    <input type="text" size="30" ng-model="newText" placeholder="add new todo here" />
+                    <input class="btn-primary" type="submit" value="add"/>
+                </form>
+        </ul>
+        </div>
+        
+
+    </body>
+</html>
