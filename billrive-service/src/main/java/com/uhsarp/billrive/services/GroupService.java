@@ -6,11 +6,13 @@ package com.uhsarp.billrive.services;
 
 import com.uhsarp.billrive.domain.Group;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author uhsarp
  */
+@Service("groupService")
 public class GroupService {
 
     public void deleteGroup(String groupId_p) {

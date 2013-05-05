@@ -6,11 +6,13 @@ package com.uhsarp.billrive.services;
 
 import com.uhsarp.billrive.domain.Bill;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author uhsarp
  */
+@Service("billService")
 public class BillService {
 
     public List<Bill> getBills() {

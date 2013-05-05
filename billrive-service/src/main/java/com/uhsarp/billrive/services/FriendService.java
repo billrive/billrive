@@ -6,11 +6,13 @@ package com.uhsarp.billrive.services;
 
 import com.uhsarp.billrive.domain.Friend;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author uhsarp
  */
+@Service("friendService")
 public class FriendService {
 
     public List<Friend> getFriends() {
