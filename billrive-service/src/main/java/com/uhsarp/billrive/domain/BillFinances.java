@@ -4,6 +4,9 @@
  */
 package com.uhsarp.billrive.domain;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author uhsarp
@@ -11,6 +14,8 @@ package com.uhsarp.billrive.domain;
 class BillFinances {
     
     double billPayerId;
+    List<BillItemEntry> billItemEntry = new LinkedList<BillItemEntry>();
+    double billTotal;
     
     
 }
