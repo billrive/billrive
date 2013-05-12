@@ -7,9 +7,11 @@ package com.uhsarp.billrive.webservices.rest;
 import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.services.BillService;
+import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -41,16 +43,28 @@ public class BillController {
         private static final Logger logger_c = Logger.getLogger(BillController.class);
         
         
-    	@RequestMapping(value = "/rest/{userId}/bills/", method = RequestMethod.GET)
+    	@RequestMapping(value = "/rest/{userId}/bills", method = RequestMethod.GET)
 	public ModelAndView getBills(@PathVariable("userId") double userId) {
-		List<Bill> bills = null;
+		LinkedList<Bill> bills = new LinkedList<Bill>();
+                logger_c.info("Value of userId is  "+userId);
+		
                 //double userId=5;
-		try {
+		/*try {
 			bills = billService.getBills(userId);
+                        logger_c.info("Value of Bills linkedlist after service call is  "+bills.getFirst().toString());
 		} catch (Exception e) {
 			String sMessage = "Error getting all bills. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
+                * */
+        Bill bill = new Bill((double)1,"Walmart", new DateTime(2013,2,3,1,1), userId, "Sample Notes", null, userId);
+        Bill bill1 = new Bill((double)2,"Costco", new DateTime(2014,2,3,1,1), userId, "Second sample Notes", null, userId);
+        logger_c.info("Value of bill is  "+bill.getTitle());
+        bills.add(bill);
+        bills.add(bill1);
+        
+        
+                logger_c.info("Value of Bills linkedlist is  ");
 
 		logger_c.debug("Returing Bills: " + bills.toString());
 		return new ModelAndView(jsonView_i, DATA_FIELD, bills);
@@ -97,7 +111,7 @@ public class BillController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/bills/" + bill_p.getBillId());
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/bills/" + bill_p.getId());
 
 		/**
 		 * Return the view

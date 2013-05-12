@@ -6,6 +6,7 @@ package com.uhsarp.billrive.dao;
 
 import com.uhsarp.billrive.domain.Bill;
 import java.util.LinkedList;
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,7 +17,12 @@ import org.springframework.stereotype.Service;
 public class Neo4jDAO implements GenericDAO {
 
     public LinkedList<Bill> getBills(double userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        LinkedList<Bill> rtnval = new LinkedList<Bill>();
+        Bill bill = new Bill((double)1,"Walmart", new DateTime(2013,2,3,1,1), userId, "Sample Notes", null, userId);
+        Bill bill1 = new Bill((double)2,"Costco", new DateTime(2014,2,3,1,1), userId, "Second sample Notes", null, userId);
+        
+        rtnval.add(bill);
+        return rtnval;
     }
     
 }
