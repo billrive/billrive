@@ -44,7 +44,7 @@ public class FundsController {
 	 * @return the fund
 	 */
 	@RequestMapping(value = "/rest/funds/{fundId}", method = RequestMethod.GET)
-	public ModelAndView getFund(@PathVariable("fundId") String fundId_p) {
+	public ModelAndView getFund(@PathVariable("fundId") String fundId_p,@PathVariable("userId") double userId) {
 		Fund fund = null;
 
 		/* validate fund Id parameter */
@@ -69,8 +69,8 @@ public class FundsController {
 	 *
 	 * @return the funds
 	 */
-	@RequestMapping(value = "/rest/funds/", method = RequestMethod.GET)
-	public ModelAndView getFunds() {
+	@RequestMapping(value = "/rest/{userId}/{userId}/funds/", method = RequestMethod.GET)
+	public ModelAndView getFunds(@PathVariable("userId") double userId) {
 		List<Fund> funds = null;
 
 		try {
@@ -91,8 +91,8 @@ public class FundsController {
 	 *            the fund_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/funds/" }, method = { RequestMethod.POST })
-	public ModelAndView createFund(@RequestBody Fund fund_p,
+	@RequestMapping(value = { "/rest/{userId}/{userId}/funds/" }, method = { RequestMethod.POST })
+	public ModelAndView createFund(@RequestBody Fund fund_p,@PathVariable("userId") double userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 		Fund createdFund;
@@ -109,7 +109,7 @@ public class FundsController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/funds/" + fund_p.getFundId());
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/funds/" + fund_p.getFundId());
 
 		/**
 		 * Return the view
@@ -124,8 +124,8 @@ public class FundsController {
 	 *            the fund_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/funds/{fundId}" }, method = { RequestMethod.PUT })
-	public ModelAndView updateFund(@RequestBody Fund fund_p, @PathVariable("fundId") String fundId_p,
+	@RequestMapping(value = { "/rest/{userId}/{userId}/funds/{fundId}" }, method = { RequestMethod.PUT })
+	public ModelAndView updateFund(@RequestBody Fund fund_p, @PathVariable("fundId") String fundId_p,@PathVariable("userId") double userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Fund: " + fund_p.toString());
@@ -156,8 +156,8 @@ public class FundsController {
 	 *            the fund id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/rest/funds/{fundId}", method = RequestMethod.DELETE)
-	public ModelAndView removeFund(@PathVariable("fundId") String fundId_p,
+	@RequestMapping(value = "/rest/{userId}/{userId}/funds/{fundId}", method = RequestMethod.DELETE)
+	public ModelAndView removeFund(@PathVariable("fundId") String fundId_p,@PathVariable("userId") double userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Deleting Fund Id: " + fundId_p.toString());

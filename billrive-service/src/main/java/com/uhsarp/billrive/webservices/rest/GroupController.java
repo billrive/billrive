@@ -39,8 +39,8 @@ public class GroupController {
         private static final Logger logger_c = Logger.getLogger(GroupController.class);
         
         
-    	@RequestMapping(value = "/rest/groups/", method = RequestMethod.GET)
-	public ModelAndView getGroups() {
+    	@RequestMapping(value = "/rest/{userId}/groups/", method = RequestMethod.GET)
+	public ModelAndView getGroups(@PathVariable("userId") double userId) {
 		List<Group> groups = null;
 
 		try {
@@ -55,8 +55,8 @@ public class GroupController {
 	}
         
         
-        	@RequestMapping(value = "/rest/groups/{groupId}", method = RequestMethod.GET)
-	public ModelAndView getGroup(@PathVariable("groupId") String groupId_p) {
+        	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.GET)
+	public ModelAndView getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") double userId) {
 		Group group = null;
 
 		
@@ -77,8 +77,8 @@ public class GroupController {
 	}
                 
                 
-        @RequestMapping(value = { "/rest/groups/" }, method = { RequestMethod.POST })
-	public ModelAndView createGroup(@RequestBody Group group_p,
+        @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
+	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") double userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 		Group createdGroup;
@@ -95,7 +95,7 @@ public class GroupController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/groups/" + group_p.getGroupId());
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
 
 		/**
 		 * Return the view
@@ -110,8 +110,8 @@ public class GroupController {
 	 *            the group_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/groups/{groupId}" }, method = { RequestMethod.PUT })
-	public ModelAndView updateGroup(@RequestBody Group group_p, @PathVariable("groupId") String groupId_p,
+	@RequestMapping(value = { "/rest/{userId}/{userId}/groups/{groupId}" }, method = { RequestMethod.PUT })
+	public ModelAndView updateGroup(@RequestBody Group group_p,@PathVariable("userId") double userId, @PathVariable("groupId") String groupId_p,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Group: " + group_p.toString());
@@ -142,8 +142,8 @@ public class GroupController {
 	 *            the group id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/rest/groups/{groupId}", method = RequestMethod.DELETE)
-	public ModelAndView removeGroup(@PathVariable("groupId") String groupId_p,
+	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.DELETE)
+	public ModelAndView removeGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") double userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Deleting Group Id: " + groupId_p.toString());

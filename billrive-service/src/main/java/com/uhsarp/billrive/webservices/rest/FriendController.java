@@ -40,7 +40,7 @@ public class FriendController {
         
         
     	@RequestMapping(value = "/rest/friends/", method = RequestMethod.GET)
-	public ModelAndView getFriends() {
+	public ModelAndView getFriends(@PathVariable("userId") double userId) {
 		List<Friend> friends = null;
 
 		try {
@@ -55,8 +55,8 @@ public class FriendController {
 	}
         
         
-        	@RequestMapping(value = "/rest/friends/{friendId}", method = RequestMethod.GET)
-	public ModelAndView getFriend(@PathVariable("friendId") String friendId_p) {
+        	@RequestMapping(value = "/rest/{userId}/{userId}/friends/{friendId}", method = RequestMethod.GET)
+	public ModelAndView getFriend(@PathVariable("friendId") String friendId_p,@PathVariable("userId") double userId) {
 		Friend friend = null;
 
 		
@@ -77,9 +77,9 @@ public class FriendController {
 	}
                 
                 
-        @RequestMapping(value = { "/rest/friends/" }, method = { RequestMethod.POST })
+        @RequestMapping(value = { "/rest/{userId}/{userId}/friends/" }, method = { RequestMethod.POST })
 	public ModelAndView createFriend(@RequestBody Friend friend_p,
-			HttpServletResponse httpResponse_p, WebRequest request_p) {
+			HttpServletResponse httpResponse_p, WebRequest request_p,@PathVariable("userId") double userId) {
 
 		Friend createdFriend;
 		logger_c.debug("Creating Friend: " + friend_p.toString());
@@ -95,7 +95,7 @@ public class FriendController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/friends/" + friend_p.getFriendId());
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/friends/" + friend_p.getFriendId());
 
 		/**
 		 * Return the view
@@ -110,9 +110,9 @@ public class FriendController {
 	 *            the friend_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/friends/{friendId}" }, method = { RequestMethod.PUT })
+	@RequestMapping(value = { "/rest/{userId}/{userId}/friends/{friendId}" }, method = { RequestMethod.PUT })
 	public ModelAndView updateFriend(@RequestBody Friend friend_p, @PathVariable("friendId") String friendId_p,
-								   HttpServletResponse httpResponse_p) {
+								   HttpServletResponse httpResponse_p,@PathVariable("userId") double userId) {
 
 		logger_c.debug("Updating Friend: " + friend_p.toString());
 
@@ -142,9 +142,9 @@ public class FriendController {
 	 *            the friend id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/rest/friends/{friendId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/rest/{userId}/{userId}/friends/{friendId}", method = RequestMethod.DELETE)
 	public ModelAndView removeFriend(@PathVariable("friendId") String friendId_p,
-								   HttpServletResponse httpResponse_p) {
+								   HttpServletResponse httpResponse_p,@PathVariable("userId") double userId) {
 
 		logger_c.debug("Deleting Friend Id: " + friendId_p.toString());
 

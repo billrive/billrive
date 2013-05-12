@@ -41,10 +41,10 @@ public class BillController {
         private static final Logger logger_c = Logger.getLogger(BillController.class);
         
         
-    	@RequestMapping(value = "/rest/bills/", method = RequestMethod.GET)
-	public ModelAndView getBills() {
+    	@RequestMapping(value = "/rest/{userId}/bills/", method = RequestMethod.GET)
+	public ModelAndView getBills(@PathVariable("userId") double userId) {
 		List<Bill> bills = null;
-                double userId=5;
+                //double userId=5;
 		try {
 			bills = billService.getBills(userId);
 		} catch (Exception e) {
@@ -57,8 +57,8 @@ public class BillController {
 	}
         
         
-        	@RequestMapping(value = "/rest/bills/{billId}", method = RequestMethod.GET)
-	public ModelAndView getBill(@PathVariable("billId") String billId_p) {
+        	@RequestMapping(value = "/rest/{userId}/bills/{billId}", method = RequestMethod.GET)
+	public ModelAndView getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") double userId) {
 		Bill bill = null;
 
 		
@@ -79,8 +79,8 @@ public class BillController {
 	}
                 
                 
-        @RequestMapping(value = { "/rest/bills/" }, method = { RequestMethod.POST })
-	public ModelAndView createBill(@RequestBody Bill bill_p,
+        @RequestMapping(value = { "/rest/{userId}/bills/" }, method = { RequestMethod.POST })
+	public ModelAndView createBill(@RequestBody Bill bill_p,@PathVariable("userId") double userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 		Bill createdBill;
@@ -97,7 +97,7 @@ public class BillController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/bills/" + bill_p.getBillId());
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/bills/" + bill_p.getBillId());
 
 		/**
 		 * Return the view
@@ -112,8 +112,8 @@ public class BillController {
 	 *            the bill_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/bills/{billId}" }, method = { RequestMethod.PUT })
-	public ModelAndView updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,
+	@RequestMapping(value = { "/rest/{userId}/bills/{billId}" }, method = { RequestMethod.PUT })
+	public ModelAndView updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") double userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Bill: " + bill_p.toString());
@@ -144,8 +144,8 @@ public class BillController {
 	 *            the bill id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/rest/bills/{billId}", method = RequestMethod.DELETE)
-	public ModelAndView removeBill(@PathVariable("billId") String billId_p,
+	@RequestMapping(value = "/rest/{userId}/bills/{billId}", method = RequestMethod.DELETE)
+	public ModelAndView removeBill(@PathVariable("billId") String billId_p,@PathVariable("userId") double userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Deleting Bill Id: " + billId_p.toString());
