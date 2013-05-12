@@ -26,6 +26,7 @@
 	-->
     <context:component-scan base-package="com.uhsarp.billrive.webservices.rest" />
 	<context:component-scan base-package="com.uhsarp.billrive.services" />
+        <context:component-scan base-package="com.uhsarp.billrive.dao" />
 
 	<!--
 		 TODO

@@ -2,30 +2,21 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.uhsarp.billrive.domain;
+package com.uhsarp.billrive.dao;
 
-import org.joda.time.DateTime;
+import com.uhsarp.billrive.domain.Bill;
+import java.util.LinkedList;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author uhsarp
  */
-public class Bill {
-    
-    double id;
-    String title;
-    DateTime date;
-    double billPayerId;
-    String notes;
-    BillFinances billFinances;
-    double groupId;
-    
-    
+@Service("neo4jDAO")
+public class Neo4jDAO implements GenericDAO {
 
-    public String getBillId() {
+    public LinkedList<Bill> getBills(double userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
     
 }

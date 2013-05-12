@@ -31,6 +31,7 @@ public class BillController {
     	@Autowired
 	private BillService billService;
 
+  
 	@Autowired
 	private View jsonView_i;
         
@@ -43,9 +44,9 @@ public class BillController {
     	@RequestMapping(value = "/rest/bills/", method = RequestMethod.GET)
 	public ModelAndView getBills() {
 		List<Bill> bills = null;
-
+                double userId=5;
 		try {
-			bills = billService.getBills();
+			bills = billService.getBills(userId);
 		} catch (Exception e) {
 			String sMessage = "Error getting all bills. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
@@ -173,4 +174,13 @@ public class BillController {
         	private ModelAndView createErrorResponse(String sMessage) {
 		return new ModelAndView(jsonView_i, ERROR_FIELD, sMessage);
 	}
+                
+                  public BillService getBillService() {
+        return billService;
+    }
+
+    public void setBillService(BillService billService) {
+        this.billService = billService;
+    }
+
 }

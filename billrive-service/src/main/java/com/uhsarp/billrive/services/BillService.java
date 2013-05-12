@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service("billService")
 public class BillService {
 
-    public List<Bill> getBills() {
+    public List<Bill> getBills(double userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
