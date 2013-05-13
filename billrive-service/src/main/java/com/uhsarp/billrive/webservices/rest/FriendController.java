@@ -40,7 +40,7 @@ public class FriendController {
         
         
     	@RequestMapping(value = "/rest/friends/", method = RequestMethod.GET)
-	public ModelAndView getFriends(@PathVariable("userId") double userId) {
+	public ModelAndView getFriends(@PathVariable("userId") int userId) {
 		List<Friend> friends = null;
 
 		try {
@@ -56,7 +56,7 @@ public class FriendController {
         
         
         	@RequestMapping(value = "/rest/{userId}/{userId}/friends/{friendId}", method = RequestMethod.GET)
-	public ModelAndView getFriend(@PathVariable("friendId") String friendId_p,@PathVariable("userId") double userId) {
+	public ModelAndView getFriend(@PathVariable("friendId") String friendId_p,@PathVariable("userId") int userId) {
 		Friend friend = null;
 
 		
@@ -79,7 +79,7 @@ public class FriendController {
                 
         @RequestMapping(value = { "/rest/{userId}/{userId}/friends/" }, method = { RequestMethod.POST })
 	public ModelAndView createFriend(@RequestBody Friend friend_p,
-			HttpServletResponse httpResponse_p, WebRequest request_p,@PathVariable("userId") double userId) {
+			HttpServletResponse httpResponse_p, WebRequest request_p,@PathVariable("userId") int userId) {
 
 		Friend createdFriend;
 		logger_c.debug("Creating Friend: " + friend_p.toString());
@@ -112,7 +112,7 @@ public class FriendController {
 	 */
 	@RequestMapping(value = { "/rest/{userId}/{userId}/friends/{friendId}" }, method = { RequestMethod.PUT })
 	public ModelAndView updateFriend(@RequestBody Friend friend_p, @PathVariable("friendId") String friendId_p,
-								   HttpServletResponse httpResponse_p,@PathVariable("userId") double userId) {
+								   HttpServletResponse httpResponse_p,@PathVariable("userId") int userId) {
 
 		logger_c.debug("Updating Friend: " + friend_p.toString());
 
@@ -144,7 +144,7 @@ public class FriendController {
 	 */
 	@RequestMapping(value = "/rest/{userId}/{userId}/friends/{friendId}", method = RequestMethod.DELETE)
 	public ModelAndView removeFriend(@PathVariable("friendId") String friendId_p,
-								   HttpServletResponse httpResponse_p,@PathVariable("userId") double userId) {
+								   HttpServletResponse httpResponse_p,@PathVariable("userId") int userId) {
 
 		logger_c.debug("Deleting Friend Id: " + friendId_p.toString());
 

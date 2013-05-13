@@ -12,9 +12,9 @@ import org.joda.time.DateTime;
  */
 public class Payment {
     
-    private double payerId;
-    private double receiverId;
-    private double transactionAmount;
+    private int payerId;
+    private int receiverId;
+    private int transactionAmount;
     private String paymentDescription;
     DateTime transactionDate;
     

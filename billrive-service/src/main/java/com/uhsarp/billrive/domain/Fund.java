@@ -11,8 +11,8 @@ public class Fund{
 
 	private String fundId;
 	private String fundDescription;
-	private double bidPrice;
-	private double offerPrice;
+	private int bidPrice;
+	private int offerPrice;
 	private Date lastUpdated;
 
 	public Fund()
@@ -59,7 +59,7 @@ public class Fund{
 	 *
 	 * @return the bid price
 	 */
-	public double getBidPrice() {
+	public int getBidPrice() {
 		return bidPrice;
 	}
 
@@ -68,7 +68,7 @@ public class Fund{
 	 *
 	 * @param bidPrice the new bid price
 	 */
-	public void setBidPrice(double bidPrice) {
+	public void setBidPrice(int bidPrice) {
 		this.bidPrice = bidPrice;
 	}
 
@@ -77,7 +77,7 @@ public class Fund{
 	 *
 	 * @return the offer price
 	 */
-	public double getOfferPrice() {
+	public int getOfferPrice() {
 		return offerPrice;
 	}
 
@@ -86,7 +86,7 @@ public class Fund{
 	 *
 	 * @param offerPrice the new offer price
 	 */
-	public void setOfferPrice(double offerPrice) {
+	public void setOfferPrice(int offerPrice) {
 		this.offerPrice = offerPrice;
 	}
 

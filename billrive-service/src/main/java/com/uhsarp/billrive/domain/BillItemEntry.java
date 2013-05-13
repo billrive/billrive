@@ -12,17 +12,23 @@ import java.util.ArrayList;
  */
 public class BillItemEntry {
     
-    double itemDescriptionId;
+    int itemDescriptionId;
     String itemDescription;
     ArrayList<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();
 
+    public BillItemEntry(int itemDescriptionId, String itemDescription, ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
+        this.itemDescriptionId = itemDescriptionId;
+        this.itemDescription = itemDescription;
+        this.userIdAndLiableCost=userIdAndLiableCost;
+    }
+
     
     
-    public double getItemDescriptionId() {
+    public int getItemDescriptionId() {
         return itemDescriptionId;
     }
 
-    public void setItemDescriptionId(double itemDescriptionId) {
+    public void setItemDescriptionId(int itemDescriptionId) {
         this.itemDescriptionId = itemDescriptionId;
     }
 

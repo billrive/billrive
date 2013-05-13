@@ -20,7 +20,7 @@ public class BillService {
 
     @Resource(name="neo4jDAO")
     GenericDAO genericDAO;
-    public List<Bill> getBills(double userId) {
+    public List<Bill> getBills(int userId) {
         
         List<Bill> rtnval = new ArrayList<Bill>();
         rtnval=genericDAO.getBills(userId);

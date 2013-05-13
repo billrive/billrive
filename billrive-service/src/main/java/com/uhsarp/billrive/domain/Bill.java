@@ -12,15 +12,15 @@ import org.joda.time.DateTime;
  */
 public class Bill {
     
-    double id;
+    int id;
     String title;
     DateTime date;
-    double billPayerId;
+    int billPayerId;
     String notes;
     BillFinances billFinances;
-    double groupId;
+    int groupId;
 
-    public Bill(double id, String title, DateTime date, double billPayerId, String notes, BillFinances billFinances, double groupId) {
+    public Bill(int id, String title, DateTime date, int billPayerId, String notes, BillFinances billFinances, int groupId) {
         this.id = id;
         this.title = title;
         this.date = date;
@@ -36,11 +36,11 @@ public class Bill {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -60,11 +60,11 @@ public class Bill {
         this.date = date;
     }
 
-    public double getBillPayerId() {
+    public int getBillPayerId() {
         return billPayerId;
     }
 
-    public void setBillPayerId(double billPayerId) {
+    public void setBillPayerId(int billPayerId) {
         this.billPayerId = billPayerId;
     }
 
@@ -84,11 +84,11 @@ public class Bill {
         this.billFinances = billFinances;
     }
 
-    public double getGroupId() {
+    public int getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(double groupId) {
+    public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
 

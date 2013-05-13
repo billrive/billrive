@@ -10,16 +10,31 @@ package com.uhsarp.billrive.domain;
  */
 public class UserIdAndLiableCost {
     
-    private final Double userId;
-    private final Double liableCost;
+    private  int userId;
+    private  int liableCost;
 
-    public UserIdAndLiableCost(Double aKey, Double aValue)
-    {
-        userId   = aKey;
-        liableCost = aValue;
+    public UserIdAndLiableCost(int userId, int liableCost) {
+        this.userId = userId;
+        this.liableCost = liableCost;
     }
 
-    public Double userId()   { return userId; }
-    public Double liableCost() { return liableCost; }
     
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getLiableCost() {
+        return liableCost;
+    }
+
+    public void setLiableCost(int liableCost) {
+        this.liableCost = liableCost;
+    }
+
+ 
 }
+

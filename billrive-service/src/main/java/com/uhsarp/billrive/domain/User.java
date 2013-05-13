@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class User {
     
-    private double id;
+    private int id;
     private String fName;
     private String lName;
     private String mName;
@@ -24,11 +24,11 @@ public class User {
     ArrayList<Friend> friends = new ArrayList<Friend>();
     ArrayList<Group> groups = new ArrayList<Group>();
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
 

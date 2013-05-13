@@ -40,7 +40,7 @@ public class GroupController {
         
         
     	@RequestMapping(value = "/rest/{userId}/groups/", method = RequestMethod.GET)
-	public ModelAndView getGroups(@PathVariable("userId") double userId) {
+	public ModelAndView getGroups(@PathVariable("userId") int userId) {
 		List<Group> groups = null;
 
 		try {
@@ -56,7 +56,7 @@ public class GroupController {
         
         
         	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.GET)
-	public ModelAndView getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") double userId) {
+	public ModelAndView getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
 		Group group = null;
 
 		
@@ -78,7 +78,7 @@ public class GroupController {
                 
                 
         @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
-	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") double userId,
+	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 		Group createdGroup;
@@ -111,7 +111,7 @@ public class GroupController {
 	 * @return the model and view
 	 */
 	@RequestMapping(value = { "/rest/{userId}/{userId}/groups/{groupId}" }, method = { RequestMethod.PUT })
-	public ModelAndView updateGroup(@RequestBody Group group_p,@PathVariable("userId") double userId, @PathVariable("groupId") String groupId_p,
+	public ModelAndView updateGroup(@RequestBody Group group_p,@PathVariable("userId") int userId, @PathVariable("groupId") String groupId_p,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Group: " + group_p.toString());
@@ -143,7 +143,7 @@ public class GroupController {
 	 * @return the model and view
 	 */
 	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.DELETE)
-	public ModelAndView removeGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") double userId,
+	public ModelAndView removeGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Deleting Group Id: " + groupId_p.toString());

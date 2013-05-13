@@ -5,13 +5,11 @@
 package com.uhsarp.billrive.webservices.rest;
 
 import com.uhsarp.billrive.domain.Bill;
-import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.services.BillService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -44,24 +42,24 @@ public class BillController {
         
         
     	@RequestMapping(value = "/rest/{userId}/bills", method = RequestMethod.GET)
-	public ModelAndView getBills(@PathVariable("userId") double userId) {
+	public ModelAndView getBills(@PathVariable("userId") int userId) {
 		List<Bill> bills = new ArrayList<Bill>();
                 logger_c.info("Value of userId is  "+userId);
 		
-                //double userId=5;
-		/*try {
+                //int userId=5;
+		try {
 			bills = billService.getBills(userId);
-                        logger_c.info("Value of Bills ArrayList after service call is  "+bills.getFirst().toString());
+//                        logger_c.info("Value of Bills ArrayList after service call is  "+bills.getFirst().toString());
 		} catch (Exception e) {
 			String sMessage = "Error getting all bills. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
-                * */
-        Bill bill = new Bill((double)1,"Walmart", new DateTime(2013,2,3,1,1), userId, "Sample Notes", null, userId);
-        Bill bill1 = new Bill((double)2,"Costco", new DateTime(2014,2,3,1,1), userId, "Second sample Notes", null, userId);
-        logger_c.info("Value of bill is  "+bill.getTitle());
-        bills.add(bill);
-        bills.add(bill1);
+              
+//        Bill bill = new Bill((long)1,"Walmart", new DateTime(2013,2,3,1,1), userId, "Sample Notes", null, userId);
+//        Bill bill1 = new Bill((long)2,"Costco", new DateTime(2014,2,3,1,1), userId, "Second sample Notes", null, userId);
+//        logger_c.info("Value of bill is  "+bill.getTitle());
+//        bills.add(bill);
+//        bills.add(bill1);
         
         
                 logger_c.info("Value of Bills ArrayList is  ");
@@ -72,7 +70,7 @@ public class BillController {
         
         
         	@RequestMapping(value = "/rest/{userId}/bills/{billId}", method = RequestMethod.GET)
-	public ModelAndView getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") double userId) {
+	public ModelAndView getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId) {
 		Bill bill = null;
 
 		
@@ -94,7 +92,7 @@ public class BillController {
                 
                 
         @RequestMapping(value = { "/rest/{userId}/bills/" }, method = { RequestMethod.POST })
-	public ModelAndView createBill(@RequestBody Bill bill_p,@PathVariable("userId") double userId,
+	public ModelAndView createBill(@RequestBody Bill bill_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 		Bill createdBill;
@@ -127,7 +125,7 @@ public class BillController {
 	 * @return the model and view
 	 */
 	@RequestMapping(value = { "/rest/{userId}/bills/{billId}" }, method = { RequestMethod.PUT })
-	public ModelAndView updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") double userId,
+	public ModelAndView updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Bill: " + bill_p.toString());
@@ -159,7 +157,7 @@ public class BillController {
 	 * @return the model and view
 	 */
 	@RequestMapping(value = "/rest/{userId}/bills/{billId}", method = RequestMethod.DELETE)
-	public ModelAndView removeBill(@PathVariable("billId") String billId_p,@PathVariable("userId") double userId,
+	public ModelAndView removeBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Deleting Bill Id: " + billId_p.toString());

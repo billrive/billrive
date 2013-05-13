@@ -14,6 +14,6 @@ import java.util.List;
  */
  public interface GenericDAO {
      
-    List<Bill> getBills(double userId);
+    List<Bill> getBills(int userId);
     
 }

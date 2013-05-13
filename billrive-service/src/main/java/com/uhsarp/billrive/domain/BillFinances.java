@@ -13,17 +13,23 @@ import java.util.List;
  */
 public class BillFinances {
     
-    double billPayerId;
+    int billPayerId;
     List<BillItemEntry> billItemEntry = new ArrayList<BillItemEntry>();
-    double billTotal;
+    int billTotal;
+
+    public BillFinances(int billPayerId, int billTotal,List<BillItemEntry> billItemEntry) {
+        this.billPayerId = billPayerId;
+        this.billTotal = billTotal;
+        this.billItemEntry=billItemEntry;
+    }
 
  
 
-    public double getBillPayerId() {
+    public int getBillPayerId() {
         return billPayerId;
     }
 
-    public void setBillPayerId(double billPayerId) {
+    public void setBillPayerId(int billPayerId) {
         this.billPayerId = billPayerId;
     }
 
@@ -35,11 +41,11 @@ public class BillFinances {
         this.billItemEntry = billItemEntry;
     }
 
-    public double getBillTotal() {
+    public int getBillTotal() {
         return billTotal;
     }
 
-    public void setBillTotal(double billTotal) {
+    public void setBillTotal(int billTotal) {
         this.billTotal = billTotal;
     }
 
