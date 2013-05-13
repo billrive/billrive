@@ -7,7 +7,7 @@ package com.uhsarp.billrive.webservices.rest;
 import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.services.BillService;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -45,13 +45,13 @@ public class BillController {
         
     	@RequestMapping(value = "/rest/{userId}/bills", method = RequestMethod.GET)
 	public ModelAndView getBills(@PathVariable("userId") double userId) {
-		LinkedList<Bill> bills = new LinkedList<Bill>();
+		List<Bill> bills = new ArrayList<Bill>();
                 logger_c.info("Value of userId is  "+userId);
 		
                 //double userId=5;
 		/*try {
 			bills = billService.getBills(userId);
-                        logger_c.info("Value of Bills linkedlist after service call is  "+bills.getFirst().toString());
+                        logger_c.info("Value of Bills ArrayList after service call is  "+bills.getFirst().toString());
 		} catch (Exception e) {
 			String sMessage = "Error getting all bills. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
@@ -64,7 +64,7 @@ public class BillController {
         bills.add(bill1);
         
         
-                logger_c.info("Value of Bills linkedlist is  ");
+                logger_c.info("Value of Bills ArrayList is  ");
 
 		logger_c.debug("Returing Bills: " + bills.toString());
 		return new ModelAndView(jsonView_i, DATA_FIELD, bills);

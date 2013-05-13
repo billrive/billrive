@@ -4,23 +4,17 @@
  */
 package com.uhsarp.billrive.domain;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author uhsarp
  */
-class BillItemEntry {
+public class BillItemEntry {
     
     double itemDescriptionId;
     String itemDescription;
-    List<UserIdAndLiableCost> userIdAndLiableCost = new LinkedList<UserIdAndLiableCost>();
-
-    public BillItemEntry(double itemDescriptionId, String itemDescription) {
-        this.itemDescriptionId = itemDescriptionId;
-        this.itemDescription = itemDescription;
-    }
+    ArrayList<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();
 
     
     
@@ -40,11 +34,11 @@ class BillItemEntry {
         this.itemDescription = itemDescription;
     }
 
-    public List<UserIdAndLiableCost> getUserIdAndLiableCost() {
+    public ArrayList<UserIdAndLiableCost> getUserIdAndLiableCost() {
         return userIdAndLiableCost;
     }
 
-    public void setUserIdAndLiableCost(List<UserIdAndLiableCost> userIdAndLiableCost) {
+    public void setUserIdAndLiableCost(ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
         this.userIdAndLiableCost = userIdAndLiableCost;
     }
    

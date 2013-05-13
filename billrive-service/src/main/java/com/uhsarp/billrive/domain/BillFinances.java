@@ -4,23 +4,20 @@
  */
 package com.uhsarp.billrive.domain;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author uhsarp
  */
-class BillFinances {
+public class BillFinances {
     
     double billPayerId;
-    List<BillItemEntry> billItemEntry = new LinkedList<BillItemEntry>();
+    List<BillItemEntry> billItemEntry = new ArrayList<BillItemEntry>();
     double billTotal;
 
-    public BillFinances(double billPayerId, double billTotal) {
-        this.billPayerId = billPayerId;
-        this.billTotal = billTotal;
-    }
+ 
 
     public double getBillPayerId() {
         return billPayerId;

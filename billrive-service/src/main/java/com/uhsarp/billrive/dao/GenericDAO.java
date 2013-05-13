@@ -5,7 +5,8 @@
 package com.uhsarp.billrive.dao;
 
 import com.uhsarp.billrive.domain.Bill;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,6 +14,6 @@ import java.util.LinkedList;
  */
  public interface GenericDAO {
      
-    LinkedList<Bill> getBills(double userId);
+    List<Bill> getBills(double userId);
     
 }

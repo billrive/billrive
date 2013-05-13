@@ -6,7 +6,8 @@ package com.uhsarp.billrive.services;
 
 import com.uhsarp.billrive.dao.GenericDAO;
 import com.uhsarp.billrive.domain.Bill;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +20,9 @@ public class BillService {
 
     @Resource(name="neo4jDAO")
     GenericDAO genericDAO;
-    public LinkedList<Bill> getBills(double userId) {
+    public List<Bill> getBills(double userId) {
         
-        LinkedList<Bill> rtnval = new LinkedList<Bill>();
+        List<Bill> rtnval = new ArrayList<Bill>();
         rtnval=genericDAO.getBills(userId);
         return rtnval;
     }

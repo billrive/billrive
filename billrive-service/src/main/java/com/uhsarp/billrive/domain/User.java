@@ -3,7 +3,8 @@
  * and open the template in the editor.
  */
 package com.uhsarp.billrive.domain;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,10 +19,10 @@ public class User {
     private String title;
     private String email;
     private Settings settings;
-    LinkedList<Bill> bills = new LinkedList<Bill>();
-    LinkedList<Payment> payments = new LinkedList<Payment>();
-    LinkedList<Friend> friends = new LinkedList<Friend>();
-    LinkedList<Group> groups = new LinkedList<Group>();
+    List<Bill> bills = new ArrayList<Bill>();
+    ArrayList<Payment> payments = new ArrayList<Payment>();
+    ArrayList<Friend> friends = new ArrayList<Friend>();
+    ArrayList<Group> groups = new ArrayList<Group>();
 
     public double getId() {
         return id;
@@ -79,35 +80,35 @@ public class User {
         this.settings = settings;
     }
 
-    public LinkedList<Bill> getBills() {
+    public List<Bill> getBills() {
         return bills;
     }
 
-    public void setBills(LinkedList<Bill> bills) {
+    public void setBills(List<Bill> bills) {
         this.bills = bills;
     }
 
-    public LinkedList<Payment> getPayments() {
+    public ArrayList<Payment> getPayments() {
         return payments;
     }
 
-    public void setPayments(LinkedList<Payment> payments) {
+    public void setPayments(ArrayList<Payment> payments) {
         this.payments = payments;
     }
 
-    public LinkedList<Friend> getFriends() {
+    public ArrayList<Friend> getFriends() {
         return friends;
     }
 
-    public void setFriends(LinkedList<Friend> friends) {
+    public void setFriends(ArrayList<Friend> friends) {
         this.friends = friends;
     }
 
-    public LinkedList<Group> getGroups() {
+    public ArrayList<Group> getGroups() {
         return groups;
     }
 
-    public void setGroups(LinkedList<Group> groups) {
+    public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
     }
     
