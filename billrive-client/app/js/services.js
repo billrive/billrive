@@ -5,5 +5,8 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('billRive.services', []).
-  value('version', '0.1');
+billRive.service('billService',function($http){
+    
+    var bills = [];
+    
+});
