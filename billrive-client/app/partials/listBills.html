@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="bill in bills">
+          <tr ng-repeat="bill in bills.data">
             <td>{{ bill.date.monthOfYear }}/{{ bill.date.dayOfMonth}}/{{ bill.date.yearOfCentury}}</td>
             <td>{{ bill.title }}</td>
             <td>${{ bill.billFinances.billTotal }}</td>
@@ -32,3 +32,4 @@
     </div>
   </div>
 </div>
+<!--{{bills}}-->

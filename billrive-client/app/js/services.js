@@ -1,12 +1,12 @@
 'use strict';
 
 /* Services */
-
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-billRive.service('billService',function($http){
+billRive.factory('billService',function($http){
     
-    var bills = [];
-    
+    return {
+        
+        getBills: function(callback){
+            $http.get('http://localhost:8080/billrive-service/rest/2/bills/').success(callback);
+        }
+    };
 });
