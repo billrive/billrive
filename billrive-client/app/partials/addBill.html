@@ -1,16 +1,26 @@
-<div ng-controller="UserEditModalController">
+<div>
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 ng-show="newUser">Create New User</h3>
-    <h3 ng-hide="newUser">Edit User: {{ username }}</h3>
+    <h3 ng-hide="editBill">Add a Bill</h3>
+    <h3 ng-show="editBill">Edit User: {{ username }}</h3>
   </div>
   <form class="form-horizontal">
     <div class="modal-body">
-      <div class="control-group">
+      
         <label class="control-label">Username:</label>
         <div class="controls">
           <input type="text" ng-model="username" ng-disabled="!newUser" placeholder="Username" />
-        </div>
+        </div><br />
+        
+        
+        <label class="control-label">Payer</label>
+         <div class="controls">
+    <select ng-model="payer" ng-options="c.name for c in payers"></select><br>
+          </div>
+        
+        
+        
+        
       </div>
       <legend ng-hide="newUser">Change Password</legend>
       <div class="control-group{{pwError && ' error' || ''}}">
