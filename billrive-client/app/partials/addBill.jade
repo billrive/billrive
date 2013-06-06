@@ -1,0 +1,37 @@
+div
+    .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+        h3(ng-hide='editBill') Add a Bill
+        h3(ng-show='editBill') Edit User: {{ username }}
+      form.form-horizontal
+        .modal-body
+          label.control-label Username:
+          .controls
+            input(type='text', ng-model='username', ng-disabled='!newUser', placeholder='Username')
+          br
+          label.control-label Payer
+          .controls
+            select(ng-model='payer', ng-options='c.name for c in payers')
+            br
+        legend(ng-hide='newUser') Change Password
+        .control-group{{pwError.&&.'.error'.||.''}}
+          label.control-label Password:
+          .controls
+            .input-prepend
+              span.add-on
+                i.icon-lock
+              input(type='password', ng-model='pw1', placeholder='Password')
+        .control-group{{pwError.&&.'.error'.||.''}}
+          label.control-label Repeat Password:
+          .controls
+            .input-prepend
+              span.add-on
+                i.icon-lock
+              input(type='password', ng-model='pw2', placeholder='Password')
+    .modal-footer
+      button.btn.pull-left(type='button', data-dismiss='modal')
+        i.icon-remove
+        | Cancel
+      button.btn.btn-primary(type='submit', ng-disabled='pwError || incomplete', data-dismiss='modal')
+        i.icon-ok.icon-white
+        | Save Changes
