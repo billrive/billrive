@@ -9,6 +9,16 @@ billRive.controller('billController', function($scope, billService) {
 {name:'Hilda Hess'},
 {name:'Gavin Mays'}
 ];
+
+
+$scope.friends= [
+{name:'John Doe'},
+{name:'Kristen Stewart'},
+{name:'Trevor Pott'},
+{name:'Hilda Hess'},
+{name:'Gavin Mays'}
+];
+
      function addBill(){
          
 //         $scope.bills.put();

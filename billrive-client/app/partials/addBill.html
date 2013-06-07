@@ -1,49 +1,58 @@
 
-      <a class="btn btn-success" href="#/listBills"><i class="icon-th-list icon-white"></i>&nbsp;List Bills</a>
-      
-      <div><h4>New Bill</h4></div>
-      <div class="row">
-    <div class="span9">
+<a class="btn btn-success" href="#/listBills"><i class="icon-th-list icon-white"></i>&nbsp;List Bills</a>
+
+<div><h4>New Bill</h4></div>
+<div class="row">
+    <div class="span12">
         <div class="row-fluid">
             <div class="span4" style="padding-right:10px; border-right: 1px solid #ccc;">
+
+                <label>Bill Total</label>
+                <input type="text" class="span8" placeholder="100.00">
+
+                 <label>Date</label>
                 <div class="control-group input-append">
-<input class="span8" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Pick a Date">
-<button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
-</div>
-                 <label>Title</label>
+                    <input class="span8" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Pick a Date">
+                    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+                </div>
+
+
+
+                <label>Title</label>
                 <input type="text" class="span8" placeholder="Rent">
-                
-                
+
+
                 <label>Group</label>
                 <select ng-model="payer" class="span8" ng-options="c.name for c in payers"></select>
-               
-                
-               <label>Payer</label>
+
+
+                <label>Payer</label>
                 <select ng-model="payer" class="span8" ng-options="c.name for c in payers"></select>
-                
-             <label>Notes</label>
-             <textarea></textarea>
-            
+
+                <label>Notes</label>
+                <textarea></textarea>
+
             </div>
-            <div class="span4">
-            <div class="btn-group">
-                <ul class="dropdown-menu">
-    <!-- dropdown menu links -->
-  </ul>
-                <button class="btn btn-small"><i class="icon-book"></i>&nbsp;Simple</button><button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-<span class="caret"></span>
-</button>
-<ul class="dropdown-menu">
-<li><a href="#">Simple Split</a></li>
-<li><a href="#">% Split</a></li>
-<li class="divider"></li>
-<li><a href="#">Custom</a></li>
-</ul>
-                <button class="btn btn-small"><i class="icon-list-alt"></i>&nbsp;Advanced</button>
-            </div>
-                
-                 
-           
+            <div class="span8">
+
+                <div class="btn-group">
+                    <ul class="dropdown-menu">
+                        <!-- dropdown menu links -->
+                    </ul>
+                    <button class="btn btn-small"><i class="icon-book"></i>&nbsp;Simple</button><button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Equal Split</a></li>
+                        <li><a href="#">Percentage</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Custom</a></li>
+                    </ul>
+                    <button class="btn btn-small"><i class="icon-list-alt"></i>&nbsp;Advanced</button>
+                </div>
+
+                <div class="" ng-include="'partials/addBill/simple.html'" id="editModal"></div>
+
             </div>
         </div>
     </div>
