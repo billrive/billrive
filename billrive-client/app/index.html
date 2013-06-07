@@ -5,43 +5,8 @@
   <title>BillRive</title>
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
-  <style>
-      body {
-        padding-top: 60px;  60px to make the container go all the way to the bottom of the topbar 
-        padding-bottom: 10px;
-      }
-      #components{
-        min-height: 600px;
-      }
-      #target{
-        min-height: 200px;
-        border: 1px solid #ccc; 
-        padding: 5px;
-      }
-      #target .component{
-        border: 1px solid #fff;
-      }
-      #temp{
-        width: 500px;
-        background: white;
-        border: 1px dotted #ccc;
-        border-radius: 10px;
-      }
+  <link rel="stylesheet" href="lib/bootstrap-datepicker/css/datepicker.css"/>
 
-      .popover-content form {
-        margin: 0 auto;
-        width: 213px;
-      }
-      .popover-content form .btn{
-        margin-right: 10px
-      }
-     /* .container{
-        margin-left: 10px
-      }*/
-      #source{
-        min-height: 500px;
-      }
-    </style>
 </head>
 <body>
 <!--  <ul class="menu">
@@ -63,22 +28,23 @@
           
                  
               <ul class="nav nav-pills">
-    <li  class="active dropdown">
-<a class="dropdown-toggle active"
+    <li  class="dropdown">
+<a  class="dropdown-toggle active"
 data-toggle="dropdown">
-Bills
+    <i class="icon-th-list"></i>&nbsp;Bills
 <b class="caret"></b>
 </a>
 <ul class="dropdown-menu">
 <!-- links -->
-<li><a tabindex="-1" href="#">Add</a></li>
+<li><a tabindex="-1" href="#/addBill">Add</a></li>
+<li><a tabindex="-1" href="#/listBills">List</a></li>
 <li><a tabindex="-1" href="#">Another action</a></li>
 <li class="divider"></li>
 <li><a tabindex="-1" href="#">Separated link</a></li>
 </ul>
 </li>
-    <li><a href="#">Friends</a></li>
-    <li><a href="#">Groups</a></li>
+    <li><a href="#/listFriends"><i class="icon-heart"></i>&nbsp;Friends</a></li>
+    <li><a href="#"><i class="icon-tags"></i>&nbsp;Groups</a></li>
     
     </ul>
           
@@ -97,7 +63,7 @@ Bills
     
     <div class="container">
       <div class="row clearfix">
-        <div class="span6">
+        <div class="span8">
             <div class="clearfix">
                 <div ng-view>
             </div>
@@ -106,13 +72,14 @@ Bills
           
 <!--          <div class="span6">
             <div class="clearfix">
-                <div>
+                <div ng-include="'partials/addBill.html'">
                     
-D| BBC : The Life of Prophet Mohammed (pbuh) - Greatest Man Ever Walk on The Earth by IslamHDTube Featured 18,324 2:23:22 Big Debate : Islam or Atheism : Hamza Andreas Tzortzis & the president of American Atheists by ROAD2MERCY 3,677 views 2:11:24 Debate: Atheist vs Muslim (Lawrence Krauss vs Hamza Tzortzis) by VeganTruth 112,454 views 1:31:22 Christopher Hitchens and Tariq Ramadan Debate: Is Islam a Religion of Peace? | 92Y Talks by 92ndStreetY 68,254 views 9:46 The Big Questions - Do We Misunderstand Islam 1/3 by hammadalqadri 45,267 views 1:10:05 Richard Dawkins Answers Students and Teachers Lynchburg VA by Nightmares Jesus 37,273 views
 
             </div>
         </div>
       </div>-->
+
+
      </div>
     </div>
 
@@ -138,6 +105,7 @@ D| BBC : The Life of Prophet Mohammed (pbuh) - Greatest Man Ever Walk on The Ear
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
   <!--FastClick is a simple, easy-to-use library for eliminating the 300ms delay between a physical tap and the firing of a click event on mobile browsers.-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.0/fastclick.min.js"></script>
- 
+  <!--Bootstrap Datepicker-->
+  <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"> </script>
 </body>
 </html>
