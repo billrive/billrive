@@ -1,13 +1,40 @@
-<div class="row">
-    <div class="span12">
+
+      <a class="btn btn-success" href="#/listBills"><i class="icon-th-list icon-white"></i>&nbsp;List Bills</a>
+      
+      <div><h4>New Bill</h4></div>
+      <div class="row">
+    <div class="span9">
         <div class="row-fluid">
-            <div class="span6">
-                <label>First Name</label>
-                <input type="text" class="span12" placeholder="">
+            <div class="span4" style="padding-right:10px; border-right: 1px solid #ccc;">
+                <div class="control-group input-append">
+<input class="span8" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Pick a Date">
+<button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+</div>
+                 <label>Title</label>
+                <input type="text" class="span8" placeholder="Rent">
+                
+                
+                <label>Group</label>
+                <select ng-model="payer" class="span8" ng-options="c.name for c in payers"></select>
+               
+                
+               <label>Payer</label>
+                <select ng-model="payer" class="span8" ng-options="c.name for c in payers"></select>
+                
+             <label>Notes</label>
+             <textarea></textarea>
+            
             </div>
-            <div class="span6">
-                <label>Last Name</label>
-                <input type="text" class="span12" placeholder="Type something…">
+            <div class="span4">
+            <div class="control-group input-append">
+<a class="btn btn-primary" href="#/listBills"><i class="icon-book icon-white"></i>&nbsp;Simple</a>
+<a class="btn btn-primary" href="#/listBills"><i class="icon-list-alt icon-white"></i>&nbsp;Advanced</a>
+
+
+            </div>
+                
+                 
+           
             </div>
         </div>
     </div>
