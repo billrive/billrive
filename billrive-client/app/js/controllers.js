@@ -19,6 +19,15 @@ $scope.friends= [
 {name:'Gavin Mays'}
 ];
 
+
+$scope.groups= [
+{name:'SLC Roommates'},
+{name:'Denver Old Buddies'},
+{name:'Ski Club'},
+{name:'Family'},
+{name:'India'}
+];
+
      function addBill(){
          
 //         $scope.bills.put();
