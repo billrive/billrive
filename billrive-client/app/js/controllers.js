@@ -5,7 +5,12 @@ billRive.controller('billController', function($scope, billService) {
   $scope.friends=billService.getFriends();
   $scope.groups=billService.getGroups();
   $scope.payers=billService.getPayers();
-  $scope.newBill=billService.getBill();
+ $scope.bill=billService.getBill();
+  
+       function addBill(){
+         
+        
+     };
   
 //    billService.getBills(function(data) {
 //     $scope.bills = data;

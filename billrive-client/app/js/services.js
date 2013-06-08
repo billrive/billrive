@@ -177,7 +177,7 @@ var bills = {
 //            "billFinances": billFinances,
 //            "groupId": null
 //        }];
-var bill=[{
+var bill={
             "id": null,
             "title": "",
             "date": null,
@@ -197,7 +197,7 @@ var bill=[{
                 "billTotal": null
             },
             "groupId": null
-        }];
+        };
     
 //billFinances Object Structure  
 var billFinances={
