@@ -167,6 +167,60 @@ var bills = {
         }
     ]
 };
+//Bill Object Structure
+//var bill=[{
+//            "id": null,
+//            "title": "",
+//            "date": null,
+//            "billPayerId": null,
+//            "notes": "Sample Notes",
+//            "billFinances": billFinances,
+//            "groupId": null
+//        }];
+var bill=[{
+            "id": null,
+            "title": "",
+            "date": null,
+            "billPayerId": null,
+            "notes": "Sample Notes",
+            "billFinances": {
+                "billPayerId": null,
+                "billItemEntry": [
+                    {
+                        "itemDescriptionId": null,
+                        "itemDescription": "",
+                        "userIdAndLiableCost": [
+{userId:null,liableCost:null}
+]
+                    }
+                ],
+                "billTotal": null
+            },
+            "groupId": null
+        }];
+    
+//billFinances Object Structure  
+var billFinances={
+                "billPayerId": null,
+                "billItemEntry": billItemEntry,
+                "billTotal": null
+            };
+ 
+//billItemEntry Object Structure
+var billItemEntry=[
+                    {
+                        "itemDescriptionId": null,
+                        "itemDescription": "",
+                        "userIdAndLiableCost": userAndLiableCost
+                    }
+                ];
+                
+//userAndLiableCost Object Structure
+var userAndLiableCost=[
+{userId:null,liableCost:null}
+];
+
+
 
       var payers= [
 {id:'1',name:'John Doe'},
@@ -207,6 +261,23 @@ var groups= [
  
   factory.getGroups=function(){
      return groups;
+ };
+ 
+ 
+  factory.getBill=function(){
+     return bill;
+ };
+ 
+  factory.getBillItemEntry=function(){
+     return billItemEntry;
+ };
+ 
+  factory.getUserAndLiableCost=function(){
+     return userAndLiableCost;
+ };
+ 
+  factory.getBillFinances=function(){
+     return billFinances;
  };
  
 
