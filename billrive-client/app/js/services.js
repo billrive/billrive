@@ -22,7 +22,7 @@ billRive.factory('billService',function(){
 //    ];
 
 
-var bills = [{
+var bills = {
     "data": [
         {
             "id": 1,
@@ -166,31 +166,31 @@ var bills = [{
             "groupId": 2
         }
     ]
-}];
+};
 
       var payers= [
-{name:'John Doe'},
-{name:'Kristen Stewart'},
-{name:'Trevor Pott'},
-{name:'Hilda Hess'},
-{name:'Gavin Mays'}
+{id:'1',name:'John Doe'},
+{id:'2',name:'Kristen Stewart'},
+{id:'3',name:'Trevor Pott'},
+{id:'4',name:'Hilda Hess'},
+{id:'5',name:'Gavin Mays'}
 ];
 
 var friends= [
-{name:'John Doe'},
-{name:'Kristen Stewart'},
-{name:'Trevor Pott'},
-{name:'Hilda Hess'},
-{name:'Gavin Mays'}
+{id:'1',name:'John Doe'},
+{id:'2',name:'Kristen Stewart'},
+{id:'3',name:'Trevor Pott'},
+{id:'4',name:'Hilda Hess'},
+{id:'5',name:'Gavin Mays'}
 ];
 
 
 var groups= [
-{name:'SLC Roommates'},
-{name:'Denver Old Buddies'},
-{name:'Ski Club'},
-{name:'Family'},
-{name:'India'}
+{id:'1',name:'SLC Roommates'},
+{id:'2',name:'Denver Old Buddies'},
+{id:'3',name:'Ski Club'},
+{id:'4',name:'Family'},
+{id:'5',name:'India'}
 ];
 
  factory.getBills=function(){

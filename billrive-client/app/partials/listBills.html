@@ -30,7 +30,7 @@
               </button>
             </td>
           </tr>-->
-          <tr ng-repeat="bill in bills[0].data | filter:query">
+          <tr ng-repeat="bill in bills.data | filter:query">
             <td>{{ bill.date.monthOfYear }}/{{ bill.date.dayOfMonth}}/{{ bill.date.yearOfCentury}}</td>
             <td>{{ bill.title }}</td>
             <td>${{ bill.billFinances.billTotal }}</td>

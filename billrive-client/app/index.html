@@ -1,111 +1,145 @@
 <!doctype html>
 <html lang="en" ng-app="billRive">
-<head>
-  <meta charset="utf-8">
-  <title>BillRive</title>
-  <link rel="stylesheet" href="css/app.css"/>
-  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
-  <link rel="stylesheet" href="lib/bootstrap-datepicker/css/datepicker.css"/>
+    <head>
+        <meta charset="utf-8">
+        <title>BillRive</title>
+        <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="lib/bootstrap-datepicker/css/datepicker.css"/>
 
-</head>
-<body>
-<!--  <ul class="menu">
-    <li><a href="#/bills">bills</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>-->
 
-    <!--</div>-->
-   
+        <!--    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+            <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+            <link href="//mgcrea.github.com/angular-strap/css/prettify.css" rel="stylesheet">
+            <link href="//mgcrea.github.com/angular-strap/vendor/bootstrap-datepicker.css" rel="stylesheet">
+            
+             required libraries 
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+            <script src="//mgcrea.github.com/angular-strap/js/angular-strap.js"></script>
+            <script src="//mgcrea.github.com/angular-strap/vendor/bootstrap-datepicker.js"></script>
+            
+             optional libraries 
+            <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.0/fastclick.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
+        
+            
+              <script src="js/app.js"></script>
+                <script src="js/services.js"></script>
+                <script src="js/controllers.js"></script>
+                <script src="js/filters.js"></script>
+                <script src="js/directives.js"></script>
+                <script src="js/routes.js"></script>-->
+
+    </head>
+    <body>
+        <!--  <ul class="menu">
+            <li><a href="#/bills">bills</a></li>
+            <li><a href="#/view2">view2</a></li>
+          </ul>-->
+
+        <!--</div>-->
+
         <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#"><i class="icon-home"></i> BillRive</a>
+
+
+                    <ul class="nav nav-pills">
+                        <li  class="dropdown">
+                            <a  class="dropdown-toggle active"
+                                data-toggle="dropdown">
+                                <i class="icon-th-list"></i>&nbsp;Bills
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- links -->
+                                <li><a tabindex="-1" href="#/addBill">Add</a></li>
+                                <li><a tabindex="-1" href="#/listBills">List</a></li>
+                                <li><a tabindex="-1" href="#">Another action</a></li>
+                                <li class="divider"></li>
+                                <li><a tabindex="-1" href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#/listFriends"><i class="icon-heart"></i>&nbsp;Friends</a></li>
+                        <li><a href="#"><i class="icon-tags"></i>&nbsp;Groups</a></li>
+
+                    </ul>
+
+                    <ul class="nav nav-pills pull-right">
+
+                        <li><a href="#"><i class="icon-user"></i> John Doe</a></li>
+                        <li><a href="#"><i class="icon-wrench"></i> Settings</a></li> 
+                        <li><a href="#"><i class="icon-info-sign"></i> Help</a></li> 
+                    </ul>   
+
+
+                </div>
+            </div>
+        </div>
+
+
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#"><i class="icon-home"></i> BillRive</a>
-          
-                 
-              <ul class="nav nav-pills">
-    <li  class="dropdown">
-<a  class="dropdown-toggle active"
-data-toggle="dropdown">
-    <i class="icon-th-list"></i>&nbsp;Bills
-<b class="caret"></b>
-</a>
-<ul class="dropdown-menu">
-<!-- links -->
-<li><a tabindex="-1" href="#/addBill">Add</a></li>
-<li><a tabindex="-1" href="#/listBills">List</a></li>
-<li><a tabindex="-1" href="#">Another action</a></li>
-<li class="divider"></li>
-<li><a tabindex="-1" href="#">Separated link</a></li>
-</ul>
-</li>
-    <li><a href="#/listFriends"><i class="icon-heart"></i>&nbsp;Friends</a></li>
-    <li><a href="#"><i class="icon-tags"></i>&nbsp;Groups</a></li>
-    
-    </ul>
-          
-            <ul class="nav nav-pills pull-right">
-    
-     <li><a href="#"><i class="icon-user"></i> John Doe</a></li>
-     <li><a href="#"><i class="icon-wrench"></i> Settings</a></li> 
-     <li><a href="#"><i class="icon-info-sign"></i> Help</a></li> 
-    </ul>   
-          
-           
-        </div>
-      </div>
-    </div>
-    
-    
-    <div class="container">
-      <div class="row clearfix">
-        <div class="span8">
-            <div class="clearfix">
-                <div ng-view>
-            </div>
-        </div>
-      </div>
-          
-<!--          <div class="span6">
-            <div class="clearfix">
-                <div ng-include="'partials/addBill.html'">
-                    
+            <div class="row clearfix">
+                <div class="span8">
+                    <div class="clearfix">
+                        <div ng-view>
+                        </div>
+                    </div>
+                </div>
+
+                <!--          <div class="span6">
+                            <div class="clearfix">
+                                <div ng-include="'partials/addBill.html'">
+                                    
+                
+                            </div>
+                        </div>
+                      </div>-->
+
 
             </div>
         </div>
-      </div>-->
 
 
-     </div>
-    </div>
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+        -->
 
+        <script src="lib/jquery-2.0.0.js"></script>
+        <script src="lib/angular/angular.js"></script>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  -->
-  
-  <script src="lib/angular/angular.js"></script>
-   
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/routes.js"></script>
-  <script src="lib/jquery-2.0.0.js"></script>
-  <script src="lib/angular-strap.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.js"></script>
-  <!--underscore is for additional collection manipulation etc-->
-  <script src="lib/underscore-1.4.4-min.js"></script>
-  <!--Moment is for parsing dates-->
-  <script src="lib/moment-2.0.js"></script>
-  <!--FastClick is a simple, easy-to-use library for eliminating the 300ms delay between a physical tap and the firing of a click event on mobile browsers.-->
-  <script src="lib/fastclick-0.6.0-min.js"></script>
-  <!--Bootstrap Datepicker-->
-  <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"> </script>
-</body>
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
+        <script src="js/routes.js"></script>
+
+        <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <script src="lib/angular-strap.js"></script>
+        <!--underscore is for additional collection manipulation etc-->
+        <script src="lib/underscore-1.4.4-min.js"></script>
+        <!--Moment is for parsing dates-->
+        <script src="lib/moment-2.0.js"></script>
+        <!--FastClick is a simple, easy-to-use library for eliminating the 300ms delay between a physical tap and the firing of a click event on mobile browsers.-->
+        <script src="lib/fastclick-0.6.0-min.js"></script>
+        <!--Bootstrap Datepicker-->
+        <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <!--        <script>
+                   $(document).ready(function() {
+        $('#dp5').datepicker();
+        });
+        
+                    </script>-->
+    </body>
 </html>
