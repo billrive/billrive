@@ -28,18 +28,19 @@ billRive.controller('billController', function($scope, billService) {
                 if ($scope.friends[j].id == $groupMembers[i])
                     $friendNamefromId = $scope.friends[j].name;
             }
-            $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId});
+            $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId,enabled:true});
         }
         $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost = $groupUserAndLiableCost;
         $groupUserAndLiableCost = [];
-
+$scope.simpleCalculatedTotal=0;
     };
 
 $scope.calculateSimpleSum=function(){
 
  $scope.simpleCalculatedTotal=0;
  for (i = 0; i < $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost.length; i++) {
-     $scope.simpleCalculatedTotal+= parseInt($scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].liableCost);
+     if($scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].liableCost!=null)
+        $scope.simpleCalculatedTotal+= parseInt($scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].liableCost);
  }
 
     

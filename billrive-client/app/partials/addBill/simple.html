@@ -5,11 +5,11 @@
             <div class="row-fluid">
 
                 <div class="span3">
-                    <input type="checkbox" ng-model="todo.done"/>
-                    {{user.name}}
+                    <input  type="checkbox" ng-model="user.enabled" />
+                    <span  class="done-{{!user.enabled}}"> {{user.name}}</span>
                 </div>
                 <div class="span3">
-                    <input ng-change='calculateSimpleSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" />
+                    <input ng-required='user.enabled' ng-disabled="!user.enabled" ng-change='calculateSimpleSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" />
                 </div>  
             </div>  
         </li>
@@ -23,7 +23,7 @@
 
                 <div class="span3">
 
-                   Calculated Total
+                    Calculated Total
                 </div>
                 <div class="span3">
                     <input type="text" disabled ng-model='simpleCalculatedTotal' class="span6" placeholder="0.00" />
