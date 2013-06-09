@@ -1,5 +1,11 @@
 billRive.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/bills', {templateUrl: 'partials/listBills.html', controller: 'BillController'});
-    //$routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-    $routeProvider.otherwise({redirectTo: '/bills'});
+    $routeProvider.when('/listBills', {templateUrl: 'partials/listBills.html', controller: 'billController'});
+    $routeProvider.when('/addBill', {templateUrl: 'partials/addBill.html', controller: 'billController'});
+    $routeProvider.when('/listFriends', {templateUrl: 'partials/listFriends.html', controller: 'billController'});
+    $routeProvider.otherwise({redirectTo: '/listBills'});
   }]);
+  
+  billRive
+  .config(function($httpProvider){
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+});

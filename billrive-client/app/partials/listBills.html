@@ -1,11 +1,15 @@
 
- <div class="container">
+<!-- <div class="container">
   <div class="row">
-    <div class="span8 offset2">
+    <div class="span8 offset2">-->
       <div><h4>Bills</h4></div>
-      <button class="btn btn-success" ng-click="editUser('new')" data-toggle="modal" href="#editModal">
-        <i class="icon-user icon-white"></i>&nbsp;Add a Bill
-      </button>
+      <a class="btn btn-success" href="#/addBill" ng-click="addBill()"><i class="icon-plus-sign icon-white"></i>&nbsp;Add a Bill</a>
+      <div class="input-append pull-right">
+          <input type="search" ng-model="query" class="span2" name="q" autocomplete="off" placeholder="Search" tabindex="1">
+    <button class="btn"><i class="icon-search icon-large"></i> </button>
+  </div>
+          
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -16,19 +20,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="bill in bills">
+<!--          <tr ng-repeat="bill in bills | filter:query">
+            <td>{{ bill.date}}</td>
+            <td>{{ bill.title }}</td>
+            <td>${{ bill.total }}</td>
+            <td>
+              <button class="btn btn-small" href="#editBill">
+                <i class="icon-edit"></i>&nbsp;Edit
+              </button>
+            </td>
+          </tr>-->
+          <tr ng-repeat="bill in bills.data | filter:query">
             <td>{{ bill.date.monthOfYear }}/{{ bill.date.dayOfMonth}}/{{ bill.date.yearOfCentury}}</td>
             <td>{{ bill.title }}</td>
             <td>${{ bill.billFinances.billTotal }}</td>
             <td>
-              <button class="btn btn-primary" ng-click="$parent.editUser(user._id)" data-toggle="modal" href="#editModal">
-                <i class="icon-pencil icon-white"></i>&nbsp;Edit
+              <button class="btn btn-small" href="#editBill">
+                <i class="icon-edit"></i>&nbsp;Edit
               </button>
             </td>
           </tr>
         </tbody>
       </table>
      <!-- <div class="modal hide fade" ng-include="'modal-partial.html'" id="editModal"></div>-->
-    </div>
+<!--    </div>
   </div>
-</div>
+</div>-->
+<!--<div class="modal hide fade" ng-include="'partials/addBill.html'" id="editModal"></div>-->
+<!--{{bills.data}}-->

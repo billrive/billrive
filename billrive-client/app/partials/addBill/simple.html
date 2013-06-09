@@ -1,0 +1,36 @@
+<br />
+<div> <ul class="unstyled"> 
+
+        <li ng-repeat="friend in friends" > 
+
+
+
+            <div class="row-fluid">
+
+                <div class="span3">
+                    <input type="checkbox" ng-model="todo.done"/>
+                    {{friend.name}}
+                </div>
+                <div class="span3">
+                    <input type="text" class="span6" placeholder="5.00" />
+                </div>  
+            </div>  
+        </li>
+
+    </ul>
+    <hr width="250" size="1">
+    <ul class="unstyled">
+        <li > 
+
+            <div class="row-fluid">
+
+                <div class="span3">
+
+                    Total
+                </div>
+                <div class="span3">
+                    <input type="text" class="span6" placeholder="5.00" />
+                </div>  
+            </div>  
+        </li></ul>
+</div>

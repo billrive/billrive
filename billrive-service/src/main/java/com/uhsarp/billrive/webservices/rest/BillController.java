@@ -124,7 +124,7 @@ public class BillController {
 	 *            the bill_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/{userId}/bills/{billId}" }, method = { RequestMethod.PUT })
+	@RequestMapping(value = { "/rest/{userId}/bill/{billId}" }, method = { RequestMethod.PUT })
 	public ModelAndView updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 

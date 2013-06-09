@@ -50,16 +50,39 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 		
-	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>-->
-<!--	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			/WEB-INF/spring/rest-services-config.xml
-		</param-value>
-	</context-param> 
-       -->
+    <servlet-mapping>
+            <servlet-name>appServlet</servlet-name>
+            <url-pattern>/</url-pattern>
+    </servlet-mapping>-->
+    <!--	<context-param>
+             <param-name>contextConfigLocation</param-name>
+             <param-value>
+                     /WEB-INF/spring/rest-services-config.xml
+             </param-value>
+     </context-param> 
+    -->
        
+       
+    <!-- for CORS -->
+    <filter>
+        <filter-name>CORS</filter-name>
+        <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+
+        <init-param>
+            <param-name>cors.supportedMethods</param-name>
+            <param-value>GET, HEAD, POST, PUT, DELETE, OPTIONS</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>cors.supportedHeaders</param-name>
+            <param-value>Content-Type, X-Requested-With, Origin, Accept</param-value>
+        </init-param>
+
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CORS</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- End for CORS -->
 </web-app>
