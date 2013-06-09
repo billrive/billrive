@@ -35,7 +35,7 @@ billRive.controller('billController', function($scope, billService) {
 $scope.simpleCalculatedTotal=0;
     };
 
-$scope.calculateSimpleSum=function(){
+$scope.simpleCalculateSum=function(){
 
  $scope.simpleCalculatedTotal=0;
  for (i = 0; i < $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost.length; i++) {
@@ -44,6 +44,15 @@ $scope.calculateSimpleSum=function(){
  }
 
     
+};
+$scope.simpleFriendEnabled=function(){
+
+ for (i = 0; i < $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost.length; i++) {
+     if($scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].enabled===false)
+        $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].liableCost=0;
+ }
+
+  $scope.simpleCalculateSum();  
 };
 
 });
