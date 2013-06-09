@@ -4,7 +4,7 @@
 <div><h4>New Bill</h4></div>
 <div class="row">
     <div class="span12">
-        <div class="row-fluid">
+        <div  class="row-fluid">
             <form ng-submit="addBill()">
             <div class="span4" style="padding-right:10px; border-right: 1px solid #ccc;">
 
@@ -13,25 +13,25 @@
 
                  <label>Date</label>
                 <div class="control-group input-append">
-                    <input id="dp5" class="span8" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Pick a Date">
+                    <input id="dp5" ng-model="bill.date"     class="span8" type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker placeholder="Pick a Date">
                     <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
                 </div>
 
 
 
                 <label>Title</label>
-                <input type="text" class="span8" placeholder="Rent">
+                <input type="text" class="span8" ng-model="bill.title" placeholder="Rent">
 
 
                 <label>Group</label>
-                <select ng-model="group" class="span8" ng-options="d.name for d in groups"></select>
+                <select ng-change="setBillGroup()" ng-model="bill.groupId" class="span8" ng-options="d.id as d.name for d in groups"></select>
 
 
                 <label>Payer</label>
-                <select ng-model="payer" class="span8" ng-options="c.name for c in payers"></select>
+                <select ng-model="bill.billPayerId" class="span8" ng-options="c.id as c.name for c in payers"></select>
 
                 <label>Notes</label>
-                <textarea></textarea>
+                <textarea ng-model="bill.notes"></textarea>
 
             </div>
             <div class="span8">

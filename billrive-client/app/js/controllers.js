@@ -5,12 +5,20 @@ billRive.controller('billController', function($scope, billService) {
   $scope.friends=billService.getFriends();
   $scope.groups=billService.getGroups();
   $scope.payers=billService.getPayers();
- $scope.bill=billService.getBill();
-  
-       function addBill(){
-         
+$scope.bill=billService.getBill();
         
+  
+       $scope.addBill=function (){
+          
      };
+     
+     $scope.setBillGroup= function(){
+     //console.log("hello");
+         $scope.bill.notes="group selected is"+$scope.bill.groupId;
+         
+       
+     };
+    
   
 //    billService.getBills(function(data) {
 //     $scope.bills = data;
@@ -50,3 +58,4 @@ billRive.controller('billController', function($scope, billService) {
 //     };
 //  });
 });
+
