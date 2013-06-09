@@ -45,6 +45,8 @@ public class GroupController {
                 System.out.println("In Groups...Calling getGroups");
 		try {
 			groups = groupService.getGroups(userId);
+                        System.out.println("in group controller with data");
+                        
 		} catch (Exception e) {
 			String sMessage = "Error getting all groups. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
@@ -95,7 +97,7 @@ public class GroupController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
+//		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
 
 		/**
 		 * Return the view

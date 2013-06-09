@@ -67,8 +67,6 @@ public class Group {
     public void setLsMembers(List<Friend> lsMembers) {
         this.lsMembers = lsMembers;
     }
-    public String getGroupId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
     
 }

@@ -21,4 +21,12 @@
                 <goal>package</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-clean and pack</actionName>
+            <displayName>clean and pack</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>package</goal>
+            </goals>
+        </action>
     </actions>
