@@ -13,7 +13,7 @@ import org.joda.time.DateTime;
 public class Bill {
     
     int id;
-    String title;
+    String title;//walmart
     DateTime date;
     int billPayerId;
     String notes;

@@ -42,5 +42,14 @@ public class BillService {
     public void deleteBill(String billId_p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public GenericDAO getGenericDAO() {
+        return genericDAO;
+    }
+
+    public void setGenericDAO(GenericDAO genericDAO) {
+        this.genericDAO = genericDAO;
+    }
+    
     
 }

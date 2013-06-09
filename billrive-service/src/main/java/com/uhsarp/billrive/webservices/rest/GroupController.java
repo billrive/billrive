@@ -42,9 +42,9 @@ public class GroupController {
     	@RequestMapping(value = "/rest/{userId}/groups/", method = RequestMethod.GET)
 	public ModelAndView getGroups(@PathVariable("userId") int userId) {
 		List<Group> groups = null;
-
+                System.out.println("In Groups...Calling getGroups");
 		try {
-			groups = groupService.getGroups();
+			groups = groupService.getGroups(userId);
 		} catch (Exception e) {
 			String sMessage = "Error getting all groups. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));

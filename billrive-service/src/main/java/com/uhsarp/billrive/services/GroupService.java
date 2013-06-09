@@ -4,8 +4,11 @@
  */
 package com.uhsarp.billrive.services;
 
+import com.uhsarp.billrive.dao.GenericDAO;
 import com.uhsarp.billrive.domain.Group;
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +17,10 @@ import org.springframework.stereotype.Service;
  */
 @Service("groupService")
 public class GroupService {
-
+    
+    @Resource(name= "neo4jDAO")
+    GenericDAO genericDAO;
+    
     public void deleteGroup(String groupId_p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -31,8 +37,10 @@ public class GroupService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public List<Group> getGroups() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Group> getGroups(int userId) {
+        List<Group> rtnval = new ArrayList<Group>();
+        rtnval=genericDAO.getGroups(userId);
+        return rtnval;
     }
     
 }

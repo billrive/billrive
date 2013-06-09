@@ -13,8 +13,8 @@ import java.util.List;
  */
 public class BillFinances {
     
-    int billPayerId;
-    List<BillItemEntry> billItemEntry = new ArrayList<BillItemEntry>();
+    int billPayerId;//2
+    List<BillItemEntry> billItemEntry = new ArrayList<BillItemEntry>();//watermelon,napkins
     int billTotal;
 
     public BillFinances(int billPayerId, int billTotal,List<BillItemEntry> billItemEntry) {

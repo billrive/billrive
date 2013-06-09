@@ -5,7 +5,7 @@
 package com.uhsarp.billrive.dao;
 
 import com.uhsarp.billrive.domain.Bill;
-import java.util.ArrayList;
+import com.uhsarp.billrive.domain.Group;
 import java.util.List;
 
 /**
@@ -15,5 +15,5 @@ import java.util.List;
  public interface GenericDAO {
      
     List<Bill> getBills(int userId);
-    
+    List<Group> getGroups(int userId);
 }
