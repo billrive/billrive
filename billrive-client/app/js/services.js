@@ -185,7 +185,7 @@ var bill={
             "notes": "",
             "billFinances": {
                 "billPayerId": null,
-                "billTotals": 
+                "billSimpleTotals": 
                     {
                         "itemDescriptionId": 1,
                         "itemDescription": "Simple",

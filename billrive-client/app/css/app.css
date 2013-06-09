@@ -65,3 +65,7 @@ body {
     min-height: 500px;
 }
 
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}

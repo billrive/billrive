@@ -1,18 +1,15 @@
 <br />
 <div> <ul class="unstyled"> 
 
-        <li ng-repeat="user in bill.billFinances.billItemEntry" > 
-
-
-
+        <li ng-repeat="user in bill.billFinances.billSimpleTotals.userIdAndLiableCost " > 
             <div class="row-fluid">
 
                 <div class="span3">
-                    <input type="checkbox" ng-model="todo.done"/>
-                    {{user.name}}
+                    <input ng-change='simpleFriendEnabled()' type="checkbox" ng-model="user.enabled" />
+                    <span  class="done-{{!user.enabled}}"> {{user.name}}</span>
                 </div>
                 <div class="span3">
-                    <input type="text" ng-model='user.liableCost' class="span6" placeholder="5.00" />
+                    <input ng-required='user.enabled' ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" />
                 </div>  
             </div>  
         </li>
@@ -26,10 +23,10 @@
 
                 <div class="span3">
 
-                    Total
+                    Calculated Total
                 </div>
                 <div class="span3">
-                    <input type="text" class="span6" placeholder="5.00" />
+                    <input type="text" disabled ng-model='simpleCalculatedTotal' class="span6" placeholder="0.00" />
                 </div>  
             </div>  
         </li></ul>
