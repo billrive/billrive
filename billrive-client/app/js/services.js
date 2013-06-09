@@ -185,15 +185,14 @@ var bill={
             "notes": "",
             "billFinances": {
                 "billPayerId": null,
-                "billItemEntry": [
+                "billTotals": 
                     {
-                        "itemDescriptionId": null,
-                        "itemDescription": "",
-                        "userIdAndLiableCost": [
-{userId:null,liableCost:null}
-]
+                        "itemDescriptionId": 1,
+                        "itemDescription": "Simple",
+                        "userIdAndLiableCost": []
                     }
-                ],
+                ,
+                 "billItemEntry":[],
                 "billTotal": null
             },
             "groupId": null
@@ -207,18 +206,16 @@ var billFinances={
             };
  
 //billItemEntry Object Structure
-var billItemEntry=[
+var billItemEntry=
                     {
                         "itemDescriptionId": null,
                         "itemDescription": "",
                         "userIdAndLiableCost": userAndLiableCost
-                    }
-                ];
+                    };
                 
 //userAndLiableCost Object Structure
-var userAndLiableCost=[
-{userId:null,liableCost:null}
-];
+var userAndLiableCost=
+{userId:null,liableCost:null};
 
 
 
@@ -246,6 +243,8 @@ var groups= [
 {id:'4',users:[2,5],name:'Family'},
 {id:'5',users:[1,2,3,5],name:'India'}
 ];
+
+var groupFriendRel=[{groupId:'1',friendId:'5'}];
 
  factory.getBills=function(){
      return bills;
