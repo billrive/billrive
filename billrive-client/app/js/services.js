@@ -22,7 +22,132 @@ billRive.factory('billService',function(){
 //    ];
 
 
-var bills = [
+var bills = [{
+            "id": 1,
+            "title": "Costco - Pharmacy",
+            "date":"06/03/2013",
+            "billPayerId": 2,
+            "notes": "Sample Notes",
+            "billFinances": {
+                "billPayerId": 1,
+                "billItemEntry": [
+                    {
+                        "itemDescriptionId": 1,
+                        "itemDescription": "Canola Oil",
+                        "userIdAndLiableCost": [
+                            {
+                                "userId": 2,
+                                "liableCost": 10
+                            },
+                            {
+                                "userId": 3,
+                                "liableCost": 20
+                            }
+                        ]
+                    },
+                    {
+                        "itemDescriptionId": 2,
+                        "itemDescription": "Taco Bell",
+                        "userIdAndLiableCost": [
+                            {
+                                "userId": 4,
+                                "liableCost": 50
+                            },
+                            {
+                                "userId": 5,
+                                "liableCost": 40
+                            }
+                        ]
+                    }
+                ],
+                "billTotal": 35
+            },
+            "groupId": 2
+        },
+        {
+            "id": 1,
+            "title": "Farmers Market",
+            "date":"06/01/2013",
+            "billPayerId": 2,
+            "notes": "Sample Notes",
+            "billFinances": {
+                "billPayerId": 1,
+                "billItemEntry": [
+                    {
+                        "itemDescriptionId": 1,
+                        "itemDescription": "Canola Oil",
+                        "userIdAndLiableCost": [
+                            {
+                                "userId": 2,
+                                "liableCost": 10
+                            },
+                            {
+                                "userId": 3,
+                                "liableCost": 20
+                            }
+                        ]
+                    },
+                    {
+                        "itemDescriptionId": 2,
+                        "itemDescription": "Taco Bell",
+                        "userIdAndLiableCost": [
+                            {
+                                "userId": 4,
+                                "liableCost": 50
+                            },
+                            {
+                                "userId": 5,
+                                "liableCost": 40
+                            }
+                        ]
+                    }
+                ],
+                "billTotal": 20
+            },
+            "groupId": 2
+        },
+        {
+            "id": 1,
+            "title": "Dining Out",
+            "date":"05/28/2013",
+            "billPayerId": 2,
+            "notes": "Sample Notes",
+            "billFinances": {
+                "billPayerId": 1,
+                "billItemEntry": [
+                    {
+                        "itemDescriptionId": 1,
+                        "itemDescription": "Canola Oil",
+                        "userIdAndLiableCost": [
+                            {
+                                "userId": 2,
+                                "liableCost": 10
+                            },
+                            {
+                                "userId": 3,
+                                "liableCost": 20
+                            }
+                        ]
+                    },
+                    {
+                        "itemDescriptionId": 2,
+                        "itemDescription": "Taco Bell",
+                        "userIdAndLiableCost": [
+                            {
+                                "userId": 4,
+                                "liableCost": 50
+                            },
+                            {
+                                "userId": 5,
+                                "liableCost": 40
+                            }
+                        ]
+                    }
+                ],
+                "billTotal": 45
+            },
+            "groupId": 2
+        },
         {
             "id": 1,
             "title": "Walmart",
