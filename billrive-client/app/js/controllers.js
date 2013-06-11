@@ -66,7 +66,16 @@ billRive.controller('BillListCtrl', function($scope, billService) {
 billRive.controller('BillAddCtrl', function($scope, billService, $location) {
     
     $scope.addBill = function() {
-        $scope.bills.push($scope.bill);
+        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
+        $scope.bill = [];
+       // $scope.bill=billService.getBill();
+        $location.url('/');
+    };
+});
+billRive.controller('BillEditCtrl', function($scope, billService, $location,$routeParams) {
+    $scope.bill = $scope.bills[$routeParams.id];
+    $scope.edit = function() {
+       $scope.bills[$routeParams.id] = $scope.bill;
         $scope.bill = [];
        // $scope.bill=billService.getBill();
         $location.url('/');
