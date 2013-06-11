@@ -80,6 +80,6 @@ billRive.controller('BillEditCtrl', function($scope, billService, $location,$rou
        $scope.bills[$routeParams.id] = $scope.bill;
         $scope.bill = [];
        // $scope.bill=billService.getBill();
-        $location.url('/');
+       // $location.url('/');
     };
 });

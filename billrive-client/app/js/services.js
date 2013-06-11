@@ -186,14 +186,14 @@ var bills = [{
                         ]
                     }
                 ],
-                "billTotal": 30
+                "billTotal": 35
             },
             "groupId": 2
         },
         {
             "id": 2,
             "title": "Costco",
-            "date":"04/28/2013",
+            "date":"05/27/2013",
             "billPayerId": 2,
             "notes": "Second sample Notes",
             "billFinances": {
