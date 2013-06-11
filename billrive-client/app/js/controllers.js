@@ -3,7 +3,7 @@ billRive.controller('billController', function($scope, billService) {
     $scope.groups = billService.getGroups();
     $scope.payers = billService.getPayers();  
     $scope.simpleUserCostMap=[];
-$scope.bills= [];
+    $scope.bills= billService.getBills();
 //    $scope.bill = billService.getBill();
     $scope.bill =[];//= billService.getBill();
 
@@ -75,6 +75,7 @@ billRive.controller('BillAddCtrl', function($scope, billService, $location) {
 });
 billRive.controller('BillEditCtrl', function($scope, billService, $location,$routeParams) {
     $scope.bill = $scope.bills[$routeParams.id];
+    console.log("in billedit ctrl");
     $scope.edit = function() {
        $scope.bills[$routeParams.id] = $scope.bill;
         $scope.bill = [];

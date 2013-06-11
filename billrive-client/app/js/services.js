@@ -26,50 +26,7 @@ var bills = [
         {
             "id": 1,
             "title": "Walmart",
-            "date": {
-                "year": 2013,
-                "dayOfMonth": 3,
-                "dayOfWeek": 7,
-                "era": 1,
-                "dayOfYear": 34,
-                "weekOfWeekyear": 5,
-                "minuteOfDay": 61,
-                "minuteOfHour": 1,
-                "monthOfYear": 2,
-                "millisOfSecond": 0,
-                "yearOfCentury": 13,
-                "secondOfDay": 3660,
-                "centuryOfEra": 20,
-                "millisOfDay": 3660000,
-                "secondOfMinute": 0,
-                "weekyear": 2013,
-                "hourOfDay": 1,
-                "yearOfEra": 2013,
-                "zone": {
-                    "uncachedZone": {
-                        "fixed": false,
-                        "cachable": true,
-                        "id": "America/Denver"
-                    },
-                    "fixed": false,
-                    "id": "America/Denver"
-                },
-                "millis": 1359878460000,
-                "chronology": {
-                    "zone": {
-                        "uncachedZone": {
-                            "fixed": false,
-                            "cachable": true,
-                            "id": "America/Denver"
-                        },
-                        "fixed": false,
-                        "id": "America/Denver"
-                    }
-                },
-                "beforeNow": true,
-                "afterNow": false,
-                "equalNow": false
-            },
+            "date":"05/01/2013",
             "billPayerId": 2,
             "notes": "Sample Notes",
             "billFinances": {
@@ -111,50 +68,7 @@ var bills = [
         {
             "id": 2,
             "title": "Costco",
-            "date": {
-                "year": 2014,
-                "dayOfMonth": 3,
-                "dayOfWeek": 1,
-                "era": 1,
-                "dayOfYear": 34,
-                "weekOfWeekyear": 6,
-                "minuteOfDay": 61,
-                "minuteOfHour": 1,
-                "monthOfYear": 2,
-                "millisOfSecond": 0,
-                "yearOfCentury": 14,
-                "secondOfDay": 3660,
-                "centuryOfEra": 20,
-                "millisOfDay": 3660000,
-                "secondOfMinute": 0,
-                "weekyear": 2014,
-                "hourOfDay": 1,
-                "yearOfEra": 2014,
-                "zone": {
-                    "uncachedZone": {
-                        "fixed": false,
-                        "cachable": true,
-                        "id": "America/Denver"
-                    },
-                    "fixed": false,
-                    "id": "America/Denver"
-                },
-                "millis": 1391414460000,
-                "chronology": {
-                    "zone": {
-                        "uncachedZone": {
-                            "fixed": false,
-                            "cachable": true,
-                            "id": "America/Denver"
-                        },
-                        "fixed": false,
-                        "id": "America/Denver"
-                    }
-                },
-                "beforeNow": false,
-                "afterNow": true,
-                "equalNow": false
-            },
+            "date":"04/28/2013",
             "billPayerId": 2,
             "notes": "Second sample Notes",
             "billFinances": {

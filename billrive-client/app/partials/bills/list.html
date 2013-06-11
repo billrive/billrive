@@ -3,7 +3,7 @@
   <div class="row">
     <div class="span8 offset2">-->
       <div><h4>Bills</h4></div>
-      <a class="btn btn-success" href="#/bills/add" ng-click="addBill()"><i class="icon-plus-sign icon-white"></i>&nbsp;Add a Bill</a>
+      <a class="btn btn-success" href="#/bills/add"><i class="icon-plus-sign icon-white"></i>&nbsp;Add a Bill</a>
       <div class="input-append pull-right">
           <input type="search" ng-model="query" class="span2" name="q" autocomplete="off" placeholder="Search" tabindex="1">
     <button class="btn"><i class="icon-search icon-large"></i> </button>
@@ -36,9 +36,9 @@
             <td>{{ ibill.title }}</td>
             <td>${{ ibill.billFinances.billTotal }}</td>
             <td>
-              <button class="btn btn-small" href="#bills/edit/{{$index}}">
-                <i class="icon-edit"></i>&nbsp;Edit
-              </button>
+                
+                <a href="#/bills/delete/{{$index}}"><i class="icon-trash "></i></a>
+              <a  href="#/bills/edit/{{$index}}"><i class="icon-edit "></i></a>
             </td>
           </tr>
         </tbody>
