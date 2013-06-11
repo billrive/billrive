@@ -20,21 +20,21 @@
           </tr>
         </thead>
         <tbody>
-<!--          <tr ng-repeat="bill in bills | filter:query">
-            <td>{{ bill.date}}</td>
-{{ bill.date.monthOfYear }}/{{ bill.date.dayOfMonth}}/{{ bill.date.yearOfCentury}}
-            <td>{{ bill.title }}</td>
-            <td>${{ bill.total }}</td>
+<!--          <tr ng-repeat="ibill in bills | filter:query">
+            <td>{{ ibill.date}}</td>
+{{ ibill.date.monthOfYear }}/{{ ibill.date.dayOfMonth}}/{{ ibill.date.yearOfCentury}}
+            <td>{{ ibill.title }}</td>
+            <td>${{ ibill.total }}</td>
             <td>
               <button class="btn btn-small" href="#editBill">
                 <i class="icon-edit"></i>&nbsp;Edit
               </button>
             </td>
           </tr>-->
-          <tr ng-repeat="bill in bills | filter:query">
-            <td>{{ bill.date}}</td>
-            <td>{{ bill.title }}</td>
-            <td>${{ bill.billFinances.billTotal }}</td>
+          <tr ng-repeat="ibill in bills | filter:query">
+            <td>{{ ibill.date}}</td>
+            <td>{{ ibill.title }}</td>
+            <td>${{ ibill.billFinances.billTotal }}</td>
             <td>
               <button class="btn btn-small" href="#editBill">
                 <i class="icon-edit"></i>&nbsp;Edit

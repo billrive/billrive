@@ -3,7 +3,7 @@ billRive.controller('billController', function($scope, billService) {
     $scope.groups = billService.getGroups();
     $scope.payers = billService.getPayers();  
     $scope.simpleUserCostMap=[];
-$scope.bills=[];
+$scope.bills= [];
 //    $scope.bill = billService.getBill();
     $scope.bill =[];//= billService.getBill();
 
