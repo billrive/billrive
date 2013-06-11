@@ -1,6 +1,8 @@
 billRive.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/listBills', {templateUrl: 'partials/listBills.html', controller: 'billController'});
-    $routeProvider.when('/addBill', {templateUrl: 'partials/addBill.html', controller: 'billController'});
+//    $routeProvider.when('/', {templateUrl: 'partials/dashboard.html', controller: 'billController'});
+    $routeProvider.when('/listBills', {templateUrl: 'partials/bills/list.html'});
+    $routeProvider.when('/addBill', {templateUrl: 'partials/bills/add.html', controller: 'BillAddCtrl'});
+    $routeProvider.when('/editBill', {templateUrl: 'partials/bills/edit.html', controller: 'BillAddCtrl'});
     $routeProvider.when('/listFriends', {templateUrl: 'partials/listFriends.html', controller: 'billController'});
     $routeProvider.otherwise({redirectTo: '/listBills'});
   }]);

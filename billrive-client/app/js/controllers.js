@@ -1,15 +1,14 @@
 billRive.controller('billController', function($scope, billService) {
     $scope.friends = billService.getFriends();
     $scope.groups = billService.getGroups();
-    $scope.payers = billService.getPayers();
+    $scope.payers = billService.getPayers();  
+    $scope.simpleUserCostMap=[];
+$scope.bills=[];
+//    $scope.bill = billService.getBill();
+    $scope.bill =[];//= billService.getBill();
 
-    $scope.bill = billService.getBill();
-    var $userAndLiableCost = billService.getUserAndLiableCost();
-
-    $scope.addBill = function() {
-
-    };
     $scope.setBillGroup = function() {
+        //console.log('hello');
         var $groupId = $scope.bill.groupId;
 
         var $groupMembers;
@@ -30,26 +29,28 @@ billRive.controller('billController', function($scope, billService) {
             }
             $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId,enabled:true});
         }
-        $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost = $groupUserAndLiableCost;
+//         $scope.simpleUserCostMap = $groupUserAndLiableCost;
+        $scope.simpleUserCostMap = $groupUserAndLiableCost;
         $groupUserAndLiableCost = [];
 $scope.simpleCalculatedTotal=0;
+    
     };
 
 $scope.simpleCalculateSum=function(){
 
  $scope.simpleCalculatedTotal=0;
- for (i = 0; i < $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost.length; i++) {
-     if($scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].liableCost!=null)
-        $scope.simpleCalculatedTotal+= parseInt($scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].liableCost);
+ for (i = 0; i <  $scope.simpleUserCostMap.length; i++) {
+     if( $scope.simpleUserCostMap[i].liableCost!=null)
+        $scope.simpleCalculatedTotal+= parseInt( $scope.simpleUserCostMap[i].liableCost);
  }
 
     
 };
 $scope.simpleFriendEnabled=function(){
 
- for (i = 0; i < $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost.length; i++) {
-     if($scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].enabled===false)
-        $scope.bill.billFinances.billSimpleTotals.userIdAndLiableCost[i].liableCost=0;
+ for (i = 0; i <  $scope.simpleUserCostMap.length; i++) {
+     if( $scope.simpleUserCostMap[i].enabled===false)
+         $scope.simpleUserCostMap[i].liableCost=0;
  }
 
   $scope.simpleCalculateSum();  
@@ -57,3 +58,17 @@ $scope.simpleFriendEnabled=function(){
 
 });
 
+billRive.controller('BillListCtrl', function($scope, billService) {
+    $scope.listBills = function() {
+
+    };
+});
+billRive.controller('BillAddCtrl', function($scope, billService, $location) {
+    
+    $scope.addBill = function() {
+        $scope.bills.push($scope.bill);
+        $scope.bill = [];
+       // $scope.bill=billService.getBill();
+        $location.url('/');
+    };
+});

@@ -1,7 +1,7 @@
 <br />
 <div> <ul class="unstyled"> 
 
-        <li ng-repeat="user in bill.billFinances.billSimpleTotals.userIdAndLiableCost " > 
+        <li ng-repeat="user in simpleUserCostMap " > 
             <div class="row-fluid">
 
                 <div class="span3">
@@ -9,7 +9,8 @@
                     <span  class="done-{{!user.enabled}}"> {{user.name}}</span>
                 </div>
                 <div class="span3">
-                    <input ng-required='user.enabled' ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" />
+                    <!-- ng-required='user.enabled' -->
+                    <input  ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" />
                 </div>  
             </div>  
         </li>

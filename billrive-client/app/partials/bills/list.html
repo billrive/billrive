@@ -22,6 +22,7 @@
         <tbody>
 <!--          <tr ng-repeat="bill in bills | filter:query">
             <td>{{ bill.date}}</td>
+{{ bill.date.monthOfYear }}/{{ bill.date.dayOfMonth}}/{{ bill.date.yearOfCentury}}
             <td>{{ bill.title }}</td>
             <td>${{ bill.total }}</td>
             <td>
@@ -30,8 +31,8 @@
               </button>
             </td>
           </tr>-->
-          <tr ng-repeat="bill in bills.data | filter:query">
-            <td>{{ bill.date.monthOfYear }}/{{ bill.date.dayOfMonth}}/{{ bill.date.yearOfCentury}}</td>
+          <tr ng-repeat="bill in bills | filter:query">
+            <td>{{ bill.date}}</td>
             <td>{{ bill.title }}</td>
             <td>${{ bill.billFinances.billTotal }}</td>
             <td>
@@ -42,9 +43,5 @@
           </tr>
         </tbody>
       </table>
-     <!-- <div class="modal hide fade" ng-include="'modal-partial.html'" id="editModal"></div>-->
-<!--    </div>
-  </div>
-</div>-->
-<!--<div class="modal hide fade" ng-include="'partials/addBill.html'" id="editModal"></div>-->
-<!--{{bills.data}}-->
+
+<!--{{bills}}-->
