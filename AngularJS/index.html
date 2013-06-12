@@ -304,24 +304,41 @@
 
                         <img src="img/dataBinding2.png" />
                         <aside class="notes">
-                            Let's say I have an array of 3 superheroes and I bind it to a template using the repeating construct. What I'm telling the templating engine is to iterate through all the elements of the array, tie each element to the template. What you get out of this is this generated view of 3 super herores. And its not a one time thing. Lets say you push a new object into this array or you remove an object from the array or simply modify the contents of the array, the changes will be automatically reflected in the view. You don't have to do anything to manage the view once the two-way data binding is enabled.
+                            Let's say I have an array of 3 superheroes and I bind it to a template using a repeating construct. What I'm telling the templating engine to do is to iterate through all the elements of the array, tie each element to the template. What you get out of this is this generated view of 3 super herores. And its not a one time thing. Lets say you push a new object into this array or you remove an object from the array or simply modify the contents of the array, the changes will be automatically reflected in the view. You don't have to do anything to manage the view once the two-way data binding is enabled.
                         </aside>
                     </section>
                     <section>
 
                         <img src="img/dataBinding3.png" />
+                        <aside class="notes">
+                            With data binding you can remove a lot of javascript code from your application. Because when you look at a typical application, about 70 to 80% of all the js is synchronizing the model with the view and updating the model with the changes in the view. All of this code can go away. So Angular teaches browser how to do data binding using existing api's. Google is actually creating a specification to propose this two way data binding feature to be built into next generation web browsers.
+                        </aside>
                     </section>
                     <section>
+                        <h4>Directives</h4>
 
                         <img src="img/reuse.png" />
+                        <aside class="notes">
+                            HTML can be very verbose sometimes. Let's take a simple example. Let's say that I would like to create a neat tab system in my application with Bootstrap CSS. In order to generate a simple component like this, I need to copy paste this chunk of html to get this view. This is not ideal. HTML has a limited set of vocabulary and often comes short when we want to build some basic components like Accordions or tabs natively. Also this is not maintainable. You have to copy/paste it again, change the div ids etc. If the template changes you need to go to all the places where it is used and change it.
+                        </aside>
                     </section>
                     <section>
                         <h3>Directives</h3>
                         <img src="img/reuse1.png" />
+                        <aside class="notes">
+                            So what I want in my html template is to specify a custom tag say "tab" and just tell the browser to render tabs. I want this page to have two tabs and each tab will have a title. You figure out what the underlying DOM structure needs to be generated. This is something that is supported by angular. This concept of reusable code is called Directives. 
+                        </aside>
                     </section>
                     <section>
 
                         <img src="img/reuse2.png" />
+                       
+                        <aside class="notes">
+                            And its not just tabs. Think about all these components that you could build using this features.
+                        </aside>
+                    </section>
+                    <section>
+ <iframe width="100%" height="700" src="http://jsfiddle.net/uhsarp/qZjrW/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
                     <section>
 
