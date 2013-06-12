@@ -36,7 +36,7 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-
+                <section>
                 <section>
                     <!--<h1>Angular.js</h1>-->
                     <img src="img/angularjs.jpeg"/>
@@ -63,6 +63,32 @@
 
                     </aside>
                 </section>
+                    <section id="themes">
+                    <h2>Themes</h2>
+                    <p>
+                        Reveal.js comes with a few themes built in: <br>
+                        <a href="?theme=sky#/themes">Sky</a> -
+                        <a href="?theme=beige#/themes">Beige</a> -
+                        <a href="?theme=simple#/themes">Simple</a> -
+                        <a href="?theme=serif#/themes">Serif</a> -
+                        <a href="?theme=night#/themes">Night</a> -
+                        <a href="?#/themes">Default</a>
+                    </p>
+                    <p>
+                        <small>
+                            * Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+                        </small>
+                    </p>
+                </section>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </section>
+                
 
                 <section>
 
@@ -395,57 +421,124 @@
                                             the JavaScript execution context.</li>
                                         <li>The browser re-renders the view with update text.</li></ol></li>
                             </ol>
+                            Let's understand another angular concept called $scope. After that we'll build a nice little TODO app.
                         </aside>
                     </section>
-
-                    <section>
-                        TODO App
-                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/SyaFT/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-                    </section>
-                    <section>
+                    
+                <section>
                         <img src="img/scope.png" />
 
 
                     </section>
                     <section>
+                        TODO App
+                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/SyaFT/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                    </section>
+                   
+                    <section>
                         Directives
                         <iframe width="100%" height="700" src="http://jsfiddle.net/uhsarp/qZjrW/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
+                    
+                    <section>
+                        <h3><a href='http://docs.angularjs.org/guide/di' >Dependency Injection</a></h3>
+<h4 id="diincontrollers">DI in controllers</h4>
 
+<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+    var MyController = function($scope, dep1, dep2) {
+    ...
+    $scope.aMethod = function() {
+    ...
+    }
+    }
+    MyController.$inject = ['$scope', 'dep1', 'dep2'];
+
+</code></pre>
+<h4 id="diincontrollers">Factory Methods</h4>
+
+<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+        angular.module('myModule', []).
+    config(['depProvider', function(depProvider){
+    ...
+    }]).
+    factory('serviceId', ['depService', function(depService) {
+    ...
+    }]).
+    directive('directiveName', ['depService', function(depService) {
+    ...
+    }]).
+    filter('filterName', ['depService', function(depService) {
+    ...
+    }]).
+    run(['depService', function(depService) {
+    ...
+    }]);
+
+</code></pre>
+                    </section>
+                    
+                    
+                    <section>
+                        <h3>Angular JS Module Example DEMO</h3>
+                        <aside class="notes">
+                            Show Billrive-client demo
+                        </aside>
+                    </section>
+                    
                     <section>
                         Wiring a Backend
                         <iframe width="100%" height="800" src="http://jsfiddle.net/uhsarp/upv84/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
                 </section>
-
                 <section>
-                    <section>
-                        <h2>Best Practices</h2>
-                    </section>
-                    <section>
+                    <h3>Debugging</h3>
+                    <ul>
+                        <li><a href='https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en' >Angular Batarang</a></li>
+                        <li><a href='https://chrome.google.com/webstore/detail/netbeans-connector/hafdlehgocfcodbgjnpecfajgkeejnaa?hl=en' >Netbeans Chrome Integration</a></li>
+                        
+                    </ul>
+                    <aside class="notes">
+                    </aside>
+                </section>
+                <section>
+                   
+                        <h4>Best Practices</h4>
+                    
+                   
                         <img src='img/toolset.png'/>
                         <ul>
                             <li><p><a href="https://github.com/yeoman/yo">Yo</a> scaffolds out a new application, writing your Grunt configuration and pulling in relevant Grunt tasks that you might need for your build. </p></li>
                             <li><p><a href="http://gruntjs.com">Grunt</a> is used to build, preview and test your project, thanks to help from tasks curated by the Yeoman team and grunt-contrib. </p></li>
                             <li><p><a href="http://bower.io">Bower</a> is used for dependency management, so that you no longer have to manually download and manage your scripts.</p></li>
+                            
                         </ul>
-                    </section>
-                    <section>
-                    </section>
 
                 </section>
                 <section>
-                    <section>
-                        <h2>Resources</h2>
-                    </section>
-                    <section>
+                    <h2>Resources</h2>
+                    
                         <ul>
-                            <li>angularjs.org</li>
-                            <li>builtwith.angularjs.org</li>
-                            <li>angular-ui.github.io</li>
-                            <li>mgcrea.github.io/angular-strap</li>
+                            <li><a href='http://angularjs.org/'>Angular JS Website</a></li>
+                            <ul>
+                                <li><a href='http://docs.angularjs.org/api/'>API Reference</a></li>
+                                <li><a href='http://docs.angularjs.org/guide/'>Developer Guide</a></li>
+                                <li><a href='http://docs.angularjs.org/guide/dev_guide.unit-testing'>Unit Testing</a></li>
+                            </ul>
+                            <li><a href='http://builtwith.angularjs.org'>Built With Angular</a></li>
+                            <li><a href='http://angular-ui.github.io'>Angular UI</a></li>    
+                            <li><a href='http://mgcrea.github.io/angular-strap'>Angular Strap</a></li>
+                            <li><a href='http://www.youtube.com/user/angularjs'>Angular JS Channel on Youtube</a></li>
+                            <li><a href='http://www.youtube.com/watch?v=ZhfUv0spHCY'>Angular JS Best Practices</a></li>
+                            <li><a href='www.youtube.com/watch?v=iUQ1fvdO9GY'>Yeoman Tutorial</a></li>
+
                         </ul>
-                    </section>
+                    
+                </section>
+               
+                <section>
+ <h4>The End</h4>
+                <h3>is the beginning for something new</h3>
+                <img src='https://sphotos-a.xx.fbcdn.net/hphotos-prn1/p480x480/548955_571097589579284_915602317_n.jpg' />
                 </section>
                 <section>
                     <section>
