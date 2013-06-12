@@ -334,37 +334,83 @@
                         <img src="img/reuse2.png" />
                        
                         <aside class="notes">
-                            And its not just tabs. Think about all these components that you could build using this features.
+                            And its not just tabs. Think about all these components that you could build using this feature. You can also share it within/outside of your project. These components can be stateless or stateful. 
                         </aside>
                     </section>
-                    <section>
- <iframe width="100%" height="700" src="http://jsfiddle.net/uhsarp/qZjrW/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-                    </section>
+                    
                     <section>
 
                         <img src="img/reuse3.png" />
+                        <aside class="notes">
+                            So reusable components feature in Angular is built with existing JS & DOM APIs. It's available in all the browsers. And it is also being proposed to become native for all modern browsers. It's already been implemented in Chrome Dev versions.
+                        </aside>
                     </section>
-                    <section>
 
-                    </section>
                 </section>
                 <section>
 
                     <section>
-                        <h2>Examples</h2>
-
+                        <h3>Examples</h3>   
+                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/d7Y76/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                       
+                        <img src="img/concepts-startup.png" />
+                        <img src="img/concepts-runtime.png" />
+                        <aside class="notes">
+                        <ul>
+<li>The browser loads the HTML and parses it into a DOM</li>
+<li>The browser loads <code>angular.js</code> script</li>
+<li>Angular waits for <code>DOMContentLoaded</code> event</li>
+<li>Angular looks for <a href="api/ng.directive:ngApp"><code>ng-app</code></a>
+<a href="guide/directive">directive</a>, which designates the application boundary</li>
+<li>The <a href="guide/module">Module</a> specified in <a href="api/ng.directive:ngApp"><code>ng-app</code></a> (if any) is used to configure
+ the <a href="api/AUTO.$injector"><code>$injector</code></a></li>
+<li>The <a href="api/AUTO.$injector"><code>$injector</code></a> is used to create the <a href="api/ng.$compile"><code>$compile</code></a> service as well as <a href="api/ng.$rootScope"><code>$rootScope</code></a></li>
+<li>The <a href="api/ng.$compile"><code>$compile</code></a> service is used to compile the DOM and link
+ it   with <a href="api/ng.$rootScope"><code>$rootScope</code></a></li>
+<li>The <a href="api/ng.directive:ngInit"><code>ng-init</code></a> <a href="guide/directive">directive</a> assigns <code>World</code> to the <code>name</code> property on the <a href="guide/scope">scope</a></li>
+<li>The <code>{{name}}</code> <a href="api/ng.$interpolate"><code>interpolates</code></a> the expression to
+ <code>Hello World!</code></li>
+                    </aside>
                     </section>
                     <section>
-                        Intro Example
-                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/QSFh7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/QSFh7/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+ <aside class="notes">
+                            <ol>
+<li>During the compilation phase:
+<ol><li>the <a href="api/ng.directive:ngModel"><code>ng-model</code></a> and <a href="api/ng.directive:input"><code>input</code></a> <a href="guide/directive">directive</a> set up a <code>keydown</code> listener on the <code>&lt;input&gt;</code> control.</li>
+<li>the <a href="api/ng.$interpolate"><code>{{name}}</code></a> interpolation
+sets up a <a href="api/ng.$rootScope.Scope#$watch"><code>$watch</code></a> to be notified of
+<code>name</code> changes.</li></ol></li>
+<li>During the runtime phase:
+<ol><li>Pressing an '<code>X</code>' key causes the browser to emit a <code>keydown</code> event on the input control.</li>
+<li>The <a href="api/ng.directive:input"><code>input</code></a> directive
+captures the change to the input's value and calls <a href="api/ng.$rootScope.Scope#$apply"><code>$apply</code></a><code>("name = 'X';")</code> to update the
+application model inside the Angular execution context.</li>
+<li>Angular applies the <code>name = 'X';</code> to the model.</li>
+<li>The <a href="api/ng.$rootScope.Scope#$digest"><code>$digest</code></a> loop begins</li>
+<li>The <a href="api/ng.$rootScope.Scope#$watch"><code>$watch</code></a> list detects a change
+on the <code>name</code> property and notifies the <a href="api/ng.$interpolate"><code>{{name}}</code></a> interpolation, which in turn updates the DOM.</li>
+<li>Angular exits the execution context, which in turn exits the <code>keydown</code> event and with it
+the JavaScript execution context.</li>
+<li>The browser re-renders the view with update text.</li></ol></li>
+</ol>
+                        </aside>
+                    </section>
+                    
+                     <section>
+                        TODO App
+                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/SyaFT/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
                     <section>
                         <img src="img/scope.png" />
+                        
+                        
                     </section>
                     <section>
-                        Data Binding
-                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/SyaFT/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        Directives
+ <iframe width="100%" height="700" src="http://jsfiddle.net/uhsarp/qZjrW/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
+                   
                     <section>
                         Wiring a Backend
                         <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/upv84/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
