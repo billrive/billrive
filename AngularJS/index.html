@@ -42,15 +42,24 @@
                                         <img src="http://hop.ie/talks/angular-intro/images/angularjs.jpeg"/>
 					<h3>Superheroic JavaScript MVW Framework</h3>
 					<p>
-						<small>Presented by: Prashanth Batchu</small>
+						 Prashanth Batchu
+                                                <br /><small>June 11, 2013</small>
 					</p>
                                         
                                          <aside class="notes">
-Hello Everybody... 
+Hello Everyone!
 
-How is everyone doing this afternoon?
+<ul>
+    <li>The goal of this presentation is to provide an introduction to Angular JS, 
+Build a nice TODO app to explore Angular's features</li>
+    <li> and find out what Angular JS has got to offer.</li>
+</ul>
 
-The goal of this presentation is to provide an introduction to Angular JS, understand more about the framework itself by looking at a few examples. Lets take a look at the agenda.
+I've begun preparing for this presentation and writing slides a month ago. I opened the slides yesterday and they were just like when I first started.
+
+So seems like giving a presentation is kinda like getting married. You can never be prepared. You just have to do it.
+
+
 
 					</aside>
 				</section>
@@ -64,12 +73,12 @@ The goal of this presentation is to provide an introduction to Angular JS, under
 					
                                         <ul>
                                             <li>Why use Angular?</li>
+                                            <li>Angular Core Features<ul>
+                                                <li>Two-way Data Binding, Directives</li>
+                                            </ul></li>
+                                            
                                             <li>Examples
-                                                                                        <ul>
-                                                <li>Concepts of Angular: Scope, Directives, Filters, MVC</li>
-                                                <li>Debugging</li>
-                                                <li>Testing</li>
-                                            </ul>
+                                      
                                             </li>
 
                                             <li>Best Practices</li>
@@ -79,14 +88,22 @@ The goal of this presentation is to provide an introduction to Angular JS, under
                                         </ul>
 
 					<aside class="notes">
-					I'd like to first start of with the motivation for Angular's existence. The problems that it is trying to address and how it solves them.
-                                        
- Then we'll dive into some examples to take a close look at how Angular works. We will explore various concepts of Angular including Scope, Directives, Filters, MVC etc.
- We'll also explore various options available for debugging, packaging, dependency management and deployment.
+                                            <ul>
+                                                <li>First we'll look at the reasons for why a framework such as Angular JS has come into existence. We'll look at the problems that it is trying to address and how it solves them.
+</li>
+                                                <li>
+ We will explore various concepts of Angular including Two-way data binding, Scope, Directives, Filters, MVC etc.
+ Then we'll dive into some examples and take a closer look at how Angular works. 
  
- I'll also present some best practices (if time permits). Since this is a new technology, best practices keep evolving and there are a lot to learn and adjust to. 
-
-Then I'll provide some links to some useful resources, some useful youtube videos availabe on the the offical Angualar DEV team channel.                                
+                                                <li>We'll also explore various options available for debugging, packaging, dependency management and deployment.
+ 
+ 
+                                                <li>I'll also present some best practices (if time permits).
+</li>
+                                                <li>
+Then I'll provide some links to some useful content about Angular,There are some amazing resources on the web provided by the official angular js development team</li>
+                                              
+                                            </ul>
                                           
 					</aside>
 				</section>
@@ -94,78 +111,203 @@ Then I'll provide some links to some useful resources, some useful youtube video
                             <section>
                                 <section><h3>Motivation for creating Angular</h3></section>
                                 <section>
-					
+                                    <table>
+
+                                        <tr>
+                                        
+                                            <td width='50%'><img src='img/firstWeb.png' />
+                                                <span class="fragment">1993</span>
+                                                
+                                   </td>
+                                            <td> <img  src='img/modernWeb.png' />
+                                             <span class="fragment"> The present</span>
+                                            
+                                            </td>
+                                            
+                                        </tr>
+                                    </table>
+                                    
+                                    <aside class="notes">
+                                        <ul>
+                                            <li>What have we got here?</li>
+                                            <li>We have two webpages displayed here. One of these two pages has quite a bit of significance. </li>
+                                            <li> Can anyone tell me the page I'm talking about and why it is significant?</li>
+                                            <li>The page on the left is the first web page ever created! In 1993.</li>
+                                            <li>It's just a static html page with links to more pages. Nothing interesting </li>
+                                            <li>The page on the right shows an IDE/li>
+                                            <li>Fast forward to 2013 and we now have a full blown IDE running inside a browser!</li>
+                                            <li>So you might be wondering what the problem is/li>
+                                        </ul>
+                                    </aside>
+                                </section>
+                                <section>
+                                    <h4>Users want Desktop style apps</h4>
                                         <ul>
                                             <li>HTML was originally designed to show static documents on the web.</li>
-                                            <li>Other frameworks deal with HTML’s shortcomings by either abstracting away HTML, CSS, and/or JavaScript (GWT, Vaadin etc) or by providing an imperative way for manipulating the DOM (JQuery).</li>
+                                            <li>But we want Desktop style apps. We get then by either
+                                                
+                                                <ul>
+                                                    <li>Abstracting away HTML, CSS, and/or JavaScript (GWT, Vaadin etc)</li>
+                                                    <li>Manipulating the DOM (JQuery)</li>
+                                                </ul>
+                                                </li>
                                             <li>Neither of these address the root problem that HTML was not designed for dynamic views.</li>
                                             
                                         </ul>
 
 					<aside class="notes">
-                                            <ul> <li>It was never meant to support development of interactive Desktop style apps like we do now</li></ul>
+                                            <ul> <li>The web has enabled businesses to connect to its users with just a browser. And as we all know browsers can only understand HTML, CSS and Javascript.
+
+                                                
+                                                </li>
+                                                <li>    But HTML was never meant to support development of interactive Desktop style apps like we do now. It was originally developed for displaying static content/documents. The HTML spec we still use today (version 4.0)was drafted in 1999. Now  we are focusing on HTML 5 but there's still a lot that's not in there to help us in this regard.
+                                                  
+                                                </li>    
+                                                <li>  
+                                                    So we use certain frameworks to deal with HTML’s shortcomings by either abstracting away from HTML, CSS, and/or JavaScript ( using GWT, Vaadin etc) or by manipulating the DOM (JQuery is a prime example for that).</li>
+                                                <li>Neither of these address the root problem that HTML is not designed for dynamic views. This is a problem angular tries to solve</li>
+                                            </ul>
                                                  
 					</aside>
                                 </section>
                                         <section>
-                                            <p>  This means that we have to resort to using solutions/frameworks which affect </P>
+                                            <h4>DOM manipulation is evil!</h4>
+                                            <p>What do we lose?</P>
                                             <ul>
                                             <li>End to end testing capabilities</li>
                                             <li>Maintainability</li>
                                             <li>Reusability</li>
                                             </ul>  
                                              <aside class="notes">
-                                            <ul> <li>Heavy mixing of business & UI logic through DOM manipulation which makes maintaining difficult and limits our ability to reuse the code</li></ul>
-                                            
-                                            Optional:The impedance mismatch between dynamic applications and static documents is often solved as:
-
-    library - a collection of functions which are useful when writing web apps. Your code is in charge and it calls into the library when it sees fit. E.g., jQuery.
-    frameworks - a particular implementation of a web application, where your code fills in the details. The framework is in charge and it calls into your code when it needs something app specific. E.g., knockout, sproutcore, etc.
+                                                 
+                                            <ul> <li>Heavy mixing of business & UI logic through DOM manipulation  makes 
+                                                    <ul>
+                                                        <li>debugging a pain</li>
+                                                        <li>It makes testing difficult</li>
+                                                        <li>We cannot resue the code in other projects let alone somewhere else in the same project</li>
+                                                        <li>It's very difficult to maintain</li>
+                                                    </ul>
+                                                </li>
+                                              
+                                            </ul>
+                                           
 
                                                  
 					</aside>
                                         </section>
-                                <section>Simply put, our current strategy is
+<!--                                <section>Simply put, our current strategy is
                                 
                                  <blockquote>
 						&ldquo;what do I have to do, so that I trick the browser in to doing what I want..&rdquo;
-					</blockquote></section>
+					</blockquote></section>-->
                                 
 				</section>
                             <section><section><h3>What is Angular Anyway?</h3></section>
-                            <section>From Angular's website:
+                            <section>
                                 <blockquote>
-						&ldquo;AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly.&rdquo;
+						&ldquo;AngularJS is a structural meta framework for developing modern dynamic web applications&rdquo;
 					</blockquote>
+                                <img src='img/spa.png' />
+<!--                                <ul>
+                                    <li>Data Binding. No more DOM manipulation</li>
+                                    <li>Reusability of code through Directives</li>
+                                    <li>Modular Apps with D.I support and a flexible MVC architecture</li>
+                                    
+                                </ul>-->
                                  <aside class="notes">
 <ul>
-                                        <li>Angular is what HTML would have been had it been designed for applications.</li>
-                                        <li>It attempts to minimize the impedance mismatch between document centric HTML and what an application needs by creating new HTML constructs. </li>
-                                        <li>Angular is declarative not imperative</li>
-                                        <li>Angular tries to be an end-to-end solution, when building a web application. This means it is not a single piece in an overall puzzle of building a web application, but an end-to-end solution. </li>
+    <li>AngularJS is a structural meta framework for developing modern dynamic web apps</li>
+                                        <li>Angular is what HTML would have been had it been designed for  web applications.</li>
+                                        
+                                        <li>It provides an End to End solution for development. 
+                                            <ul>
+                                                <li>It is a Meta Framework</li>
+                                                <ul>
+                                                    <li>What I mean by "meta" is that it gives a lot of room for developers to expand on its existing functionality. We'll talk about it a bit later</li>
+                                                </ul>
+                                                <li>It Works well with other js libraries nicely including JQuery (If we need to)</li>
+                                                
+                                                <li></li>
+                                            </ul>
+                                            
+                                        </li>
+                                        
                                     </ul>         
 					</aside>
                             </section>
                                 <section>
-                                    <p>Few of Angular's characteristics</p> 
+                                    <h4>Key Features</h4>
                                     <ul>
-                                        <li>Provides End to End solution</li>
-                                        <li>Declarative and not imperative</li>
+                                        <li>Directives and Filters</li>
+                                        <li>Two-way data binding</li>
+                                        <li>Views, Controllers, Scope</li>
+                                        <li>Modules and Routes</li>
+                                        <li>Testing</li>
+                                    </ul>
+<!--                                    <p>Few of Angular's characteristics</p> 
+                                    <ul>
+                                        <li>Data Binding. No more DOM manipulation</li>
+                                        <li>Reusability of code through Directives</li>
+                                        <li>Provides End to End solution
+                                         <ul>
+                                                <li>Meta Framework</li>
+                                                <li>Works well with other js libraries nicely</li>
+                                                <li>Testing, Debugging, Deployment</li>
+                                            </ul></li>
+                                        <li>Declarative and not imperative
+                                            <ul>
+                                            <li>Declarative programming model best for working with UI</li>
+                                            <li>Imperative model best for expressing business logic</li>
+                                        </ul></li>
                                         <li>Supports Dependency Injection</li>
+                                        <li>Supports MV* Architecture</li>
                                         <li>Embraces Testing</li>
                                         <li>Ecosystem for a modern workflow
                                         </li>
-                                    </ul>
+                                    </ul>-->
+<aside class="notes">
+    We'll talk about these features in the next slide
+</aside>
+                                </section>
+                            </section>
+                            
+                            <section>
+                                <section>
+                                    <h3>Exploring Angular</h3>
+                                </section>
+                                <section>
                                    
+                                    <img src="img/dataBinding1.png" />
+                                </section>
+                                <section>
+                                   
+                                    <img src="img/dataBinding2.png" />
+                                </section>
+                                <section>
+                                   
+                                    <img src="img/dataBinding3.png" />
+                                </section>
+                                <section>
+                                   
+                                    <img src="img/reuse.png" />
+                                </section>
+                                <section>
+                                    <h3>Directives</h3>
+                                    <img src="img/reuse1.png" />
+                                </section>
+                                <section>
+                                   
+                                    <img src="img/reuse2.png" />
+                                </section>
+                                <section>
+                                   
+                                    <img src="img/reuse3.png" />
+                                </section>
+                                <section>
+
                                 </section>
                             </section>
                             <section>
-<!--                                <section><P>Lets dive into some examples</p>
-                                <ul>
-                                        <li>Intro Example</li>
-                                        <li>Data Binding</li>
-                                        <li>Wiring a Backend</li>
-                                    </ul>-->
 
                                     <section>
                                     <h2>Examples</h2>
@@ -174,6 +316,9 @@ Then I'll provide some links to some useful resources, some useful youtube video
                                 <section>
                                       Intro Example
                            <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/QSFh7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                                </section>
+                                <section>
+                                    <img src="img/scope.png" />
                                 </section>
                                 <section>
                                       Data Binding
