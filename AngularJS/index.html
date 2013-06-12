@@ -39,7 +39,7 @@
 
                 <section>
                     <!--<h1>Angular.js</h1>-->
-                    <img src="http://hop.ie/talks/angular-intro/images/angularjs.jpeg"/>
+                    <img src="img/angularjs.jpeg"/>
                     <h3>Superheroic JavaScript MVW Framework</h3>
                     <p>
                         Prashanth Batchu
@@ -65,47 +65,47 @@
                 </section>
 
                 <section>
-                    
-                        <h2>Agenda</h2>
+
+                    <h2>Agenda</h2>
                     <ul>
-                            <li>Why use Angular?</li>
-                            <li>Angular Core Features<ul>
-                                    <li>Two-way Data Binding, Directives</li>
-                                </ul></li>
+                        <li>Why use Angular?</li>
+                        <li>Angular Core Features<ul>
+                                <li>Two-way Data Binding, Directives</li>
+                            </ul></li>
 
-                            <li>Examples
+                        <li>Examples
 
+                        </li>
+
+                        <li>Best Practices</li>
+                        <li>Resources</li>
+                        <li>Q&A</li>
+
+                    </ul>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>First we'll look at the reasons for why a framework such as Angular JS has come into existence. We'll look at the problems that it is trying to address and how it solves them.
                             </li>
+                            <li>
+                                We will explore various concepts of Angular including Two-way data binding, Scope, Directives, Filters, MVC etc.
+                                Then we'll dive into some examples and take a closer look at how Angular works. 
 
-                            <li>Best Practices</li>
-                            <li>Resources</li>
-                            <li>Q&A</li>
+                            <li>We'll also explore various options available for debugging, packaging, dependency management and deployment.
+
+
+                            <li>I'll also present some best practices (if time permits).
+                            </li>
+                            <li>
+                                Then I'll provide some links to some useful content about Angular,There are some amazing resources on the web provided by the official angular js development team</li>
 
                         </ul>
 
-                        <aside class="notes">
-                            <ul>
-                                <li>First we'll look at the reasons for why a framework such as Angular JS has come into existence. We'll look at the problems that it is trying to address and how it solves them.
-                                </li>
-                                <li>
-                                    We will explore various concepts of Angular including Two-way data binding, Scope, Directives, Filters, MVC etc.
-                                    Then we'll dive into some examples and take a closer look at how Angular works. 
+                    </aside>
 
-                                <li>We'll also explore various options available for debugging, packaging, dependency management and deployment.
-
-
-                                <li>I'll also present some best practices (if time permits).
-                                </li>
-                                <li>
-                                    Then I'll provide some links to some useful content about Angular,There are some amazing resources on the web provided by the official angular js development team</li>
-
-                            </ul>
-
-                        </aside>
-                    
                 </section>
                 <section>
-                   
+
                     <section>
                         <h3>Motivation for creating Angular</h3>
                         <table>
@@ -282,23 +282,23 @@
                             <li>Treat the model as the single-source-of-truth in your application. </li>
                             <li>The view is a projection of the model at all times. When the model changes, the view reflects the change, and vice versa.</li>     
                         </ul>
-                         <aside class="notes">
-                          Those of you who  have worked with Flex or WPF may be already familiar with Data Binding.It is very simple. You have a model (data) specific to your application and you bind this model to a template and let the templating engine generate the views for you.
-                            
+                        <aside class="notes">
+                            Those of you who  have worked with Flex or WPF may be already familiar with Data Binding.It is very simple. You have a model (data) specific to your application and you bind this model to a template and let the templating engine generate the views for you.
+
                         </aside>
                     </section>
                     <section>
                         <img src="img/dataBinding1.png" />
-                        
-                         <aside class="notes">
-                             <ul>
-                                 <li>  Here I have a very simple model with a profile of Tony Stark and it's bound to two templates and generated two views. Now the interesting part about this is that this is not a one time link between the view and the model. It is a live system where if I modify the model, the templating engine will observe this change and will update the view automatically. I don't need to go update the view everytime the model changes. And it also works the other way around. So if you have two way data binding and you bind the model to the form like I have in the second view. If the user starts interacting with the form and starts changing the form content, the changes will be propagated automatically to the model. And because I have a second view bound to the same model, these changes will go back to the second view where it will be reflected automatically.</li>
-                                 <li>It can get more advanced if you start dealing with Arrays and Collections </li>
-                             </ul>
-                            
+
+                        <aside class="notes">
+                            <ul>
+                                <li>  Here I have a very simple model with a profile of Tony Stark and it's bound to two templates and generated two views. Now the interesting part about this is that this is not a one time link between the view and the model. It is a live system where if I modify the model, the templating engine will observe this change and will update the view automatically. I don't need to go update the view everytime the model changes. And it also works the other way around. So if you have two way data binding and you bind the model to the form like I have in the second view. If the user starts interacting with the form and starts changing the form content, the changes will be propagated automatically to the model. And because I have a second view bound to the same model, these changes will go back to the second view where it will be reflected automatically.</li>
+                                <li>It can get more advanced if you start dealing with Arrays and Collections </li>
+                            </ul>
+
                         </aside>
-                        
-                       
+
+
                     </section>
                     <section>
 
@@ -332,12 +332,12 @@
                     <section>
 
                         <img src="img/reuse2.png" />
-                       
+
                         <aside class="notes">
                             And its not just tabs. Think about all these components that you could build using this feature. You can also share it within/outside of your project. These components can be stateless or stateful. 
                         </aside>
                     </section>
-                    
+
                     <section>
 
                         <img src="img/reuse3.png" />
@@ -352,68 +352,69 @@
                     <section>
                         <h3>Examples</h3>   
                         <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/d7Y76/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-                       
+
                         <img src="img/concepts-startup.png" />
                         <img src="img/concepts-runtime.png" />
                         <aside class="notes">
-                        <ul>
-<li>The browser loads the HTML and parses it into a DOM</li>
-<li>The browser loads <code>angular.js</code> script</li>
-<li>Angular waits for <code>DOMContentLoaded</code> event</li>
-<li>Angular looks for <a href="api/ng.directive:ngApp"><code>ng-app</code></a>
-<a href="guide/directive">directive</a>, which designates the application boundary</li>
-<li>The <a href="guide/module">Module</a> specified in <a href="api/ng.directive:ngApp"><code>ng-app</code></a> (if any) is used to configure
- the <a href="api/AUTO.$injector"><code>$injector</code></a></li>
-<li>The <a href="api/AUTO.$injector"><code>$injector</code></a> is used to create the <a href="api/ng.$compile"><code>$compile</code></a> service as well as <a href="api/ng.$rootScope"><code>$rootScope</code></a></li>
-<li>The <a href="api/ng.$compile"><code>$compile</code></a> service is used to compile the DOM and link
- it   with <a href="api/ng.$rootScope"><code>$rootScope</code></a></li>
-<li>The <a href="api/ng.directive:ngInit"><code>ng-init</code></a> <a href="guide/directive">directive</a> assigns <code>World</code> to the <code>name</code> property on the <a href="guide/scope">scope</a></li>
-<li>The <code>{{name}}</code> <a href="api/ng.$interpolate"><code>interpolates</code></a> the expression to
- <code>Hello World!</code></li>
-                    </aside>
-                    </section>
-                    <section>
-<iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/QSFh7/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
- <aside class="notes">
-                            <ol>
-<li>During the compilation phase:
-<ol><li>the <a href="api/ng.directive:ngModel"><code>ng-model</code></a> and <a href="api/ng.directive:input"><code>input</code></a> <a href="guide/directive">directive</a> set up a <code>keydown</code> listener on the <code>&lt;input&gt;</code> control.</li>
-<li>the <a href="api/ng.$interpolate"><code>{{name}}</code></a> interpolation
-sets up a <a href="api/ng.$rootScope.Scope#$watch"><code>$watch</code></a> to be notified of
-<code>name</code> changes.</li></ol></li>
-<li>During the runtime phase:
-<ol><li>Pressing an '<code>X</code>' key causes the browser to emit a <code>keydown</code> event on the input control.</li>
-<li>The <a href="api/ng.directive:input"><code>input</code></a> directive
-captures the change to the input's value and calls <a href="api/ng.$rootScope.Scope#$apply"><code>$apply</code></a><code>("name = 'X';")</code> to update the
-application model inside the Angular execution context.</li>
-<li>Angular applies the <code>name = 'X';</code> to the model.</li>
-<li>The <a href="api/ng.$rootScope.Scope#$digest"><code>$digest</code></a> loop begins</li>
-<li>The <a href="api/ng.$rootScope.Scope#$watch"><code>$watch</code></a> list detects a change
-on the <code>name</code> property and notifies the <a href="api/ng.$interpolate"><code>{{name}}</code></a> interpolation, which in turn updates the DOM.</li>
-<li>Angular exits the execution context, which in turn exits the <code>keydown</code> event and with it
-the JavaScript execution context.</li>
-<li>The browser re-renders the view with update text.</li></ol></li>
-</ol>
+                            <ul>
+                                <li>The browser loads the HTML and parses it into a DOM</li>
+                                <li>The browser loads <code>angular.js</code> script</li>
+                                <li>Angular waits for <code>DOMContentLoaded</code> event</li>
+                                <li>Angular looks for <a href="api/ng.directive:ngApp"><code>ng-app</code></a>
+                                    <a href="guide/directive">directive</a>, which designates the application boundary</li>
+                                <li>The <a href="guide/module">Module</a> specified in <a href="api/ng.directive:ngApp"><code>ng-app</code></a> (if any) is used to configure
+                                    the <a href="api/AUTO.$injector"><code>$injector</code></a></li>
+                                <li>The <a href="api/AUTO.$injector"><code>$injector</code></a> is used to create the <a href="api/ng.$compile"><code>$compile</code></a> service as well as <a href="api/ng.$rootScope"><code>$rootScope</code></a></li>
+                                <li>The <a href="api/ng.$compile"><code>$compile</code></a> service is used to compile the DOM and link
+                                    it   with <a href="api/ng.$rootScope"><code>$rootScope</code></a></li>
+                                <li>The <a href="api/ng.directive:ngInit"><code>ng-init</code></a> <a href="guide/directive">directive</a> assigns <code>World</code> to the <code>name</code> property on the <a href="guide/scope">scope</a></li>
+                                <li>The <code>{{name}}</code> <a href="api/ng.$interpolate"><code>interpolates</code></a> the expression to
+                                    <code>Hello World!</code></li>
                         </aside>
                     </section>
-                    
-                     <section>
+                    <section>
+                        <h4>Type in your Name</h4>
+                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/QSFh7/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        <aside class="notes">
+                            <ol>
+                                <li>During the compilation phase:
+                                    <ol><li>the <a href="api/ng.directive:ngModel"><code>ng-model</code></a> and <a href="api/ng.directive:input"><code>input</code></a> <a href="guide/directive">directive</a> set up a <code>keydown</code> listener on the <code>&lt;input&gt;</code> control.</li>
+                                        <li>the <a href="api/ng.$interpolate"><code>{{name}}</code></a> interpolation
+                                            sets up a <a href="api/ng.$rootScope.Scope#$watch"><code>$watch</code></a> to be notified of
+                                            <code>name</code> changes.</li></ol></li>
+                                <li>During the runtime phase:
+                                    <ol><li>Pressing an '<code>X</code>' key causes the browser to emit a <code>keydown</code> event on the input control.</li>
+                                        <li>The <a href="api/ng.directive:input"><code>input</code></a> directive
+                                            captures the change to the input's value and calls <a href="api/ng.$rootScope.Scope#$apply"><code>$apply</code></a><code>("name = 'X';")</code> to update the
+                                            application model inside the Angular execution context.</li>
+                                        <li>Angular applies the <code>name = 'X';</code> to the model.</li>
+                                        <li>The <a href="api/ng.$rootScope.Scope#$digest"><code>$digest</code></a> loop begins</li>
+                                        <li>The <a href="api/ng.$rootScope.Scope#$watch"><code>$watch</code></a> list detects a change
+                                            on the <code>name</code> property and notifies the <a href="api/ng.$interpolate"><code>{{name}}</code></a> interpolation, which in turn updates the DOM.</li>
+                                        <li>Angular exits the execution context, which in turn exits the <code>keydown</code> event and with it
+                                            the JavaScript execution context.</li>
+                                        <li>The browser re-renders the view with update text.</li></ol></li>
+                            </ol>
+                        </aside>
+                    </section>
+
+                    <section>
                         TODO App
                         <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/SyaFT/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
                     <section>
                         <img src="img/scope.png" />
-                        
-                        
+
+
                     </section>
                     <section>
                         Directives
- <iframe width="100%" height="700" src="http://jsfiddle.net/uhsarp/qZjrW/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        <iframe width="100%" height="700" src="http://jsfiddle.net/uhsarp/qZjrW/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
-                   
+
                     <section>
                         Wiring a Backend
-                        <iframe width="100%" height="300" src="http://jsfiddle.net/uhsarp/upv84/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                        <iframe width="100%" height="800" src="http://jsfiddle.net/uhsarp/upv84/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
                     </section>
                 </section>
 
@@ -422,7 +423,7 @@ the JavaScript execution context.</li>
                         <h2>Best Practices</h2>
                     </section>
                     <section>
-                        <img src='https://raw.github.com/yeoman/yeoman.io/gh-pages/media/toolset.png'/>
+                        <img src='img/toolset.png'/>
                         <ul>
                             <li><p><a href="https://github.com/yeoman/yo">Yo</a> scaffolds out a new application, writing your Grunt configuration and pulling in relevant Grunt tasks that you might need for your build. </p></li>
                             <li><p><a href="http://gruntjs.com">Grunt</a> is used to build, preview and test your project, thanks to help from tasks curated by the Yeoman team and grunt-contrib. </p></li>
