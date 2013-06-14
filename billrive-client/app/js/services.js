@@ -1,27 +1,5 @@
-//'use strict';
-//
-///* Services */
-//billRive.factory('billService',function($http){
-//    
-//    return {
-//        
-//        getBills: function(callback){
-//            $http.get('http://localhost:8080/billrive-service/rest/2/bills/').success(callback);
-//        }
-//    };
-//});
-
 billRive.factory('billService',function(){
    var factory = {};
-//   var getBills=function(){
-//    var bills= [
-//        {title:"Walmart",date:"05/03/2013",total:"55.84"},
-//        {title:"Costco",date:"05/01/2013",total:"35.00"},
-//        {title:"Sams",date:"04/21/2013",total:"101.85"},
-//        {title:"Farmers Market",date:"04/03/2013",total:"43.5"}
-//    ];
-
-
 var bills = [{
             "id": 1,
             "title": "Costco - Pharmacy",
@@ -206,15 +184,6 @@ var bills = [{
     ]
 ;
 //Bill Object Structure
-//var bill=[{
-//            "id": null,
-//            "title": "",
-//            "date": null,
-//            "billPayerId": null,
-//            "notes": "Sample Notes",
-//            "billFinances": billFinances,
-//            "groupId": null
-//        }];
 var bill={
             "id": null,
             "title": "",
@@ -257,7 +226,7 @@ var userAndLiableCost=
 
 
 
-      var payers= [
+ var payers= [
 {id:'1',name:'John Doe'},
 {id:'2',name:'Kristen Stewart'},
 {id:'3',name:'Trevor Pott'},

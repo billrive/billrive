@@ -1,14 +1,12 @@
 billRive.controller('billController', function($scope, billService) {
+    //initialization
     $scope.friends = billService.getFriends();
     $scope.groups = billService.getGroups();
-    $scope.payers = billService.getPayers();  
-    $scope.simpleUserCostMap=[];
-    $scope.bills= billService.getBills();
-//    $scope.bill = billService.getBill();
-    $scope.bill =[];//= billService.getBill();
-
+    $scope.payers = billService.getPayers();
+    $scope.simpleUserCostMap = [];
+    $scope.bills = billService.getBills();
+    $scope.bill = [];
     $scope.setBillGroup = function() {
-        //console.log('hello');
         var $groupId = $scope.bill.groupId;
 
         var $groupMembers;
@@ -27,34 +25,34 @@ billRive.controller('billController', function($scope, billService) {
                 if ($scope.friends[j].id == $groupMembers[i])
                     $friendNamefromId = $scope.friends[j].name;
             }
-            $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId,enabled:true});
+            $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId, enabled: true});
         }
 //         $scope.simpleUserCostMap = $groupUserAndLiableCost;
         $scope.simpleUserCostMap = $groupUserAndLiableCost;
         $groupUserAndLiableCost = [];
-$scope.simpleCalculatedTotal=0;
-    
+        $scope.simpleCalculatedTotal = 0;
+
     };
 
-$scope.simpleCalculateSum=function(){
+    $scope.simpleCalculateSum = function() {
 
- $scope.simpleCalculatedTotal=0;
- for (i = 0; i <  $scope.simpleUserCostMap.length; i++) {
-     if( $scope.simpleUserCostMap[i].liableCost!=null)
-        $scope.simpleCalculatedTotal+= parseInt( $scope.simpleUserCostMap[i].liableCost);
- }
+        $scope.simpleCalculatedTotal = 0;
+        for (i = 0; i < $scope.simpleUserCostMap.length; i++) {
+            if ($scope.simpleUserCostMap[i].liableCost != null)
+                $scope.simpleCalculatedTotal += parseInt($scope.simpleUserCostMap[i].liableCost);
+        }
 
-    
-};
-$scope.simpleFriendEnabled=function(){
 
- for (i = 0; i <  $scope.simpleUserCostMap.length; i++) {
-     if( $scope.simpleUserCostMap[i].enabled===false)
-         $scope.simpleUserCostMap[i].liableCost=0;
- }
+    };
+    $scope.simpleFriendEnabled = function() {
 
-  $scope.simpleCalculateSum();  
-};
+        for (i = 0; i < $scope.simpleUserCostMap.length; i++) {
+            if ($scope.simpleUserCostMap[i].enabled === false)
+                $scope.simpleUserCostMap[i].liableCost = 0;
+        }
+
+        $scope.simpleCalculateSum();
+    };
 
 });
 
@@ -64,22 +62,18 @@ billRive.controller('BillListCtrl', function($scope, billService) {
     };
 });
 billRive.controller('BillAddCtrl', function($scope, billService, $location) {
-    
+
     $scope.addBill = function() {
         $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
-//        $scope.bills.push(JSON.parse(JSON.stringify($scope.bill)));
         $scope.bill = [];
-       // $scope.bill=billService.getBill();
         $location.url('/');
     };
 });
-billRive.controller('BillEditCtrl', function($scope, billService, $location,$routeParams) {
+billRive.controller('BillEditCtrl', function($scope, billService, $location, $routeParams) {
     $scope.bill = $scope.bills[$routeParams.id];
     console.log("in billedit ctrl");
     $scope.edit = function() {
-       $scope.bills[$routeParams.id] = $scope.bill;
+        $scope.bills[$routeParams.id] = $scope.bill;
         $scope.bill = [];
-       // $scope.bill=billService.getBill();
-       // $location.url('/');
     };
 });
