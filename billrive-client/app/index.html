@@ -6,43 +6,8 @@
         <link rel="stylesheet" href="css/app.css"/>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
         <link rel="stylesheet" href="lib/bootstrap-datepicker/css/datepicker.css"/>
-
-
-        <!--    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
-            <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
-            <link href="//mgcrea.github.com/angular-strap/css/prettify.css" rel="stylesheet">
-            <link href="//mgcrea.github.com/angular-strap/vendor/bootstrap-datepicker.css" rel="stylesheet">
-            
-             required libraries 
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-            <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-            <script src="//mgcrea.github.com/angular-strap/js/angular-strap.js"></script>
-            <script src="//mgcrea.github.com/angular-strap/vendor/bootstrap-datepicker.js"></script>
-            
-             optional libraries 
-            <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.0/fastclick.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js"></script>
-        
-            
-              <script src="js/app.js"></script>
-                <script src="js/services.js"></script>
-                <script src="js/controllers.js"></script>
-                <script src="js/filters.js"></script>
-                <script src="js/directives.js"></script>
-                <script src="js/routes.js"></script>-->
-
     </head>
-    <body>
-        <!--  <ul class="menu">
-            <li><a href="#/bills">bills</a></li>
-            <li><a href="#/view2">view2</a></li>
-          </ul>-->
-
-        <!--</div>-->
-
+    <body ng-controller="billController">
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -63,11 +28,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- links -->
-                                <li><a tabindex="-1" href="#/addBill">Add</a></li>
-                                <li><a tabindex="-1" href="#/listBills">List</a></li>
-                                <li><a tabindex="-1" href="#">Another action</a></li>
+                                <li><a tabindex="-1" href="#/bills/add">Add</a></li>
+                                <li><a tabindex="-1" href="#/bills/list">List</a></li>
                                 <li class="divider"></li>
-                                <li><a tabindex="-1" href="#">Separated link</a></li>
+                                <li><a tabindex="-1" href="#">Reports</a></li>
                             </ul>
                         </li>
                         <li><a href="#/listFriends"><i class="icon-heart"></i>&nbsp;Friends</a></li>
@@ -96,28 +60,11 @@
                         </div>
                     </div>
                 </div>
-
-                <!--          <div class="span6">
-                            <div class="clearfix">
-                                <div ng-include="'partials/addBill.html'">
-                                    
-                
-                            </div>
-                        </div>
-                      </div>-->
-
-
             </div>
         </div>
-
-
-        <!-- In production use:
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-        -->
-
         <script src="lib/jquery-2.0.0.js"></script>
-        <script src="lib/angular/angular.js"></script>
-
+        <!--<script src="lib/angular/angular.js"></script>-->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.js"></script>
         <script src="js/app.js"></script>
         <script src="js/services.js"></script>
         <script src="js/controllers.js"></script>
@@ -135,11 +82,5 @@
         <script src="lib/fastclick-0.6.0-min.js"></script>
         <!--Bootstrap Datepicker-->
         <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <!--        <script>
-                   $(document).ready(function() {
-        $('#dp5').datepicker();
-        });
-        
-                    </script>-->
     </body>
 </html>

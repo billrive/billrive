@@ -1,0 +1,21 @@
+
+<!--<a class="btn btn-success" href="#/listBills"><i class="icon-th-list icon-white"></i>&nbsp;List Bills</a>-->
+
+<div><h4>New Bill</h4></div>
+<div class="row">
+    <div class="span12">
+        <div  class="row-fluid">
+            <form  ng-include="'partials/forms/billAddEdit.html'">
+                
+              
+            </form>
+        </div>
+    </div>
+      <div class="span8">
+<!--         <i class="icon-search icon-large"></i>  <input class=" btn btn-primary pull-right pagination-centered" type="submit" value="add bill">-->
+         
+         <a ng-click="addBill()" class="btn btn-success" href="#/bills/add"><i class="icon-plus icon-white"></i>&nbsp;add bill</a>
+                </div>
+</div>
+<!--{{bill}}-->
+

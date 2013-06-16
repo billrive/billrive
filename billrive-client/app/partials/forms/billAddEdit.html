@@ -1,11 +1,4 @@
 
-<!--<a class="btn btn-success" href="#/listBills"><i class="icon-th-list icon-white"></i>&nbsp;List Bills</a>-->
-
-<div><h4>New Bill</h4></div>
-<div class="row">
-    <div class="span12">
-        <div  class="row-fluid">
-            <form ng-submit="addBill()">
             <div class="span4" style="padding-right:10px; border-right: 1px solid #ccc;">
 
                 <label>Bill Total</label>
@@ -53,14 +46,6 @@
                      
                 </div>
 
-                <div class="" ng-include="'partials/addBill/simple.html'" id="editModal"></div>
-                <div class="span4">
-           <input class=" btn btn-primary pull-right pagination-centered" type="submit" value="add bill">
-                </div>
+                <div class="" ng-include="'partials/bills/simple.html'" id="editModal"></div>
+                
             </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!--{{bill}}-->
-

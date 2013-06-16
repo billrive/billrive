@@ -1,0 +1,48 @@
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="span8 offset2">-->
+      <div><h4>Bills</h4></div>
+      <a class="btn btn-success" href="#/bills/add"><i class="icon-plus-sign icon-white"></i>&nbsp;Add a Bill</a>
+      <div class="input-append pull-right">
+          <input type="search" ng-model="query" class="span2" name="q" autocomplete="off" placeholder="Search" tabindex="1">
+    <button class="btn"><i class="icon-search icon-large"></i> </button>
+  </div>
+          
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Bill Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+<!--          <tr ng-repeat="ibill in bills | filter:query">
+            <td>{{ ibill.date}}</td>
+{{ ibill.date.monthOfYear }}/{{ ibill.date.dayOfMonth}}/{{ ibill.date.yearOfCentury}}
+            <td>{{ ibill.title }}</td>
+            <td>${{ ibill.total }}</td>
+            <td>
+              <button class="btn btn-small" href="#editBill">
+                <i class="icon-edit"></i>&nbsp;Edit
+              </button>
+            </td>
+          </tr>-->
+          <tr ng-repeat="ibill in bills | filter:query | orderBy:'date'">
+            <td>{{ ibill.date}}</td>
+            <td>{{ ibill.title }}</td>
+            <td>${{ ibill.billFinances.billTotal }}</td>
+            <td>
+                
+               
+              <a  href="#/bills/edit/{{$index}}"><i class="icon-pencil "></i></a>
+               <a href="#/bills/delete/{{$index}}"><i class="icon-trash "></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+<!--{{bills}}-->
