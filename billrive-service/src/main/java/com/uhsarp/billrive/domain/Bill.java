@@ -4,6 +4,8 @@
  */
 package com.uhsarp.billrive.domain;
 
+import com.uhsarp.billrive.web.utils.DateSerializer;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.joda.time.DateTime;
 
 /**
@@ -14,7 +16,7 @@ public class Bill {
     
     int id;
     String title;//walmart
-    DateTime date;
+    DateTime date; 
     int billPayerId;
     String notes;
     BillFinances billFinances;
@@ -52,6 +54,7 @@ public class Bill {
         this.title = title;
     }
 
+  @JsonSerialize(using=DateSerializer.class )  
     public DateTime getDate() {
         return date;
     }

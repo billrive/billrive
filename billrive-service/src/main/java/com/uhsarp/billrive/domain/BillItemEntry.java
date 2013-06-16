@@ -13,14 +13,17 @@ import java.util.ArrayList;
 public class BillItemEntry {
     
     int itemDescriptionId;
+    String itemTitle;
     String itemDescription;//napkin
     ArrayList<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();//2->3, 3->3, 4->3
 
-    public BillItemEntry(int itemDescriptionId, String itemDescription, ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
+    public BillItemEntry(int itemDescriptionId, String itemTitle, String itemDescription, ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
         this.itemDescriptionId = itemDescriptionId;
         this.itemDescription = itemDescription;
         this.userIdAndLiableCost=userIdAndLiableCost;
+        this.itemTitle = itemTitle;
     }
+
 
     
     

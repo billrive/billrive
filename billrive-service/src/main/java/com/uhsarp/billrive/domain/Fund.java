@@ -95,7 +95,7 @@ public class Fund{
 	 *
 	 * @return the last updated
 	 */
-	@JsonSerialize(using=DateSerializer.class)
+	
 	public Date getLastUpdated() {
 		return lastUpdated;
 	}

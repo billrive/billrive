@@ -52,9 +52,28 @@
         </property>
     </bean>
 
+
+
+
     <!--
              Converts JSON to POJO and vice versa
     -->
-    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-
+    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+<!--     <property name="objectMapper" ref="objectMapper" />-->
+    </bean>
+    
+    
+<!--    <bean id="billRiveDS" class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+        <property name="jndiName" value="jdbc/billrive" />
+    </bean>
+    
+    <bean id="billRiveJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" lazy-init="true">
+     <property name ="datasource">
+         <ref bean="billRiveDS"></ref>
+     </property>  
+        
+    </bean>
+    -->
+    
+    
 </beans>

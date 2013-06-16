@@ -16,6 +16,7 @@ public class BillFinances {
     int billPayerId;//2
     List<BillItemEntry> billItemEntry = new ArrayList<BillItemEntry>();//watermelon,napkins
     int billTotal;
+    BillItemEntry billSimpleTotals = new BillItemEntry(1,"simple","simple", new ArrayList<UserIdAndLiableCost>());
 
     public BillFinances(int billPayerId, int billTotal,List<BillItemEntry> billItemEntry) {
         this.billPayerId = billPayerId;

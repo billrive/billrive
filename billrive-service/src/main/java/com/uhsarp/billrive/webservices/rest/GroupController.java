@@ -77,7 +77,7 @@ public class GroupController {
 	}
                 
                 
-        @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
+        @RequestMapping(value = { "/rest/{userId}/groups/" }, method = { RequestMethod.POST })
 	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
