@@ -33,10 +33,11 @@ public class Neo4jDAO implements GenericDAO {
         List<BillItemEntry> billItemEntry = new ArrayList<BillItemEntry>();
         billItemEntry.add(new BillItemEntry(1, "Canola Oil","Canola Oil", userIdAndLiableCost));
         List<BillItemEntry> billItemEntry1 = new ArrayList<BillItemEntry>();
-         billItemEntry.add(new BillItemEntry(2,"Taco Bell", "Taco Bell", userIdAndLiableCost1));
+         billItemEntry1.add(new BillItemEntry(2,"Taco Bell", "Taco Bell", userIdAndLiableCost1));
         
          BillFinances billFinances = new BillFinances(1,30,billItemEntry);
         BillFinances billFinances1 = new BillFinances(2,90,billItemEntry1);
+        billFinances1.setBillSimpleTotals(new BillItemEntry(1, "simple","simple", userIdAndLiableCost));
          List<Bill> rtnval = new ArrayList<Bill>();
         if(1 == userId)
         {

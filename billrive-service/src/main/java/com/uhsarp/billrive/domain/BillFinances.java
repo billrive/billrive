@@ -23,6 +23,8 @@ public class BillFinances {
         this.billTotal = billTotal;
         this.billItemEntry=billItemEntry;
     }
+    
+    
 
  
 
@@ -49,6 +51,16 @@ public class BillFinances {
     public void setBillTotal(int billTotal) {
         this.billTotal = billTotal;
     }
+
+    public BillItemEntry getBillSimpleTotals() {
+        return billSimpleTotals;
+    }
+
+    public void setBillSimpleTotals(BillItemEntry billSimpleTotals) {
+        this.billSimpleTotals = billSimpleTotals;
+    }
+    
+    
 
  
     
