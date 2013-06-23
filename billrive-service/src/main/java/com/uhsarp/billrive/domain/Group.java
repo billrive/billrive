@@ -14,19 +14,27 @@ public class Group {
     
     int idGroup;
     String title;
+    String desc;
+    int idOwner;
+    List<Integer> lsMemberIds;
 
     public int getIdGroup() {
         return idGroup;
     }
 
-    public Group(int idGroup, String title, String desc, int idOwner, List<Friend> lsMembers) {
+    public Group(int idGroup, String title, String desc, int idOwner, List<Integer> lsMemberIds) {
         this.idGroup = idGroup;
         this.title = title;
         this.desc = desc;
         this.idOwner = idOwner;
-        this.lsMembers = lsMembers;
+        this.lsMemberIds = lsMemberIds;
     }
 
+    public Group(int groupId, int userId) {
+        this.idGroup = groupId;
+        this.idOwner = userId;
+        //this.idGroup = ??? Create a new Id
+    }
 
 
     public void setIdGroup(int idGroup) {
@@ -56,16 +64,14 @@ public class Group {
     public void setIdOwner(int idOwner) {
         this.idOwner = idOwner;
     }
-    String desc;
-    int idOwner;
-    List<Friend> lsMembers;
 
-    public List<Friend> getLsMembers() {
-        return lsMembers;
+
+    public List<Integer> getLsMembers() {
+        return lsMemberIds;
     }
 
-    public void setLsMembers(List<Friend> lsMembers) {
-        this.lsMembers = lsMembers;
+    public void setLsMembers(List<Integer> lsMembers) {
+        this.lsMemberIds = lsMembers;
     }
 
     

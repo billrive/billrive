@@ -28,13 +28,14 @@ public class GroupService {
     public Group updateGroup(Group group_p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public Group createGroup(Group group_p) {
+    
+    public Group getGroupById(String groupId_p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group getGroupById(String groupId_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Group createGroup(int groupId, int userId) {
+        Group rtnval=genericDAO.createGroup( groupId, userId);
+        return rtnval;
     }
 
     public List<Group> getGroups(int userId) {
@@ -43,4 +44,18 @@ public class GroupService {
         return rtnval;
     }
     
+    public Group activateFriends(List<Integer> friendIds, int groupId)
+    {
+        Group groupObj = null;
+        groupObj=genericDAO.activateFriends(friendIds, groupId);
+        return groupObj;
+    }
+ 
+    public Group deactivateFriends(List<Integer> friendIds, int groupId)
+    {
+        Group groupObj = null;
+        groupObj=genericDAO.deactivateFriends(friendIds, groupId);
+        return groupObj;
+    }
+
 }

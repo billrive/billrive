@@ -9,7 +9,6 @@ package com.uhsarp.billrive.domain;
  * @author uhsarp
  */
 public class UserFinances {
-    
-    
+
     
 }
