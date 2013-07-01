@@ -4,13 +4,19 @@
  */
 package com.uhsarp.billrive.domain;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import javax.persistence.*;
 
 /**
  *
  * @author uhsarp
  */
-public class User {
+@Entity
+@Table(name="user")
+public class User  implements GenericObject{
     
     private int id;
     private String fName;
@@ -18,12 +24,33 @@ public class User {
     private String mName;
     private String title;
     private String email;
-    private Settings settings;
-    List<Bill> bills = new ArrayList<Bill>();
-    ArrayList<Payment> payments = new ArrayList<Payment>();
-    ArrayList<Friend> friends = new ArrayList<Friend>();
-    ArrayList<Group> groups = new ArrayList<Group>();
+    
+    private Set<Bill> userBills = new HashSet<Bill>();
+    private Set<BillFinances> userBillFinances = new HashSet<BillFinances>();
+    
 
+    public User(){
+    	
+    }
+    
+	public User(int id, String fName, String lName, String mName, String title,
+			String email, Set<Bill> userBills, Set<BillFinances> userBillFinances) {
+		super();
+		this.id = id;
+		this.fName = fName;
+		this.lName = lName;
+		this.mName = mName;
+		this.title = title;
+		this.email = email;
+		this.userBills = userBills;
+		this.userBillFinances = userBillFinances;
+	}
+
+
+
+
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -72,45 +99,23 @@ public class User {
         this.email = email;
     }
 
-    public Settings getSettings() {
-        return settings;
-    }
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="userBill")
+	public Set<Bill> getUserBills() {
+		return userBills;
+	}
 
-    public void setSettings(Settings settings) {
-        this.settings = settings;
-    }
+	public void setUserBills(Set<Bill> userBills) {
+		this.userBills = userBills;
+	}
 
-    public List<Bill> getBills() {
-        return bills;
-    }
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="billFinanceOfUser")
+	public Set<BillFinances> getUserBillFinances() {					 
+		return userBillFinances;
+	}
 
-    public void setBills(List<Bill> bills) {
-        this.bills = bills;
-    }
-
-    public ArrayList<Payment> getPayments() {
-        return payments;
-    }
-
-    public void setPayments(ArrayList<Payment> payments) {
-        this.payments = payments;
-    }
-
-    public ArrayList<Friend> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(ArrayList<Friend> friends) {
-        this.friends = friends;
-    }
-
-    public ArrayList<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(ArrayList<Group> groups) {
-        this.groups = groups;
-    }
+	public void setUserBillFinances(Set<BillFinances> userBillFinances) {
+		this.userBillFinances = userBillFinances;
+	}
     
             
     

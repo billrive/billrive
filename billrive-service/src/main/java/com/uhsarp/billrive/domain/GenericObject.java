@@ -4,12 +4,12 @@
  */
 package com.uhsarp.billrive.domain;
 
+import java.io.Serializable;
+
 /**
  *
  * @author uhsarp
  */
-class Settings  implements GenericObject{
-    
-    private Notifications notifications;
+interface GenericObject extends Serializable {
     
 }

@@ -5,34 +5,52 @@
 package com.uhsarp.billrive.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
 
 /**
  *
  * @author uhsarp
  */
-public class BillItemEntry {
+@Entity
+@Table(name="billitementry")
+public class BillItemEntry  implements GenericObject{
     
-    int itemDescriptionId;
-    String itemTitle;
-    String itemDescription;//napkin
-    ArrayList<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();//2->3, 3->3, 4->3
+	@Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        private int id;
+	private String itemDescription;//napkin
+    
+	private Set<UserIdAndLiableCost> userIdAndLiableCost = new HashSet<UserIdAndLiableCost>();
+        private int billFinancesId;
+//	private BillFinances iteamEntryBillFinances;
+	
+	//should be set not list 
+//	ArrayList<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();//2->3, 3->3, 4->3
 
-    public BillItemEntry(int itemDescriptionId, String itemTitle, String itemDescription, ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
-        this.itemDescriptionId = itemDescriptionId;
-        this.itemDescription = itemDescription;
-        this.userIdAndLiableCost=userIdAndLiableCost;
-        this.itemTitle = itemTitle;
+    public BillItemEntry(){
+    	
     }
 
+    public BillItemEntry(int itemDescriptionId, String itemDescription,  Set<UserIdAndLiableCost> userIdAndLiableCost,int billFinancesId) {
+        this.id = itemDescriptionId;
+        this.itemDescription = itemDescription;
+        this.billFinancesId = billFinancesId;
+        this.userIdAndLiableCost = userIdAndLiableCost;
+    }
 
-    
-    
+ 
+
+
+	
     public int getItemDescriptionId() {
-        return itemDescriptionId;
+        return id;
     }
 
     public void setItemDescriptionId(int itemDescriptionId) {
-        this.itemDescriptionId = itemDescriptionId;
+        this.id = itemDescriptionId;
     }
 
     public String getItemDescription() {
@@ -43,11 +61,49 @@ public class BillItemEntry {
         this.itemDescription = itemDescription;
     }
 
-    public ArrayList<UserIdAndLiableCost> getUserIdAndLiableCost() {
+    public int getBillFinancesId() {
+        return billFinancesId;
+    }
+
+    public void setBillFinancesId(int billFinancesId) {
+        this.billFinancesId = billFinancesId;
+    }
+    
+    
+
+//    public ArrayList<UserIdAndLiableCost> getUserIdAndLiableCost() {
+//        return userIdAndLiableCost;
+//    }
+//
+//    public void setUserIdAndLiableCost(ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
+//        this.userIdAndLiableCost = userIdAndLiableCost;
+//    }
+//
+//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="billiteamEntryLiab")
+//	public Set<UserIdAndLiableCost> getIteamEntryUserIdAndLiableCost() {
+//		return iteamEntryUserIdAndLiableCost;
+//	}
+//
+//	public void setIteamEntryUserIdAndLiableCost(
+//			Set<UserIdAndLiableCost> iteamEntryUserIdAndLiableCost) {
+//		this.iteamEntryUserIdAndLiableCost = iteamEntryUserIdAndLiableCost;
+//	}
+
+//	@ManyToOne(fetch=FetchType.LAZY)		//BiDirectional Mapping
+//	@JoinColumn(name="billFinanceiteamEntry_id")
+//	public BillFinances getIteamEntryBillFinances() {
+//		return iteamEntryBillFinances;
+//	}
+//
+//	public void setIteamEntryBillFinances(BillFinances iteamEntryBillFinances) {
+//		this.iteamEntryBillFinances = iteamEntryBillFinances;
+//	}
+
+    public Set<UserIdAndLiableCost> getUserIdAndLiableCost() {
         return userIdAndLiableCost;
     }
 
-    public void setUserIdAndLiableCost(ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
+    public void setUserIdAndLiableCost(Set<UserIdAndLiableCost> userIdAndLiableCost) {
         this.userIdAndLiableCost = userIdAndLiableCost;
     }
    

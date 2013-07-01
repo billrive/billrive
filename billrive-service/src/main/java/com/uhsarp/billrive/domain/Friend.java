@@ -8,7 +8,7 @@ package com.uhsarp.billrive.domain;
  *
  * @author uhsarp
  */
-public class Friend {
+public class Friend  implements GenericObject{
     int id;
     String firstName;
     String lastName;

@@ -10,7 +10,7 @@ import org.joda.time.DateTime;
  *
  * @author uhsarp
  */
-public class Payment {
+public class Payment  implements GenericObject{
     
     private int payerId;
     private int receiverId;
