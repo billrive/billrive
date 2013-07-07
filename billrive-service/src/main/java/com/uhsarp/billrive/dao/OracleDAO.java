@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
  * @author Sravan
  */
 @Repository("oracleDAO")
-public class OracleDAO implements GenericDAO{
+public class OracleDAO{
 
     public List<Bill> getBills(int userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

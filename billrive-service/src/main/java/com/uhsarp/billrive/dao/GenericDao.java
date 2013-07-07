@@ -5,6 +5,7 @@
 package com.uhsarp.billrive.dao;
 
 import java.util.List;
+import com.uhsarp.billrive.domain.GenericObject;
 
 
 public interface GenericDao<T extends GenericObject> {

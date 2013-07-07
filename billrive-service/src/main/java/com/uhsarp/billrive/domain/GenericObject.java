@@ -10,6 +10,6 @@ import java.io.Serializable;
  *
  * @author uhsarp
  */
-interface GenericObject extends Serializable {
+public interface GenericObject extends Serializable {
     
 }
