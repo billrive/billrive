@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service("groupService")
 public class GroupService {
     
-    @Resource(name= "neo4jDAO")
+//    @Resource(name= "neo4jDao")
 //    GenericDao genericDao;
     
     public void deleteGroup(String groupId_p) {

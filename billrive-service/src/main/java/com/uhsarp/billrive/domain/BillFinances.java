@@ -19,9 +19,12 @@ import javax.persistence.*;
 @Table(name="billfinances")
 public class BillFinances  implements GenericObject{
     
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
 	private int billPayerId;//2
-	
+	@Transient
 	private Set<BillItemEntry> billIteamEntry = new HashSet<BillItemEntry>();
+      
         private BillItemEntry simpleBillItemEntry;
 //	private Set<Bill> billFinanceBills = new HashSet<Bill>();
 //    private User billFinanceOfUser;
@@ -65,8 +68,6 @@ public class BillFinances  implements GenericObject{
 
 
 
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getBillPayerId() {
         return billPayerId;
     }

@@ -23,6 +23,7 @@ public class BillItemEntry  implements GenericObject{
         private int id;
 	private String itemDescription;//napkin
     
+        @Transient
 	private Set<UserIdAndLiableCost> userIdAndLiableCost = new HashSet<UserIdAndLiableCost>();
         private int billFinancesId;
 //	private BillFinances iteamEntryBillFinances;

@@ -17,15 +17,15 @@
 
 <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 <property name="show_sql">true</property>
-<property name="hbm2ddl.auto">create</property>
+<property name="hbm2ddl.auto">update</property>
 
 <!-- Class mappings -->
-<mapping class="com.uhsarp.billrive.domain.Bill"></mapping>
-<mapping class="com.uhsarp.billrive.domain.User"></mapping>
+<!--<mapping class="com.uhsarp.billrive.domain.Bill"></mapping>-->
+<!--<mapping class="com.uhsarp.billrive.domain.User"></mapping>
 <mapping class="com.uhsarp.billrive.domain.Group"></mapping>
 <mapping class="com.uhsarp.billrive.domain.BillFinances"></mapping>
 <mapping class="com.uhsarp.billrive.domain.BillItemEntry"></mapping>
-<mapping class="com.uhsarp.billrive.domain.UserIdAndLiableCost"></mapping>
+<mapping class="com.uhsarp.billrive.domain.UserIdAndLiableCost"></mapping>-->
 
 </session-factory>
 </hibernate-configuration>

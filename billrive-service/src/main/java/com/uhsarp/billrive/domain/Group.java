@@ -25,9 +25,11 @@ public class Group  implements GenericObject{
 	 */
 	private static final long serialVersionUID = 4125241775878842292L;
 	
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String description;
-	
+	@Transient
 	private Set<Bill> gBills = new HashSet<Bill>();
 	
 	public Group(){
@@ -42,9 +44,7 @@ public class Group  implements GenericObject{
 	}
 
 
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-	public int getId() {
+		public int getId() {
 		return id;
 	}
 
@@ -60,7 +60,7 @@ public class Group  implements GenericObject{
 		this.description = description;
 	}
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
+//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
 	public Set<Bill> getgBills() {
 		return gBills;
 	}

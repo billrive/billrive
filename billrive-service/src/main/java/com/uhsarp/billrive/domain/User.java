@@ -14,8 +14,8 @@ import javax.persistence.*;
  *
  * @author uhsarp
  */
-@Entity
-@Table(name="user")
+//@Entity
+//@Table(name="user")
 public class User  implements GenericObject{
     
     private int id;
@@ -99,7 +99,7 @@ public class User  implements GenericObject{
         this.email = email;
     }
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="userBill")
+//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="userBill")
 	public Set<Bill> getUserBills() {
 		return userBills;
 	}
@@ -108,7 +108,7 @@ public class User  implements GenericObject{
 		this.userBills = userBills;
 	}
 
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="billFinanceOfUser")
+//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="billFinanceOfUser")
 	public Set<BillFinances> getUserBillFinances() {					 
 		return userBillFinances;
 	}

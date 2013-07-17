@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service("billService")
 public class BillService {
 
-    @Resource(name="neo4jDAO")
+//    @Resource(name="neo4jDao")
     GenericDao genericDao;
     public List<Bill> getBills(int userId) {
         
