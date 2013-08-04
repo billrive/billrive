@@ -1,27 +1,29 @@
 package com.uhsarp.billrive.web.utils;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.JsonSerializer;
 import org.codehaus.jackson.map.SerializerProvider;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 /**
  * The Class DateSerializer.
  */
-public class DateSerializer extends JsonSerializer<Date> {
 
-    /* (non-Javadoc)
-     * @see org.codehaus.jackson.map.JsonSerializer#serialize(java.lang.Object, org.codehaus.jackson.JsonGenerator, org.codehaus.jackson.map.SerializerProvider)
-     */
+
+public class DateSerializer extends JsonSerializer<DateTime> {
+ 
+    private static final String dateFormat = ("MM/dd/yyyy");
+ 
     @Override
-    public void serialize(Date value_p, JsonGenerator gen, SerializerProvider prov_p)
-        throws IOException, JsonProcessingException
-    {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        String formattedDate = formatter.format(value_p);
+    public void serialize(DateTime date, JsonGenerator gen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+ 
+        String formattedDate = DateTimeFormat.forPattern(dateFormat).print(date);
+ 
         gen.writeString(formattedDate);
     }
+ 
 }

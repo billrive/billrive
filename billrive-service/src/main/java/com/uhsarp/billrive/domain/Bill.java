@@ -4,38 +4,71 @@
  */
 package com.uhsarp.billrive.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.*;
+
 import org.joda.time.DateTime;
 
 /**
  *
  * @author uhsarp
  */
-public class Bill {
-    
-    int id;
-    String title;//walmart
-    DateTime date;
-    int billPayerId;
-    String notes;
-    BillFinances billFinances;
-    int groupId;
+@Entity
+@Table(name = "bill")
+public class Bill implements GenericObject {
 
-    public Bill(int id, String title, DateTime date, int billPayerId, String notes, BillFinances billFinances, int groupId) {
-        this.id = id;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -5660869020353250221L;
+    private int id;
+    private String title;//walmart
+    private DateTime date;
+    private int billPayerId;
+    private String notes;
+//    private Group groupBills;
+//    private User userBill;
+    private BillFinances billFinances;
+    private int userId;
+    private int groupId;
+
+    //Guess we dont need this after mapping oneTOmany
+    public Bill() {
+    }
+
+    public Bill(String title, DateTime date, int billPayerId, String notes, BillFinances billFinances, int userId, int groupId) {
         this.title = title;
         this.date = date;
         this.billPayerId = billPayerId;
         this.notes = notes;
         this.billFinances = billFinances;
+        this.userId = userId;
         this.groupId = groupId;
     }
+
     
     
 
-//    public String getBillId() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    
+
+//    public Bill(String title,int billPayerId, DateTime date, 
+//            String notes, Group group, User userBill,
+//            BillFinances billFinancesBills) {
+//        super();
+//        this.id = id;
+//        this.title = title;
+//        this.date = date;
+//        this.billPayerId = billPayerId;
+//        this.notes = notes;
+//        this.groupBills = group;
+////        this.userBill = userBill;
+//        this.billFinances = billFinancesBills;
 //    }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -76,12 +109,12 @@ public class Bill {
         this.notes = notes;
     }
 
-    public BillFinances getBillFinances() {
-        return billFinances;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setBillFinances(BillFinances billFinances) {
-        this.billFinances = billFinances;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getGroupId() {
@@ -91,7 +124,47 @@ public class Bill {
     public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
-
-
     
+    
+
+//	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
+//	@JoinColumn(name="group_id")
+//	public Group getGroup() {
+//		return group;
+//	}
+//
+//	public void setGroup(Group group) {
+//		this.group = group;
+//	}
+//    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
+//    @JoinColumn(name = "group_id")
+//    public Group getGroupBills() {
+//        return groupBills;
+//    }
+//
+//    public void setGroupBills(Group groupBills) {
+//        this.groupBills = groupBills;
+//    }
+//
+//    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
+//    @JoinColumn(name = "user_id")
+//    public User getuserBill() {
+//        return userBill;
+//    }
+//
+//    public void setuserBill(User userBill) {
+//        this.userBill = userBill;
+//    }
+
+//	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
+//	@JoinColumn(name="billFinance_id")
+    @OneToOne(targetEntity = BillFinances.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "billFinanceId", referencedColumnName = "billPayerId")
+    public BillFinances getBillFinances() {
+        return billFinances;
+    }
+
+    public void setBillFinances(BillFinances billFinances) {
+        this.billFinances = billFinances;
+    }
 }

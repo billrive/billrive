@@ -8,7 +8,7 @@ package com.uhsarp.billrive.domain;
  *
  * @author uhsarp
  */
-class Settings {
+class Settings  implements GenericObject{
     
     private Notifications notifications;
     

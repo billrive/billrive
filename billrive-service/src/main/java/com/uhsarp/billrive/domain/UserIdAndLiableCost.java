@@ -4,21 +4,36 @@
  */
 package com.uhsarp.billrive.domain;
 
+import javax.persistence.*;
+
 /**
  *
  * @author uhsarp
  */
-public class UserIdAndLiableCost {
+@Entity
+@Table(name="userIdAndLiableCost")
+public class UserIdAndLiableCost  implements GenericObject {
     
     private  int userId;
     private  int liableCost;
+    private int billItemEntryID;
 
-    public UserIdAndLiableCost(int userId, int liableCost) {
+    public UserIdAndLiableCost() {
+        
+    }
+  
+
+    public UserIdAndLiableCost(int userId, int liableCost, int billItemEntryID) {
         this.userId = userId;
         this.liableCost = liableCost;
+        this.billItemEntryID = billItemEntryID;
     }
+    
 
     
+
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getUserId() {
         return userId;
     }
@@ -33,6 +48,27 @@ public class UserIdAndLiableCost {
 
     public void setLiableCost(int liableCost) {
         this.liableCost = liableCost;
+    }
+    
+    
+    
+
+//	@ManyToOne(fetch=FetchType.LAZY)		//BiDirectional Mapping
+//	@JoinColumn(name="billIteamLiableCost")
+//	public BillItemEntry getBilliteamEntryLiab() {
+//		return billiteamEntryLiab;
+//	}
+//
+//	public void setBilliteamEntryLiab(BillItemEntry billiteamEntryLiab) {
+//		this.billiteamEntryLiab = billiteamEntryLiab;
+//	}
+
+    public int getBillItemEntryID() {
+        return billItemEntryID;
+    }
+
+    public void setBillItemEntryID(int billItemEntryID) {
+        this.billItemEntryID = billItemEntryID;
     }
 
  
