@@ -1,0 +1,26 @@
+
+  <table class="table table-striped">
+        <thead>
+          <tr>
+          
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <div>
+        <a class="btn btn-success" href="#/groups/add"><i class="icon-plus-sign icon-white"></i>&nbsp;Create a Group</a>
+      <div class="input-append pull-right">
+          <input type="search" ng-model="query" class="span2" name="q" autocomplete="off" placeholder="Search" tabindex="1">
+    <button class="btn"><i class="icon-search icon-large"></i> </button>
+    </div>
+        <tbody>  
+          <tr ng-repeat="igroup in groups | filter:query | orderBy:'date'">
+           
+            <td>{{ igroup.name }}</td>
+          
+            <td>
+              <a  href="#/groups/edit/{{$index}}"><i class="icon-pencil "></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>

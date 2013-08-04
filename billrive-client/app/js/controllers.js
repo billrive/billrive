@@ -77,3 +77,49 @@ billRive.controller('BillEditCtrl', function($scope, billService, $location, $ro
         $scope.bill = [];
     };
 });
+
+billRive.controller('GroupAddCtrl', function($scope, billService, $location){
+    $scope.newGroup={id:'',users:[],name:''};
+    $scope.friends=billService.getFriends();
+    for (i = 0; i < $scope.friends.length; i++) {
+            $scope.friends[i].addToNewGroup = false;
+                
+        }
+
+
+    $scope.setNewGroupMembership=function(){
+        
+        for (i = 0; i < $scope.friends.length; i++) {
+            if ($scope.friends[i].addToNewGroup === false)
+                {
+                    if($scope.newGroup.users.indexOf($scope.friends[i].id) > -1)
+                        {
+                            //Delete the friend id from users array of newGroup
+                        }
+                   
+                }
+             else
+                 {
+                      if($scope.newGroup.users.indexOf($scope.friends[i].id) < -1)
+                        {
+                            
+                                //Add the friend id from users array of newGroup
+                        }
+                       
+                 }
+        
+        }
+    };
+    
+    
+    
+});
+
+billRive.controller('GroupEditCtrl', function($scope, billService, $location, $routeParams) {
+    $scope.group = $scope.groups[$routeParams.id];
+    console.log("in groupedit ctrl");
+    $scope.edit = function() {
+        $scope.groups[$routeParams.id] = $scope.group;
+        $scope.group = [];
+    };
+});
