@@ -8,6 +8,6 @@ package com.uhsarp.billrive.domain;
  *
  * @author uhsarp
  */
-class Notifications {
+class Notifications  implements GenericObject {
     
 }

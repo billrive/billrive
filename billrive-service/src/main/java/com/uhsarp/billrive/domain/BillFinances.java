@@ -5,25 +5,68 @@
 package com.uhsarp.billrive.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import javax.persistence.*;
 
 /**
  *
  * @author uhsarp
  */
-public class BillFinances {
+@Entity
+@Table(name="billfinances")
+public class BillFinances  implements GenericObject{
     
-    int billPayerId;//2
-    List<BillItemEntry> billItemEntry = new ArrayList<BillItemEntry>();//watermelon,napkins
-    int billTotal;
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+	private int billPayerId;//2
+	@Transient
+	private Set<BillItemEntry> billIteamEntry = new HashSet<BillItemEntry>();
+      
+        private BillItemEntry simpleBillItemEntry;
+//	private Set<Bill> billFinanceBills = new HashSet<Bill>();
+//    private User billFinanceOfUser;
 
-    public BillFinances(int billPayerId, int billTotal,List<BillItemEntry> billItemEntry) {
-        this.billPayerId = billPayerId;
-        this.billTotal = billTotal;
-        this.billItemEntry=billItemEntry;
+	
+	//It should be set as they are unique
+    private int billTotal;
+    private int billId;
+
+    public BillFinances(){
+    	
     }
 
- 
+    public BillFinances(int billPayerId, int billTotal, BillItemEntry simpleBillItemEntry, Set<BillItemEntry> billIteamEntry, int billId) {
+        this.simpleBillItemEntry = simpleBillItemEntry;
+        this.billIteamEntry=billIteamEntry;
+        this.billTotal = billTotal;
+        this.billId = billId;
+        this.billPayerId = billPayerId;
+    }
+  
+
+        public BillFinances(int billPayerId, int billTotal, BillItemEntry simpleBillItemEntry, int billId) {
+        this.simpleBillItemEntry = simpleBillItemEntry;
+        
+        this.billTotal = billTotal;
+        this.billId = billId;
+        this.billPayerId = billPayerId;
+    }
+    
+
+//	public BillFinances(int billPayerId, int billTotal, 
+//			Set<BillItemEntry> billIteamEntry, int billId) {
+//		super();
+//		this.billPayerId = billPayerId;
+//		this.billIteamEntry = billIteamEntry;
+////		this.billFinanceBills = billFinanceBills;
+////		this.billFinanceOfUser = billFinanceOfUser;
+//		this.billTotal = billTotal;
+//	}
+
+
 
     public int getBillPayerId() {
         return billPayerId;
@@ -33,14 +76,7 @@ public class BillFinances {
         this.billPayerId = billPayerId;
     }
 
-    public List<BillItemEntry> getBillItemEntry() {
-        return billItemEntry;
-    }
-
-    public void setBillItemEntry(List<BillItemEntry> billItemEntry) {
-        this.billItemEntry = billItemEntry;
-    }
-
+   
     public int getBillTotal() {
         return billTotal;
     }
@@ -49,6 +85,42 @@ public class BillFinances {
         this.billTotal = billTotal;
     }
 
- 
-    
+//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="iteamEntryBillFinances")
+	public Set<BillItemEntry> getBillIteamEntry() {
+		return billIteamEntry;
+	}
+
+	public void setBillIteamEntry(Set<BillItemEntry> billIteamEntry) {
+		this.billIteamEntry = billIteamEntry;
+	}
+
+    //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="billFinancesBills")
+    //	public Set<Bill> getBillFinanceBills() {
+    //		return billFinanceBills;
+    //	}
+    //
+    //	public void setBillFinanceBills(Set<Bill> billFinanceBills) {
+    //		this.billFinanceBills = billFinanceBills;
+    //	}
+    //	@ManyToOne(fetch=FetchType.LAZY)		//BiDirectional Mapping
+    //	@JoinColumn(name="userBillFinance_id")
+    //	public User getBillFinanceOfUser() {
+    //		return billFinanceOfUser;
+    //	}
+    //
+    //	public void setBillFinanceOfUser(User billFinanceOfUser) {
+    //		this.billFinanceOfUser = billFinanceOfUser;
+    //	}
+    public int getBillId() {
+        return billId;
+    }
+
+    public void setBillId(int billId) {
+        this.billId = billId;
+    }
+
+
+
+
+
 }

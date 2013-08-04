@@ -6,7 +6,6 @@ package com.uhsarp.billrive.webservices.rest;
 
 import com.uhsarp.billrive.domain.Group;
 import com.uhsarp.billrive.services.GroupService;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -46,8 +45,6 @@ public class GroupController {
                 System.out.println("In Groups...Calling getGroups");
 		try {
 			groups = groupService.getGroups(userId);
-                        System.out.println("in group controller with data");
-                        
 		} catch (Exception e) {
 			String sMessage = "Error getting all groups. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
@@ -58,7 +55,7 @@ public class GroupController {
 	}
         
         
-       @RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.GET)
+        	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.GET)
 	public ModelAndView getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
 		Group group = null;
 
@@ -79,64 +76,54 @@ public class GroupController {
 		return new ModelAndView(jsonView_i, DATA_FIELD, group);
 	}
                 
-         //Temporary..for testing. POST not working.       
-/*     @RequestMapping(value = { "/rest/{userId}/{userId}/groups/newGroup" }, method = { RequestMethod.POST })
-    public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
-    HttpServletResponse httpResponse_p, WebRequest request_p) {*/
- @RequestMapping(value = "/rest/{userId}/groups/{groupId}", method = RequestMethod.GET)
-	public ModelAndView createGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
-    Group createdGroup;
-    //logger_c.debug("Creating Group: " + group_p.toString());
+                
+        @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
+	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
+			HttpServletResponse httpResponse_p, WebRequest request_p) {
+                
+        @RequestMapping(value = { "/rest/{userId}/groups/" }, method = { RequestMethod.POST })
+	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
+			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
-    try {
-    createdGroup = groupService.createGroup(1,2);
-    } catch (Exception e) {
-    String sMessage = "Error creating new group. [%1$s]";
-    return createErrorResponse(String.format(sMessage, e.toString()));
- }
 
-    /* set HTTP response code */
-   // httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
-/* set location of created resource */
-//httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
 
-/**
-* Return the view
-*/
-    return new ModelAndView(jsonView_i, DATA_FIELD, createdGroup);
-}
- 
-          //Temporary..for testing. POST not working.       
-/*     @RequestMapping(value = { "/rest/{userId}/{userId}/groups/newGroup" }, method = { RequestMethod.POST })
-    public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
-    HttpServletResponse httpResponse_p, WebRequest request_p) {*/
- @RequestMapping(value = "/rest/{userId}/groups/{groupId}/ActFriends", method = RequestMethod.GET)
-	public ModelAndView activateFriends(@PathVariable("groupId") int groupId_p,@PathVariable("userId") int userId) {
-    Group groupObj= null;
-    //logger_c.debug("Creating Group: " + group_p.toString());
 
-    try {
-                List<Integer> lsFriendIds = new ArrayList<Integer>();
-        lsFriendIds.add(101);
-        lsFriendIds.add(201);
-    groupObj = groupService.activateFriends(lsFriendIds,groupId_p);
-    } catch (Exception e) {
-    String sMessage = "Error creating new group. [%1$s]";
-    return createErrorResponse(String.format(sMessage, e.toString()));
- }
+		Group createdGroup;
+		logger_c.debug("Creating Group: " + group_p.toString());
 
-    /* set HTTP response code */
-   // httpResponse_p.setStatus(HttpStatus.CREATED.value());
+		try {
+			createdGroup = groupService.createGroup(group_p);
+		} catch (Exception e) {
+			String sMessage = "Error creating new group. [%1$s]";
+			return createErrorResponse(String.format(sMessage, e.toString()));
+		}
 
-/* set location of created resource */
-//httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
+		/* set HTTP response code */
+		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
-/**
-* Return the view
-*/
-    return new ModelAndView(jsonView_i, DATA_FIELD, groupObj);
-}
+		/* set location of created resource */
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
+		/* set location of created resource */
+//		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/**
+		 * Return the view
+		 */
+		return new ModelAndView(jsonView_i, DATA_FIELD, createdGroup);
+	}
 
 	/**
 	 * Updates group with given group id.

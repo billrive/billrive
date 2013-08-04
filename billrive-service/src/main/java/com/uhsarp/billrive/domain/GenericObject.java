@@ -4,13 +4,12 @@
  */
 package com.uhsarp.billrive.domain;
 
+import java.io.Serializable;
+
 /**
  *
  * @author uhsarp
  */
-public class UserFinances {
-public class UserFinances  implements GenericObject{
-    
-    
+public interface GenericObject extends Serializable {
     
 }

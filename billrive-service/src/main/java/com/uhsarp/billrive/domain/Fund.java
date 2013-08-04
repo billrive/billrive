@@ -7,7 +7,7 @@ import com.uhsarp.billrive.web.utils.DateSerializer;
 /**
  * The Class Fund.
  */
-public class Fund{
+public class Fund  implements GenericObject{
 
 	private String fundId;
 	private String fundDescription;
@@ -95,7 +95,7 @@ public class Fund{
 	 *
 	 * @return the last updated
 	 */
-	@JsonSerialize(using=DateSerializer.class)
+	
 	public Date getLastUpdated() {
 		return lastUpdated;
 	}
