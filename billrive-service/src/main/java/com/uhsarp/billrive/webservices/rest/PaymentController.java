@@ -47,7 +47,7 @@ public class PaymentController {
     Payment createdPayment;
     //logger_c.debug("Creating Group: " + group_p.toString());
     //Payment(userId, FriendId, date, description)
-   Payment paymentObj = new Payment(1,2,250,"lasvegas - boa",new DateTime(2013,2,2,2,2));
+   Payment paymentObj = new Payment();
     try {
         
         //Pass userId and friend Id

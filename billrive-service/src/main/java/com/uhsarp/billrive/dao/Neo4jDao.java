@@ -63,7 +63,7 @@ public class Neo4jDao  {
          Friend ken = new Friend(12, "ken", "dumbo", "ken@gmail.com", false);
          lsFriends.add(ken);
          //1, "LasVegas", "spring 2013", 2, lsFriends
-         Group g1 = new Group(1, null, null);
+         Group g1 = new Group();
          List<Group> rtnval = new ArrayList<Group>();
          rtnval.add(g1);
          return rtnval;

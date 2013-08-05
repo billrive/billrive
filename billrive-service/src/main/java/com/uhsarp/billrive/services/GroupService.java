@@ -5,6 +5,7 @@
 package com.uhsarp.billrive.services;
 
 
+import com.uhsarp.billrive.dao.GenericDao;
 import com.uhsarp.billrive.domain.Group;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +35,9 @@ public class GroupService {
     }
 
     public Group createGroup(int groupId, int userId) {
-        Group rtnval=genericDAO.createGroup( groupId, userId);
-        return rtnval;
+//        Group rtnval=genericDao.createGroup( groupId, userId);
+//        return rtnval;
+        return null;
     }
 
     public List<Group> getGroups(int userId) {
@@ -47,14 +49,16 @@ public class GroupService {
     public Group activateFriends(List<Integer> friendIds, int groupId)
     {
         Group groupObj = null;
-        groupObj=genericDAO.activateFriends(friendIds, groupId);
+        groupObj=null;//genericDAO.activateFriends(friendIds, groupId);
+//        groupObj=genericDAO.activateFriends(friendIds, groupId);
         return groupObj;
     }
  
     public Group deactivateFriends(List<Integer> friendIds, int groupId)
     {
         Group groupObj = null;
-        groupObj=genericDAO.deactivateFriends(friendIds, groupId);
+        groupObj=null;//genericDAO.deactivateFriends(friendIds, groupId);
+//        groupObj=genericDAO.deactivateFriends(friendIds, groupId);
         return groupObj;
     }
 

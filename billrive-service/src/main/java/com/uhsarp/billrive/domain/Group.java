@@ -4,8 +4,6 @@
  */
 package com.uhsarp.billrive.domain;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +14,7 @@ import javax.persistence.*;
  *
  * @author uhsarp
  */
-public class Group {
+
 @Entity
 @Table(name="groups")
 public class Group  implements GenericObject{

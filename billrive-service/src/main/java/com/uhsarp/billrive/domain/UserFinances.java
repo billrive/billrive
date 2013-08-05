@@ -8,7 +8,7 @@ package com.uhsarp.billrive.domain;
  *
  * @author uhsarp
  */
-public class UserFinances {
+
 public class UserFinances  implements GenericObject{
     
     

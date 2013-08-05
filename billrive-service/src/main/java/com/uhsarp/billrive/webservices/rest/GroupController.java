@@ -77,9 +77,9 @@ public class GroupController {
 	}
                 
                 
-        @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
-	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
-			HttpServletResponse httpResponse_p, WebRequest request_p) {
+//        @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
+//	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
+//			HttpServletResponse httpResponse_p, WebRequest request_p) {
                 
         @RequestMapping(value = { "/rest/{userId}/groups/" }, method = { RequestMethod.POST })
 	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
@@ -93,7 +93,7 @@ public class GroupController {
 		logger_c.debug("Creating Group: " + group_p.toString());
 
 		try {
-			createdGroup = groupService.createGroup(group_p);
+			createdGroup = groupService.createGroup(userId, userId);
 		} catch (Exception e) {
 			String sMessage = "Error creating new group. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
