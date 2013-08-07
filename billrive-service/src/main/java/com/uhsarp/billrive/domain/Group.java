@@ -50,7 +50,7 @@ public class Group  implements GenericObject{
     public Group(int idGroup, String title, String desc, int idOwner, List<Friend> lsMembers) {
         this.idGroup = idGroup;
         this.title = title;
-        this.desc = desc;
+//        this.desc = desc;
         this.idOwner = idOwner;
         this.lsMembers = lsMembers;
     }
@@ -96,14 +96,14 @@ public class Group  implements GenericObject{
 	public Set<Bill> getgBills() {
 		return gBills;
 	}
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+//
+//    public String getDesc() {
+//        return desc;
+//    }
+//
+//    public void setDesc(String desc) {
+//        this.desc = desc;
+//    }
 
     public int getIdOwner() {
         return idOwner;
@@ -112,8 +112,9 @@ public class Group  implements GenericObject{
     public void setIdOwner(int idOwner) {
         this.idOwner = idOwner;
     }
-    String desc;
+//    String desc;
     int idOwner;
+    @Transient
     List<Friend> lsMembers;
 
     public List<Friend> getLsMembers() {
