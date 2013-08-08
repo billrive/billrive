@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("friendService")
 public class FriendService {
-   @Resource(name= "genericDao")
+//   @Resource(name= "genericDao")
     GenericDao genericDao;
 
     public List<Friend> getFriends() {

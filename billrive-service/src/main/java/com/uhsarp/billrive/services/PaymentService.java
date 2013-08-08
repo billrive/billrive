@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("PaymentService")
 public class PaymentService {
-    @Resource(name= "neo4jDAO")
+//    @Resource(name= "neo4jDAO")
     GenericDao genericDAO;
     
         public Payment createPayment(int userId, Payment paymentObj)
