@@ -24,7 +24,7 @@ public class Bill implements GenericObject {
     private static final long serialVersionUID = -5660869020353250221L;
     private int id;
     private String title;//walmart
-    private DateTime date;
+    private DateTime billDate;
     private int billPayerId;
     private String notes;
 //    private Group groupBills;
@@ -39,7 +39,7 @@ public class Bill implements GenericObject {
 
     public Bill(String title, DateTime date, int billPayerId, String notes, BillFinances billFinances, int userId, int groupId) {
         this.title = title;
-        this.date = date;
+        this.billDate = date;
         this.billPayerId = billPayerId;
         this.notes = notes;
         this.billFinances = billFinances;
@@ -53,13 +53,13 @@ public class Bill implements GenericObject {
     
     
 
-//    public Bill(String title,int billPayerId, DateTime date, 
+//    public Bill(String title,int billPayerId, DateTime billDate, 
 //            String notes, Group group, User userBill,
 //            BillFinances billFinancesBills) {
 //        super();
 //        this.id = id;
 //        this.title = title;
-//        this.date = date;
+//        this.billDate = billDate;
 //        this.billPayerId = billPayerId;
 //        this.notes = notes;
 //        this.groupBills = group;
@@ -85,12 +85,12 @@ public class Bill implements GenericObject {
         this.title = title;
     }
 
-    public DateTime getDate() {
-        return date;
+    public DateTime getBillDate() {
+        return billDate;
     }
 
-    public void setDate(DateTime date) {
-        this.date = date;
+    public void setBillDate(DateTime billDate) {
+        this.billDate = billDate;
     }
 
     public int getBillPayerId() {
