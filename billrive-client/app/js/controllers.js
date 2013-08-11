@@ -72,36 +72,39 @@ billRive.controller('BillAddCtrl', function($scope, billService, $location) {
 billRive.controller('BillEditCtrl', function($scope, billService, $location, $routeParams) {
     $scope.bill = $scope.bills[$routeParams.id];
     console.log("in billedit ctrl");
-    $scope.edit = function() {
+    $scope.editBill = function() {
         $scope.bills[$routeParams.id] = $scope.bill;
         $scope.bill = [];
     };
 });
 
 billRive.controller('GroupAddCtrl', function($scope, billService, $location){
-    $scope.newGroup={id:'',users:[],name:''};
-    $scope.friends=billService.getFriends();
-    for (i = 0; i < $scope.friends.length; i++) {
-            $scope.friends[i].addToNewGroup = false;
+    $scope.tmpGroup = {id:'',users:[],name:''};
+    $scope.tmpFriends=billService.getFriends();
+    for (i = 0; i < $scope.tmpFriends.length; i++) {
+            $scope.tmpFriends[i].addToGroup = false;
                 
         }
 
 
     $scope.setNewGroupMembership=function(){
         
-        for (i = 0; i < $scope.friends.length; i++) {
-            if ($scope.friends[i].addToNewGroup === false)
+        for (i = 0; i < $scope.tmpFriends.length; i++) {
+            if ($scope.tmpFriends[i].addToGroup === false)
                 {
-                    if($scope.newGroup.users.indexOf($scope.friends[i].id) > -1)
+                    if($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id) > -1)
                         {
+                            $scope.tmpGroup.users.splice($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id),1);
                             //Delete the friend id from users array of newGroup
                         }
                    
                 }
              else
                  {
-                      if($scope.newGroup.users.indexOf($scope.friends[i].id) < -1)
+                      if($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id) <= -1)
                         {
+                           
+                            $scope.tmpGroup.users.push($scope.tmpFriends[i].id); 
                             
                                 //Add the friend id from users array of newGroup
                         }
@@ -111,15 +114,61 @@ billRive.controller('GroupAddCtrl', function($scope, billService, $location){
         }
     };
     
+      $scope.addGroup = function() {
+        $scope.groups.push(jQuery.extend(true, {}, $scope.tmpGroup));
+        $scope.tmpGroup = [];
+        $location.url('/');
+    };
+    
     
     
 });
 
 billRive.controller('GroupEditCtrl', function($scope, billService, $location, $routeParams) {
-    $scope.group = $scope.groups[$routeParams.id];
-    console.log("in groupedit ctrl");
-    $scope.edit = function() {
-        $scope.groups[$routeParams.id] = $scope.group;
-        $scope.group = [];
+    $scope.tmpFriends= billService.getFriends();
+    $scope.tmpGroup = $scope.groups[$routeParams.id];
+     
+    for (i = 0; i < $scope.tmpFriends.length; i++) {
+            $scope.tmpFriends[i].addToGroup = false;         
+        }
+    for (i = 0; i < $scope.tmpGroup.users.length; i++) {
+        indx =   $scope.tmpGroup.users[i]-1;
+        $scope.tmpFriends[indx].addToGroup = true;        
+    }
+    
+    
+    
+     $scope.setNewGroupMembership=function(){
+        
+        for (i = 0; i < $scope.tmpFriends.length; i++) {
+            if ($scope.tmpFriends[i].addToGroup === false)
+                {
+                    if($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id) > -1)
+                        {
+                            $scope.tmpGroup.users.splice($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id),1);
+                            //Delete the friend id from users array of newGroup
+                        }
+                   
+                }
+             else
+                 {
+                      if($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id) <= -1)
+                        {
+                           
+                            $scope.tmpGroup.users.push($scope.tmpFriends[i].id); 
+                            
+                                //Add the friend id from users array of newGroup
+                        }
+                       
+                 }
+        
+        }
     };
+    
+    console.log("in groupedit ctrl");
+    $scope.editGroup = function() {
+        $scope.groups[$routeParams.id] = $scope.tmpGroup;
+        $scope.tmpGroup = [];
+    };
+    
 });
