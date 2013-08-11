@@ -233,11 +233,11 @@ var userAndLiableCost=
 ];
 
 var friends= [
-{id:'1',groups:[1,2,5],name:'John Doe'},
-{id:'2',groups:[1,2,3,4,5],name:'Kris Stewart'},
-{id:'3',groups:[1,3,5],name:'Trevor Potts'},
-{id:'4',groups:[1],name:'Hilda Hess'},
-{id:'5',groups:[4,5],name:'Gavin Mays'}
+{id:1,groups:[1,2,5],name:'John Doe'},
+{id:2,groups:[1,2,3,4,5],name:'Kris Stewart'},
+{id:3,groups:[1,3,5],name:'Trevor Potts'},
+{id:4,groups:[1],name:'Hilda Hess'},
+{id:5,groups:[4,5],name:'Gavin Mays'}
 ];
 
 
