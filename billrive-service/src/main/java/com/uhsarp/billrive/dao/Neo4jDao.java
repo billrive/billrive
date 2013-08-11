@@ -45,12 +45,12 @@ public class Neo4jDao  {
          List<Bill> rtnval = new ArrayList<Bill>();
         if(1 == userId)
         {
-        Bill bill = new Bill("Walmart",new DateTime(2013,2,3,1,1) , 1, "Walmart at 11th and Bedords", billFinances, 1, 1);
+        Bill bill = new Bill("Walmart",new DateTime(2013,2,3,1,1) , 1L, "Walmart at 11th and Bedords", 1L, 1L);
                 rtnval.add(bill);
         }
         else if(2==userId)
         {
-        Bill bill1 = new Bill("Costco", new DateTime(2012,1,4,1,1), 2, "Lost bill", billFinances1, 2, 1);
+        Bill bill1 = new Bill("Costco", new DateTime(2012,1,4,1,1), 2L, "Lost bill", 2L, 1L);
                 rtnval.add(bill1);
         }
         return rtnval;

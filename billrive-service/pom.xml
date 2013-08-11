@@ -30,7 +30,7 @@
    		<slf4j>[1.7.5]</slf4j>
    		<cglib>[3.0]</cglib>
    		<javassist>[3.12.1.GA]</javassist>
-   		<hibernateCore>[4.3.0.Beta3]</hibernateCore>
+   		<hibernateCore>[4.2.3.Final]</hibernateCore>
     </properties>
     <build>
         <resources>
@@ -84,6 +84,16 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
@@ -121,6 +131,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+              <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.7.3</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -177,6 +192,35 @@
   		<groupId>org.hibernate</groupId>
   		<artifactId>hibernate-core</artifactId>
   		<version>${hibernateCore}</version>
-  	</dependency>     
+  	</dependency>    
+        <dependency>
+	<groupId>org.hibernate</groupId>
+	<artifactId>hibernate-entitymanager</artifactId>
+	<version>4.2.3.Final</version>
+</dependency>
+            
+            <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+<!--        <dependency>
+	<groupId>joda-time</groupId>
+	<artifactId>joda-time-hibernate</artifactId>
+	<version>1.3</version>
+</dependency>-->
+<dependency>
+	<groupId>org.jadira.usertype</groupId>
+	<artifactId>usertype.jodatime</artifactId>
+	<version>2.0.1</version>
+</dependency>
+            
+             
+<!--        <dependency>
+	<groupId>org.eclipse.persistence</groupId>
+	<artifactId>org.eclipse.persistence.jpa</artifactId>
+	<version>2.5.0</version>
+</dependency>-->
+            
     </dependencies>
 </project>

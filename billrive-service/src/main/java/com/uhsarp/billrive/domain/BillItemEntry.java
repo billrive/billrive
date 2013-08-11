@@ -21,6 +21,7 @@ public class BillItemEntry  implements GenericObject{
 	@Id
         @GeneratedValue(strategy=GenerationType.AUTO)
         private int id;
+        @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
     
         @Transient

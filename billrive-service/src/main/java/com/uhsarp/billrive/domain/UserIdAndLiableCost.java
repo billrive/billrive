@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class UserIdAndLiableCost  implements GenericObject {
     
     private  int userId;
-    private  int liableCost;
+    private  float liableCost;
     private int billItemEntryID;
 
     public UserIdAndLiableCost() {
@@ -42,7 +42,7 @@ public class UserIdAndLiableCost  implements GenericObject {
         this.userId = userId;
     }
 
-    public int getLiableCost() {
+    public float getLiableCost() {
         return liableCost;
     }
 

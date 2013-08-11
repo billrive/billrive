@@ -43,6 +43,7 @@ public class BillController {
         
     	@RequestMapping(value = "/rest/{userId}/bills", method = RequestMethod.GET)
 	public ModelAndView getBills(@PathVariable("userId") int userId) {
+            
 		List<Bill> bills = new ArrayList<Bill>();
                 logger_c.info("Value of userId is  "+userId);
 		

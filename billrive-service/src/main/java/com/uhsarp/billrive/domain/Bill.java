@@ -4,9 +4,9 @@
  */
 package com.uhsarp.billrive.domain;
 
-import java.io.Serializable;
 
 import javax.persistence.*;
+import org.hibernate.annotations.Type;
 
 import org.joda.time.DateTime;
 
@@ -22,27 +22,36 @@ public class Bill implements GenericObject {
      *
      */
     private static final long serialVersionUID = -5660869020353250221L;
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String title;//walmart
+    @Column
+//    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime billDate;
-    private int billPayerId;
+    private Long billPayerId;
     private String notes;
 //    private Group groupBills;
 //    private User userBill;
-    private BillFinances billFinances;
-    private int userId;
-    private int groupId;
+    
+//    @OneToOne(targetEntity = BillFinances.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "billFinanceId", referencedColumnName = "billPayerId")
+//    private BillFinances billFinances;
+    private Long userId;
+    private Long groupId;
 
     //Guess we dont need this after mapping oneTOmany
     public Bill() {
     }
 
-    public Bill(String title, DateTime date, int billPayerId, String notes, BillFinances billFinances, int userId, int groupId) {
+//    public Bill(String title, DateTime date, Long billPayerId, String notes, BillFinances billFinances, Long userId, Long groupId) {
+    public Bill(String title, DateTime date, Long billPayerId, String notes,  Long userId, Long groupId) {
         this.title = title;
         this.billDate = date;
         this.billPayerId = billPayerId;
         this.notes = notes;
-        this.billFinances = billFinances;
+        
         this.userId = userId;
         this.groupId = groupId;
     }
@@ -53,7 +62,7 @@ public class Bill implements GenericObject {
     
     
 
-//    public Bill(String title,int billPayerId, DateTime billDate, 
+//    public Bill(String title,Long billPayerId, DateTime billDate, 
 //            String notes, Group group, User userBill,
 //            BillFinances billFinancesBills) {
 //        super();
@@ -67,13 +76,11 @@ public class Bill implements GenericObject {
 //        this.billFinances = billFinancesBills;
 //    }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -93,11 +100,11 @@ public class Bill implements GenericObject {
         this.billDate = billDate;
     }
 
-    public int getBillPayerId() {
+    public Long getBillPayerId() {
         return billPayerId;
     }
 
-    public void setBillPayerId(int billPayerId) {
+    public void setBillPayerId(Long billPayerId) {
         this.billPayerId = billPayerId;
     }
 
@@ -109,19 +116,19 @@ public class Bill implements GenericObject {
         this.notes = notes;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public int getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(int groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
     
@@ -158,13 +165,12 @@ public class Bill implements GenericObject {
 
 //	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
 //	@JoinColumn(name="billFinance_id")
-    @OneToOne(targetEntity = BillFinances.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "billFinanceId", referencedColumnName = "billPayerId")
-    public BillFinances getBillFinances() {
-        return billFinances;
-    }
-
-    public void setBillFinances(BillFinances billFinances) {
-        this.billFinances = billFinances;
-    }
+   
+//    public BillFinances getBillFinances() {
+//        return billFinances;
+//    }
+//
+//    public void setBillFinances(BillFinances billFinances) {
+//        this.billFinances = billFinances;
+//    }
 }

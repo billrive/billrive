@@ -5,10 +5,12 @@
 package com.uhsarp.billrive.services;
 
 import com.uhsarp.billrive.dao.GenericDao;
+import com.uhsarp.billrive.dao.MySqlDao;
 import com.uhsarp.billrive.domain.Bill;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,8 +22,11 @@ public class BillService {
 
 //    @Resource(name="neo4jDao")
     GenericDao genericDao;
+    
+    @Autowired
+    MySqlDao mySqlDao;
     public List<Bill> getBills(int userId) {
-        
+        mySqlDao.saveBill();
         List<Bill> rtnval = new ArrayList<Bill>();
 //        rtnval=genericDAO.getBills(userId);
         return rtnval;
