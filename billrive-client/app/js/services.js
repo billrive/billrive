@@ -224,8 +224,6 @@ var billItemEntry=
 var userAndLiableCost=
 {userId:null,liableCost:null};
 
-
-
  var payers= [
 {id:'1',name:'John Doe'},
 {id:'2',name:'Kristen Stewart'},
