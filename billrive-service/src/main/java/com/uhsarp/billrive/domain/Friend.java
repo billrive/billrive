@@ -63,8 +63,5 @@ public class Friend  implements GenericObject{
     }
     boolean userActive;
 
-    public String getFriendId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

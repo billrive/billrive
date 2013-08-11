@@ -77,9 +77,17 @@ public class GroupController {
 	}
                 
                 
+        @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
+	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
+			HttpServletResponse httpResponse_p, WebRequest request_p) {
+                
         @RequestMapping(value = { "/rest/{userId}/groups/" }, method = { RequestMethod.POST })
 	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
+
+
+
+
 
 		Group createdGroup;
 		logger_c.debug("Creating Group: " + group_p.toString());
@@ -95,7 +103,21 @@ public class GroupController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
+		/* set location of created resource */
 //		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
+
+
+
+
+
+
+
+
+
+
+
+
 
 		/**
 		 * Return the view

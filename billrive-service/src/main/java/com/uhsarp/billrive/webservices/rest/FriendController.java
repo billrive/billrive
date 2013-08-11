@@ -95,7 +95,7 @@ public class FriendController {
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/friends/" + friend_p.getFriendId());
+		//httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/friends/" + friend_p.getFriendId());
 
 		/**
 		 * Return the view
