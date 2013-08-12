@@ -14,16 +14,16 @@ import javax.persistence.*;
 @Table(name="userIdAndLiableCost")
 public class UserIdAndLiableCost  implements GenericObject {
     
-    private  int userId;
+    private  Long userId;
     private  float liableCost;
-    private int billItemEntryID;
+    private Long billItemEntryID;
 
     public UserIdAndLiableCost() {
         
     }
   
 
-    public UserIdAndLiableCost(int userId, int liableCost, int billItemEntryID) {
+    public UserIdAndLiableCost(Long userId, Long liableCost, Long billItemEntryID) {
         this.userId = userId;
         this.liableCost = liableCost;
         this.billItemEntryID = billItemEntryID;
@@ -34,11 +34,11 @@ public class UserIdAndLiableCost  implements GenericObject {
 
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -46,7 +46,7 @@ public class UserIdAndLiableCost  implements GenericObject {
         return liableCost;
     }
 
-    public void setLiableCost(int liableCost) {
+    public void setLiableCost(Long liableCost) {
         this.liableCost = liableCost;
     }
     
@@ -63,11 +63,11 @@ public class UserIdAndLiableCost  implements GenericObject {
 //		this.billiteamEntryLiab = billiteamEntryLiab;
 //	}
 
-    public int getBillItemEntryID() {
+    public Long getBillItemEntryID() {
         return billItemEntryID;
     }
 
-    public void setBillItemEntryID(int billItemEntryID) {
+    public void setBillItemEntryID(Long billItemEntryID) {
         this.billItemEntryID = billItemEntryID;
     }
 
