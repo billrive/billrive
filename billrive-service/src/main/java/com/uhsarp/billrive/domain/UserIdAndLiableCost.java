@@ -14,6 +14,9 @@ import javax.persistence.*;
 @Table(name="userIdAndLiableCost")
 public class UserIdAndLiableCost  implements GenericObject {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private  Long userId;
     private  float liableCost;
     private Long billItemEntryID;
@@ -32,8 +35,7 @@ public class UserIdAndLiableCost  implements GenericObject {
 
     
 
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	
     public Long getUserId() {
         return userId;
     }

@@ -23,7 +23,7 @@ public class Bill implements GenericObject {
      */
     private static final long serialVersionUID = -5660869020353250221L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private Long id;
     private String title;//walmart
     @Column

@@ -4,11 +4,17 @@
  */
 package com.uhsarp.billrive.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author uhsarp
  */
 public class Friend  implements GenericObject{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
     int id;
     String firstName;
     String lastName;
