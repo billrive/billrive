@@ -40,8 +40,10 @@ public class MySqlDao  {
 
     // Create new todo
     em.getTransaction().begin();
-//  Bill bill = new Bill("Walmart", new DateTime(), 1, null, 1, 1);;
-//    em.persist(bill);
+  Bill bill = new Bill("Costco", new DateTime(), 2L, "Costo bill", 2L, 1L);
+//   Bill bill = todoList.get(0);
+//   bill.set
+    em.persist(bill);
     em.getTransaction().commit();
 
     em.close();

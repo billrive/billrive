@@ -20,13 +20,13 @@ public class BillItemEntry  implements GenericObject{
     
 	@Id
         @GeneratedValue(strategy=GenerationType.AUTO)
-        private int id;
+        private Long id;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
     
         @Transient
 	private Set<UserIdAndLiableCost> userIdAndLiableCost = new HashSet<UserIdAndLiableCost>();
-        private int billFinancesId;
+        
 //	private BillFinances iteamEntryBillFinances;
 	
 	//should be set not list 
@@ -36,10 +36,10 @@ public class BillItemEntry  implements GenericObject{
     	
     }
 
-    public BillItemEntry(int itemDescriptionId, String itemDescription,  Set<UserIdAndLiableCost> userIdAndLiableCost,int billFinancesId) {
+    public BillItemEntry(Long itemDescriptionId, String itemDescription,  Set<UserIdAndLiableCost> userIdAndLiableCost) {
         this.id = itemDescriptionId;
         this.itemDescription = itemDescription;
-        this.billFinancesId = billFinancesId;
+       
         this.userIdAndLiableCost = userIdAndLiableCost;
     }
 
@@ -47,11 +47,11 @@ public class BillItemEntry  implements GenericObject{
 
 
 	
-    public int getItemDescriptionId() {
+    public Long getItemDescriptionId() {
         return id;
     }
 
-    public void setItemDescriptionId(int itemDescriptionId) {
+    public void setItemDescriptionId(Long itemDescriptionId) {
         this.id = itemDescriptionId;
     }
 
@@ -63,14 +63,14 @@ public class BillItemEntry  implements GenericObject{
         this.itemDescription = itemDescription;
     }
 
-    public int getBillFinancesId() {
-        return billFinancesId;
-    }
-
-    public void setBillFinancesId(int billFinancesId) {
-        this.billFinancesId = billFinancesId;
-    }
-    
+//    public Long getBillFinancesId() {
+//        return billFinancesId;
+//    }
+//
+//    public void setBillFinancesId(Long billFinancesId) {
+//        this.billFinancesId = billFinancesId;
+//    }
+//    
     
 
 //    public ArrayList<UserIdAndLiableCost> getUserIdAndLiableCost() {

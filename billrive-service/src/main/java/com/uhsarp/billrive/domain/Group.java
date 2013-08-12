@@ -19,7 +19,7 @@ import javax.persistence.*;
 @Table(name="groups")
 public class Group  implements GenericObject{
     
-    int idGroup;
+    Long idGroup;
     String title;
 	/**
 	 * 
@@ -28,7 +28,7 @@ public class Group  implements GenericObject{
 	
         @Id
         @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String description;
 	@Transient
 	private Set<Bill> gBills = new HashSet<Bill>();
@@ -37,17 +37,17 @@ public class Group  implements GenericObject{
 		
 	}
 
-    public int getIdGroup() {
+    public Long getIdGroup() {
         return idGroup;
     }
-	public Group(int id, String description, Set<Bill> gBills) {
+	public Group(Long id, String description, Set<Bill> gBills) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.gBills = gBills;
 	}
 
-    public Group(int idGroup, String title, String desc, int idOwner, List<Friend> lsMembers) {
+    public Group(Long idGroup, String title, String desc, Long idOwner, List<Friend> lsMembers) {
         this.idGroup = idGroup;
         this.title = title;
 //        this.desc = desc;
@@ -65,17 +65,17 @@ public class Group  implements GenericObject{
 
 
 
-		public int getId() {
+		public Long getId() {
 		return id;
 	}
 
 
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-    public void setIdGroup(int idGroup) {
+    public void setIdGroup(Long idGroup) {
         this.idGroup = idGroup;
     }
 	public String getDescription() {
@@ -105,15 +105,15 @@ public class Group  implements GenericObject{
 //        this.desc = desc;
 //    }
 
-    public int getIdOwner() {
+    public Long getIdOwner() {
         return idOwner;
     }
 
-    public void setIdOwner(int idOwner) {
+    public void setIdOwner(Long idOwner) {
         this.idOwner = idOwner;
     }
 //    String desc;
-    int idOwner;
+    Long idOwner;
     @Transient
     List<Friend> lsMembers;
 

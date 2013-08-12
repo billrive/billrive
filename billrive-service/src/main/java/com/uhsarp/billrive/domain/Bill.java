@@ -38,6 +38,7 @@ public class Bill implements GenericObject {
 //    @OneToOne(targetEntity = BillFinances.class, cascade = CascadeType.ALL)
 //    @JoinColumn(name = "billFinanceId", referencedColumnName = "billPayerId")
 //    private BillFinances billFinances;
+    @Column(name="billCreaterId")
     private Long userId;
     private Long groupId;
 

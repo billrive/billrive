@@ -24,36 +24,37 @@ public class Neo4jDao  {
        
         
         
-        Set<UserIdAndLiableCost> userIdAndLiableCost =  new HashSet<UserIdAndLiableCost>();
-        Set<UserIdAndLiableCost> userIdAndLiableCost1 =  new HashSet<UserIdAndLiableCost>();
-        userIdAndLiableCost.add(new UserIdAndLiableCost( 2, 10,1));
-        userIdAndLiableCost.add(new UserIdAndLiableCost( 3, 20,1));
-        userIdAndLiableCost1.add(new UserIdAndLiableCost( 4, 50,1));
-        userIdAndLiableCost1.add(new UserIdAndLiableCost( 5, 40,1));
-        
-        BillItemEntry simpleBillItemEntry = new BillItemEntry(1, "simple", userIdAndLiableCost, 1);
-        BillItemEntry simpleBillItemEntry1 = new BillItemEntry(1, "simple", userIdAndLiableCost, 1);
-       Set<BillItemEntry> billItemEntry =  new HashSet<BillItemEntry>();
-        billItemEntry.add(new BillItemEntry(1, "Canola Oil", userIdAndLiableCost,1));
-        Set<BillItemEntry> billItemEntry1 =  new HashSet<BillItemEntry>();
-         billItemEntry1.add(new BillItemEntry(2,"Taco Bell",  userIdAndLiableCost1,1));
-        
-         BillFinances billFinances = new BillFinances(1, 30, simpleBillItemEntry, billItemEntry, 1);
-         BillFinances billFinances1 = new BillFinances(1, 30, simpleBillItemEntry1, billItemEntry1, 1);
-//        BillFinances billFinances1 = new BillFinances(2,90,billItemEntry1,1);
-//        billFinances1.setBillSimpleTotals(new BillItemEntry(1, "simple","simple", userIdAndLiableCost));
-         List<Bill> rtnval = new ArrayList<Bill>();
-        if(1 == userId)
-        {
-        Bill bill = new Bill("Walmart",new DateTime(2013,2,3,1,1) , 1L, "Walmart at 11th and Bedords", 1L, 1L);
-                rtnval.add(bill);
-        }
-        else if(2==userId)
-        {
-        Bill bill1 = new Bill("Costco", new DateTime(2012,1,4,1,1), 2L, "Lost bill", 2L, 1L);
-                rtnval.add(bill1);
-        }
-        return rtnval;
+//        Set<UserIdAndLiableCost> userIdAndLiableCost =  new HashSet<UserIdAndLiableCost>();
+//        Set<UserIdAndLiableCost> userIdAndLiableCost1 =  new HashSet<UserIdAndLiableCost>();
+//        userIdAndLiableCost.add(new UserIdAndLiableCost( 2, 10,1));
+//        userIdAndLiableCost.add(new UserIdAndLiableCost( 3, 20,1));
+//        userIdAndLiableCost1.add(new UserIdAndLiableCost( 4, 50,1));
+//        userIdAndLiableCost1.add(new UserIdAndLiableCost( 5, 40,1));
+//        
+//        BillItemEntry simpleBillItemEntry = new BillItemEntry(1, "simple", userIdAndLiableCost, 1);
+//        BillItemEntry simpleBillItemEntry1 = new BillItemEntry(1, "simple", userIdAndLiableCost, 1);
+//       Set<BillItemEntry> billItemEntry =  new HashSet<BillItemEntry>();
+//        billItemEntry.add(new BillItemEntry(1, "Canola Oil", userIdAndLiableCost,1));
+//        Set<BillItemEntry> billItemEntry1 =  new HashSet<BillItemEntry>();
+//         billItemEntry1.add(new BillItemEntry(2,"Taco Bell",  userIdAndLiableCost1,1));
+//        
+//         BillFinances billFinances = new BillFinances(1, 30, simpleBillItemEntry, billItemEntry, 1);
+//         BillFinances billFinances1 = new BillFinances(1, 30, simpleBillItemEntry1, billItemEntry1, 1);
+////        BillFinances billFinances1 = new BillFinances(2,90,billItemEntry1,1);
+////        billFinances1.setBillSimpleTotals(new BillItemEntry(1, "simple","simple", userIdAndLiableCost));
+//         List<Bill> rtnval = new ArrayList<Bill>();
+//        if(1 == userId)
+//        {
+//        Bill bill = new Bill("Walmart",new DateTime(2013,2,3,1,1) , 1L, "Walmart at 11th and Bedords", 1L, 1L);
+//                rtnval.add(bill);
+//        }
+//        else if(2==userId)
+//        {
+//        Bill bill1 = new Bill("Costco", new DateTime(2012,1,4,1,1), 2L, "Lost bill", 2L, 1L);
+//                rtnval.add(bill1);
+//        }
+//        return rtnval;
+        return null;
     }
     
      public List<Group> getGroups(int userId) {

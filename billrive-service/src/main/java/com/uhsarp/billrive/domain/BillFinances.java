@@ -15,8 +15,8 @@ import javax.persistence.*;
  *
  * @author uhsarp
  */
-@Entity
-@Table(name="billfinances")
+//@Entity
+//@Table(name="billfinances")
 public class BillFinances  implements GenericObject{
     
         @Id
