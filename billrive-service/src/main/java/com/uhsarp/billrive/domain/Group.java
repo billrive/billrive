@@ -4,9 +4,8 @@
  */
 package com.uhsarp.billrive.domain;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -30,13 +29,17 @@ public class Group implements GenericObject {
     @Column(columnDefinition = "TEXT")
     private String description;
     @Transient
-    private Set<Bill> gBills = new HashSet<Bill>();
+    private List<Bill> gBills = new ArrayList<Bill>();
+    
+    Long ownerId;
+    @Transient
+    List<Friend> lsMembers;
 
     public Group() {
     }
 
 
-    public Group(Long id, String description, Set<Bill> gBills) {
+    public Group(Long id, String description, List<Bill> gBills) {
         super();
         this.id = id;
         this.description = description;
@@ -78,7 +81,7 @@ public class Group implements GenericObject {
     }
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
 
-    public Set<Bill> getgBills() {
+    public List<Bill> getgBills() {
         return gBills;
     }
 //
@@ -98,9 +101,7 @@ public class Group implements GenericObject {
         this.ownerId = idOwner;
     }
 //    String desc;
-    Long ownerId;
-    @Transient
-    List<Friend> lsMembers;
+   
 
     public List<Friend> getLsMembers() {
         return lsMembers;
@@ -114,7 +115,7 @@ public class Group implements GenericObject {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setgBills(Set<Bill> gBills) {
+    public void setgBills(List<Bill> gBills) {
         this.gBills = gBills;
     }
 }

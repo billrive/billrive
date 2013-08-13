@@ -25,8 +25,8 @@ public class User  implements GenericObject{
     private String title;
     private String email;
     
-    private Set<Bill> userBills = new HashSet<Bill>();
-    private Set<BillFinances> userBillFinances = new HashSet<BillFinances>();
+    private List<Bill> userBills = new ArrayList<Bill>();
+    private List<BillFinances> userBillFinances = new ArrayList<BillFinances>();
     
 
     public User(){
@@ -34,7 +34,7 @@ public class User  implements GenericObject{
     }
     
 	public User(int id, String fName, String lName, String mName, String title,
-			String email, Set<Bill> userBills, Set<BillFinances> userBillFinances) {
+			String email, List<Bill> userBills, List<BillFinances> userBillFinances) {
 		super();
 		this.id = id;
 		this.fName = fName;
@@ -100,20 +100,20 @@ public class User  implements GenericObject{
     }
 
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="userBill")
-	public Set<Bill> getUserBills() {
+	public List<Bill> getUserBills() {
 		return userBills;
 	}
 
-	public void setUserBills(Set<Bill> userBills) {
+	public void setUserBills(List<Bill> userBills) {
 		this.userBills = userBills;
 	}
 
 //	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="billFinanceOfUser")
-	public Set<BillFinances> getUserBillFinances() {					 
+	public List<BillFinances> getUserBillFinances() {					 
 		return userBillFinances;
 	}
 
-	public void setUserBillFinances(Set<BillFinances> userBillFinances) {
+	public void setUserBillFinances(List<BillFinances> userBillFinances) {
 		this.userBillFinances = userBillFinances;
 	}
     

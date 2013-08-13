@@ -24,8 +24,8 @@ public class Neo4jDao  {
        
         
         
-//        Set<UserIdAndLiableCost> userIdAndLiableCost =  new HashSet<UserIdAndLiableCost>();
-//        Set<UserIdAndLiableCost> userIdAndLiableCost1 =  new HashSet<UserIdAndLiableCost>();
+//        List<UserIdAndLiableCost> userIdAndLiableCost =  ArrayList<UserIdAndLiableCost>();
+//        List<UserIdAndLiableCost> userIdAndLiableCost1 =  ArrayList<UserIdAndLiableCost>();
 //        userIdAndLiableCost.add(new UserIdAndLiableCost( 2, 10,1));
 //        userIdAndLiableCost.add(new UserIdAndLiableCost( 3, 20,1));
 //        userIdAndLiableCost1.add(new UserIdAndLiableCost( 4, 50,1));
@@ -33,9 +33,9 @@ public class Neo4jDao  {
 //        
 //        BillItemEntry simpleBillItemEntry = new BillItemEntry(1, "simple", userIdAndLiableCost, 1);
 //        BillItemEntry simpleBillItemEntry1 = new BillItemEntry(1, "simple", userIdAndLiableCost, 1);
-//       Set<BillItemEntry> billItemEntry =  new HashSet<BillItemEntry>();
+//       List<BillItemEntry> billItemEntry =  ArrayList<BillItemEntry>();
 //        billItemEntry.add(new BillItemEntry(1, "Canola Oil", userIdAndLiableCost,1));
-//        Set<BillItemEntry> billItemEntry1 =  new HashSet<BillItemEntry>();
+//        List<BillItemEntry> billItemEntry1 =  ArrayList<BillItemEntry>();
 //         billItemEntry1.add(new BillItemEntry(2,"Taco Bell",  userIdAndLiableCost1,1));
 //        
 //         BillFinances billFinances = new BillFinances(1, 30, simpleBillItemEntry, billItemEntry, 1);

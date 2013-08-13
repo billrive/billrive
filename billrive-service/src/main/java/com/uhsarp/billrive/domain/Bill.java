@@ -5,6 +5,8 @@
 package com.uhsarp.billrive.domain;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.Type;
 
@@ -41,7 +43,10 @@ public class Bill implements GenericObject {
     @Column(name="billCreaterId")
     private Long userId;
     private Long groupId;
-
+    @Transient
+    private BillItemEntry billSimpleEntry;
+    @Transient
+    private List<BillItemEntry> billItemEntry= new ArrayList();
     //Guess we dont need this after mapping oneTOmany
     public Bill() {
     }
@@ -132,46 +137,59 @@ public class Bill implements GenericObject {
     public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
+
+    //	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
+    //	@JoinColumn(name="group_id")
+    //	public Group getGroup() {
+    //		return group;
+    //	}
+    //
+    //	public void setGroup(Group group) {
+    //		this.group = group;
+    //	}
+    //    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
+    //    @JoinColumn(name = "group_id")
+    //    public Group getGroupBills() {
+    //        return groupBills;
+    //    }
+    //
+    //    public void setGroupBills(Group groupBills) {
+    //        this.groupBills = groupBills;
+    //    }
+    //
+    //    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
+    //    @JoinColumn(name = "user_id")
+    //    public User getuserBill() {
+    //        return userBill;
+    //    }
+    //
+    //    public void setuserBill(User userBill) {
+    //        this.userBill = userBill;
+    //    }
+    //	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
+    //	@JoinColumn(name="billFinance_id")
+    //    public BillFinances getBillFinances() {
+    //        return billFinances;
+    //    }
+    //
+    //    public void setBillFinances(BillFinances billFinances) {
+    //        this.billFinances = billFinances;
+    //    }
+    public BillItemEntry getBillSimpleEntry() {
+        return billSimpleEntry;
+    }
+
+    public void setBillSimpleEntry(BillItemEntry billSimpleEntry) {
+        this.billSimpleEntry = billSimpleEntry;
+    }
+
+    public List<BillItemEntry> getBillItemEntry() {
+        return billItemEntry;
+    }
+
+    public void setBillItemEntry(List<BillItemEntry> billItemEntry) {
+        this.billItemEntry = billItemEntry;
+    }
     
     
-
-//	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
-//	@JoinColumn(name="group_id")
-//	public Group getGroup() {
-//		return group;
-//	}
-//
-//	public void setGroup(Group group) {
-//		this.group = group;
-//	}
-//    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
-//    @JoinColumn(name = "group_id")
-//    public Group getGroupBills() {
-//        return groupBills;
-//    }
-//
-//    public void setGroupBills(Group groupBills) {
-//        this.groupBills = groupBills;
-//    }
-//
-//    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
-//    @JoinColumn(name = "user_id")
-//    public User getuserBill() {
-//        return userBill;
-//    }
-//
-//    public void setuserBill(User userBill) {
-//        this.userBill = userBill;
-//    }
-
-//	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
-//	@JoinColumn(name="billFinance_id")
-   
-//    public BillFinances getBillFinances() {
-//        return billFinances;
-//    }
-//
-//    public void setBillFinances(BillFinances billFinances) {
-//        this.billFinances = billFinances;
-//    }
 }

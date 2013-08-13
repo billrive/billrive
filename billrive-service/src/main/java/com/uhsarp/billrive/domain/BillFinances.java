@@ -23,10 +23,10 @@ public class BillFinances  implements GenericObject{
         @GeneratedValue(strategy=GenerationType.AUTO)
 	private int billPayerId;//2
 	@Transient
-	private Set<BillItemEntry> billIteamEntry = new HashSet<BillItemEntry>();
+	private List<BillItemEntry> billIteamEntry = new ArrayList<BillItemEntry>();
       
         private BillItemEntry simpleBillItemEntry;
-//	private Set<Bill> billFinanceBills = new HashSet<Bill>();
+//	private List<Bill> billFinanceBills = new ArrayList<Bill>();
 //    private User billFinanceOfUser;
 
 	
@@ -38,7 +38,7 @@ public class BillFinances  implements GenericObject{
     	
     }
 
-    public BillFinances(int billPayerId, int billTotal, BillItemEntry simpleBillItemEntry, Set<BillItemEntry> billIteamEntry, int billId) {
+    public BillFinances(int billPayerId, int billTotal, BillItemEntry simpleBillItemEntry, List<BillItemEntry> billIteamEntry, int billId) {
         this.simpleBillItemEntry = simpleBillItemEntry;
         this.billIteamEntry=billIteamEntry;
         this.billTotal = billTotal;
@@ -57,7 +57,7 @@ public class BillFinances  implements GenericObject{
     
 
 //	public BillFinances(int billPayerId, int billTotal, 
-//			Set<BillItemEntry> billIteamEntry, int billId) {
+//			List<BillItemEntry> billIteamEntry, int billId) {
 //		super();
 //		this.billPayerId = billPayerId;
 //		this.billIteamEntry = billIteamEntry;
@@ -86,20 +86,20 @@ public class BillFinances  implements GenericObject{
     }
 
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="iteamEntryBillFinances")
-	public Set<BillItemEntry> getBillIteamEntry() {
+	public List<BillItemEntry> getBillIteamEntry() {
 		return billIteamEntry;
 	}
 
-	public void setBillIteamEntry(Set<BillItemEntry> billIteamEntry) {
+	public void setBillIteamEntry(List<BillItemEntry> billIteamEntry) {
 		this.billIteamEntry = billIteamEntry;
 	}
 
     //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="billFinancesBills")
-    //	public Set<Bill> getBillFinanceBills() {
+    //	public List<Bill> getBillFinanceBills() {
     //		return billFinanceBills;
     //	}
     //
-    //	public void setBillFinanceBills(Set<Bill> billFinanceBills) {
+    //	public void setBillFinanceBills(List<Bill> billFinanceBills) {
     //		this.billFinanceBills = billFinanceBills;
     //	}
     //	@ManyToOne(fetch=FetchType.LAZY)		//BiDirectional Mapping

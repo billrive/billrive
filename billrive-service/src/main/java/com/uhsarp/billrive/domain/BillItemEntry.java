@@ -6,6 +6,7 @@ package com.uhsarp.billrive.domain;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -19,13 +20,13 @@ import javax.persistence.*;
 public class BillItemEntry  implements GenericObject{
     
 	@Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)  
+        @GeneratedValue(strategy = GenerationType.IDENTITY)  
         private Long id;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
     
         @Transient
-	private Set<UserIdAndLiableCost> userIdAndLiableCost = new HashSet<UserIdAndLiableCost>();
+	private List<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();
         
 //	private BillFinances iteamEntryBillFinances;
 	
@@ -36,7 +37,7 @@ public class BillItemEntry  implements GenericObject{
     	
     }
 
-    public BillItemEntry(Long itemDescriptionId, String itemDescription,  Set<UserIdAndLiableCost> userIdAndLiableCost) {
+    public BillItemEntry(Long itemDescriptionId, String itemDescription,  List<UserIdAndLiableCost> userIdAndLiableCost) {
         this.id = itemDescriptionId;
         this.itemDescription = itemDescription;
        
@@ -82,12 +83,12 @@ public class BillItemEntry  implements GenericObject{
 //    }
 //
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="billiteamEntryLiab")
-//	public Set<UserIdAndLiableCost> getIteamEntryUserIdAndLiableCost() {
+//	public List<UserIdAndLiableCost> getIteamEntryUserIdAndLiableCost() {
 //		return iteamEntryUserIdAndLiableCost;
 //	}
 //
 //	public void setIteamEntryUserIdAndLiableCost(
-//			Set<UserIdAndLiableCost> iteamEntryUserIdAndLiableCost) {
+//			List<UserIdAndLiableCost> iteamEntryUserIdAndLiableCost) {
 //		this.iteamEntryUserIdAndLiableCost = iteamEntryUserIdAndLiableCost;
 //	}
 
@@ -101,11 +102,11 @@ public class BillItemEntry  implements GenericObject{
 //		this.iteamEntryBillFinances = iteamEntryBillFinances;
 //	}
 
-    public Set<UserIdAndLiableCost> getUserIdAndLiableCost() {
+    public List<UserIdAndLiableCost> getUserIdAndLiableCost() {
         return userIdAndLiableCost;
     }
 
-    public void setUserIdAndLiableCost(Set<UserIdAndLiableCost> userIdAndLiableCost) {
+    public void setUserIdAndLiableCost(List<UserIdAndLiableCost> userIdAndLiableCost) {
         this.userIdAndLiableCost = userIdAndLiableCost;
     }
    
