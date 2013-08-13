@@ -9,7 +9,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
@@ -20,8 +19,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository("mySqlDao")
 public class MySqlDao  {
-     private static final String PERSISTENCE_UNIT_NAME = "billrive";
-     
+
   @Resource(name="entityManagerFactory")
   private  EntityManagerFactory factory;
 //    @Resource(name="sessionFactory")
@@ -43,7 +41,7 @@ public class MySqlDao  {
 
     // Create new todo
     em.getTransaction().begin();
-  Bill bill = new Bill("Costco", new DateTime(), 2L, "Costo bill", 2L, 1L);
+  Bill bill = new Bill("Costco", new DateTime(), 6L, "Costo bill", 6L, 3L);
 //   Bill bill = todoList.get(0);
 //   bill.set
     em.persist(bill);
