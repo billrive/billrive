@@ -6,6 +6,7 @@ package com.uhsarp.billrive.dao;
 
 import com.uhsarp.billrive.domain.Bill;
 import java.util.List;
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -20,7 +21,9 @@ import org.springframework.stereotype.Repository;
 @Repository("mySqlDao")
 public class MySqlDao  {
      private static final String PERSISTENCE_UNIT_NAME = "billrive";
-  private static EntityManagerFactory factory;
+     
+  @Resource(name="entityManagerFactory")
+  private  EntityManagerFactory factory;
 //    @Resource(name="sessionFactory")
 //    @Autowired
 //    @Qualifier("sessionFactory")
@@ -28,7 +31,7 @@ public class MySqlDao  {
     
     public void saveBill(){
         
-         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+//         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     EntityManager em = factory.createEntityManager();
     
     Query q = em.createQuery("select t from Bill t");

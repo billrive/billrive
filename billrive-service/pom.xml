@@ -21,7 +21,7 @@
         <log4j.version>1.2.16</log4j.version>
         <context.path>billrive-service</context.path>
         <jackson.mapper.version>1.9.12</jackson.mapper.version>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+        <netbeans.hint.deploy.server>JBoss4</netbeans.hint.deploy.server>
         <hibernateAPI>[1.0.0.Draft-16]</hibernateAPI>
       	<hibernateVersion>[3.1rc2]</hibernateVersion>      	
    		<mySQLconnector>[5.1.25]</mySQLconnector>

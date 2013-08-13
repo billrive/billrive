@@ -76,5 +76,10 @@
     -->
      <!--<import resource="spring-hibernate.xml"/>-->
   <!--<import resource="spring-jpa.xml"/>-->
+  
+  <bean id="entityManagerFactory" 
+class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
+<property name="persistenceUnitName" value="billrivePersistenceUnit"/> 
+</bean> 
     
 </beans>
