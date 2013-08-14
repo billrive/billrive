@@ -7,6 +7,8 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>java:/datasources/billRiveDS</jta-data-source>
     <class>com.uhsarp.billrive.domain.Bill</class>
+    <class>com.uhsarp.billrive.domain.BillItemEntry</class>
+    <class>com.uhsarp.billrive.domain.BillSimpleEntry</class>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="validate"/>
     </properties>

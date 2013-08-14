@@ -28,60 +28,33 @@ public class Bill implements GenericObject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private Long id;
     private String title;//walmart
-    @Column
-//    @Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime billDate;
     private Long billPayerId;
     private String notes;
-//    private Group groupBills;
-//    private User userBill;
-    
-//    @OneToOne(targetEntity = BillFinances.class, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "billFinanceId", referencedColumnName = "billPayerId")
-//    private BillFinances billFinances;
-    @Column(name="billCreaterId")
-    private Long userId;
+    private Long billCreaterId;
     private Long groupId;
-    @Transient
-    private BillItemEntry billSimpleEntry;
+   
+    @OneToOne(fetch=FetchType.EAGER,targetEntity = BillSimpleEntry.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "billId")
+    private BillSimpleEntry billSimpleEntry;
+   
     @Transient
     private List<BillItemEntry> billItemEntry= new ArrayList();
     //Guess we dont need this after mapping oneTOmany
     public Bill() {
     }
 
-//    public Bill(String title, DateTime date, Long billPayerId, String notes, BillFinances billFinances, Long userId, Long groupId) {
+//    public Bill(String title, DateTime date, Long billPayerId, String notes, BillFinances billFinances, Long billCreaterId, Long groupId) {
     public Bill(String title, DateTime date, Long billPayerId, String notes,  Long userId, Long groupId) {
         this.title = title;
         this.billDate = date;
         this.billPayerId = billPayerId;
         this.notes = notes;
         
-        this.userId = userId;
+        this.billCreaterId = userId;
         this.groupId = groupId;
     }
-
-    
-    
-
-    
-    
-
-//    public Bill(String title,Long billPayerId, DateTime billDate, 
-//            String notes, Group group, User userBill,
-//            BillFinances billFinancesBills) {
-//        super();
-//        this.id = id;
-//        this.title = title;
-//        this.billDate = billDate;
-//        this.billPayerId = billPayerId;
-//        this.notes = notes;
-//        this.groupBills = group;
-////        this.userBill = userBill;
-//        this.billFinances = billFinancesBills;
-//    }
-
     public Long getId() {
         return id;
     }
@@ -123,11 +96,11 @@ public class Bill implements GenericObject {
     }
 
     public Long getUserId() {
-        return userId;
+        return billCreaterId;
     }
 
     public void setUserId(Long userId) {
-        this.userId = userId;
+        this.billCreaterId = userId;
     }
 
     public Long getGroupId() {
@@ -175,11 +148,11 @@ public class Bill implements GenericObject {
     //    public void setBillFinances(BillFinances billFinances) {
     //        this.billFinances = billFinances;
     //    }
-    public BillItemEntry getBillSimpleEntry() {
+    public BillSimpleEntry getBillSimpleEntry() {
         return billSimpleEntry;
     }
 
-    public void setBillSimpleEntry(BillItemEntry billSimpleEntry) {
+    public void setBillSimpleEntry(BillSimpleEntry billSimpleEntry) {
         this.billSimpleEntry = billSimpleEntry;
     }
 

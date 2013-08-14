@@ -41,10 +41,10 @@ public class MySqlDao  {
 
     // Create new todo
     em.getTransaction().begin();
-  Bill bill = new Bill("Costco", new DateTime(), 6L, "Costo bill", 6L, 3L);
+//  Bill bill = new Bill("Costco", new DateTime(), 6L, "Costo bill", 6L, 3L);
 //   Bill bill = todoList.get(0);
 //   bill.set
-    em.persist(bill);
+//    em.persist(bill);
     em.getTransaction().commit();
 
     em.close();

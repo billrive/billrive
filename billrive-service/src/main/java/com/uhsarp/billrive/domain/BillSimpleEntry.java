@@ -14,8 +14,8 @@ import javax.persistence.*;
  * @author uhsarp
  */
 @Entity
-@Table(name="billitementry")
-public class BillItemEntry  implements GenericObject{
+@Table(name="billsimpleentry")
+public class BillSimpleEntry  implements GenericObject{
     
 	@Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)  
@@ -32,11 +32,11 @@ public class BillItemEntry  implements GenericObject{
 	//should be set not list 
 //	ArrayList<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();//2->3, 3->3, 4->3
 
-    public BillItemEntry(){
+    public BillSimpleEntry(){
     	
     }
 
-    public BillItemEntry(Long itemDescriptionId, String itemDescription,  List<UserIdAndLiableCost> userIdAndLiableCost) {
+    public BillSimpleEntry(Long itemDescriptionId, String itemDescription,  List<UserIdAndLiableCost> userIdAndLiableCost) {
         this.id = itemDescriptionId;
         this.itemDescription = itemDescription;
        
