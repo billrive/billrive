@@ -26,8 +26,8 @@ public class BillService {
     @Autowired
     MySqlDao mySqlDao;
     public List<Bill> getBills(int userId) {
-        mySqlDao.saveBill();
-        List<Bill> rtnval = new ArrayList<Bill>();
+//        mySqlDao.saveBill();
+        List<Bill> rtnval = mySqlDao.getBills();
 //        rtnval=genericDAO.getBills(userId);
         return rtnval;
     }

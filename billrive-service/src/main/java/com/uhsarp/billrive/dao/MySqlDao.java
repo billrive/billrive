@@ -26,6 +26,22 @@ public class MySqlDao  {
 //    @Autowired
 //    @Qualifier("sessionFactory")
 //    SessionFactory sessionFactory;
+  
+  public List<Bill> getBills(){
+     
+      EntityManager em = factory.createEntityManager();
+        try {
+             Query q = em.createQuery("select t from Bill t");
+             List<Bill> todoList = q.getResultList();
+             return q.getResultList();
+        }
+        finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+      
+  }
     
     public void saveBill(){
         
