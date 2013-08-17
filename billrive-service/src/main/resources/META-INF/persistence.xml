@@ -9,6 +9,7 @@
     <class>com.uhsarp.billrive.domain.Bill</class>
     <class>com.uhsarp.billrive.domain.BillItemEntry</class>
     <class>com.uhsarp.billrive.domain.BillSimpleEntry</class>
+    <class>com.uhsarp.billrive.domain.SimpleUserIdAndLiableCost</class>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="validate"/>
     </properties>

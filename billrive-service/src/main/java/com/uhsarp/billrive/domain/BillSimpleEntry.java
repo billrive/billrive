@@ -24,19 +24,21 @@ public class BillSimpleEntry  implements GenericObject{
 	private String itemDescription;//napkin
     
         private Long billId;
+//        @OneToMany(fetch=FetchType.EAGER,targetEntity = SimpleUserIdAndLiableCost.class, cascade = CascadeType.ALL,mappedBy="billSimpleEntryId")
+//        @JoinColumn(name = "id", referencedColumnName = "billSimpleEntryId")
         @Transient
-	private List<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();
+	private List<SimpleUserIdAndLiableCost> userIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();
         
 //	private BillFinances iteamEntryBillFinances;
 	
 	//should be set not list 
-//	ArrayList<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();//2->3, 3->3, 4->3
+//	ArrayList<SimpleUserIdAndLiableCost> userIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();//2->3, 3->3, 4->3
 
     public BillSimpleEntry(){
     	
     }
 
-    public BillSimpleEntry(Long itemDescriptionId, String itemDescription,  List<UserIdAndLiableCost> userIdAndLiableCost) {
+    public BillSimpleEntry(Long itemDescriptionId, String itemDescription,  List<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
         this.id = itemDescriptionId;
         this.itemDescription = itemDescription;
        
@@ -73,21 +75,21 @@ public class BillSimpleEntry  implements GenericObject{
 //    
     
 
-//    public ArrayList<UserIdAndLiableCost> getUserIdAndLiableCost() {
+//    public ArrayList<SimpleUserIdAndLiableCost> getUserIdAndLiableCost() {
 //        return userIdAndLiableCost;
 //    }
 //
-//    public void setUserIdAndLiableCost(ArrayList<UserIdAndLiableCost> userIdAndLiableCost) {
+//    public void setUserIdAndLiableCost(ArrayList<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
 //        this.userIdAndLiableCost = userIdAndLiableCost;
 //    }
 //
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="billiteamEntryLiab")
-//	public List<UserIdAndLiableCost> getIteamEntryUserIdAndLiableCost() {
+//	public List<SimpleUserIdAndLiableCost> getIteamEntryUserIdAndLiableCost() {
 //		return iteamEntryUserIdAndLiableCost;
 //	}
 //
 //	public void setIteamEntryUserIdAndLiableCost(
-//			List<UserIdAndLiableCost> iteamEntryUserIdAndLiableCost) {
+//			List<SimpleUserIdAndLiableCost> iteamEntryUserIdAndLiableCost) {
 //		this.iteamEntryUserIdAndLiableCost = iteamEntryUserIdAndLiableCost;
 //	}
 
@@ -101,11 +103,11 @@ public class BillSimpleEntry  implements GenericObject{
 //		this.iteamEntryBillFinances = iteamEntryBillFinances;
 //	}
 
-    public List<UserIdAndLiableCost> getUserIdAndLiableCost() {
+    public List<SimpleUserIdAndLiableCost> getUserIdAndLiableCost() {
         return userIdAndLiableCost;
     }
 
-    public void setUserIdAndLiableCost(List<UserIdAndLiableCost> userIdAndLiableCost) {
+    public void setUserIdAndLiableCost(List<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
         this.userIdAndLiableCost = userIdAndLiableCost;
     }
 

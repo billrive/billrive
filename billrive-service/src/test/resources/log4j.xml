@@ -31,6 +31,12 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	<logger name="log4j.category.org.hibernate">
+		<level value="ALL" />
+	</logger>
+	<logger name="javax.persistence">
+		<level value="ALL" />
+	</logger>
 
 	<!-- Root Logger -->
 	<root>

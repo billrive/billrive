@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
-import org.joda.time.DateTime;
 import org.springframework.stereotype.Repository;
 
 /**
