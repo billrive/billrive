@@ -36,6 +36,7 @@ CREATE TABLE `bill` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_bill_groups1_idx` (`groupId`),
   KEY `fk_bill_user1_idx` (`billPayerId`),
+  CONSTRAINT `fk_bill_billsimpleentry` FOREIGN KEY (`id`) REFERENCES `billsimpleentry` (`billId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_bill_groups` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_bill_user` FOREIGN KEY (`billPayerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
@@ -88,12 +89,10 @@ DROP TABLE IF EXISTS `billsimpleentry`;
 CREATE TABLE `billsimpleentry` (
   `itemTitle` varchar(200) DEFAULT NULL,
   `itemDescription` text,
-  `billId` bigint(20) DEFAULT NULL,
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
-  KEY `fk_bill_idx` (`billId`),
-  CONSTRAINT `fk_bill` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `billId` bigint(20) NOT NULL,
+  PRIMARY KEY (`billId`),
+  KEY `fk_bill_idx` (`billId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +101,7 @@ CREATE TABLE `billsimpleentry` (
 
 LOCK TABLES `billsimpleentry` WRITE;
 /*!40000 ALTER TABLE `billsimpleentry` DISABLE KEYS */;
-INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2,1),('simpe',NULL,4,2);
+INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4);
 /*!40000 ALTER TABLE `billsimpleentry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,9 +146,7 @@ CREATE TABLE `simpleuseridandliablecost` (
   `billSimpleEntryId` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `fk_simpleuseridandliablecost_billsimpleentry1_idx` (`billSimpleEntryId`),
   KEY `fk_simpleuseridandliablecost_user1_idx` (`userId`),
-  CONSTRAINT `fk_simpleuseridandliablecost_billsimpleentry` FOREIGN KEY (`billSimpleEntryId`) REFERENCES `billsimpleentry` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_simpleuseridandliablecost_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -291,4 +288,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-18  0:02:26
+-- Dump completed on 2013-08-18 16:15:29

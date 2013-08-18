@@ -4,9 +4,7 @@
  */
 package com.uhsarp.billrive.dao;
 
-import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.domain.GenericObject;
-import com.uhsarp.billrive.domain.Group;
 import java.util.List;
 
 /**

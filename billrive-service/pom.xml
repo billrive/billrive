@@ -9,6 +9,13 @@
     <packaging>war</packaging>
     <groupId>com.uhsarp.billrive</groupId>
     <version>1.0</version>
+    	<repositories>
+		<repository>
+			<id>oss.sonatype.org</id>
+			<name>OSS Sonatype Staging</name>
+			<url>https://oss.sonatype.org/content/groups/staging</url>
+		</repository>
+	</repositories>
     <properties>
         <releaseCandidate>1</releaseCandidate>
         <spring.version>3.1.1.RELEASE</spring.version>
@@ -23,14 +30,14 @@
         <jackson.mapper.version>1.9.12</jackson.mapper.version>
         <netbeans.hint.deploy.server>JBoss4</netbeans.hint.deploy.server>
         <hibernateAPI>[1.0.0.Draft-16]</hibernateAPI>
-      	<hibernateVersion>[3.1rc2]</hibernateVersion>      	
-   		<mySQLconnector>[5.1.25]</mySQLconnector>
-   		<jUnit>[4.11]</jUnit>
-   		<commonsCollections>[20040616]</commonsCollections>
-   		<slf4j>[1.7.5]</slf4j>
-   		<cglib>[3.0]</cglib>
-   		<javassist>[3.12.1.GA]</javassist>
-   		<hibernateCore>[4.2.3.Final]</hibernateCore>
+        <hibernateVersion>[3.1rc2]</hibernateVersion>      	
+        <mySQLconnector>[5.1.25]</mySQLconnector>
+        <jUnit>[4.11]</jUnit>
+        <commonsCollections>[20040616]</commonsCollections>
+        <slf4j>[1.7.5]</slf4j>
+        <cglib>[3.0]</cglib>
+        <javassist>[3.12.1.GA]</javassist>
+        <hibernateCore>[4.2.3.Final]</hibernateCore>
     </properties>
     <build>
         <resources>
@@ -51,6 +58,18 @@
         </plugins>
     </build>
     <dependencies>
+<!--        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.core</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.5.0</version>
+        </dependency>-->
+            
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -132,7 +151,7 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-              <dependency>
+        <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>1.7.3</version>
@@ -153,74 +172,75 @@
             <version>1.6</version>
         </dependency>
         
+                <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>${hibernateAPI}</version>
+        </dependency>
         <dependency>
-  		<groupId>org.hibernate.javax.persistence</groupId>
-  		<artifactId>hibernate-jpa-2.1-api</artifactId>
-  		<version>${hibernateAPI}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>mysql</groupId>
-  		<artifactId>mysql-connector-java</artifactId>
-  		<version>${mySQLconnector}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>${jUnit}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>commons-collections</groupId>
-  		<artifactId>commons-collections</artifactId>
-  		<version>${commonsCollections}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.slf4j</groupId>
-  		<artifactId>slf4j-api</artifactId>
-  		<version>${slf4j}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>cglib</groupId>
-  		<artifactId>cglib</artifactId>
-  		<version>${cglib}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>javassist</groupId>
-  		<artifactId>javassist</artifactId>
-  		<version>${javassist}</version>
-  	</dependency>
- 	<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-core</artifactId>
-  		<version>${hibernateCore}</version>
-  	</dependency>    
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mySQLconnector}</version>
+        </dependency>
         <dependency>
-	<groupId>org.hibernate</groupId>
-	<artifactId>hibernate-entitymanager</artifactId>
-	<version>4.2.3.Final</version>
-</dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${jUnit}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commonsCollections}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j}</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib}</version>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist}</version>
+        </dependency>
+         	<dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-core</artifactId>
+                        <version>${hibernateCore}</version>
+                </dependency>    
+                <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>4.2.3.Final</version>
+        </dependency>
             
-            <dependency>
+        <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>1.6.2</version>
         </dependency>
-<!--        <dependency>
-	<groupId>joda-time</groupId>
-	<artifactId>joda-time-hibernate</artifactId>
-	<version>1.3</version>
-</dependency>-->
-<dependency>
-	<groupId>org.jadira.usertype</groupId>
-	<artifactId>usertype.jodatime</artifactId>
-	<version>2.0.1</version>
-</dependency>
-            
+                <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time-hibernate</artifactId>
+                <version>1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jadira.usertype</groupId>
+            <artifactId>usertype.jodatime</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+           
+           
              
-<!--        <dependency>
-	<groupId>org.eclipse.persistence</groupId>
-	<artifactId>org.eclipse.persistence.jpa</artifactId>
-	<version>2.5.0</version>
-</dependency>-->
+        <!--        <dependency>
+                <groupId>org.eclipse.persistence</groupId>
+                <artifactId>org.eclipse.persistence.jpa</artifactId>
+                <version>2.5.0</version>
+        </dependency>-->
             
     </dependencies>
 </project>

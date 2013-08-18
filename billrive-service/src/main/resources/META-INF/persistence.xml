@@ -5,6 +5,7 @@
   <persistence-unit name="billrivePersistenceUnit" transaction-type="RESOURCE_LOCAL">
       
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
     <jta-data-source>java:/datasources/billRiveDS</jta-data-source>
     <class>com.uhsarp.billrive.domain.Bill</class>
     <class>com.uhsarp.billrive.domain.BillItemEntry</class>
@@ -12,6 +13,9 @@
     <class>com.uhsarp.billrive.domain.SimpleUserIdAndLiableCost</class>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="validate"/>
+<!--      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.cache.size.default" value="10000"/>
+      <property name="eclipselink.cache.type.default" value="Soft"/>-->
     </properties>
   </persistence-unit>
 </persistence>

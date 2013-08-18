@@ -18,8 +18,7 @@ import javax.persistence.*;
 public class BillSimpleEntry  implements GenericObject{
     
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
-        private Long id;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)  
         private Long billId;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
@@ -130,15 +129,4 @@ public class BillSimpleEntry  implements GenericObject{
     public void setBillId(Long billId) {
         this.billId = billId;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    
-    
 }

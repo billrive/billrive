@@ -42,7 +42,7 @@ public class MySqlDao  {
       
   }
     
-    public void saveBill(){
+    public void saveBill(Bill bill){
         
 //         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     EntityManager em = factory.createEntityManager();
