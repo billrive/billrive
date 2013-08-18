@@ -16,7 +16,8 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
     private  Long userId;
     private  float liableCost;
      @Id
-     @Column(name="billSimpleEntryId") 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+     private Long id;
     private Long billSimpleEntryId;
 
     public SimpleUserIdAndLiableCost() {
@@ -69,6 +70,22 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
 
     public void setBillItemEntryID(Long billItemEntryID) {
         this.billSimpleEntryId = billItemEntryID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getBillSimpleEntryId() {
+        return billSimpleEntryId;
+    }
+
+    public void setBillSimpleEntryId(Long billSimpleEntryId) {
+        this.billSimpleEntryId = billSimpleEntryId;
     }
 
  

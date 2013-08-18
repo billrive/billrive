@@ -18,7 +18,8 @@ import javax.persistence.*;
 public class BillSimpleEntry  implements GenericObject{
     
 	@Id
-         @Column(name="billId") 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+        private Long id;
         private Long billId;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
@@ -27,8 +28,7 @@ public class BillSimpleEntry  implements GenericObject{
 //        @OneToMany(fetch=FetchType.EAGER,targetEntity = SimpleUserIdAndLiableCost.class, cascade = CascadeType.ALL,mappedBy="billSimpleEntryId")
 //        @JoinColumn(name = "billId", referencedColumnName = "billSimpleEntryId")
 //        @Transient
-         @OneToMany(cascade=CascadeType.ALL,mappedBy="billSimpleEntryId",fetch = FetchType.EAGER)  
-        @PrimaryKeyJoinColumn 
+         @OneToMany(cascade=CascadeType.ALL,mappedBy="billSimpleEntryId",fetch = FetchType.EAGER)
 	private List<SimpleUserIdAndLiableCost> userIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();
         
 //	private BillFinances iteamEntryBillFinances;
@@ -113,22 +113,31 @@ public class BillSimpleEntry  implements GenericObject{
         this.userIdAndLiableCost = userIdAndLiableCost;
     }
 
-    public Long getId() {
+  
+
+    //    public Long getBillId() {
+    //        return billId;
+    //    }
+    //
+    //    public void setBillId(Long billId) {
+    //        this.billId = billId;
+    //    }
+    //   
+    public Long getBillId() {
         return billId;
     }
 
-    public void setId(Long id) {
-        this.billId = id;
+    public void setBillId(Long billId) {
+        this.billId = billId;
     }
 
-//    public Long getBillId() {
-//        return billId;
-//    }
-//
-//    public void setBillId(Long billId) {
-//        this.billId = billId;
-//    }
-//   
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     
     
     
