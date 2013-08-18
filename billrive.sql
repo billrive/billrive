@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `billrivedb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `billrivedb`;
--- MySQL dump 10.13  Distrib 5.6.11, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.12, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: billrivedb
 -- ------------------------------------------------------
--- Server version	5.6.11-ndb-7.3.2-cluster-gpl
+-- Server version	5.6.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,17 +27,17 @@ DROP TABLE IF EXISTS `bill`;
 CREATE TABLE `bill` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) DEFAULT NULL,
-  `billPayerId` bigint(20) NOT NULL,
+  `billPayerId` bigint(20) DEFAULT NULL,
   `notes` varchar(100) DEFAULT NULL,
-  `groupId` bigint(20) NOT NULL,
+  `groupId` bigint(20) DEFAULT NULL,
   `billCreaterId` bigint(20) DEFAULT NULL,
   `billDate` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`,`groupId`,`billPayerId`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_bill_groups1_idx` (`groupId`),
   KEY `fk_bill_user1_idx` (`billPayerId`),
-  CONSTRAINT `fk_bill_groups1` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_bill_user1` FOREIGN KEY (`billPayerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_bill_groups` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bill_user` FOREIGN KEY (`billPayerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -62,11 +62,11 @@ CREATE TABLE `billitementry` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `itemTitle` varchar(200) DEFAULT NULL,
   `itemDescription` text,
-  `billId` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`,`billId`),
+  `billId` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_billitementry_bill1_idx` (`billId`),
-  CONSTRAINT `fk_billitementry_bill1` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_billitementry_bill` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -87,15 +87,12 @@ DROP TABLE IF EXISTS `billsimpleentry`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `billsimpleentry` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `itemTitle` varchar(200) DEFAULT NULL,
   `itemDescription` text,
-  `billId` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`,`billId`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `fk_billsimpleentry_bill1_idx` (`billId`),
-  CONSTRAINT `fk_billsimpleentry_bill1` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `billId` bigint(20) DEFAULT NULL,
+  KEY `fk_bill_idx` (`billId`),
+  CONSTRAINT `fk_bill` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +101,7 @@ CREATE TABLE `billsimpleentry` (
 
 LOCK TABLES `billsimpleentry` WRITE;
 /*!40000 ALTER TABLE `billsimpleentry` DISABLE KEYS */;
-INSERT INTO `billsimpleentry` VALUES (1,'simple',NULL,2),(2,'simpe',NULL,4);
+INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4),('simple',NULL,NULL),('simple',NULL,NULL);
 /*!40000 ALTER TABLE `billsimpleentry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,17 +140,14 @@ DROP TABLE IF EXISTS `simpleuseridandliablecost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `simpleuseridandliablecost` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `userId` bigint(20) NOT NULL,
   `liableCost` float DEFAULT NULL,
   `billSimpleEntryId` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`,`userId`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
+  PRIMARY KEY (`userId`),
   KEY `fk_simpleuseridandliablecost_billsimpleentry1_idx` (`billSimpleEntryId`),
   KEY `fk_simpleuseridandliablecost_user1_idx` (`userId`),
-  CONSTRAINT `fk_simpleuseridandliablecost_billsimpleentry` FOREIGN KEY (`billSimpleEntryId`) REFERENCES `billsimpleentry` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_simpleuseridandliablecost_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +156,7 @@ CREATE TABLE `simpleuseridandliablecost` (
 
 LOCK TABLES `simpleuseridandliablecost` WRITE;
 /*!40000 ALTER TABLE `simpleuseridandliablecost` DISABLE KEYS */;
-INSERT INTO `simpleuseridandliablecost` VALUES (1,6,5,1),(2,7,5,1),(3,8,5,1);
+INSERT INTO `simpleuseridandliablecost` VALUES (6,5,1),(7,5,1),(8,5,1);
 /*!40000 ALTER TABLE `simpleuseridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -294,4 +288,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-17 14:53:10
+-- Dump completed on 2013-08-17 18:20:52
