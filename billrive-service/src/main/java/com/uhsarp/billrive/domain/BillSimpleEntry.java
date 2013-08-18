@@ -28,12 +28,12 @@ public class BillSimpleEntry  implements GenericObject{
 //        @JoinColumn(name = "billId", referencedColumnName = "billSimpleEntryId")
 //        @Transient
          @OneToMany(cascade=CascadeType.ALL,mappedBy="billSimpleEntryId",fetch = FetchType.EAGER)
-	private List<SimpleUserIdAndLiableCost> userIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();
+	private List<SimpleUserIdAndLiableCost> simpleUserIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();
         
 //	private BillFinances iteamEntryBillFinances;
 	
 	//should be set not list 
-//	ArrayList<SimpleUserIdAndLiableCost> userIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();//2->3, 3->3, 4->3
+//	ArrayList<SimpleUserIdAndLiableCost> simpleUserIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();//2->3, 3->3, 4->3
 
     public BillSimpleEntry(){
     	
@@ -43,7 +43,7 @@ public class BillSimpleEntry  implements GenericObject{
         this.billId = itemDescriptionId;
         this.itemDescription = itemDescription;
        
-        this.userIdAndLiableCost = userIdAndLiableCost;
+        this.simpleUserIdAndLiableCost = userIdAndLiableCost;
     }
 
  
@@ -77,11 +77,11 @@ public class BillSimpleEntry  implements GenericObject{
     
 
 //    public ArrayList<SimpleUserIdAndLiableCost> getUserIdAndLiableCost() {
-//        return userIdAndLiableCost;
+//        return simpleUserIdAndLiableCost;
 //    }
 //
-//    public void setUserIdAndLiableCost(ArrayList<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
-//        this.userIdAndLiableCost = userIdAndLiableCost;
+//    public void setUserIdAndLiableCost(ArrayList<SimpleUserIdAndLiableCost> simpleUserIdAndLiableCost) {
+//        this.simpleUserIdAndLiableCost = simpleUserIdAndLiableCost;
 //    }
 //
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="billiteamEntryLiab")
@@ -105,11 +105,11 @@ public class BillSimpleEntry  implements GenericObject{
 //	}
 
     public List<SimpleUserIdAndLiableCost> getUserIdAndLiableCost() {
-        return userIdAndLiableCost;
+        return simpleUserIdAndLiableCost;
     }
 
     public void setUserIdAndLiableCost(List<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
-        this.userIdAndLiableCost = userIdAndLiableCost;
+        this.simpleUserIdAndLiableCost = userIdAndLiableCost;
     }
 
   
