@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `billrivedb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `billrivedb`;
--- MySQL dump 10.13  Distrib 5.6.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.11, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: billrivedb
 -- ------------------------------------------------------
@@ -63,11 +63,12 @@ CREATE TABLE `billitementry` (
   `itemTitle` varchar(200) DEFAULT NULL,
   `itemDescription` text,
   `billId` bigint(20) DEFAULT NULL,
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_billitementry_bill1_idx` (`billId`),
   CONSTRAINT `fk_billitementry_bill` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,6 +77,7 @@ CREATE TABLE `billitementry` (
 
 LOCK TABLES `billitementry` WRITE;
 /*!40000 ALTER TABLE `billitementry` DISABLE KEYS */;
+INSERT INTO `billitementry` VALUES ('alchohol','beer',2,1),('fruits','watermelon',2,2),('cereals','honey oats',4,3),('icecream','vannila',4,4);
 /*!40000 ALTER TABLE `billitementry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,13 +263,14 @@ CREATE TABLE `useridandliablecost` (
   `userId` bigint(20) DEFAULT NULL,
   `liableCost` float DEFAULT NULL,
   `billItemEntryId` bigint(20) DEFAULT NULL,
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_useridandliablecost_billitementry1_idx` (`billItemEntryId`),
   KEY `fk_useridandliablecost_userId_idx` (`userId`),
-  CONSTRAINT `fk_useridandliablecost_billitementry` FOREIGN KEY (`billItemEntryId`) REFERENCES `billitementry` (`billId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_useridandliablecost_billitementry` FOREIGN KEY (`billItemEntryId`) REFERENCES `billitementry` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_useridandliablecost_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,6 +279,7 @@ CREATE TABLE `useridandliablecost` (
 
 LOCK TABLES `useridandliablecost` WRITE;
 /*!40000 ALTER TABLE `useridandliablecost` DISABLE KEYS */;
+INSERT INTO `useridandliablecost` VALUES (6,2,1,1),(7,2,1,2),(8,2,1,3),(6,3,2,4),(7,3,2,5),(8,3,2,6),(6,4,3,7),(7,4,3,8),(8,4,3,9);
 /*!40000 ALTER TABLE `useridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -288,4 +292,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-18 16:26:03
+-- Dump completed on 2013-08-18 19:52:03

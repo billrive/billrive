@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
@@ -24,8 +26,11 @@ public class BillItemEntry  implements GenericObject{
 	private String itemDescription;//napkin
     
         private Long billId;
-        @Transient
-	private List<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();
+        //@Transient
+	
+        @OneToMany(cascade=CascadeType.ALL,mappedBy="billItemEntryId")
+        @LazyCollection(LazyCollectionOption.FALSE)
+        private List<UserIdAndLiableCost> userIdAndLiableCost = new ArrayList<UserIdAndLiableCost>();
         
 //	private BillFinances iteamEntryBillFinances;
 	
@@ -124,6 +129,7 @@ public class BillItemEntry  implements GenericObject{
     public void setBillId(Long billId) {
         this.billId = billId;
     }
+    
    
     
     

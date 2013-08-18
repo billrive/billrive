@@ -8,6 +8,8 @@ package com.uhsarp.billrive.domain;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Type;
 
 import org.joda.time.DateTime;
@@ -40,8 +42,11 @@ public class Bill implements GenericObject {
     @PrimaryKeyJoinColumn
     private BillSimpleEntry billSimpleEntry;
    
-    @Transient
+    //@Transient
+    @OneToMany(cascade=CascadeType.ALL,mappedBy="billId")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<BillItemEntry> billItemEntry= new ArrayList();
+  
     //Guess we dont need this after mapping oneTOmany
     public Bill() {
     }
@@ -164,6 +169,15 @@ public class Bill implements GenericObject {
     public void setBillItemEntry(List<BillItemEntry> billItemEntry) {
         this.billItemEntry = billItemEntry;
     }
+
+    public Long getBillCreaterId() {
+        return billCreaterId;
+    }
+
+    public void setBillCreaterId(Long billCreaterId) {
+        this.billCreaterId = billCreaterId;
+    }
+    
     
     
 }

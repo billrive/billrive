@@ -11,6 +11,7 @@
     <class>com.uhsarp.billrive.domain.BillItemEntry</class>
     <class>com.uhsarp.billrive.domain.BillSimpleEntry</class>
     <class>com.uhsarp.billrive.domain.SimpleUserIdAndLiableCost</class>
+    <class>com.uhsarp.billrive.domain.UserIdAndLiableCost</class>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="validate"/>
 <!--      <property name="eclipselink.ddl-generation" value="create-tables"/>

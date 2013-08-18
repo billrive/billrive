@@ -19,7 +19,7 @@ public class UserIdAndLiableCost  implements GenericObject {
     private Long id;
     private  Long userId;
     private  float liableCost;
-    private Long billItemEntryID;
+    private Long billItemEntryId;
 
     public UserIdAndLiableCost() {
         
@@ -29,7 +29,7 @@ public class UserIdAndLiableCost  implements GenericObject {
     public UserIdAndLiableCost(Long userId, Long liableCost, Long billItemEntryID) {
         this.userId = userId;
         this.liableCost = liableCost;
-        this.billItemEntryID = billItemEntryID;
+        this.billItemEntryId = billItemEntryID;
     }
     
 
@@ -66,11 +66,11 @@ public class UserIdAndLiableCost  implements GenericObject {
 //	}
 
     public Long getBillItemEntryID() {
-        return billItemEntryID;
+        return billItemEntryId;
     }
 
     public void setBillItemEntryID(Long billItemEntryID) {
-        this.billItemEntryID = billItemEntryID;
+        this.billItemEntryId = billItemEntryID;
     }
 
  
