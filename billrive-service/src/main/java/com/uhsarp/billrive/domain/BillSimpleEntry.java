@@ -19,14 +19,16 @@ public class BillSimpleEntry  implements GenericObject{
     
 	@Id
          @Column(name="billId") 
-        private Long id;
+        private Long billId;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
     
 //        private Long billId;
 //        @OneToMany(fetch=FetchType.EAGER,targetEntity = SimpleUserIdAndLiableCost.class, cascade = CascadeType.ALL,mappedBy="billSimpleEntryId")
-//        @JoinColumn(name = "id", referencedColumnName = "billSimpleEntryId")
-        @Transient
+//        @JoinColumn(name = "billId", referencedColumnName = "billSimpleEntryId")
+//        @Transient
+         @OneToMany(cascade=CascadeType.ALL,mappedBy="billSimpleEntryId",fetch = FetchType.EAGER)  
+        @PrimaryKeyJoinColumn 
 	private List<SimpleUserIdAndLiableCost> userIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();
         
 //	private BillFinances iteamEntryBillFinances;
@@ -39,7 +41,7 @@ public class BillSimpleEntry  implements GenericObject{
     }
 
     public BillSimpleEntry(Long itemDescriptionId, String itemDescription,  List<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
-        this.id = itemDescriptionId;
+        this.billId = itemDescriptionId;
         this.itemDescription = itemDescription;
        
         this.userIdAndLiableCost = userIdAndLiableCost;
@@ -50,11 +52,11 @@ public class BillSimpleEntry  implements GenericObject{
 
 	
     public Long getItemDescriptionId() {
-        return id;
+        return billId;
     }
 
     public void setItemDescriptionId(Long itemDescriptionId) {
-        this.id = itemDescriptionId;
+        this.billId = itemDescriptionId;
     }
 
     public String getItemDescription() {
@@ -112,11 +114,11 @@ public class BillSimpleEntry  implements GenericObject{
     }
 
     public Long getId() {
-        return id;
+        return billId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.billId = id;
     }
 
 //    public Long getBillId() {

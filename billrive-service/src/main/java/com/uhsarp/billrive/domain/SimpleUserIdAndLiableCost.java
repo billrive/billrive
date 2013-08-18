@@ -10,15 +10,13 @@ import javax.persistence.*;
  *
  * @author uhsarp
  */
-//@Entity
-//@Table(name="simpleuseridandliablecost")
+@Entity
+@Table(name="simpleuseridandliablecost")
 public class SimpleUserIdAndLiableCost  implements GenericObject {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private  Long userId;
     private  float liableCost;
+     @Id
+     @Column(name="billSimpleEntryId") 
     private Long billSimpleEntryId;
 
     public SimpleUserIdAndLiableCost() {
