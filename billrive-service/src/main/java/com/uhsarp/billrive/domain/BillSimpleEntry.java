@@ -104,16 +104,6 @@ public class BillSimpleEntry  implements GenericObject{
 //		this.iteamEntryBillFinances = iteamEntryBillFinances;
 //	}
 
-    public List<SimpleUserIdAndLiableCost> getUserIdAndLiableCost() {
-        return simpleUserIdAndLiableCost;
-    }
-
-    public void setUserIdAndLiableCost(List<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
-        this.simpleUserIdAndLiableCost = userIdAndLiableCost;
-    }
-
-  
-
     //    public Long getBillId() {
     //        return billId;
     //    }
@@ -129,4 +119,14 @@ public class BillSimpleEntry  implements GenericObject{
     public void setBillId(Long billId) {
         this.billId = billId;
     }
+
+    public List<SimpleUserIdAndLiableCost> getSimpleUserIdAndLiableCost() {
+        return simpleUserIdAndLiableCost;
+    }
+
+    public void setSimpleUserIdAndLiableCost(List<SimpleUserIdAndLiableCost> simpleUserIdAndLiableCost) {
+        this.simpleUserIdAndLiableCost = simpleUserIdAndLiableCost;
+    }
+    
+    
 }
