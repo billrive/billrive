@@ -59,12 +59,10 @@ DROP TABLE IF EXISTS `billitementry`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `billitementry` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `itemTitle` varchar(200) DEFAULT NULL,
   `itemDescription` text,
-  `billId` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
+  `billId` bigint(20) NOT NULL,
+  PRIMARY KEY (`billId`),
   KEY `fk_billitementry_bill1_idx` (`billId`),
   CONSTRAINT `fk_billitementry_bill` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -257,15 +255,13 @@ DROP TABLE IF EXISTS `useridandliablecost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `useridandliablecost` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `userId` bigint(20) NOT NULL,
+  `userId` bigint(20) DEFAULT NULL,
   `liableCost` float DEFAULT NULL,
   `billItemEntryId` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`,`billItemEntryId`,`userId`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
+  PRIMARY KEY (`billItemEntryId`),
   KEY `fk_useridandliablecost_billitementry1_idx` (`billItemEntryId`),
   KEY `fk_useridandliablecost_userId_idx` (`userId`),
-  CONSTRAINT `fk_useridandliablecost_billitementry1` FOREIGN KEY (`billItemEntryId`) REFERENCES `billitementry` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_useridandliablecost_billitementry` FOREIGN KEY (`billItemEntryId`) REFERENCES `billitementry` (`billId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_useridandliablecost_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -288,4 +284,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-17 18:38:07
+-- Dump completed on 2013-08-17 23:01:47
