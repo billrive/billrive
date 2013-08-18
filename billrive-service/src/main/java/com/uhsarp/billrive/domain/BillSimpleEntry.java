@@ -18,12 +18,12 @@ import javax.persistence.*;
 public class BillSimpleEntry  implements GenericObject{
     
 	@Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)  
+         @Column(name="billId") 
         private Long id;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
     
-        private Long billId;
+//        private Long billId;
 //        @OneToMany(fetch=FetchType.EAGER,targetEntity = SimpleUserIdAndLiableCost.class, cascade = CascadeType.ALL,mappedBy="billSimpleEntryId")
 //        @JoinColumn(name = "id", referencedColumnName = "billSimpleEntryId")
         @Transient
@@ -119,14 +119,14 @@ public class BillSimpleEntry  implements GenericObject{
         this.id = id;
     }
 
-    public Long getBillId() {
-        return billId;
-    }
-
-    public void setBillId(Long billId) {
-        this.billId = billId;
-    }
-   
+//    public Long getBillId() {
+//        return billId;
+//    }
+//
+//    public void setBillId(Long billId) {
+//        this.billId = billId;
+//    }
+//   
     
     
     

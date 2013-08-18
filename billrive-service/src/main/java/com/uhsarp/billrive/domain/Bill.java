@@ -35,8 +35,8 @@ public class Bill implements GenericObject {
     private Long billCreaterId;
     private Long groupId;
    
-    @OneToOne(fetch=FetchType.EAGER,targetEntity = BillSimpleEntry.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "billId")
+    @OneToOne(cascade=CascadeType.ALL)  
+    @PrimaryKeyJoinColumn 
     private BillSimpleEntry billSimpleEntry;
    
     @Transient

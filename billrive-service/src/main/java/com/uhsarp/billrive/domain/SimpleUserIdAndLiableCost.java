@@ -10,8 +10,8 @@ import javax.persistence.*;
  *
  * @author uhsarp
  */
-@Entity
-@Table(name="simpleuseridandliablecost")
+//@Entity
+//@Table(name="simpleuseridandliablecost")
 public class SimpleUserIdAndLiableCost  implements GenericObject {
     
     @Id
