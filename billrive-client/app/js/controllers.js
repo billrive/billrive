@@ -3,10 +3,12 @@ billRive.controller('billController', function($scope, billService) {
     $scope.friends = billService.getFriends();
     $scope.groups = billService.getGroups();
     $scope.payers = billService.getPayers();
-    $scope.simpleUserCostMap = [];
+   
     $scope.bills = billService.getBills();
-    $scope.bill = [];
-    $scope.setBillGroup = function() {
+    $scope.bill = {};
+     $scope.bill.billSimpleEntry={};
+     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
+$scope.setBillGroup = function() {
         var $groupId = $scope.bill.groupId;
 
         var $groupMembers;
@@ -27,8 +29,8 @@ billRive.controller('billController', function($scope, billService) {
             }
             $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId, enabled: true});
         }
-//         $scope.simpleUserCostMap = $groupUserAndLiableCost;
-        $scope.simpleUserCostMap = $groupUserAndLiableCost;
+//         $scope.billSimpleEntry.simpleUserIdAndLiableCost = $groupUserAndLiableCost;
+        $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = $groupUserAndLiableCost;
         $groupUserAndLiableCost = [];
         $scope.simpleCalculatedTotal = 0;
 
@@ -37,18 +39,18 @@ billRive.controller('billController', function($scope, billService) {
     $scope.simpleCalculateSum = function() {
 
         $scope.simpleCalculatedTotal = 0;
-        for (i = 0; i < $scope.simpleUserCostMap.length; i++) {
-            if ($scope.simpleUserCostMap[i].liableCost != null)
-                $scope.simpleCalculatedTotal += parseInt($scope.simpleUserCostMap[i].liableCost);
+        for (i = 0; i < $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.length; i++) {
+            if ($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].liableCost != null)
+                $scope.simpleCalculatedTotal += parseInt($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].liableCost);
         }
 
 
     };
     $scope.simpleFriendEnabled = function() {
 
-        for (i = 0; i < $scope.simpleUserCostMap.length; i++) {
-            if ($scope.simpleUserCostMap[i].enabled === false)
-                $scope.simpleUserCostMap[i].liableCost = 0;
+        for (i = 0; i < $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.length; i++) {
+            if ($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].enabled === false)
+                $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].liableCost = 0;
         }
 
         $scope.simpleCalculateSum();
