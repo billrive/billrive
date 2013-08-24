@@ -184,36 +184,59 @@ var bills = [{
     ]
 ;
 //Bill Object Structure
-var bill={
+var billObj={
             "id": null,
             "title": "",
             "date": null,
             "billPayerId": null,
             "notes": "",
-            "billFinances": {
-                "billPayerId": null,
-                "billSimpleTotals": 
-                    {
-                        "itemDescriptionId": 1,
-                        "itemDescription": "Simple",
-                        "userIdAndLiableCost": []
-                    }
-                ,
-                 "billItemEntry":[],
-                "billTotal": null
-            },
-            "groupId": null
+            "groupId": null,
+            "billSimpleEntry": {
+        "billId": null,
+        "itemDescription": null,
+        "itemDescriptionId": null,
+        "simpleUserIdAndLiableCost": [
+            
+        ]        
+    },                     
+        "billItemEntry": [
+        ]   
         };
     
-//billFinances Object Structure  
-var billFinances={
+//billFinances Object Structure 
+
+var simpleUserIdAndLiableCostObj={
+                "userId": null,
+                "liableCost": null,
+                "id": null,
+                "billSimpleEntryId": null,
+                "billItemEntryID": null
+            };
+   
+var billItemEntryObj={
+                    "userId": null,
+                    "liableCost": null,
+                    "billItemEntryID": null
+                };
+                
+var billItemEntryObj={
+            "id": null,
+            "itemDescription": null,
+            "billId": null,
+            "itemDescriptionId": null,
+            "userIdAndLiableCost": [
+                
+            ]
+        };
+            
+var billFinancesObj={
                 "billPayerId": null,
-                "billItemEntry": billItemEntry,
+                "billItemEntry": billItemEntryObj,
                 "billTotal": null
             };
  
 //billItemEntry Object Structure
-var billItemEntry=
+var billItemEntryObj=
                     {
                         "itemDescriptionId": null,
                         "itemDescription": "",
@@ -268,11 +291,11 @@ var groupFriendRel=[{groupId:'1',friendId:'5'}];
  };
  
  
-  factory.getBill=function(){
-     return bill;
+  factory.getBillObj=function(){
+     return billObj;
  };
  
-  factory.getBillItemEntry=function(){
+  factory.billItemEntryObj=function(){
      return billItemEntry;
  };
  
@@ -290,7 +313,4 @@ var groupFriendRel=[{groupId:'1',friendId:'5'}];
 
 
 
-
-//$scope.bills= billService.getBills();
-//$scope.bills= [{"id":1,"title":"Walmart","date":{"year":2013,"dayOfMonth":3,"dayOfWeek":7,"era":1,"dayOfYear":34,"weekOfWeekyear":5,"minuteOfDay":61,"minuteOfHour":1,"monthOfYear":2,"millisOfSecond":0,"yearOfCentury":13,"secondOfDay":3660,"centuryOfEra":20,"millisOfDay":3660000,"secondOfMinute":0,"weekyear":2013,"hourOfDay":1,"yearOfEra":2013,"zone":{"uncachedZone":{"fixed":false,"cachable":true,"id":"America/Denver"},"fixed":false,"id":"America/Denver"},"millis":1359878460000,"chronology":{"zone":{"uncachedZone":{"fixed":false,"cachable":true,"id":"America/Denver"},"fixed":false,"id":"America/Denver"}},"beforeNow":true,"afterNow":false,"equalNow":false},"billPayerId":2,"notes":"Sample Notes","billFinances":{"billPayerId":1,"billItemEntry":[{"itemDescriptionId":1,"itemDescription":"Canola Oil","userIdAndLiableCost":[{"userId":2,"liableCost":10},{"userId":3,"liableCost":20}]},{"itemDescriptionId":2,"itemDescription":"Taco Bell","userIdAndLiableCost":[{"userId":4,"liableCost":50},{"userId":5,"liableCost":40}]}],"billTotal":30},"groupId":2},{"id":2,"title":"Costco","date":{"year":2014,"dayOfMonth":3,"dayOfWeek":1,"era":1,"dayOfYear":34,"weekOfWeekyear":6,"minuteOfDay":61,"minuteOfHour":1,"monthOfYear":2,"millisOfSecond":0,"yearOfCentury":14,"secondOfDay":3660,"centuryOfEra":20,"millisOfDay":3660000,"secondOfMinute":0,"weekyear":2014,"hourOfDay":1,"yearOfEra":2014,"zone":{"uncachedZone":{"fixed":false,"cachable":true,"id":"America/Denver"},"fixed":false,"id":"America/Denver"},"millis":1391414460000,"chronology":{"zone":{"uncachedZone":{"fixed":false,"cachable":true,"id":"America/Denver"},"fixed":false,"id":"America/Denver"}},"beforeNow":false,"afterNow":true,"equalNow":false},"billPayerId":2,"notes":"Second sample Notes","billFinances":{"billPayerId":2,"billItemEntry":[],"billTotal":90},"groupId":2},{"id":null,"title":"Farmers Market","date":"08/03/1986","billPayerId":"5","notes":"No Note","billFinances":{"billPayerId":null,"billSimpleTotals":{"itemDescriptionId":1,"itemDescription":"Simple","userIdAndLiableCost":[{"userId":2,"liableCost":"30","name":"Kris Stewart","enabled":true},{"userId":5,"liableCost":"30","name":"Gavin Mays","enabled":true}]},"billItemEntry":[],"billTotal":"60"},"groupId":"4"},{"id":null,"title":"Farmers Market","date":"08/03/1986","billPayerId":"5","notes":"No Note","billFinances":{"billPayerId":null,"billSimpleTotals":{"itemDescriptionId":1,"itemDescription":"Simple","userIdAndLiableCost":[{"userId":2,"liableCost":"30","name":"Kris Stewart","enabled":true},{"userId":5,"liableCost":"30","name":"Gavin Mays","enabled":true}]},"billItemEntry":[],"billTotal":"60"},"groupId":"4"}]
 ;

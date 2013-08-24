@@ -5,9 +5,9 @@ billRive.controller('billController', function($scope, billService) {
     $scope.payers = billService.getPayers();
    
     $scope.bills = billService.getBills();
-    $scope.bill = {};
-     $scope.bill.billSimpleEntry={};
-     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
+    $scope.bill = billService.getBillObj();
+//     $scope.bill.billSimpleEntry={};
+//     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
 $scope.setBillGroup = function() {
         var $groupId = $scope.bill.groupId;
 
