@@ -12,16 +12,6 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-    
-                      
-                
-<!--        <bean id="risAppointmentsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
-              lazy-init="true">
-            <property name="dataSource" >
-                <ref bean="billriveDS"></ref>
-            </property>
-        </bean>	-->
-        
     <!-- JPA Entity Manager Factory -->
     <bean id="entityManagerFactory" 
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"

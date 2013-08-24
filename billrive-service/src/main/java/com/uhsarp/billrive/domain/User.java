@@ -4,9 +4,7 @@
  */
 package com.uhsarp.billrive.domain;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -25,8 +23,7 @@ public class User  implements GenericObject{
     private String title;
     private String email;
     
-    private List<Bill> userBills = new ArrayList<Bill>();
-    private List<BillFinances> userBillFinances = new ArrayList<BillFinances>();
+    private List<Bill> bills = new ArrayList<Bill>();
     
 
     public User(){
@@ -34,7 +31,7 @@ public class User  implements GenericObject{
     }
     
 	public User(int id, String fName, String lName, String mName, String title,
-			String email, List<Bill> userBills, List<BillFinances> userBillFinances) {
+			String email, List<Bill> userBills ) {
 		super();
 		this.id = id;
 		this.fName = fName;
@@ -42,8 +39,8 @@ public class User  implements GenericObject{
 		this.mName = mName;
 		this.title = title;
 		this.email = email;
-		this.userBills = userBills;
-		this.userBillFinances = userBillFinances;
+		this.bills = userBills;
+		
 	}
 
 
@@ -99,27 +96,12 @@ public class User  implements GenericObject{
         this.email = email;
     }
 
-//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="userBill")
 	public List<Bill> getUserBills() {
-		return userBills;
+		return bills;
 	}
 
 	public void setUserBills(List<Bill> userBills) {
-		this.userBills = userBills;
+		this.bills = userBills;
 	}
-
-//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="billFinanceOfUser")
-	public List<BillFinances> getUserBillFinances() {					 
-		return userBillFinances;
-	}
-
-	public void setUserBillFinances(List<BillFinances> userBillFinances) {
-		this.userBillFinances = userBillFinances;
-	}
-    
-            
-    
-    
-    
-    
+  
 }

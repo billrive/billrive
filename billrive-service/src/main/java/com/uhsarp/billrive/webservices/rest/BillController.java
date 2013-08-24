@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -62,7 +65,9 @@ public class BillController {
 //        bills.add(bill);
 //        bills.add(bill1);
         
-        
+        DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZ");
+        DateTime testDate=bills.get(0).getBillDate();
+logger_c.info(formatter.print(testDate));
                 logger_c.info("Value of Bills ArrayList is  ");
 
 		logger_c.debug("Returing Bills: " + bills.toString());
