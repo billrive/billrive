@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Prashanth
  */
-public interface GenericDao<T extends GenericObject> {
+public interface GenericDao<T> {
 
     public T get(Long id);
 
@@ -24,5 +24,4 @@ public interface GenericDao<T extends GenericObject> {
     public void indexEntity(T object);
 
     public void indexAllItems();
-
 }

@@ -4,6 +4,7 @@
  */
 package com.uhsarp.billrive.services;
 
+import com.uhsarp.billrive.dao.BillDao;
 import com.uhsarp.billrive.dao.GenericDao;
 import com.uhsarp.billrive.dao.MySqlDao;
 import com.uhsarp.billrive.domain.Bill;
@@ -20,20 +21,28 @@ import org.springframework.stereotype.Service;
 @Service("billService")
 public class BillService {
 
-//    @Resource(name="neo4jDao")
+    @Resource(name="genericDao")
     GenericDao genericDao;
+    
+    @Resource(name="billDao")
+    BillDao billDao;
     
     @Autowired
     MySqlDao mySqlDao;
     public List<Bill> getBills(int userId) {
 //        mySqlDao.saveBill();
-        List<Bill> rtnval = mySqlDao.getBills();
+        //List<Bill> rtnval = mySqlDao.getBills();
 //        rtnval=genericDAO.getBills(userId);
-        return rtnval;
+        //test
+        List<Bill> bills = new ArrayList<Bill>();
+        bills.add(billDao.getBill(2l));
+        bills.add(billDao.getBill(4l));
+        
+        return bills;
     }
 
-    public Bill getBillById(String billId_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Bill getBillById(Long id) {
+        return (Bill) genericDao.get(id);
     }
 
     public Bill createBill(Bill bill_p) {

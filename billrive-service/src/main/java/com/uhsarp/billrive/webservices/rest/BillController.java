@@ -71,14 +71,14 @@ public class BillController {
         
         
         	@RequestMapping(value = "/rest/{userId}/bills/{billId}", method = RequestMethod.GET)
-	public ModelAndView getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId) {
+	public ModelAndView getBill(@PathVariable("billId") Long billId_p,@PathVariable("userId") int userId) {
 		Bill bill = null;
 
 		
-		if (isEmpty(billId_p) || billId_p.length() < 5) {
-			String sMessage = "Error invoking getBill - Invalid bill Id parameter";
-			return createErrorResponse(sMessage);
-		}
+//		if (isEmpty(billId_p) || billId_p.length() < 5) {
+//			String sMessage = "Error invoking getBill - Invalid bill Id parameter";
+//			return createErrorResponse(sMessage);
+//		}
 
 		try {
 			bill = billService.getBillById(billId_p);
