@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author Sravan
  */
-@Repository("oracleDao")
+//@Repository("oracleDao")
 public class OracleDao{
 
     public List<Bill> getBills(int userId) {

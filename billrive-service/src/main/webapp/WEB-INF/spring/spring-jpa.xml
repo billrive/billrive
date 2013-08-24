@@ -13,9 +13,18 @@
                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <!-- JPA Entity Manager Factory -->
-    <bean id="entityManagerFactory" 
+<!--    <bean id="entityManagerFactory" 
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:dataSource-ref="billriveDS"/>
+          p:dataSource-ref="billriveDS"/>-->
+          
+          <bean id="entityManagerFactory" 
+class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
+<property name="persistenceUnitName" value="billrivePersistenceUnit"/> 
+</bean> 
+
+    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 

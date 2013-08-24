@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author uhsarp
  */
-@Repository("mySqlDao")
+//@Repository("mySqlDao")
 public class MySqlDao  {
 
   @Resource(name="entityManagerFactory")

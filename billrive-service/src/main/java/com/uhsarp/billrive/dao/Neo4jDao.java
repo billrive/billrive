@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author uhsarp
  */
-@Repository("neo4jDao")
+//@Repository("neo4jDao")
 public class Neo4jDao  {
 
     public List<Bill> getBills(int userId) {

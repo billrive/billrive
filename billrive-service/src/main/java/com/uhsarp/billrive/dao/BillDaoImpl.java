@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author andromeda
  */
-@Repository("billDao")
+//@Repository("billDao")
 public class BillDaoImpl extends GenericDaoImpl<Bill> implements BillDao{
 
     public Bill getBill(Long id) {

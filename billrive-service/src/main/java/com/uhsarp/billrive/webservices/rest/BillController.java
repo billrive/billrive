@@ -9,10 +9,11 @@ import com.uhsarp.billrive.services.BillService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -41,11 +42,12 @@ public class BillController {
         
         private static final String DATA_FIELD = "data";
 	private static final String ERROR_FIELD = "error";
-        private static final Logger logger_c = Logger.getLogger(BillController.class);
+//        private static final Logger logger_c = Logger.getLogger(BillController.class);
+        private static final Logger logger_c = LoggerFactory.getLogger(BillController.class);
         
         
     	@RequestMapping(value = "/rest/{userId}/bills", method = RequestMethod.GET)
-	public ModelAndView getBills(@PathVariable("userId") int userId) {
+	public ModelAndView getBills(@PathVariable("userId") Long userId) {
             
 		List<Bill> bills = new ArrayList<Bill>();
                 logger_c.info("Value of userId is  "+userId);

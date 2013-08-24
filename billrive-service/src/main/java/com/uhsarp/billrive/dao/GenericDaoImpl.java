@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  *
  * @author andromeda
  */
-@Component("genericDao")
+//@Component("genericDao")
 public  class GenericDaoImpl<T> implements GenericDao<T>{
     
     @PersistenceContext

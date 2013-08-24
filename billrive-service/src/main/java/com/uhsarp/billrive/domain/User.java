@@ -24,6 +24,8 @@ public class User  implements GenericObject{
     private String email;
     
     private List<Bill> bills = new ArrayList<Bill>();
+    private List<Group> groups = new ArrayList<Group>();
+    private List<Friend> friends = new ArrayList<Friend>();
     
 
     public User(){

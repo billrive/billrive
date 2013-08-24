@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Group implements GenericObject {
 
    
-    String title;
+   
     /**
      *
      */
@@ -26,14 +26,16 @@ public class Group implements GenericObject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private Long id;
+    String title;
     @Column(columnDefinition = "TEXT")
     private String description;
-    @Transient
-    private List<Bill> gBills = new ArrayList<Bill>();
+ 
     
     Long ownerId;
     @Transient
-    List<Friend> lsMembers;
+    private List<Bill> gBills = new ArrayList<Bill>();
+    @Transient
+    List<Friend> members;
 
     public Group() {
     }
@@ -51,7 +53,7 @@ public class Group implements GenericObject {
         this.title = title;
 //        this.desc = desc;
         this.ownerId = idOwner;
-        this.lsMembers = lsMembers;
+        this.members = lsMembers;
     }
 
     public Long getId() {
@@ -104,11 +106,11 @@ public class Group implements GenericObject {
    
 
     public List<Friend> getLsMembers() {
-        return lsMembers;
+        return members;
     }
 
     public void setLsMembers(List<Friend> lsMembers) {
-        this.lsMembers = lsMembers;
+        this.members = lsMembers;
     }
 
     public String getGroupId() {
