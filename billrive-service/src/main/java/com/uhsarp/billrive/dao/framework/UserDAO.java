@@ -12,5 +12,5 @@ import com.uhsarp.billrive.domain.User;
  * @author uhsarp
  */
 public interface UserDAO extends GenericDAO<User,Long> {
-    
+     public User findUserByUserId(Long userId);
 }

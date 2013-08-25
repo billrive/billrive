@@ -11,11 +11,14 @@ import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.UserDAO;
 import com.uhsarp.billrive.domain.User;
 import java.util.List;
+import javax.persistence.Query;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author uhsarp
  */
+@Repository("userDAO")
 public class UserDAOImpl  extends JpaConfig implements UserDAO{
 
     public User find(Long id) {
@@ -110,6 +113,16 @@ public class UserDAOImpl  extends JpaConfig implements UserDAO{
 
     public Filter getFilterFromExample(User t, ExampleOptions eo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public User findUserByUserId(Long userId) {
+      
+        
+          Query q =  this.getEntityManager().createQuery("select u from User u  WHERE u.id="+userId);    
+      
+      User user = (User) q.getSingleResult();
+        return user;
+        
     }
 
   

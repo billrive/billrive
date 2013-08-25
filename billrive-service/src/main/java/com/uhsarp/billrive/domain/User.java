@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
@@ -15,24 +17,29 @@ import javax.persistence.*;
 @Entity
 @Table(name="\"user\"")
 public class User  implements GenericObject{
-    
-    private int id;
+     @Id
+     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
     private String fName;
     private String lName;
     private String mName;
     private String title;
     private String email;
-    
+    @Transient
     private List<Bill> bills = new ArrayList<Bill>();
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name = "usergroupmap", 
+            joinColumns = { @JoinColumn(name = "user_id")}, 
+            inverseJoinColumns={@JoinColumn(name="groups_id")}) 
     private List<Group> groups = new ArrayList<Group>();
+    @Transient
     private List<Friend> friends = new ArrayList<Friend>();
-    
-
+ 
     public User(){
     	
     }
     
-	public User(int id, String fName, String lName, String mName, String title,
+	public User(Long id, String fName, String lName, String mName, String title,
 			String email, List<Bill> userBills ) {
 		super();
 		this.id = id;
@@ -45,19 +52,42 @@ public class User  implements GenericObject{
 		
 	}
 
-
-
-
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    public List<Bill> getBills() {
+        return bills;
+    }
+
+    public void setBills(List<Bill> bills) {
+        this.bills = bills;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
+    public List<Friend> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<Friend> friends) {
+        this.friends = friends;
+    }
+
+
+
+
+	
     public String getfName() {
         return fName;
     }
@@ -98,6 +128,8 @@ public class User  implements GenericObject{
         this.email = email;
     }
 
+//    @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId")
+//    @LazyCollection(LazyCollectionOption.FALSE)
 	public List<Bill> getUserBills() {
 		return bills;
 	}

@@ -11,6 +11,7 @@ import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.domain.Group;
 import java.util.List;
+import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -30,6 +31,7 @@ public class GroupDAOImpl extends JpaConfig implements GroupDAO{
      * @param id
      * @return
      */
+   
     public Long findGroupId(Long userId) {
       
         List<Long> groupIds= (List<Long>) this.getEntityManager().createNativeQuery("SELECT groups_id FROM billrivedb.usergroupmap where id="+userId).getResultList();
@@ -123,6 +125,13 @@ public class GroupDAOImpl extends JpaConfig implements GroupDAO{
 
     public Filter getFilterFromExample(Group t, ExampleOptions eo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Group findGroupByGroupId(Long groupId) {
+      Query q =  this.getEntityManager().createQuery("select g from Group g  WHERE g.id="+groupId);    
+      
+      Group group = (Group) q.getSingleResult();
+        return group;
     }
     
 }

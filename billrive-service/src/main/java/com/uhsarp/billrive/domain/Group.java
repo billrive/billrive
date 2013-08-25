@@ -8,13 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
  * @author uhsarp
  */
 @Entity
-@Table(name = "groups")
+@Table(name = "\"groups\"")
 public class Group implements GenericObject {
 
    
@@ -32,10 +34,15 @@ public class Group implements GenericObject {
  
     
     Long ownerId;
-    @Transient
+    @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Bill> gBills = new ArrayList<Bill>();
-    @Transient
-    List<Friend> members;
+    @ManyToMany(
+        cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+        mappedBy = "groups",
+        targetEntity = User.class
+    )
+    List<User> users;
 
     public Group() {
     }
@@ -48,12 +55,12 @@ public class Group implements GenericObject {
         this.gBills = gBills;
     }
 
-    public Group( String title, String desc, Long idOwner, List<Friend> lsMembers) {
+    public Group( String title, String desc, Long idOwner, List<User> lsMembers) {
         
         this.title = title;
 //        this.desc = desc;
         this.ownerId = idOwner;
-        this.members = lsMembers;
+        this.users = lsMembers;
     }
 
     public Long getId() {
@@ -105,13 +112,6 @@ public class Group implements GenericObject {
 //    String desc;
    
 
-    public List<Friend> getLsMembers() {
-        return members;
-    }
-
-    public void setLsMembers(List<Friend> lsMembers) {
-        this.members = lsMembers;
-    }
 
     public String getGroupId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -120,4 +120,23 @@ public class Group implements GenericObject {
     public void setgBills(List<Bill> gBills) {
         this.gBills = gBills;
     }
+
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+    
+    
+    
 }

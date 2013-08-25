@@ -6,6 +6,7 @@ package com.uhsarp.billrive.dao.framework;
 
 import com.googlecode.genericdao.dao.jpa.GenericDAO;
 import com.uhsarp.billrive.domain.Group;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,7 @@ import com.uhsarp.billrive.domain.Group;
  */
 public interface GroupDAO extends GenericDAO<Group,Long>{
       Long findGroupId(Long userId);
-}
+     Group findGroupByGroupId(Long groupId);
+        
+    }
+
