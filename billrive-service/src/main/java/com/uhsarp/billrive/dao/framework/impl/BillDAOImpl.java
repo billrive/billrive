@@ -12,11 +12,14 @@ import com.uhsarp.billrive.dao.framework.BillDAO;
 import com.uhsarp.billrive.dao.framework.FriendDAO;
 import com.uhsarp.billrive.domain.Bill;
 import java.util.List;
+import javax.persistence.Query;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author uhsarp
  */
+@Repository("billDAO")
 public class BillDAOImpl extends JpaConfig  implements BillDAO{
 
     public Bill find(Long id) {
@@ -109,6 +112,14 @@ public class BillDAOImpl extends JpaConfig  implements BillDAO{
 
     public Filter getFilterFromExample(Bill t, ExampleOptions eo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Bill> getBillsByGroupId(Long groupId) {
+       return this.getEntityManager().createQuery("select t from Bill t WHERE t.groupId = :groupId")
+                .setParameter("groupId", groupId)
+                .getResultList();
+          
+        
     }
     
 }

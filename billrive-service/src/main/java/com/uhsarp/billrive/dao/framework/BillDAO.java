@@ -6,11 +6,12 @@ package com.uhsarp.billrive.dao.framework;
 
 import com.googlecode.genericdao.dao.jpa.GenericDAO;
 import com.uhsarp.billrive.domain.Bill;
+import java.util.List;
 
 /**
  *
  * @author uhsarp
  */
 public interface BillDAO extends GenericDAO<Bill,Long> {
-    
+    List<Bill> getBillsByGroupId(Long groupId);
 }

@@ -6,7 +6,10 @@
       
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
-    <jta-data-source>java:/datasources/billRiveDS</jta-data-source>
+    <!--<jta-data-source>jdbc/billRiveDS</jta-data-source>-->
+    
+    
+    <!--<jta-data-source>java:/datasources/billRiveDS</jta-data-source>-->
     <class>com.uhsarp.billrive.domain.Bill</class>
     <class>com.uhsarp.billrive.domain.BillItemEntry</class>
     <class>com.uhsarp.billrive.domain.BillSimpleEntry</class>
@@ -17,6 +20,11 @@
 <!--      <property name="eclipselink.ddl-generation" value="create-tables"/>
       <property name="eclipselink.cache.size.default" value="10000"/>
       <property name="eclipselink.cache.type.default" value="Soft"/>-->
+      
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/billrivedb"/>
+            <property name="javax.persistence.jdbc.user" value="billrive_user"/>
+            <property name="javax.persistence.jdbc.password" value="gertqV32DF"/>
     </properties>
   </persistence-unit>
 </persistence>

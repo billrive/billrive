@@ -7,6 +7,7 @@ package com.uhsarp.billrive.services.impl;
 import com.uhsarp.billrive.dao.BillDao;
 import com.uhsarp.billrive.dao.GenericDao;
 import com.uhsarp.billrive.dao.MySqlDao;
+import com.uhsarp.billrive.dao.framework.BillDAO;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.services.BillService;
@@ -27,8 +28,10 @@ public class BillServiceImpl implements BillService {
     GenericDao genericDao;
     
 //    @Resource(name="billDao")
-    BillDao billDao;
+//    BillDao billDao;
     
+    @Resource(name="billDAO")
+    BillDAO billDAO;
     
     @Resource(name="groupDAO")
     GroupDAO groupDAO;
@@ -42,9 +45,10 @@ public class BillServiceImpl implements BillService {
         //test
         
         groupDAO.findGroupId(userId);
-        List<Bill> bills = new ArrayList<Bill>();
-        bills.add(billDao.getBill(2l));
-        bills.add(billDao.getBill(4l));
+       List<Bill> bills = billDAO.getBillsByGroupId(userId);
+//        List<Bill> bills = new ArrayList<Bill>();
+//        bills.add(billDao.getBill(2l));
+//        bills.add(billDao.getBill(4l));
         
         return bills;
     }
