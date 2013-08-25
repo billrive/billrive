@@ -8,72 +8,59 @@ import com.googlecode.genericdao.search.ExampleOptions;
 import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.ISearch;
 import com.googlecode.genericdao.search.SearchResult;
-import com.uhsarp.billrive.dao.framework.GroupDAO;
-import com.uhsarp.billrive.domain.Group;
+import com.uhsarp.billrive.dao.framework.UserDAO;
+import com.uhsarp.billrive.domain.User;
 import java.util.List;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author uhsarp
  */
-@Repository("groupDAO")
-public class GroupDAOImpl extends JpaConfig implements GroupDAO{
+public class UserDAOImpl  extends JpaConfig implements UserDAO{
 
-    public Group find(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User find(Long id) {
+     User user = (User) this.getEntityManager().createQuery("select u from User u  WHERE u.id="+id);
         
-    }
-    
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public Long findGroupId(Long userId) {
-      
-        List<Long> groupIds= (List<Long>) this.getEntityManager().createNativeQuery("SELECT groups_id FROM billrivedb.usergroupmap where id="+userId).getResultList();
-        Long groupId = groupIds.get(0).longValue();
-        return  groupId;
+        return user;
     }
 
-    public Group[] find(Long... ids) {
+    public User[] find(Long... ids) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group getReference(Long id) {
+    public User getReference(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group[] getReferences(Long... ids) {
+    public User[] getReferences(Long... ids) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void persist(Group... ts) {
+    public void persist(User... ts) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group merge(Group t) {
+    public User merge(User t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group[] merge(Group... ts) {
+    public User[] merge(User... ts) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group save(Group t) {
+    public User save(User t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group[] save(Group... ts) {
+    public User[] save(User... ts) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public boolean remove(Group t) {
+    public boolean remove(User t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void remove(Group... ts) {
+    public void remove(User... ts) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -85,7 +72,7 @@ public class GroupDAOImpl extends JpaConfig implements GroupDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public List<Group> findAll() {
+    public List<User> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -105,11 +92,11 @@ public class GroupDAOImpl extends JpaConfig implements GroupDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public boolean isAttached(Group t) {
+    public boolean isAttached(User t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void refresh(Group... ts) {
+    public void refresh(User... ts) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -117,12 +104,13 @@ public class GroupDAOImpl extends JpaConfig implements GroupDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Filter getFilterFromExample(Group t) {
+    public Filter getFilterFromExample(User t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Filter getFilterFromExample(Group t, ExampleOptions eo) {
+    public Filter getFilterFromExample(User t, ExampleOptions eo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+  
 }

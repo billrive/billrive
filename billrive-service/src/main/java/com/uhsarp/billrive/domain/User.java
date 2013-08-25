@@ -12,8 +12,8 @@ import javax.persistence.*;
  *
  * @author uhsarp
  */
-//@Entity
-//@Table(name="user")
+@Entity
+@Table(name="\"user\"")
 public class User  implements GenericObject{
     
     private int id;

@@ -4,17 +4,14 @@
  */
 package com.uhsarp.billrive.services.impl;
 
-import com.uhsarp.billrive.dao.BillDao;
 import com.uhsarp.billrive.dao.GenericDao;
 import com.uhsarp.billrive.dao.MySqlDao;
 import com.uhsarp.billrive.dao.framework.BillDAO;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.services.BillService;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**

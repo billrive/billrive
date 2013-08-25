@@ -57,8 +57,10 @@ public class BillController {
 			bills = billService.getBills(userId);
 //                        logger_c.info("Value of Bills ArrayList after service call is  "+bills.getFirst().toString());
 		} catch (Exception e) {
+                       e.printStackTrace();
 			String sMessage = "Error getting all bills. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+			return createErrorResponse(String.format(sMessage, e.toString()));                  
+                     
 		}
               
 //        Bill bill = new Bill((long)1,"Walmart", new DateTime(2013,2,3,1,1), userId, "Sample Notes", null, userId);
