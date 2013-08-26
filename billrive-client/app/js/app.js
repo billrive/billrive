@@ -1,3 +1,3 @@
 'use strict';
 
-var billRive = angular.module('billRive',[]);
+var billRive = angular.module('billRive',['ngRoute']);

@@ -9,8 +9,14 @@
                     <span  class="done-{{!user.enabled}}"> {{user.name}}</span>
                 </div>
                 <div class="span3">
+                     <!--{{billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error}}-->
+                     <!--<span ng-show="billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error.float">-->
+            This is not a valid float number!</span>
                     <!-- ng-required='user.enabled' -->
-                    <input  ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" />
+                    <input name="xcvxcvxcvxcvxcvxcv" ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" smart-float required/>
+                    
+                     
+                 
                 </div>  
             </div>  
         </li>

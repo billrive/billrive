@@ -41,7 +41,7 @@ $scope.setBillGroup = function() {
         $scope.simpleCalculatedTotal = 0;
         for (i = 0; i < $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.length; i++) {
             if ($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].liableCost != null)
-                $scope.simpleCalculatedTotal += parseInt($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].liableCost);
+                $scope.simpleCalculatedTotal += parseFloat($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].liableCost);
         }
 
 
@@ -67,6 +67,7 @@ billRive.controller('BillAddCtrl', function($scope, billService, $location) {
 
     $scope.addBill = function() {
         $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
+//        billService.addBill(bill);
         $scope.bill = [];
         $location.url('/');
     };

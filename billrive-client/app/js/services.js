@@ -274,6 +274,7 @@ var groups= [
 
 var groupFriendRel=[{groupId:'1',friendId:'5'}];
 
+
  factory.getBills=function(){
      return bills;
  };
