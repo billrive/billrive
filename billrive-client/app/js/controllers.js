@@ -68,7 +68,8 @@ billRive.controller('BillAddCtrl', function($scope, billService, $location) {
     $scope.addBill = function() {
         $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
 //        billService.addBill(bill);
-        $scope.bill = [];
+//billService.addBill(bill);
+        $scope.bill = billService.getBillObj();
         $location.url('/');
     };
 });
