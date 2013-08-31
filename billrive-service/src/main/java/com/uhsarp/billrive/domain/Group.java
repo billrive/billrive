@@ -38,14 +38,12 @@ public class Group implements GenericObject {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Bill> gBills = new ArrayList<Bill>();
     
-//    @ManyToMany(
-//        cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-//        mappedBy = "groups",
-//        targetEntity = User.class
-//    )
-//    @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    List<User> users;
+@ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
+    @JoinTable(name = "usergroupmap", 
+            joinColumns = { @JoinColumn(name = "groups_id")}, 
+            inverseJoinColumns={@JoinColumn(name="user_id")})
+    @LazyCollection(LazyCollectionOption.FALSE)
+    List<Friend> users;
 
     public Group() {
     }
@@ -58,7 +56,7 @@ public class Group implements GenericObject {
         this.gBills = gBills;
     }
 
-    public Group( String title, String desc, Long idOwner, List<User> lsMembers) {
+    public Group( String title, String desc, Long idOwner, List<Friend> lsMembers) {
         
         this.title = title;
 //        this.desc = desc;
@@ -132,11 +130,11 @@ public class Group implements GenericObject {
         this.ownerId = ownerId;
     }
 
-    public List<User> getUsers() {
+    public List<Friend> getFriends() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setFriends(List<Friend> users) {
         this.users = users;
     }
     

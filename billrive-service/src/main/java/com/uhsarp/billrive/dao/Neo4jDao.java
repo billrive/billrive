@@ -59,10 +59,10 @@ public class Neo4jDao  {
     
      public List<Group> getGroups(int userId) {
          List<Friend> lsFriends = new ArrayList<Friend>();
-         Friend sam = new Friend(10, "sam", "jumbo","sam@gmail.com", true );
-         lsFriends.add(sam);
-         Friend ken = new Friend(12, "ken", "dumbo", "ken@gmail.com", false);
-         lsFriends.add(ken);
+//         Friend sam = new Friend(10, "sam", "jumbo","sam@gmail.com", true );
+//         lsFriends.add(sam);
+//         Friend ken = new Friend(12, "ken", "dumbo", "ken@gmail.com", false);
+//         lsFriends.add(ken);
          //1, "LasVegas", "spring 2013", 2, lsFriends
          Group g1 = new Group();
          List<Group> rtnval = new ArrayList<Group>();

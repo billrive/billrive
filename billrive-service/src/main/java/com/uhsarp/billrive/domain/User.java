@@ -16,9 +16,9 @@ import org.hibernate.annotations.LazyCollectionOption;
  */
 @Entity
 @Table(name="\"user\"")
-public class User  implements GenericObject{
-     @Id
-     @GeneratedValue(strategy=GenerationType.IDENTITY)
+public class User  implements GenericObject {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String fName;
     private String lName;
@@ -27,18 +27,19 @@ public class User  implements GenericObject{
     private String email;
     @Transient
     private List<Bill> bills = new ArrayList<Bill>();
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "usergroupmap", 
             joinColumns = { @JoinColumn(name = "user_id")}, 
             inverseJoinColumns={@JoinColumn(name="groups_id")}) 
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Group> groups = new ArrayList<Group>();
     
-    @ManyToMany(cascade = CascadeType.ALL,targetEntity = User.class)
+    @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
     @JoinTable(name = "userfriendmap", 
             joinColumns = { @JoinColumn(name = "user_id")}, 
             inverseJoinColumns={@JoinColumn(name="friend_id")})
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<User> friends = new ArrayList<User>();
+    private List<Friend> friends = new ArrayList<Friend>();
  
     public User(){
     	
@@ -108,11 +109,11 @@ public class User  implements GenericObject{
         this.groups = groups;
     }
 
-    public List<User> getFriends() {
+    public List<Friend> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<User> friends) {
+    public void setFriends(List<Friend> friends) {
         this.friends = friends;
     }
 	
