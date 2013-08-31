@@ -36,7 +36,7 @@ public class Group implements GenericObject {
     Long ownerId;
     @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId")
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Bill> gBills = new ArrayList<Bill>();
+    private List<Bill> bills = new ArrayList<Bill>();
     
 @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
     @JoinTable(name = "usergroupmap", 
@@ -53,7 +53,7 @@ public class Group implements GenericObject {
         super();
         this.id = id;
         this.description = description;
-        this.gBills = gBills;
+        this.bills = gBills;
     }
 
     public Group( String title, String desc, Long idOwner, List<Friend> lsMembers) {
@@ -92,7 +92,7 @@ public class Group implements GenericObject {
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
 
     public List<Bill> getgBills() {
-        return gBills;
+        return bills;
     }
 //
 //    public String getDesc() {
@@ -119,7 +119,7 @@ public class Group implements GenericObject {
     }
 
     public void setgBills(List<Bill> gBills) {
-        this.gBills = gBills;
+        this.bills = gBills;
     }
 
     public Long getOwnerId() {
