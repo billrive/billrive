@@ -43,19 +43,6 @@ public class User  implements GenericObject{
     public User(){
     	
     }
-    
-	public User(Long id, String fName, String lName, String mName, String title,
-			String email, List<Bill> userBills ) {
-		super();
-		this.id = id;
-		this.fName = fName;
-		this.lName = lName;
-		this.mName = mName;
-		this.title = title;
-		this.email = email;
-		this.bills = userBills;
-		
-	}
 
     public Long getId() {
         return id;
@@ -65,34 +52,6 @@ public class User  implements GenericObject{
         this.id = id;
     }
 
-    public List<Bill> getBills() {
-        return bills;
-    }
-
-    public void setBills(List<Bill> bills) {
-        this.bills = bills;
-    }
-
-    public List<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
-    }
-
-    public List<User> getUsers() {
-        return friends;
-    }
-
-    public void setUsers(List<User> friends) {
-        this.friends = friends;
-    }
-
-
-
-
-	
     public String getfName() {
         return fName;
     }
@@ -133,14 +92,29 @@ public class User  implements GenericObject{
         this.email = email;
     }
 
-//    @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId")
-//    @LazyCollection(LazyCollectionOption.FALSE)
-	public List<Bill> getUserBills() {
-		return bills;
-	}
+    public List<Bill> getBills() {
+        return bills;
+    }
 
-	public void setUserBills(List<Bill> userBills) {
-		this.bills = userBills;
-	}
+    public void setBills(List<Bill> bills) {
+        this.bills = bills;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
+    public List<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
+    }
+	
   
 }

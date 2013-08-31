@@ -37,12 +37,14 @@ public class Group implements GenericObject {
     @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Bill> gBills = new ArrayList<Bill>();
-    @ManyToMany(
-        cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-        mappedBy = "groups",
-        targetEntity = User.class
-    )
-    @LazyCollection(LazyCollectionOption.FALSE)
+    
+//    @ManyToMany(
+//        cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+//        mappedBy = "groups",
+//        targetEntity = User.class
+//    )
+//    @LazyCollection(LazyCollectionOption.FALSE)
+    @Transient
     List<User> users;
 
     public Group() {
@@ -115,7 +117,7 @@ public class Group implements GenericObject {
 
 
     public String getGroupId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     public void setgBills(List<Bill> gBills) {
