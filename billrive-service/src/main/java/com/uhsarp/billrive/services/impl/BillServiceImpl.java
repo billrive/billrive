@@ -41,7 +41,7 @@ public class BillServiceImpl implements BillService {
 //    @Autowired
     MySqlDao mySqlDao;
     public List<Bill> getBills(Long userId) {
-         User user = (User) userDAO.findUserByUserId(userId);
+         User user = (User) userDAO.getUserByUserId(userId);
         
 //       Group group = (Group) groupDAO.findGroupByGroupId(userId);
 //        mySqlDao.saveBill();

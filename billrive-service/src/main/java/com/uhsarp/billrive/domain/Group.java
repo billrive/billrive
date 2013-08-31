@@ -42,6 +42,7 @@ public class Group implements GenericObject {
         mappedBy = "groups",
         targetEntity = User.class
     )
+    @LazyCollection(LazyCollectionOption.FALSE)
     List<User> users;
 
     public Group() {

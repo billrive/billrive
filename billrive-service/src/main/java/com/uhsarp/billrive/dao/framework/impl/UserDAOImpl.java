@@ -115,11 +115,10 @@ public class UserDAOImpl  extends JpaConfig implements UserDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public User findUserByUserId(Long userId) {
+    public User getUserByUserId(Long userId) {
       
         
           Query q =  this.getEntityManager().createQuery("select u from User u  WHERE u.id="+userId);    
-      
       User user = (User) q.getSingleResult();
         return user;
         
