@@ -8,3 +8,9 @@ angular.module('billRive.filters', []).
       return String(text).replace(/\%VERSION\%/mg, version);
     }
   }]);
+//angular.module('billRive.filters', []).
+//  filter('ActiveGroupFilter', ['version', function(version) {
+//    return function(text) {
+//      return String(text).replace(/\%VERSION\%/mg, version);
+//    }
+//  }]);

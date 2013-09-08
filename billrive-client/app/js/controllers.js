@@ -83,7 +83,7 @@ billRive.controller('BillEditCtrl', function($scope, billService, $location, $ro
 });
 
 billRive.controller('GroupAddCtrl', function($scope, billService, $location){
-    $scope.tmpGroup = {id:'',users:[],name:''};
+    $scope.tmpGroup = {id:'',users:[],name:'',isActive:'true'};
     $scope.tmpFriends=billService.getFriends();
     for (i = 0; i < $scope.tmpFriends.length; i++) {
             $scope.tmpFriends[i].addToGroup = false;
@@ -175,4 +175,80 @@ billRive.controller('GroupEditCtrl', function($scope, billService, $location, $r
         $scope.tmpGroup = [];
     };
     
+
+});
+
+billRive.controller('GroupListCtrl', function($scope, billService) {
+    $scope.tmpGroups = billService.getGroups();
+    $scope.tmpActGroups = [];
+    $scope.tmpInActGroups = [];
+    for (i = 0; i < $scope.tmpGroups.length; i++) {
+        if($scope.tmpGroups[i].isActive === 'true')
+             $scope.tmpActGroups.push( $scope.tmpGroups[i]);
+         else
+             $scope.tmpInActGroups.push($scope.tmpGroups[i]);
+    }
+    
+        $scope.activateGroup = function(group_id){
+            console.log(group_id);
+            //Logic to find out the right index based on the group_id should probably precede the next statement
+        $scope.groups[group_id].isActive = 'true';
+    };
+    $scope.deactivateGroup = function(group_id){
+        $scope.groups[group_id].isActive = 'false';
+    };
+       
+});
+
+billRive.controller('EqualSplitCtrl', function($scope, billService) {
+    $scope.friends = billService.getFriends();
+    $scope.groups = billService.getGroups();
+    $scope.payers = billService.getPayers();
+    $scope.simpleUserCostMap = [];
+    $scope.bills = billService.getBills();
+    $scope.bill = [];
+    $scope.setBillGroup = function() {
+        var $groupId = $scope.bill.groupId;
+
+        var $groupMembers;
+        for (var i = 0; i < $scope.groups.length; i++) {
+            var obj = $scope.groups[i];
+            if (obj.id == $groupId)
+            {
+                $groupMembers = obj.users;
+            }
+        }
+        var $groupUserAndLiableCost = [];
+        var $friendNamefromId = null;
+        for (i = 0; i < $groupMembers.length; i++) {
+
+            for (var j = 0; j < $scope.friends.length; j++) {
+                if ($scope.friends[j].id == $groupMembers[i])
+                    $friendNamefromId = $scope.friends[j].name;
+            }
+            $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId, enabled: true});
+        }
+//         $scope.simpleUserCostMap = $groupUserAndLiableCost;
+        $scope.simpleUserCostMap = $groupUserAndLiableCost;
+        $groupUserAndLiableCost = [];
+        $scope.simpleCalculatedTotal = 0;
+
+    };
+
+    $scope.simpleCalculateSum = function() {
+
+        $scope.simpleCalculatedTotal = 0;
+        for (i = 0; i < $scope.simpleUserCostMap.length; i++) {
+            if ($scope.simpleUserCostMap[i].liableCost != null)
+                $scope.simpleCalculatedTotal += parseInt($scope.simpleUserCostMap[i].liableCost);
+        }
+    };
+    $scope.simpleFriendEnabled = function() {
+
+        for (i = 0; i < $scope.simpleUserCostMap.length; i++) {
+            if ($scope.simpleUserCostMap[i].enabled === false)
+                $scope.simpleUserCostMap[i].liableCost = 0;
+        }
+        $scope.simpleCalculateSum();
+    };
 });

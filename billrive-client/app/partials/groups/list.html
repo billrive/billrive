@@ -13,14 +13,36 @@
           <input type="search" ng-model="query" class="span2" name="q" autocomplete="off" placeholder="Search" tabindex="1">
     <button class="btn"><i class="icon-search icon-large"></i> </button>
     </div>
+        <div><h4>Active Groups<h4></div>
         <tbody>  
-          <tr ng-repeat="igroup in groups | filter:query | orderBy:'date'">
+          <tr ng-repeat="igroup in tmpActGroups | filter:ActiveGroupFilter | orderBy:'date'">
            
             <td>{{ igroup.name }}</td>
           
             <td>
-              <a  href="#/groups/edit/{{$index}}"><i class="icon-pencil "></i></a>
+             <!-- <a  href="#/groups/edit/{{$index}}"><i class="icon-pencil "></i></a>-->
+               <a  class="btn btn-mini btn-success" href="#/groups/edit/{{$index}}"></i>&nbsp;Edit group</a>
+            </td>
+            <td>
+            <a ng-click="deactivateGroup(igroup.id)" class="btn btn-mini btn-warning" href="#/groups/list"></i>&nbsp;Deactivate group</a>
             </td>
           </tr>
+          
         </tbody>
       </table>
+
+<table>
+    <div><h4>Inactive Groups<h4></div>
+    <tbody>
+           <tr ng-repeat="igroup in tmpInActGroups | filter:query | orderBy:'date'">
+           
+            <td>{{ igroup.name }}</td>
+            <td>
+                <!--<a ng-click="/groups/activate/{{igroup.id}}" class="btn btn-mini btn-success" href="#/groups/edit/{{$index}}"></i>&nbsp;Activate group</a>-->
+            
+                <a ng-click="activateGroup(igroup.id)" class="btn btn-mini btn-success" href="#/groups/list"></i>&nbsp;Activate group</a>
+            </td>
+          </tr>
+    </tbody>
+</table>
+{{tmpGroups}}

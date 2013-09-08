@@ -1,7 +1,7 @@
 billRive.factory('billService',function(){
    var factory = {};
 var bills = [{
-            "id": 1,
+            "id": 0,
             "title": "Costco - Pharmacy",
             "date":"06/03/2013",
             "billPayerId": 2,
@@ -85,7 +85,7 @@ var bills = [{
             "groupId": 2
         },
         {
-            "id": 1,
+            "id": 2,
             "title": "Dining Out",
             "date":"05/28/2013",
             "billPayerId": 2,
@@ -127,7 +127,7 @@ var bills = [{
             "groupId": 2
         },
         {
-            "id": 1,
+            "id": 3,
             "title": "Walmart",
             "date":"05/01/2013",
             "billPayerId": 2,
@@ -169,7 +169,7 @@ var bills = [{
             "groupId": 2
         },
         {
-            "id": 2,
+            "id": 4,
             "title": "Costco",
             "date":"05/27/2013",
             "billPayerId": 2,
@@ -265,11 +265,11 @@ var friends= [
 
 
 var groups= [
-{id:1,users:[1,2,3,4],name:'SLC Roommates'},
-{id:2,users:[1,2],name:'Denver Old Buddies'},
-{id:3,users:[2,3],name:'Ski Club'},
-{id:4,users:[2,5],name:'Family'},
-{id:5,users:[1,2,3,5],name:'India'}
+{id:1,users:[1,2,3,4],name:'SLC Roommates', isActive:'true'},
+{id:2,users:[1,2],name:'Denver Old Buddies', isActive:'false'},
+{id:3,users:[2,3],name:'Ski Club', isActive:'true'},
+{id:4,users:[2,5],name:'Family',isActive:'false'},
+{id:5,users:[1,2,3,5],name:'India',isActive:'true'}
 ];
 
 var groupFriendRel=[{groupId:'1',friendId:'5'}];
