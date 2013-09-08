@@ -55,12 +55,12 @@ public class Group implements GenericObject {
         this.bills = bills;
     }
 
-    public Group(String title, String desc, Long ownerId, List<Friend> lsMembers) {
+    public Group(String title, String desc, Long ownerId, List<Friend> users) {
 
         this.title = title;
 //        this.desc = desc;
         this.ownerId = ownerId;
-        this.users = lsMembers;
+        this.users = users;
     }
 
     public Long getId() {
@@ -96,13 +96,7 @@ public class Group implements GenericObject {
 //    public void setDesc(String desc) {
 //        this.desc = desc;
 //    }
-    public Long getIdOwner() {
-        return ownerId;
-    }
 
-    public void setIdOwner(Long ownerId) {
-        this.ownerId = ownerId;
-    }
 //    String desc;
 
     public String getGroupId() {
