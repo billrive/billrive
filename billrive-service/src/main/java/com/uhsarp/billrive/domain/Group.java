@@ -19,40 +19,34 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Table(name = "\"groups\"")
 public class Group implements GenericObject {
 
-   
-   
     /**
      *
      */
     private static final long serialVersionUID = 4125241775878842292L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     String title;
     @Column(columnDefinition = "TEXT")
     private String description;
- 
-    
     Long ownerId;
-    @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupId")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Bill> bills = new ArrayList<Bill>();
-    
-    @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId",targetEntity = Payment.class)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupId", targetEntity = Payment.class)
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Payment> payments = new ArrayList<Payment>();
-    
-    
-    @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
-    @JoinTable(name = "usergroupmap", 
-            joinColumns = { @JoinColumn(name = "groups_id")}, 
-            inverseJoinColumns={@JoinColumn(name="user_id")})
+    @ManyToMany(cascade = CascadeType.ALL, targetEntity = Friend.class)
+    @JoinTable(name = "usergroupmap",
+            joinColumns = {
+        @JoinColumn(name = "groups_id")},
+            inverseJoinColumns = {
+        @JoinColumn(name = "user_id")})
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Friend> users;
 
     public Group() {
     }
-
 
     public Group(Long id, String description, List<Bill> bills) {
         super();
@@ -61,11 +55,11 @@ public class Group implements GenericObject {
         this.bills = bills;
     }
 
-    public Group( String title, String desc, Long idOwner, List<Friend> lsMembers) {
-        
+    public Group(String title, String desc, Long ownerId, List<Friend> lsMembers) {
+
         this.title = title;
 //        this.desc = desc;
-        this.ownerId = idOwner;
+        this.ownerId = ownerId;
         this.users = lsMembers;
     }
 
@@ -76,8 +70,6 @@ public class Group implements GenericObject {
     public void setId(Long id) {
         this.id = id;
     }
-
-
 
     public String getDescription() {
         return description;
@@ -96,7 +88,6 @@ public class Group implements GenericObject {
     }
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
 
-   
 //
 //    public String getDesc() {
 //        return desc;
@@ -105,23 +96,18 @@ public class Group implements GenericObject {
 //    public void setDesc(String desc) {
 //        this.desc = desc;
 //    }
-
     public Long getIdOwner() {
         return ownerId;
     }
 
-    public void setIdOwner(Long idOwner) {
-        this.ownerId = idOwner;
+    public void setIdOwner(Long ownerId) {
+        this.ownerId = ownerId;
     }
 //    String desc;
-   
-
 
     public String getGroupId() {
         return null;
     }
-
-
 
     public Long getOwnerId() {
         return ownerId;
@@ -138,7 +124,6 @@ public class Group implements GenericObject {
     public void setFriends(List<Friend> users) {
         this.users = users;
     }
-
 
     public List<Payment> getPayments() {
         return payments;
@@ -163,7 +148,4 @@ public class Group implements GenericObject {
     public void setBills(List<Bill> bills) {
         this.bills = bills;
     }
-    
-    
-    
 }
