@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface GenericObject extends Serializable {
     

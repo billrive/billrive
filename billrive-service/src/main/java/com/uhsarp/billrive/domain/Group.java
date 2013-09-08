@@ -13,7 +13,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Entity
 @Table(name = "\"groups\"")
@@ -38,7 +38,12 @@ public class Group implements GenericObject {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Bill> bills = new ArrayList<Bill>();
     
-@ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
+    @OneToMany(cascade=CascadeType.ALL,mappedBy="groupId",targetEntity = Payment.class)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Payment> payments = new ArrayList<Payment>();
+    
+    
+    @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
     @JoinTable(name = "usergroupmap", 
             joinColumns = { @JoinColumn(name = "groups_id")}, 
             inverseJoinColumns={@JoinColumn(name="user_id")})
@@ -49,11 +54,11 @@ public class Group implements GenericObject {
     }
 
 
-    public Group(Long id, String description, List<Bill> gBills) {
+    public Group(Long id, String description, List<Bill> bills) {
         super();
         this.id = id;
         this.description = description;
-        this.bills = gBills;
+        this.bills = bills;
     }
 
     public Group( String title, String desc, Long idOwner, List<Friend> lsMembers) {
@@ -91,9 +96,7 @@ public class Group implements GenericObject {
     }
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
 
-    public List<Bill> getgBills() {
-        return bills;
-    }
+   
 //
 //    public String getDesc() {
 //        return desc;
@@ -118,9 +121,7 @@ public class Group implements GenericObject {
         return null;
     }
 
-    public void setgBills(List<Bill> gBills) {
-        this.bills = gBills;
-    }
+
 
     public Long getOwnerId() {
         return ownerId;
@@ -136,6 +137,31 @@ public class Group implements GenericObject {
 
     public void setFriends(List<Friend> users) {
         this.users = users;
+    }
+
+
+    public List<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
+
+    public List<Friend> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Friend> users) {
+        this.users = users;
+    }
+
+    public List<Bill> getBills() {
+        return bills;
+    }
+
+    public void setBills(List<Bill> bills) {
+        this.bills = bills;
     }
     
     

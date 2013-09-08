@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface GroupDAO extends GenericDAO<Group,Long>{
       Long findGroupId(Long userId);

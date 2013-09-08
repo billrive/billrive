@@ -265,5 +265,22 @@
         <artifactId>search-jpa-hibernate</artifactId>
         <version>1.2.0</version> <!-- use current version -->
 </dependency>
+<dependency>
+	<groupId>org.springframework.social</groupId>
+	<artifactId>spring-social-facebook</artifactId>
+	<version>1.0.3.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework.social</groupId>
+	<artifactId>spring-social-core</artifactId>
+	<version>1.0.3.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework.social</groupId>
+	<artifactId>spring-social-facebook-web</artifactId>
+	<version>1.0.3.RELEASE</version>
+</dependency>
+            
+                        
     </dependencies>
 </project>

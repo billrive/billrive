@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public class FriendDAOImpl extends JpaConfig  implements FriendDAO {
 

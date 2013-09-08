@@ -9,7 +9,7 @@ import com.uhsarp.billrive.domain.User;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface UserDAO extends GenericDAO<User,Long> {
      public User getUserByUserId(Long userId);

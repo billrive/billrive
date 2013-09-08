@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface BillService {
 

@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface BillDAO extends GenericDAO<Bill,Long> {
     List<Bill> getBillsByGroupId(Long groupId);

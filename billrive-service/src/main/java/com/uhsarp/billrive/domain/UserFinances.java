@@ -6,7 +6,7 @@ package com.uhsarp.billrive.domain;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 
 public class UserFinances  implements GenericObject{

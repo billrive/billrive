@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Entity
 @Table(name="simpleuseridandliablecost")

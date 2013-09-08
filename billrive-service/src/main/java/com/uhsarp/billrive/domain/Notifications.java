@@ -6,7 +6,7 @@ package com.uhsarp.billrive.domain;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 class Notifications  implements GenericObject {
     

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Repository("userDAO")
 public class UserDAOImpl  extends JpaConfig implements UserDAO{

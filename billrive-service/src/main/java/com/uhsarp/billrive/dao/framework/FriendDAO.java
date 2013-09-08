@@ -9,7 +9,7 @@ import com.uhsarp.billrive.domain.Friend;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface FriendDAO extends GenericDAO<Friend,Long>{
     

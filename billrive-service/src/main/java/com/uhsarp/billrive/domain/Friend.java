@@ -13,7 +13,7 @@ import javax.persistence.Transient;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 
 @Entity

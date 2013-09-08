@@ -13,7 +13,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Entity
 @Table(name="billitementry")

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 //@Repository("mySqlDao")
 public class MySqlDao  {

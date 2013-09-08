@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 
 @Component("jpaConfig")

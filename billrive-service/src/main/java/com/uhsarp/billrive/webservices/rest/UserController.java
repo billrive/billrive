@@ -7,9 +7,6 @@ package com.uhsarp.billrive.webservices.rest;
 import com.uhsarp.billrive.domain.User;
 import static com.uhsarp.billrive.webservices.rest.UserController.isEmpty;
 import javax.servlet.http.HttpServletResponse;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +23,7 @@ import com.uhsarp.billrive.services.UserService;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 
 @Controller
@@ -51,21 +48,16 @@ public class UserController extends GenericController{
             
 		User user = new User();
                 logger_c.info("Value of userId is  "+userId);
-		
-                //int userId=5;
 		try {
 			user = userService.getUserByUserId(userId);
-//                        logger_c.info("Value of Users ArrayList after service call is  "+users.getFirst().toString());
+
 		} catch (Exception e) {
                        e.printStackTrace();
 			String sMessage = "Error getting all users. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));                  
                      
 		}
-        
-//        DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZ");
-//        DateTime testDate=user.getUserDate();
-//logger_c.info(formatter.print(testDate));
+ 
                 logger_c.info("Value of Users ArrayList is  ");
 
 		logger_c.debug("Returing Users: " + user.toString());

@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Repository("billDAO")
 public class BillDAOImpl extends JpaConfig  implements BillDAO{

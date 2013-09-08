@@ -9,7 +9,7 @@ import com.uhsarp.billrive.domain.GenericObject;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface GenericObjectDAO extends GenericDAO<GenericObject,Long>{
     

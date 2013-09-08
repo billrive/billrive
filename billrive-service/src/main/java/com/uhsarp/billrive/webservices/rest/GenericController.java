@@ -6,7 +6,7 @@ package com.uhsarp.billrive.webservices.rest;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public class GenericController {
     

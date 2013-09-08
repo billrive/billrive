@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `billrivedb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `billrivedb`;
--- MySQL dump 10.13  Distrib 5.6.11, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.12, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: billrivedb
 -- ------------------------------------------------------
@@ -132,6 +132,39 @@ LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
 INSERT INTO `groups` VALUES (3,'SLC',NULL,6);
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment`
+--
+
+DROP TABLE IF EXISTS `payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `payerId` bigint(20) NOT NULL,
+  `receiverId` bigint(20) NOT NULL,
+  `paydate` timestamp NULL DEFAULT NULL,
+  `paidAmount` bigint(20) NOT NULL,
+  `notes` text,
+  `groupId` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_payerId_idx` (`payerId`),
+  KEY `fk_receiverId_idx` (`receiverId`),
+  CONSTRAINT `fk_payerId` FOREIGN KEY (`payerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_receiverId` FOREIGN KEY (`receiverId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment`
+--
+
+LOCK TABLES `payment` WRITE;
+/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+INSERT INTO `payment` VALUES (1,6,7,NULL,50,NULL,3),(2,7,8,NULL,25,NULL,3),(3,7,8,NULL,15,NULL,3);
+/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -292,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-18 19:52:03
+-- Dump completed on 2013-09-07 19:25:29

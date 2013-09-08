@@ -9,7 +9,7 @@ import com.uhsarp.billrive.domain.Bill;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public interface BillriveDAO extends GenericDAO<Bill,Long>{
     

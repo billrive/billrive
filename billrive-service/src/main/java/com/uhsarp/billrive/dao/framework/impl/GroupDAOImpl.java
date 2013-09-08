@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Repository("groupDAO")
 public class GroupDAOImpl extends JpaConfig implements GroupDAO{

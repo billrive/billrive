@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Service("friendService")
 public class FriendService {

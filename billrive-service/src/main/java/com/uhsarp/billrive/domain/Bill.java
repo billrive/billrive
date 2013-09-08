@@ -16,7 +16,7 @@ import org.joda.time.DateTime;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Entity
 @Table(name = "bill")
