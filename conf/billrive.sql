@@ -116,9 +116,10 @@ DROP TABLE IF EXISTS `groups`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `groups` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(200) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
   `description` text,
   `ownerId` bigint(20) DEFAULT NULL,
+  `isActive` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -130,7 +131,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (3,'SLC',NULL,6);
+INSERT INTO `groups` VALUES (3,'SLC',NULL,6,0);
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,6 +180,7 @@ CREATE TABLE `simpleuseridandliablecost` (
   `userId` bigint(20) DEFAULT NULL,
   `liableCost` float DEFAULT NULL,
   `billSimpleEntryId` bigint(20) DEFAULT NULL,
+  `isActive` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_simpleuseridandliablecost_user1_idx` (`userId`),
@@ -192,7 +194,7 @@ CREATE TABLE `simpleuseridandliablecost` (
 
 LOCK TABLES `simpleuseridandliablecost` WRITE;
 /*!40000 ALTER TABLE `simpleuseridandliablecost` DISABLE KEYS */;
-INSERT INTO `simpleuseridandliablecost` VALUES (10,6,1,2),(11,7,1,2),(12,8,1,2);
+INSERT INTO `simpleuseridandliablecost` VALUES (10,6,1,2,0),(11,7,1,2,0),(12,8,1,2,0);
 /*!40000 ALTER TABLE `simpleuseridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-09-07 19:25:29
+-- Dump completed on 2013-09-08 19:18:38

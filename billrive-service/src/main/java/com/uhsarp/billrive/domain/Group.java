@@ -26,7 +26,7 @@ public class Group implements GenericObject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    String title;
+    String name;
     @Column(columnDefinition = "TEXT")
     private String description;
     Long ownerId;
@@ -44,7 +44,9 @@ public class Group implements GenericObject {
         @JoinColumn(name = "user_id")})
     @LazyCollection(LazyCollectionOption.FALSE)
     List<Friend> users;
-
+    @Basic
+@Column(columnDefinition = "BIT", length = 1)
+    private boolean isActive;
     public Group() {
     }
 
@@ -57,7 +59,7 @@ public class Group implements GenericObject {
 
     public Group(String title, String desc, Long ownerId, List<Friend> users) {
 
-        this.title = title;
+        this.name = title;
 //        this.desc = desc;
         this.ownerId = ownerId;
         this.users = users;
@@ -75,16 +77,16 @@ public class Group implements GenericObject {
         return description;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 //    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
 
@@ -142,4 +144,14 @@ public class Group implements GenericObject {
     public void setBills(List<Bill> bills) {
         this.bills = bills;
     }
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+    
+    
 }

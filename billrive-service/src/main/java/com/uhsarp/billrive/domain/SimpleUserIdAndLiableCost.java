@@ -19,6 +19,11 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
      @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private Long id;
     private Long billSimpleEntryId;
+    
+  
+        @Basic
+@Column(columnDefinition = "BIT", length = 1)
+    private boolean isActive;
 
     public SimpleUserIdAndLiableCost() {
         
@@ -86,6 +91,14 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
 
     public void setBillSimpleEntryId(Long billSimpleEntryId) {
         this.billSimpleEntryId = billSimpleEntryId;
+    }
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
  

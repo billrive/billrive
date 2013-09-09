@@ -67,6 +67,7 @@ billRive.controller('BillAddCtrl', function($scope, billService, $location) {
 
     $scope.addBill = function() {
         $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
+//        $scope.bills.push(angular.copy($scope.bill));
 //        billService.addBill(bill);
 //billService.addBill(bill);
         $scope.bill = billService.getBillObj();
@@ -130,7 +131,7 @@ billRive.controller('GroupAddCtrl', function($scope, billService, $location){
 
 billRive.controller('GroupEditCtrl', function($scope, billService, $location, $routeParams) {
     $scope.tmpFriends= billService.getFriends();
-    $scope.tmpGroup = $scope.groups[$routeParams.id];
+    
      
     for (i = 0; i < $scope.tmpFriends.length; i++) {
             $scope.tmpFriends[i].addToGroup = false;         

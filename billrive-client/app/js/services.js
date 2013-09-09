@@ -1,188 +1,17 @@
-billRive.factory('billService',function(){
+billRive.factory('billService',function($http){
    var factory = {};
-var bills = [{
-            "id": 0,
-            "title": "Costco - Pharmacy",
-            "date":"06/03/2013",
-            "billPayerId": 2,
-            "notes": "Sample Notes",
-            "billFinances": {
-                "billPayerId": 1,
-                "billItemEntry": [
-                    {
-                        "itemDescriptionId": 1,
-                        "itemDescription": "Canola Oil",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 2,
-                                "liableCost": 10
-                            },
-                            {
-                                "userId": 3,
-                                "liableCost": 20
-                            }
-                        ]
-                    },
-                    {
-                        "itemDescriptionId": 2,
-                        "itemDescription": "Taco Bell",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 4,
-                                "liableCost": 50
-                            },
-                            {
-                                "userId": 5,
-                                "liableCost": 40
-                            }
-                        ]
-                    }
-                ],
-                "billTotal": 35
-            },
-            "groupId": 2
-        },
-        {
-            "id": 1,
-            "title": "Farmers Market",
-            "date":"06/01/2013",
-            "billPayerId": 2,
-            "notes": "Sample Notes",
-            "billFinances": {
-                "billPayerId": 1,
-                "billItemEntry": [
-                    {
-                        "itemDescriptionId": 1,
-                        "itemDescription": "Canola Oil",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 2,
-                                "liableCost": 10
-                            },
-                            {
-                                "userId": 3,
-                                "liableCost": 20
-                            }
-                        ]
-                    },
-                    {
-                        "itemDescriptionId": 2,
-                        "itemDescription": "Taco Bell",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 4,
-                                "liableCost": 50
-                            },
-                            {
-                                "userId": 5,
-                                "liableCost": 40
-                            }
-                        ]
-                    }
-                ],
-                "billTotal": 20
-            },
-            "groupId": 2
-        },
-        {
-            "id": 2,
-            "title": "Dining Out",
-            "date":"05/28/2013",
-            "billPayerId": 2,
-            "notes": "Sample Notes",
-            "billFinances": {
-                "billPayerId": 1,
-                "billItemEntry": [
-                    {
-                        "itemDescriptionId": 1,
-                        "itemDescription": "Canola Oil",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 2,
-                                "liableCost": 10
-                            },
-                            {
-                                "userId": 3,
-                                "liableCost": 20
-                            }
-                        ]
-                    },
-                    {
-                        "itemDescriptionId": 2,
-                        "itemDescription": "Taco Bell",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 4,
-                                "liableCost": 50
-                            },
-                            {
-                                "userId": 5,
-                                "liableCost": 40
-                            }
-                        ]
-                    }
-                ],
-                "billTotal": 45
-            },
-            "groupId": 2
-        },
-        {
-            "id": 3,
-            "title": "Walmart",
-            "date":"05/01/2013",
-            "billPayerId": 2,
-            "notes": "Sample Notes",
-            "billFinances": {
-                "billPayerId": 1,
-                "billItemEntry": [
-                    {
-                        "itemDescriptionId": 1,
-                        "itemDescription": "Canola Oil",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 2,
-                                "liableCost": 10
-                            },
-                            {
-                                "userId": 3,
-                                "liableCost": 20
-                            }
-                        ]
-                    },
-                    {
-                        "itemDescriptionId": 2,
-                        "itemDescription": "Taco Bell",
-                        "userIdAndLiableCost": [
-                            {
-                                "userId": 4,
-                                "liableCost": 50
-                            },
-                            {
-                                "userId": 5,
-                                "liableCost": 40
-                            }
-                        ]
-                    }
-                ],
-                "billTotal": 35
-            },
-            "groupId": 2
-        },
-        {
-            "id": 4,
-            "title": "Costco",
-            "date":"05/27/2013",
-            "billPayerId": 2,
-            "notes": "Second sample Notes",
-            "billFinances": {
-                "billPayerId": 2,
-                "billItemEntry": [],
-                "billTotal": 90
-            },
-            "groupId": 2
-        }
-    ]
-;
+   var user={};
+var queryUser = function(){
+    $http({ method: 'GET', url: 'http://localhost:8080/billrive-service/user/6' }).
+  success(function (data, status, headers, config) {
+    user=angular.copy(data.data);
+  }).
+  error(function (data, status, headers, config) {
+    // ...
+  });
+};
+  
+  var bills = angular.copy(this.user.groups[0].bills);//users;
 //Bill Object Structure
 var billObj={
             "id": null,
@@ -276,6 +105,7 @@ var groupFriendRel=[{groupId:'1',friendId:'5'}];
 
 
  factory.getBills=function(){
+   queryUser();
      return bills;
  };
  
@@ -308,10 +138,11 @@ var groupFriendRel=[{groupId:'1',friendId:'5'}];
      return billFinances;
  };
  
+ 
+  factory.getUser=function(){
+     return user;
+ };
+ 
 
  return factory;
 });
-
-
-
-;
