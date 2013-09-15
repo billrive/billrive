@@ -1,5 +1,5 @@
-app.factory('userService', function($http) {
-  var myService = {
+billRive.factory('userService', function($http) {
+  var userService = {
     async: function() {
       // $http returns a promise, which has a then function, which also returns a promise
       var promise = $http.get('http://localhost:8080/billrive-service/user/6').then(function (response) {
@@ -12,5 +12,6 @@ app.factory('userService', function($http) {
       return promise;
     }
   };
+  
   return userService;
 });
