@@ -31,7 +31,7 @@
               </button>
             </td>
           </tr>-->
-          <tr ng-repeat="ibill in bills | filter:query | orderBy:'date'">
+          <tr ng-repeat="ibill in user.groups[0].bills | filter:query | orderBy:'date'">
             <td>{{ ibill.date}}</td>
             <td>{{ ibill.title }}</td>
             <td>${{ ibill.billFinances.billTotal }}</td>
