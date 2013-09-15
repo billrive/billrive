@@ -4,7 +4,7 @@ billRive.controller('billCtrl', function($scope, billService) {
     $scope.groups = billService.getGroups();
     $scope.payers = billService.getPayers();
    
-    $scope.bills = billService.getBills();
+    $scope.bills = [];//$scope.user.groups[0].bills;
     $scope.bill = billService.getBillObj();
 //     $scope.bill.billSimpleEntry={};
 //     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
@@ -56,18 +56,6 @@ $scope.simpleFriendEnabled = function() {
 
         $scope.simpleCalculateSum();
     };
-
-});
-
-billRive.controller('BillListCtrl', function($scope, billService) {
-    $scope.listBills = function() {
-
-    };
-});
-
-
-billRive.controller('BillAddCtrl', function($scope, billService, $location) {
-
     $scope.addBill = function() {
         $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
 //        $scope.bills.push(angular.copy($scope.bill));
@@ -77,6 +65,9 @@ billRive.controller('BillAddCtrl', function($scope, billService, $location) {
         $location.url('/');
     };
 });
+
+
+
 billRive.controller('BillEditCtrl', function($scope, billService, $location, $routeParams) {
     $scope.bill = $scope.bills[$routeParams.id];
     console.log("in billedit ctrl");
