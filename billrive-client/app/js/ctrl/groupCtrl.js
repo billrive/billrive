@@ -1,4 +1,4 @@
-billRive.controller('GroupCtrl', function($scope, billService, $location, $routeParams) {
+billRive.controller('groupCtrl', function($scope, groupService, $location, $routeParams) {
     
    
    

@@ -1,4 +1,4 @@
-billRive.factory('groupService',function($http,billService){
+billRive.factory('groupService',function($http){
    var factory = {};
 
 var groups= [

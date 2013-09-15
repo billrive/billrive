@@ -1,7 +1,7 @@
 billRive.factory('billService',function($http){
    var factory = {};
    var user={};
-var queryUser = function(){
+
     $http({ method: 'GET', url: 'http://localhost:8080/billrive-service/user/6' }).
   success(function (data, status, headers, config) {
     user=angular.copy(data.data);
@@ -9,7 +9,7 @@ var queryUser = function(){
   error(function (data, status, headers, config) {
     // ...
   });
-};
+
   
   var bills = angular.copy(this.user.groups[0].bills);//users;
 //Bill Object Structure
@@ -105,7 +105,7 @@ var groupFriendRel=[{groupId:'1',friendId:'5'}];
 
 
  factory.getBills=function(){
-   queryUser();
+//   queryUser();
      return bills;
  };
  
