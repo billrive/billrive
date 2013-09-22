@@ -18,6 +18,33 @@ USE `billrivedb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `balance`
+--
+
+DROP TABLE IF EXISTS `balance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `balance` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `groupId` bigint(20) DEFAULT NULL,
+  `userId_gets` bigint(20) DEFAULT NULL,
+  `userId_gives` bigint(20) DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `balance`
+--
+
+LOCK TABLES `balance` WRITE;
+/*!40000 ALTER TABLE `balance` DISABLE KEYS */;
+INSERT INTO `balance` VALUES (1,3,6,7,10.50),(2,3,6,8,12.90),(3,3,7,8,9.80);
+/*!40000 ALTER TABLE `balance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `bill`
 --
 
@@ -32,6 +59,7 @@ CREATE TABLE `bill` (
   `groupId` bigint(20) DEFAULT NULL,
   `billCreaterId` bigint(20) DEFAULT NULL,
   `billDate` timestamp NULL DEFAULT NULL,
+  `billTotal` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_bill_groups1_idx` (`groupId`),
@@ -48,7 +76,7 @@ CREATE TABLE `bill` (
 
 LOCK TABLES `bill` WRITE;
 /*!40000 ALTER TABLE `bill` DISABLE KEYS */;
-INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56'),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54');
+INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56',NULL),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54',NULL);
 /*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,6 +179,7 @@ CREATE TABLE `payment` (
   `notes` text,
   `groupId` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_payerId_idx` (`payerId`),
   KEY `fk_receiverId_idx` (`receiverId`),
   CONSTRAINT `fk_payerId` FOREIGN KEY (`payerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -178,7 +207,7 @@ DROP TABLE IF EXISTS `simpleuseridandliablecost`;
 CREATE TABLE `simpleuseridandliablecost` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `userId` bigint(20) DEFAULT NULL,
-  `liableCost` float DEFAULT NULL,
+  `liableCost` decimal(10,2) DEFAULT NULL,
   `billSimpleEntryId` bigint(20) DEFAULT NULL,
   `isActive` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -194,7 +223,7 @@ CREATE TABLE `simpleuseridandliablecost` (
 
 LOCK TABLES `simpleuseridandliablecost` WRITE;
 /*!40000 ALTER TABLE `simpleuseridandliablecost` DISABLE KEYS */;
-INSERT INTO `simpleuseridandliablecost` VALUES (10,6,1,2,0),(11,7,1,2,0),(12,8,1,2,0);
+INSERT INTO `simpleuseridandliablecost` VALUES (10,6,1.00,2,0),(11,7,1.00,2,0),(12,8,1.00,2,0);
 /*!40000 ALTER TABLE `simpleuseridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +325,7 @@ DROP TABLE IF EXISTS `useridandliablecost`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `useridandliablecost` (
   `userId` bigint(20) DEFAULT NULL,
-  `liableCost` float DEFAULT NULL,
+  `liableCost` decimal(10,2) DEFAULT NULL,
   `billItemEntryId` bigint(20) DEFAULT NULL,
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
@@ -314,7 +343,7 @@ CREATE TABLE `useridandliablecost` (
 
 LOCK TABLES `useridandliablecost` WRITE;
 /*!40000 ALTER TABLE `useridandliablecost` DISABLE KEYS */;
-INSERT INTO `useridandliablecost` VALUES (6,2,1,1),(7,2,1,2),(8,2,1,3),(6,3,2,4),(7,3,2,5),(8,3,2,6),(6,4,3,7),(7,4,3,8),(8,4,3,9);
+INSERT INTO `useridandliablecost` VALUES (6,2.00,1,1),(7,2.00,1,2),(8,2.00,1,3),(6,3.00,2,4),(7,3.00,2,5),(8,3.00,2,6),(6,4.00,3,7),(7,4.00,3,8),(8,4.00,3,9);
 /*!40000 ALTER TABLE `useridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -327,4 +356,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-09-08 19:18:38
+-- Dump completed on 2013-09-21 21:50:55

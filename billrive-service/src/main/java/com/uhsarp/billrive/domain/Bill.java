@@ -5,6 +5,7 @@
 package com.uhsarp.billrive.domain;
 
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -36,6 +37,7 @@ public class Bill implements GenericObject {
     private String notes;
     private Long billCreaterId;
     private Long groupId;
+    private BigDecimal  billTotal;
    
 //    @OneToOne(cascade=CascadeType.ALL,mappedBy="billId",fetch = FetchType.EAGER)
     @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
@@ -176,6 +178,14 @@ public class Bill implements GenericObject {
 
     public void setBillCreaterId(Long billCreaterId) {
         this.billCreaterId = billCreaterId;
+    }
+
+    public BigDecimal  getBillTotal() {
+        return billTotal;
+    }
+
+    public void setBillTotal(BigDecimal  billTotal) {
+        this.billTotal = billTotal;
     }
     
     

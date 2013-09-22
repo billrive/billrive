@@ -16,6 +16,7 @@
         <class>com.uhsarp.billrive.domain.User</class>
         <class>com.uhsarp.billrive.domain.Friend</class>
         <class>com.uhsarp.billrive.domain.Payment</class>
+        <class>com.uhsarp.billrive.domain.Balance</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="validate"/>
             <!--<property name="show_sql" value="true" />-->

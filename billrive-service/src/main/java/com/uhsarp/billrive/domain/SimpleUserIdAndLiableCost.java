@@ -4,6 +4,7 @@
  */
 package com.uhsarp.billrive.domain;
 
+import java.math.BigDecimal;
 import javax.persistence.*;
 
 /**
@@ -14,7 +15,7 @@ import javax.persistence.*;
 @Table(name="simpleuseridandliablecost")
 public class SimpleUserIdAndLiableCost  implements GenericObject {
     private  Long userId;
-    private  float liableCost;
+    private  BigDecimal  liableCost;
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private Long id;
@@ -30,7 +31,7 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
     }
   
 
-    public SimpleUserIdAndLiableCost(Long userId, Long liableCost, Long billItemEntryID) {
+    public SimpleUserIdAndLiableCost(Long userId, BigDecimal  liableCost, Long billItemEntryID) {
         this.userId = userId;
         this.liableCost = liableCost;
         this.billSimpleEntryId = billItemEntryID;
@@ -48,11 +49,11 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
         this.userId = userId;
     }
 
-    public float getLiableCost() {
+    public BigDecimal  getLiableCost() {
         return liableCost;
     }
 
-    public void setLiableCost(Long liableCost) {
+    public void setLiableCost(BigDecimal  liableCost) {
         this.liableCost = liableCost;
     }
     
@@ -101,6 +102,7 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
         this.isActive = isActive;
     }
 
+    
  
 }
 
