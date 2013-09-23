@@ -13,6 +13,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="simpleuseridandliablecost")
+//@SecondaryTable(name = "user", pkJoinColumns=@PrimaryKeyJoinColumn(name="id", referencedColumnName="userId"))
 public class SimpleUserIdAndLiableCost  implements GenericObject {
     private  Long userId;
     private  BigDecimal  liableCost;
@@ -20,7 +21,10 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
      @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private Long id;
     private Long billSimpleEntryId;
-    
+//    @Column(table="user", name="fName")
+//    private String fName;
+//    @Column(table="user", name="lName")
+//    private String lName;
   
         @Basic
 @Column(columnDefinition = "BIT", length = 1)

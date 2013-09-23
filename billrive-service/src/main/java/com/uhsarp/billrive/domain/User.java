@@ -25,8 +25,8 @@ public class User  implements GenericObject {
     private String mName;
     private String title;
     private String email;
-    @Transient
-    private List<Bill> bills = new ArrayList<Bill>();
+//    @Transient
+//    private List<Bill> bills = new ArrayList<Bill>();
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "usergroupmap", 
             joinColumns = { @JoinColumn(name = "user_id")}, 
@@ -34,12 +34,13 @@ public class User  implements GenericObject {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Group> groups = new ArrayList<Group>();
     
-    @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
-    @JoinTable(name = "userfriendmap", 
-            joinColumns = { @JoinColumn(name = "user_id")}, 
-            inverseJoinColumns={@JoinColumn(name="friend_id")})
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Friend> friends = new ArrayList<Friend>();
+//    @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
+//    @Transient
+//    @JoinTable(name = "userfriendmap", 
+//            joinColumns = { @JoinColumn(name = "user_id")}, 
+//            inverseJoinColumns={@JoinColumn(name="friend_id")})
+//    @LazyCollection(LazyCollectionOption.FALSE)
+//    private List<Friend> friends = new ArrayList<Friend>();
  
     public User(){
     	
@@ -93,13 +94,13 @@ public class User  implements GenericObject {
         this.email = email;
     }
 
-    public List<Bill> getBills() {
-        return bills;
-    }
-
-    public void setBills(List<Bill> bills) {
-        this.bills = bills;
-    }
+//    public List<Bill> getBills() {
+//        return bills;
+//    }
+//
+//    public void setBills(List<Bill> bills) {
+//        this.bills = bills;
+//    }
 
     public List<Group> getGroups() {
         return groups;
@@ -109,13 +110,13 @@ public class User  implements GenericObject {
         this.groups = groups;
     }
 
-    public List<Friend> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(List<Friend> friends) {
-        this.friends = friends;
-    }
+//    public List<Friend> getFriends() {
+//        return friends;
+//    }
+//
+//    public void setFriends(List<Friend> friends) {
+//        this.friends = friends;
+//    }
 	
   
 }
