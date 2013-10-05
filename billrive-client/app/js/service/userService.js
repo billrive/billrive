@@ -6,7 +6,7 @@ billRive.factory('userService', function($http) {
         // The then function here is an opportunity to modify the response
         console.log(response);
         // The return value gets picked up by the then in the controller.
-        return response.data;
+        return response;
       });
       // Return the promise to the controller
       return promise;

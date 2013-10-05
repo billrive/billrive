@@ -5,10 +5,12 @@
 package com.uhsarp.billrive.domain;
 
 
+import com.uhsarp.billrive.web.utils.CustomDateSerializer;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Type;
@@ -78,7 +80,11 @@ public class Bill implements GenericObject {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    /**
+     *
+     * @return
+     */
+//    @JsonSerialize(using = CustomDateSerializer.class)
     public DateTime getBillDate() {
         return billDate;
     }

@@ -34,7 +34,11 @@
           <tr ng-repeat="ibill in user.groups[0].bills | filter:query | orderBy:'date'">
             <td>{{ ibill.date}}</td>
             <td>{{ ibill.title }}</td>
-            <td>${{ ibill.billFinances.billTotal }}</td>
+            <td>${{ ibill.billTotal }}
+            asdfasdfsdf
+            <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">
+                    {{simplecost.userId}} - {{simplecost.liableCost}}
+                </p></td>
             <td>
                 
                
@@ -45,5 +49,5 @@
         </tbody>
       </table>
 
-<!--{{bills}}-->
+<!--{{user.groups[0].bills}}-->
 <!--{{user.groups[0].bills}}-->
