@@ -6,7 +6,8 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
         <!--<jta-data-source>jdbc/billRiveDS</jta-data-source>-->
-        <jta-data-source>java:/datasources/billRiveDS</jta-data-source>
+        <jta-data-source>java:comp/env/jdbc/billriveDS</jta-data-source>
+        
         <class>com.uhsarp.billrive.domain.Bill</class>
         <class>com.uhsarp.billrive.domain.BillItemEntry</class>
         <class>com.uhsarp.billrive.domain.BillSimpleEntry</class>
