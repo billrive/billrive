@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context antiJARLocking="true" path="/billrive-service">
 
-<!--<Resource name="jdbc/billriveDS" auth="Container" type="javax.sql.DataSource"
+<Resource name="jdbc/billriveDS" auth="Container" type="javax.sql.DataSource"
                maxActive="100" maxIdle="30" maxWait="10000"
                username="root" password="" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://localhost:3306/billrivedb"/>-->
+               url="jdbc:mysql://localhost:3306/billrivedb"/>
 </Context>
