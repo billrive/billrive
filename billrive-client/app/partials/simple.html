@@ -1,0 +1,40 @@
+<br />
+<div> <ul class="unstyled"> 
+
+        <li ng-repeat="user in bill.billSimpleEntry.simpleUserIdAndLiableCost " > 
+            <div class="row-fluid">
+
+                <div class="span3">
+                    <input ng-change='simpleFriendEnabled()' type="checkbox" ng-model="user.enabled" />
+                    <span  class="done-{{!user.enabled}}"> {{user.name}}</span>
+                </div>
+                <div class="span3">
+                     <!--{{billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error}}-->
+                     <!--<span ng-show="billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error.float">
+            This is not a valid float number!</span>-->
+                    <!-- ng-required='user.enabled' -->
+                    <input name="xcvxcvxcvxcvxcvxcv" ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" smart-float required/>
+                    
+                     
+                 
+                </div>  
+            </div>  
+        </li>
+
+    </ul>
+    <hr width="250" size="1">
+    <ul class="unstyled">
+        <li > 
+
+            <div class="row-fluid">
+
+                <div class="span3">
+
+                    Calculated Total
+                </div>
+                <div class="span3">
+                    <input type="text" disabled ng-model='simpleCalculatedTotal' class="span6" placeholder="0.00" />
+                </div>  
+            </div>  
+        </li></ul>
+</div>
