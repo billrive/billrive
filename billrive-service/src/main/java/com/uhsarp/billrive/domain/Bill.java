@@ -5,10 +5,12 @@
 package com.uhsarp.billrive.domain;
 
 
+import com.uhsarp.billrive.web.utils.CustomDateSerializer;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Type;
@@ -83,6 +85,7 @@ public class Bill implements GenericObject {
      * @return
      */
 //    @JsonSerialize(using = CustomDateSerializer.class)
+    @JsonSerialize(using = CustomDateSerializer.class)
     public DateTime getBillDate() {
         return billDate;
     }
@@ -122,44 +125,6 @@ public class Bill implements GenericObject {
     public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
-
-    //	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
-    //	@JoinColumn(name="group_id")
-    //	public Group getGroup() {
-    //		return group;
-    //	}
-    //
-    //	public void setGroup(Group group) {
-    //		this.group = group;
-    //	}
-    //    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
-    //    @JoinColumn(name = "group_id")
-    //    public Group getGroupBills() {
-    //        return groupBills;
-    //    }
-    //
-    //    public void setGroupBills(Group groupBills) {
-    //        this.groupBills = groupBills;
-    //    }
-    //
-    //    @ManyToOne(fetch = FetchType.EAGER)		//BiDirectional Mapping
-    //    @JoinColumn(name = "user_id")
-    //    public User getuserBill() {
-    //        return userBill;
-    //    }
-    //
-    //    public void setuserBill(User userBill) {
-    //        this.userBill = userBill;
-    //    }
-    //	@ManyToOne(fetch=FetchType.EAGER)		//BiDirectional Mapping
-    //	@JoinColumn(name="billFinance_id")
-    //    public BillFinances getBillFinances() {
-    //        return billFinances;
-    //    }
-    //
-    //    public void setBillFinances(BillFinances billFinances) {
-    //        this.billFinances = billFinances;
-    //    }
     public BillSimpleEntry getBillSimpleEntry() {
         return billSimpleEntry;
     }
