@@ -5,6 +5,7 @@
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 							http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
@@ -13,72 +14,10 @@
 							http://www.springframework.org/schema/util
   							http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-
-    <!--
-             Enables automatic mapping of fund objects to and from JSON
-    -->
     <mvc:annotation-driven/>
-
-    <!--
-             Setup spring to pull in @Controller, @RequestMapping, etc Configuration scans specified packages
-             for classes configured as Spring managed beans and automatically sets up objects annotated with
-             @Controller, @Service etc.
-    -->
     <context:component-scan base-package="com.uhsarp.billrive.webservices.rest" />
     <context:component-scan base-package="com.uhsarp.billrive.services" />
     <context:component-scan base-package="com.uhsarp.billrive.dao" />
-    
-
-    <!--
-             TODO
-    -->
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-
-    <!--
-             Configures view for returning JSON to the client
-    -->
-    <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
-        <property name="contentType" value="text/plain"/>
-    </bean>
-
-    <!--
-             TODO
-    -->
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <util:list id="beanList">
-                <ref bean="jsonMessageConverter"/>
-            </util:list>
-        </property>
-    </bean>
-
-
-
-
-    <!--
-             Converts JSON to POJO and vice versa
-    -->
-    <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-<!--     <property name="objectMapper" ref="objectMapper" />-->
-    </bean>
-    
-    
-<!--    <bean id="billRiveDS" class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
-        <property name="jndiName" value="jdbc/billrive" />
-    </bean>
-    
-    <bean id="billRiveJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" lazy-init="true">
-     <property name ="datasource">
-         <ref bean="billRiveDS"></ref>
-     </property>  
-        
-    </bean>
-    -->
-     <!--<import resource="spring-hibernate.xml"/>-->
-  <import resource="spring-jpa.xml"/>
-  
-<!--  <bean id="entityManagerFactory" 
-class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
-<property name="persistenceUnitName" value="billrivePersistenceUnit"/> 
-</bean> -->
+     <import resource="spring-jpa.xml"/>
 </beans>
