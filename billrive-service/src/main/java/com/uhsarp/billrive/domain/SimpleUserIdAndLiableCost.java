@@ -25,7 +25,9 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
 //    private String fName;
 //    @Column(table="user", name="lName")
 //    private String lName;
-  
+@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER )
+@JoinColumn(name ="userId",referencedColumnName = "id",insertable=false, updatable=false)
+private UserBare user;
         @Basic
 @Column(columnDefinition = "BIT", length = 1)
     private boolean isActive;
@@ -40,11 +42,7 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
         this.liableCost = liableCost;
         this.billSimpleEntryId = billItemEntryID;
     }
-    
 
-    
-
-	
     public Long getUserId() {
         return userId;
     }
@@ -53,33 +51,12 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
         this.userId = userId;
     }
 
-    public BigDecimal  getLiableCost() {
+    public BigDecimal getLiableCost() {
         return liableCost;
     }
 
-    public void setLiableCost(BigDecimal  liableCost) {
+    public void setLiableCost(BigDecimal liableCost) {
         this.liableCost = liableCost;
-    }
-    
-    
-    
-
-//	@ManyToOne(fetch=FetchType.LAZY)		//BiDirectional Mapping
-//	@JoinColumn(name="billIteamLiableCost")
-//	public BillItemEntry getBilliteamEntryLiab() {
-//		return billiteamEntryLiab;
-//	}
-//
-//	public void setBilliteamEntryLiab(BillItemEntry billiteamEntryLiab) {
-//		this.billiteamEntryLiab = billiteamEntryLiab;
-//	}
-
-    public Long getBillItemEntryID() {
-        return billSimpleEntryId;
-    }
-
-    public void setBillItemEntryID(Long billItemEntryID) {
-        this.billSimpleEntryId = billItemEntryID;
     }
 
     public Long getId() {
@@ -98,6 +75,23 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
         this.billSimpleEntryId = billSimpleEntryId;
     }
 
+        public UserBare getUser() {
+            return user;
+        }
+    
+        public void setUser(UserBare user) {
+            this.user = user;
+        }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+    
+    
+
     public boolean isIsActive() {
         return isActive;
     }
@@ -105,8 +99,8 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
-
     
- 
+    
+    
 }
 
