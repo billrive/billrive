@@ -11,14 +11,7 @@ To setup your Tomcat environment, replace your conf/server.xml and conf/context.
 
 
 billrive-client
-Currently a Angular JS Seeded project.
-
-
-
-Download and Install Glassfish Server.
-Deploy billrive-service on /billrive-service context
-Deploy billrive-client on /billrive-client context
-
+An Angular REST client
 
 
 
