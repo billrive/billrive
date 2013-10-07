@@ -47,11 +47,10 @@ public class Group implements GenericObject {
     @Basic
     @Column(columnDefinition = "BIT", length = 1)
     private boolean isActive;
-    
-    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupId")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Balance> balances = new ArrayList<Balance>();
+
     public Group() {
     }
 
@@ -78,36 +77,20 @@ public class Group implements GenericObject {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="groupBills")
 
-//
-//    public String getDesc() {
-//        return desc;
-//    }
-//
-//    public void setDesc(String desc) {
-//        this.desc = desc;
-//    }
+    public String getDescription() {
+        return description;
+    }
 
-//    String desc;
-
-    public String getGroupId() {
-        return null;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getOwnerId() {
@@ -118,12 +101,12 @@ public class Group implements GenericObject {
         this.ownerId = ownerId;
     }
 
-    public List<Friend> getFriends() {
-        return users;
+    public List<Bill> getBills() {
+        return bills;
     }
 
-    public void setFriends(List<Friend> users) {
-        this.users = users;
+    public void setBills(List<Bill> bills) {
+        this.bills = bills;
     }
 
     public List<Payment> getPayments() {
@@ -142,14 +125,6 @@ public class Group implements GenericObject {
         this.users = users;
     }
 
-    public List<Bill> getBills() {
-        return bills;
-    }
-
-    public void setBills(List<Bill> bills) {
-        this.bills = bills;
-    }
-
     public boolean isIsActive() {
         return isActive;
     }
@@ -165,7 +140,5 @@ public class Group implements GenericObject {
     public void setBalances(List<Balance> balances) {
         this.balances = balances;
     }
-    
-    
-    
+  
 }
