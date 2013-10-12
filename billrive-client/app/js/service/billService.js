@@ -22,18 +22,19 @@ var billObj={
     "billCreaterId": null,
     "groupId": null,
     "billTotal": null,
-    "billSimpleEntry": {
+    "billSimpleEntry": billSimpleEntryObj,
+    "billItemEntry": [
+    ],
+    "userId": null
+};
+   
+   var billSimpleEntryObj={
         "billId": null,
         "itemDescription": null,
         "simpleUserIdAndLiableCost": [
         ],
         "itemDescriptionId": 2
-    },
-    "billItemEntry": [
-    ],
-    "userId": null
-};
-    
+    };
 //billFinances Object Structure 
 
 var simpleUserIdAndLiableCostObj={
@@ -149,7 +150,14 @@ var groupFriendRel=[{groupId:'1',friendId:'5'}];
   factory.getUser=function(){
      return user;
  };
- 
+  factory.getBillSimpleEntryObj=function(){
+     return billSimpleEntryObj;
+ };
+  factory.getSimpleUserIdAndLiableCostObj=function(){
+     return simpleUserIdAndLiableCostObj;
+ };
+  
+  
 
  return factory;
 });

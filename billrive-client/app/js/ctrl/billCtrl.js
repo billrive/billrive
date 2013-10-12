@@ -15,29 +15,37 @@ billRive.controller('billCtrl', function($scope, billService,userService,Restang
 //     $scope.bill.billSimpleEntry={};
 //     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
 $scope.setBillGroup = function() {
+     $scope.bill.billSimpleEntry=billService.getBillSimpleEntryObj();
         var $groupId = $scope.bill.groupId;
 
-        var $groupMembers;
+        var $selectedGroupMembers;
+        //Let's find the group that the user selected to extract it's data
         for (var i = 0; i < $scope.groups.length; i++) {
-            var obj = $scope.groups[i];
-            if (obj.id == $groupId)
+            var selectedGroup = $scope.groups[i];
+            if (selectedGroup.id == $groupId)
             {
-                $groupMembers = obj.users;
+                $selectedGroupMembers = selectedGroup.users;
             }
         }
-        var $groupUserAndLiableCost = [];
+        var $groupSimpleUserAndLiableCost = [];
         var $friendNamefromId = null;
-        for (i = 0; i < $groupMembers.length; i++) {
-
-            for (var j = 0; j < $scope.friends.length; j++) {
-                if ($scope.friends[j].id == $groupMembers[i])
-                    $friendNamefromId = $scope.friends[j].name;
-            }
-            $groupUserAndLiableCost.push({userId: $groupMembers[i], liableCost: null, name: $friendNamefromId, enabled: true});
+        var simpleUserIdAndLiableCostObj=null;
+        for (i = 0; i < $selectedGroupMembers.length; i++) {
+ simpleUserIdAndLiableCostObj=billService.getSimpleUserIdAndLiableCostObj();
+simpleUserIdAndLiableCostObj.userId=$selectedGroupMembers[i].id;
+simpleUserIdAndLiableCostObj.user.fName=$selectedGroupMembers[i].fName;
+simpleUserIdAndLiableCostObj.user.lName=$selectedGroupMembers[i].lName;
+ $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.push(angular.copy(simpleUserIdAndLiableCostObj));
+//            for (var j = 0; j < $scope.friends.length; j++) {
+//                if ($scope.friends[j].id == $selectedGroupMembers[i])
+//                    $friendNamefromId = $scope.friends[j].name;
+//            }
+//             $scope.bill.billSimpleEntry.push({userId: $selectedGroupMembers[i]., liableCost: null, name: $friendNamefromId, enabled: true});
+//            $groupSimpleUserAndLiableCost.push({userId: $selectedGroupMembers[i], liableCost: null, name: $friendNamefromId, enabled: true});
         }
-//         $scope.billSimpleEntry.simpleUserIdAndLiableCost = $groupUserAndLiableCost;
-        $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = $groupUserAndLiableCost;
-        $groupUserAndLiableCost = [];
+//         $scope.billSimpleEntry.simpleUserIdAndLiableCost = $groupSimpleUserAndLiableCost;
+//        $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = $groupSimpleUserAndLiableCost;
+        $groupSimpleUserAndLiableCost = [];
         $scope.simpleCalculatedTotal = 0;
 
     };
