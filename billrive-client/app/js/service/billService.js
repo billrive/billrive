@@ -47,7 +47,7 @@ var simpleUserIdAndLiableCostObj={
                     "fName": null,
                     "lName": null
                 },
-                "isActive": false
+                "isActive": true
             };
    
 var billItemEntryObj={

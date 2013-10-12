@@ -15,7 +15,8 @@ billRive.controller('billCtrl', function($scope, billService,userService,Restang
 //     $scope.bill.billSimpleEntry={};
 //     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
 $scope.setBillGroup = function() {
-     $scope.bill.billSimpleEntry=billService.getBillSimpleEntryObj();
+     $scope.bill.billSimpleEntry=angular.copy(billService.getBillSimpleEntryObj());
+//     $scope.bill.billSimpleEntry=billService.getBillSimpleEntryObj();
         var $groupId = $scope.bill.groupId;
 
         var $selectedGroupMembers;
