@@ -5,17 +5,16 @@
 package com.uhsarp.billrive.domain;
 
 
-import com.uhsarp.billrive.web.utils.CustomDateSerializer;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Type;
 
 import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -34,6 +33,7 @@ public class Bill implements GenericObject {
     private Long id;
     private String title;//walmart
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private DateTime billDate;
     private Long billPayerId;
     private String notes;
@@ -86,6 +86,7 @@ public class Bill implements GenericObject {
      */
 //    @JsonSerialize(using = CustomDateSerializer.class)
 //    @JsonSerialize(using = CustomDateSerializer.class)
+//    @DateTimeFormat(iso =  DateTimeFormat.ISO.DATE_TIME )
     public DateTime getBillDate() {
         return billDate;
     }
