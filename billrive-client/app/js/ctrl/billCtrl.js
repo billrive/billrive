@@ -1,10 +1,16 @@
-billRive.controller('billCtrl', function($scope, billService) {
+billRive.controller('billCtrl', function($scope, billService,userService,Restangular) {
     //initialization
-    $scope.friends = billService.getFriends();
-    $scope.groups = billService.getGroups();
-    $scope.payers = billService.getPayers();
-   
-    $scope.bills = [];//$scope.user.groups[0].bills;
+//    $scope.friends = billService.getFriends();
+    $scope.groups = [];//billService.getGroups();
+//    $scope.payers = billService.getPayers();
+     $scope.bills=[];
+    Restangular.one("user",6).get().then(function(user){
+         $scope.user=user;
+         $scope.bills = user.groups[0].bills;
+         $scope.groups=user.groups;
+    });//[];//$scope.user.groups[0].bills;
+//    $scope.user = userService.getUser();//[];//$scope.user.groups[0].bills;
+   //[];//$scope.user.groups[0].bills;
     $scope.bill = billService.getBillObj();
 //     $scope.bill.billSimpleEntry={};
 //     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];

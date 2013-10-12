@@ -1,6 +1,6 @@
 billRive.config(['$routeProvider', function($routeProvider) {
 //billRive.config(['$routeProvider', function($routeProvider,RestangularProvider) {
-    $routeProvider.when('/bills/list', {templateUrl: 'partials/bills/list.html',controller: 'userCtrl'});
+    $routeProvider.when('/bills/list', {templateUrl: 'partials/bills/list.html',controller: 'billCtrl'});
     $routeProvider.when('/bills/add', {templateUrl: 'partials/bills/add.html', controller: 'billCtrl'});
     $routeProvider.when('/bills/edit/:id', {templateUrl: 'partials/bills/edit.html', controller: 'billCtrl'});
     $routeProvider.when('/bills/equalsplit', {templateUrl: 'partials/forms/EqualSplit.html', controller: 'billCtrl'});
