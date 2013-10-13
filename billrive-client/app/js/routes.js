@@ -8,8 +8,11 @@ billRive.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/groups/list',{templateUrl: 'partials/groups/list.html', controller: 'userCtrl'});
     $routeProvider.when('/groups/add', {templateUrl: 'partials/groups/add.html', controller: 'groupCtrl'});
     $routeProvider.when('/groups/edit/:id', {templateUrl: 'partials/groups/edit.html', controller: 'groupCtrl'});
+    $routeProvider.when('/login', {templateUrl: 'partials/security/login.html', controller: 'loginCtrl'});
+    
+    $routeProvider.otherwise({redirectTo: '/login'});
 
-    $routeProvider.otherwise({redirectTo: '/bills/list'});
+    //$routeProvider.otherwise({redirectTo: '/bills/list'});
 //     RestangularProvider.setBaseUrl('http://localhost:8080/billrive-service');
      
   }]);
