@@ -3,11 +3,17 @@ billRive.controller('billCtrl', function($location, $scope, billService, userSer
     $scope.groups = [];
     $scope.bills = [];
     $scope.emptySpace = " ";
-    Restangular.one("user", 6).get().then(function(user) {
-        $scope.user = user;
-        $scope.bills = user.groups[0].bills;
-        $scope.groups = user.groups;
-    });
+//    Restangular.one("user", 6).get().then(function(user) {
+//        $scope.user = user;
+//        $scope.bills = user.groups[0].bills;
+//        $scope.groups = user.groups;
+//    });
+
+userService.async().then(function(d) {
+    $scope.user = d.data;
+    $scope.bills = $scope.user.groups[0].bills;
+        $scope.groups = $scope.user.groups;
+  });
 
 // $scope.user = userService.getUser();
 //        $scope.bills = user.groups[0].bills;
