@@ -1,23 +1,20 @@
-billRive.controller('billCtrl', function($location,$scope, billService,userService,Restangular) {
-    //initialization
-//    $scope.friends = billService.getFriends();
-    $scope.groups = [];//billService.getGroups();
-//    $scope.payers = billService.getPayers();
-     $scope.bills=[];
-     $scope.emptySpace=" ";
-    Restangular.one("user",6).get().then(function(user){
-         $scope.user=user;
-         $scope.bills = user.groups[0].bills;
-         $scope.groups=user.groups;
-    });//[];//$scope.user.groups[0].bills;
-//    $scope.user = userService.getUser();//[];//$scope.user.groups[0].bills;
-   //[];//$scope.user.groups[0].bills;
+billRive.controller('billCtrl', function($location, $scope, billService, userService, Restangular) {
+
+    $scope.groups = [];
+    $scope.bills = [];
+    $scope.emptySpace = " ";
+    Restangular.one("user", 6).get().then(function(user) {
+        $scope.user = user;
+        $scope.bills = user.groups[0].bills;
+        $scope.groups = user.groups;
+    });
+
+// $scope.user = userService.getUser();
+//        $scope.bills = user.groups[0].bills;
+//        $scope.groups = user.groups;
     $scope.bill = angular.copy(billService.getBillObj());
-//     $scope.bill.billSimpleEntry={};
-//     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
-$scope.setBillGroup = function() {
-     $scope.bill.billSimpleEntry=angular.copy(billService.getBillSimpleEntryObj());
-//     $scope.bill.billSimpleEntry=billService.getBillSimpleEntryObj();
+    $scope.setBillGroup = function() {
+        $scope.bill.billSimpleEntry = angular.copy(billService.getBillSimpleEntryObj());
         var $groupId = $scope.bill.groupId;
 
         var $selectedGroupMembers;
@@ -29,30 +26,19 @@ $scope.setBillGroup = function() {
                 $selectedGroupMembers = selectedGroup.users;
             }
         }
-//        var $groupSimpleUserAndLiableCost = [];
-//        var $friendNamefromId = null;
-        var simpleUserIdAndLiableCostObj=null;
+        var simpleUserIdAndLiableCostObj = null;
         for (i = 0; i < $selectedGroupMembers.length; i++) {
- simpleUserIdAndLiableCostObj=billService.getSimpleUserIdAndLiableCostObj();
-simpleUserIdAndLiableCostObj.userId=$selectedGroupMembers[i].id;
-simpleUserIdAndLiableCostObj.user.fName=$selectedGroupMembers[i].fName;
-simpleUserIdAndLiableCostObj.user.lName=$selectedGroupMembers[i].lName;
- $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.push(angular.copy(simpleUserIdAndLiableCostObj));
-//            for (var j = 0; j < $scope.friends.length; j++) {
-//                if ($scope.friends[j].id == $selectedGroupMembers[i])
-//                    $friendNamefromId = $scope.friends[j].name;
-//            }
-//             $scope.bill.billSimpleEntry.push({userId: $selectedGroupMembers[i]., liableCost: null, name: $friendNamefromId, enabled: true});
-//            $groupSimpleUserAndLiableCost.push({userId: $selectedGroupMembers[i], liableCost: null, name: $friendNamefromId, enabled: true});
+            simpleUserIdAndLiableCostObj = billService.getSimpleUserIdAndLiableCostObj();
+            simpleUserIdAndLiableCostObj.userId = $selectedGroupMembers[i].id;
+            simpleUserIdAndLiableCostObj.user.fName = $selectedGroupMembers[i].fName;
+            simpleUserIdAndLiableCostObj.user.lName = $selectedGroupMembers[i].lName;
+            $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.push(angular.copy(simpleUserIdAndLiableCostObj));
         }
-//         $scope.billSimpleEntry.simpleUserIdAndLiableCost = $groupSimpleUserAndLiableCost;
-//        $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = $groupSimpleUserAndLiableCost;
-//        $groupSimpleUserAndLiableCost = [];
         $scope.simpleCalculatedTotal = 0;
 
     };
 
-$scope.simpleCalculateSum = function() {
+    $scope.simpleCalculateSum = function() {
 
         $scope.simpleCalculatedTotal = 0;
         for (i = 0; i < $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.length; i++) {
@@ -63,7 +49,7 @@ $scope.simpleCalculateSum = function() {
 
     };
 
-$scope.simpleFriendEnabled = function() {
+    $scope.simpleFriendEnabled = function() {
 
         for (i = 0; i < $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.length; i++) {
             if ($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].isActive === false)
@@ -75,8 +61,6 @@ $scope.simpleFriendEnabled = function() {
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
         $scope.bills.push(angular.copy($scope.bill));
-//        billService.addBill(bill);
-//billService.addBill(bill);
         $scope.bill = angular.copy(billService.getBillObj())
         $location.url('/');
     };

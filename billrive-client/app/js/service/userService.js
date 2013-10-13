@@ -1,10 +1,14 @@
 billRive.factory('userService', function($http,Restangular) {
   var factory = {};
-  var user = Restangular.one("user",6).get();
+  var user=null;//= Restangular.one("user",6).get();
   
-  
+     
    factory.getUser=function(){
-     return user;
+      Restangular.one("user", 6).get().then(function(user_) {
+       user = user_;
+        return user;
+      });
+     
  };
  
 
