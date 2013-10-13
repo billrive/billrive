@@ -1,4 +1,4 @@
-billRive.controller('billCtrl', function($scope, billService,userService,Restangular) {
+billRive.controller('billCtrl', function($location,$scope, billService,userService,Restangular) {
     //initialization
 //    $scope.friends = billService.getFriends();
     $scope.groups = [];//billService.getGroups();
@@ -12,7 +12,7 @@ billRive.controller('billCtrl', function($scope, billService,userService,Restang
     });//[];//$scope.user.groups[0].bills;
 //    $scope.user = userService.getUser();//[];//$scope.user.groups[0].bills;
    //[];//$scope.user.groups[0].bills;
-    $scope.bill = billService.getBillObj();
+    $scope.bill = angular.copy(billService.getBillObj());
 //     $scope.bill.billSimpleEntry={};
 //     $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = [];
 $scope.setBillGroup = function() {
@@ -73,11 +73,11 @@ $scope.simpleFriendEnabled = function() {
         $scope.simpleCalculateSum();
     };
     $scope.addBill = function() {
-        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
-//        $scope.bills.push(angular.copy($scope.bill));
+//        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
+        $scope.bills.push(angular.copy($scope.bill));
 //        billService.addBill(bill);
 //billService.addBill(bill);
-        $scope.bill = billService.getBillObj();
+        $scope.bill = angular.copy(billService.getBillObj())
         $location.url('/');
     };
 });
