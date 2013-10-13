@@ -4,6 +4,7 @@ billRive.controller('billCtrl', function($scope, billService,userService,Restang
     $scope.groups = [];//billService.getGroups();
 //    $scope.payers = billService.getPayers();
      $scope.bills=[];
+     $scope.emptySpace=" ";
     Restangular.one("user",6).get().then(function(user){
          $scope.user=user;
          $scope.bills = user.groups[0].bills;
@@ -28,8 +29,8 @@ $scope.setBillGroup = function() {
                 $selectedGroupMembers = selectedGroup.users;
             }
         }
-        var $groupSimpleUserAndLiableCost = [];
-        var $friendNamefromId = null;
+//        var $groupSimpleUserAndLiableCost = [];
+//        var $friendNamefromId = null;
         var simpleUserIdAndLiableCostObj=null;
         for (i = 0; i < $selectedGroupMembers.length; i++) {
  simpleUserIdAndLiableCostObj=billService.getSimpleUserIdAndLiableCostObj();
@@ -46,7 +47,7 @@ simpleUserIdAndLiableCostObj.user.lName=$selectedGroupMembers[i].lName;
         }
 //         $scope.billSimpleEntry.simpleUserIdAndLiableCost = $groupSimpleUserAndLiableCost;
 //        $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost = $groupSimpleUserAndLiableCost;
-        $groupSimpleUserAndLiableCost = [];
+//        $groupSimpleUserAndLiableCost = [];
         $scope.simpleCalculatedTotal = 0;
 
     };
@@ -65,7 +66,7 @@ $scope.simpleCalculateSum = function() {
 $scope.simpleFriendEnabled = function() {
 
         for (i = 0; i < $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost.length; i++) {
-            if ($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].enabled === false)
+            if ($scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].isActive === false)
                 $scope.bill.billSimpleEntry.simpleUserIdAndLiableCost[i].liableCost = 0;
         }
 

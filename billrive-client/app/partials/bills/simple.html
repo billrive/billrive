@@ -1,19 +1,19 @@
 <br />
 <div> <ul class="unstyled"> 
 
-        <li ng-repeat="user in bill.billSimpleEntry.simpleUserIdAndLiableCost " > 
+        <li ng-repeat="simpleUserIdAndLiableCost in bill.billSimpleEntry.simpleUserIdAndLiableCost " > 
             <div class="row-fluid">
 
                 <div class="span3">
-                    <input ng-change='simpleFriendEnabled()' type="checkbox" ng-model="user.enabled" />
-                    <span  class="done-{{!user.enabled}}"> {{user.name}}</span>
+                    <input ng-change='simpleFriendEnabled()' type="checkbox" ng-model="simpleUserIdAndLiableCost.isActive" />
+                    <span  class="done-{{!simpleUserIdAndLiableCost.isActive}}"> {{simpleUserIdAndLiableCost.user.fName}}&nbsp;{{simpleUserIdAndLiableCost.user.lName}}</span>
                 </div>
                 <div class="span3">
                      <!--{{billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error}}-->
                      <!--<span ng-show="billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error.float">
             This is not a valid float number!</span>-->
-                    <!-- ng-required='user.enabled' -->
-                    <input name="xcvxcvxcvxcvxcvxcv" ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" smart-float required/>
+                    <!-- ng-required='simpleUserIdAndLiableCost.enabled' -->
+                    <input name="input" ng-disabled="!simpleUserIdAndLiableCost.isActive" ng-change='simpleCalculateSum()' type="text" ng-model='simpleUserIdAndLiableCost.liableCost' class="span6" placeholder="0.00" smart-float required/>
                     
                      
                  
