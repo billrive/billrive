@@ -64,10 +64,9 @@ CREATE TABLE `bill` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_bill_groups1_idx` (`groupId`),
   KEY `fk_bill_user1_idx` (`billPayerId`),
-  CONSTRAINT `fk_bill_billsimpleentry` FOREIGN KEY (`id`) REFERENCES `billsimpleentry` (`billId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_bill_groups` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_bill_user` FOREIGN KEY (`billPayerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +75,7 @@ CREATE TABLE `bill` (
 
 LOCK TABLES `bill` WRITE;
 /*!40000 ALTER TABLE `bill` DISABLE KEYS */;
-INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56',50.00),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54',35.70);
+INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56',50.00),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54',35.70),(5,'Travel',6,NULL,4,6,'2013-08-14 02:09:54',50.00);
 /*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +130,7 @@ CREATE TABLE `billsimpleentry` (
 
 LOCK TABLES `billsimpleentry` WRITE;
 /*!40000 ALTER TABLE `billsimpleentry` DISABLE KEYS */;
-INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4);
+INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4),('simple',NULL,5);
 /*!40000 ALTER TABLE `billsimpleentry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +149,7 @@ CREATE TABLE `groups` (
   `isActive` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +158,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (3,'SLC',NULL,6,0);
+INSERT INTO `groups` VALUES (3,'SLC',NULL,6,1),(4,'Office-IHC',NULL,6,1),(5,'Friends',NULL,6,1);
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +213,7 @@ CREATE TABLE `simpleuseridandliablecost` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_simpleuseridandliablecost_user1_idx` (`userId`),
   CONSTRAINT `fk_simpleuseridandliablecost_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +222,7 @@ CREATE TABLE `simpleuseridandliablecost` (
 
 LOCK TABLES `simpleuseridandliablecost` WRITE;
 /*!40000 ALTER TABLE `simpleuseridandliablecost` DISABLE KEYS */;
-INSERT INTO `simpleuseridandliablecost` VALUES (10,6,1.00,2,0),(11,7,1.00,2,0),(12,8,1.00,2,0);
+INSERT INTO `simpleuseridandliablecost` VALUES (10,6,1.00,2,1),(11,7,1.00,2,1),(12,8,1.00,2,1),(13,6,10.00,5,1),(14,7,10.00,5,1);
 /*!40000 ALTER TABLE `simpleuseridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,7 +302,7 @@ CREATE TABLE `usergroupmap` (
   KEY `fk_groups_has_user_groups1_idx` (`groups_id`),
   CONSTRAINT `fk_groups_has_user_groups1` FOREIGN KEY (`groups_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_groups_has_user_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,7 +311,7 @@ CREATE TABLE `usergroupmap` (
 
 LOCK TABLES `usergroupmap` WRITE;
 /*!40000 ALTER TABLE `usergroupmap` DISABLE KEYS */;
-INSERT INTO `usergroupmap` VALUES (3,6,1),(3,7,2),(3,8,3);
+INSERT INTO `usergroupmap` VALUES (3,6,1),(3,7,2),(3,8,3),(4,6,4),(4,7,5),(5,6,6),(5,8,7);
 /*!40000 ALTER TABLE `usergroupmap` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -356,4 +355,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-09-22 20:40:08
+-- Dump completed on 2013-10-12 15:25:28

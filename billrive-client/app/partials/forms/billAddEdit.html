@@ -21,7 +21,7 @@
 
 
                 <label>Payer</label>
-                <select ng-model="bill.billPayerId" class="span8" ng-options="c.id as c.name for c in payers"></select>
+                <select ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>
 
                 <label>Notes</label>
                 <textarea ng-model="bill.notes"></textarea>

@@ -14,24 +14,27 @@ billRive.factory('billService',function($http){
   var bills = [];//angular.copy(this.user.groups[0].bills);//users;
 //Bill Object Structure
 var billObj={
-            "id": null,
-            "title": "",
-            "date": null,
-            "billPayerId": null,
-            "notes": "",
-            "groupId": null,
-            "billSimpleEntry": {
+    "id": null,
+    "title": "",
+    "billDate": null,
+    "billPayerId": null,
+    "notes": null,
+    "billCreaterId": null,
+    "groupId": null,
+    "billTotal": null,
+    "billSimpleEntry": billSimpleEntryObj,
+    "billItemEntry": [
+    ],
+    "userId": null
+};
+   
+   var billSimpleEntryObj={
         "billId": null,
         "itemDescription": null,
-        "itemDescriptionId": null,
         "simpleUserIdAndLiableCost": [
-            
-        ]        
-    },                     
-        "billItemEntry": [
-        ]   
-        };
-    
+        ],
+        "itemDescriptionId": 2
+    };
 //billFinances Object Structure 
 
 var simpleUserIdAndLiableCostObj={
@@ -39,7 +42,12 @@ var simpleUserIdAndLiableCostObj={
                 "liableCost": null,
                 "id": null,
                 "billSimpleEntryId": null,
-                "billItemEntryID": null
+                "user": {
+                    "id": null,
+                    "fName": null,
+                    "lName": null
+                },
+                "isActive": true
             };
    
 var billItemEntryObj={
@@ -142,7 +150,14 @@ var groupFriendRel=[{groupId:'1',friendId:'5'}];
   factory.getUser=function(){
      return user;
  };
- 
+  factory.getBillSimpleEntryObj=function(){
+     return billSimpleEntryObj;
+ };
+  factory.getSimpleUserIdAndLiableCostObj=function(){
+     return simpleUserIdAndLiableCostObj;
+ };
+  
+  
 
  return factory;
 });
