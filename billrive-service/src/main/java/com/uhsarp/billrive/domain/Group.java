@@ -24,7 +24,7 @@ public class Group implements GenericObject {
      */
     private static final long serialVersionUID = 4125241775878842292L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     String name;
     @Column(columnDefinition = "TEXT")

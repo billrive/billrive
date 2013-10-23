@@ -9,10 +9,8 @@ import com.googlecode.genericdao.search.Filter;
 import com.googlecode.genericdao.search.ISearch;
 import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.BillDAO;
-import com.uhsarp.billrive.dao.framework.FriendDAO;
 import com.uhsarp.billrive.domain.Bill;
 import java.util.List;
-import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -18,7 +18,7 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
     private  Long userId;
     private  BigDecimal  liableCost;
      @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)  
+     @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
     private Long billSimpleEntryId;
 //    @Column(table="user", name="fName")

@@ -21,7 +21,7 @@ import org.joda.time.DateTime;
 @Table(name="\"payment\"")
 public class Payment  implements GenericObject{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+    @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
     
     private long payerId;

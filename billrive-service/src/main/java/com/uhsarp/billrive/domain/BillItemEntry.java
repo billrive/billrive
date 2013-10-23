@@ -20,7 +20,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class BillItemEntry  implements GenericObject{
     
 	@Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)  
+        @GeneratedValue(strategy = GenerationType.AUTO)  
         private Long id;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin

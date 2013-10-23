@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name="\"user\"")
 public class UserBare  implements GenericObject {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+    @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
     private String fName;
     private String lName;

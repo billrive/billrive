@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class Balance implements GenericObject {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+    @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
     private Long groupId;
     private Long userId_gets;

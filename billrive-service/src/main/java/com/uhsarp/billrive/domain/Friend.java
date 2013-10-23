@@ -20,7 +20,7 @@ import javax.persistence.Transient;
 @Table(name="\"user\"")
 public class Friend  implements GenericObject{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+    @GeneratedValue(strategy = GenerationType.AUTO)  
     Long id;
     String fName;
     String lName;

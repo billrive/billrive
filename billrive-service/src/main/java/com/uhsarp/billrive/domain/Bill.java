@@ -29,7 +29,7 @@ public class Bill implements GenericObject {
      */
     private static final long serialVersionUID = -5660869020353250221L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
+    @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
     private String title;//walmart
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")

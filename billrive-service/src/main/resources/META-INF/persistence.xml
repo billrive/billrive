@@ -21,7 +21,7 @@
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="validate"/>
               <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <!--<property name="show_sql" value="true" />-->
+            <property name="show_sql" value="true" />
             <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL"/>-->
             <!--      <property name="eclipselink.ddl-generation" value="create-tables"/>
             <property name="eclipselink.cache.size.default" value="10000"/>

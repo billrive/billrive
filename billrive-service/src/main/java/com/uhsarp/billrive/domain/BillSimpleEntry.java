@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class BillSimpleEntry  implements GenericObject{
     
 	@Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)  
+        @GeneratedValue(strategy = GenerationType.AUTO)  
         private Long billId;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
