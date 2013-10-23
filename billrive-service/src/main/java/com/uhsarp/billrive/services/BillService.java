@@ -17,7 +17,7 @@ public interface BillService {
 
      Bill getBillById(Long id);
 
-     Bill createBill(Bill bill_p);
+     Bill addBill(Bill bill_p);
 
      Bill updateBill(Bill bill_p);
 

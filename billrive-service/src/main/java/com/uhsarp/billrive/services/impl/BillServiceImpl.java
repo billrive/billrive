@@ -62,8 +62,10 @@ public class BillServiceImpl implements BillService {
         return (Bill) genericDao.get(id);
     }
 
-    public Bill createBill(Bill bill_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Bill addBill(Bill bill_p) {
+        
+         billDAO.save(bill_p);
+        return null;
     }
 
     public Bill updateBill(Bill bill_p) {

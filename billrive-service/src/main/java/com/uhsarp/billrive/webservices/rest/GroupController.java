@@ -4,6 +4,7 @@
  */
 package com.uhsarp.billrive.webservices.rest;
 
+import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.domain.Group;
 import com.uhsarp.billrive.services.GroupService;
 import java.util.List;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -30,8 +32,8 @@ public class GroupController extends GenericController {
     	@Autowired
 	private GroupService groupService;
 
-	@Autowired
-	private View jsonView_i;
+//	@Autowired
+//	private View jsonView_i;
         
         
         private static final String DATA_FIELD = "data";
@@ -40,40 +42,40 @@ public class GroupController extends GenericController {
         
         
     	@RequestMapping(value = "/rest/{userId}/groups/", method = RequestMethod.GET)
-	public ModelAndView getGroups(@PathVariable("userId") int userId) {
+	public @ResponseBody List<Group> getGroups(@PathVariable("userId") int userId) {
 		List<Group> groups = null;
                 System.out.println("In Groups...Calling getGroups");
 		try {
 			groups = groupService.getGroups(userId);
 		} catch (Exception e) {
 			String sMessage = "Error getting all groups. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+			return groups;
 		}
 
 		logger_c.debug("Returing Groups: " + groups.toString());
-		return new ModelAndView(jsonView_i, DATA_FIELD, groups);
+		return groups;
 	}
         
         
         	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.GET)
-	public ModelAndView getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
+	public @ResponseBody Group getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
 		Group group = null;
 
 		
 		if (isEmpty(groupId_p) || groupId_p.length() < 5) {
 			String sMessage = "Error invoking getGroup - Invalid group Id parameter";
-			return createErrorResponse(sMessage);
+			return group;
 		}
 
 		try {
 			group = groupService.getGroupById(groupId_p);
 		} catch (Exception e) {
 			String sMessage = "Error invoking getGroup. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+			return group;
 		}
 
 		logger_c.debug("Returing Group: " + group.toString());
-		return new ModelAndView(jsonView_i, DATA_FIELD, group);
+		return group;
 	}
                 
                 
@@ -82,7 +84,7 @@ public class GroupController extends GenericController {
 //			HttpServletResponse httpResponse_p, WebRequest request_p) {
                 
         @RequestMapping(value = { "/rest/{userId}/groups/" }, method = { RequestMethod.POST })
-	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
+	public void createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 
@@ -96,7 +98,7 @@ public class GroupController extends GenericController {
 			createdGroup = groupService.createGroup(userId, userId);
 		} catch (Exception e) {
 			String sMessage = "Error creating new group. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+//			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
 
 		/* set HTTP response code */
@@ -122,7 +124,7 @@ public class GroupController extends GenericController {
 		/**
 		 * Return the view
 		 */
-		return new ModelAndView(jsonView_i, DATA_FIELD, createdGroup);
+//		return new ModelAndView(jsonView_i, DATA_FIELD, createdGroup);
 	}
 
 	/**
@@ -133,7 +135,7 @@ public class GroupController extends GenericController {
 	 * @return the model and view
 	 */
 	@RequestMapping(value = { "/rest/{userId}/{userId}/groups/{groupId}" }, method = { RequestMethod.PUT })
-	public ModelAndView updateGroup(@RequestBody Group group_p,@PathVariable("userId") int userId, @PathVariable("groupId") String groupId_p,
+	public Group updateGroup(@RequestBody Group group_p,@PathVariable("userId") int userId, @PathVariable("groupId") String groupId_p,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Group: " + group_p.toString());
@@ -141,7 +143,7 @@ public class GroupController extends GenericController {
 		/* validate group Id parameter */
 		if (isEmpty(groupId_p) || groupId_p.length() < 5) {
 			String sMessage = "Error updating group - Invalid group Id parameter";
-			return createErrorResponse(sMessage);
+			return null;
 		}
 
 		Group group = null;
@@ -150,11 +152,11 @@ public class GroupController extends GenericController {
 			group = groupService.updateGroup(group_p);
 		} catch (Exception e) {
 			String sMessage = "Error updating group. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+			return group;
 		}
 
 		httpResponse_p.setStatus(HttpStatus.OK.value());
-		return new ModelAndView(jsonView_i, DATA_FIELD, group);
+		return group;
 	}
 
 	/**
@@ -165,7 +167,7 @@ public class GroupController extends GenericController {
 	 * @return the model and view
 	 */
 	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.DELETE)
-	public ModelAndView removeGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
+	public void removeGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Deleting Group Id: " + groupId_p.toString());
@@ -173,25 +175,25 @@ public class GroupController extends GenericController {
 		/* validate group Id parameter */
 		if (isEmpty(groupId_p) || groupId_p.length() < 5) {
 			String sMessage = "Error deleting group - Invalid group Id parameter";
-			return createErrorResponse(sMessage);
+//			return createErrorResponse(sMessage);
 		}
 
 		try {
 			groupService.deleteGroup(groupId_p);
 		} catch (Exception e) {
 			String sMessage = "Error invoking getGroups. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+//			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
 
 		httpResponse_p.setStatus(HttpStatus.OK.value());
-		return new ModelAndView(jsonView_i, DATA_FIELD, null);
+//		return new ModelAndView(jsonView_i, DATA_FIELD, null);
 	}
         
         public static boolean isEmpty(String s_p) {
 		return (null == s_p) || s_p.trim().length() == 0;
 	}
         
-        	private ModelAndView createErrorResponse(String sMessage) {
-		return new ModelAndView(jsonView_i, ERROR_FIELD, sMessage);
+        	private String createErrorResponse(String sMessage) {
+		return sMessage;
 	}
 }

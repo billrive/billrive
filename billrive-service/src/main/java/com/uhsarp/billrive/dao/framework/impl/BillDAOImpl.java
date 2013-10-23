@@ -51,7 +51,12 @@ public class BillDAOImpl extends JpaConfig  implements BillDAO{
     }
 
     public Bill save(Bill t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getEntityManager().getTransaction().begin();
+        this.getEntityManager().persist(t);
+         this.getEntityManager().getTransaction().commit();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         //returning null for now till I figure out if I need to pull the data that I just saved and return it.
+         return null;
     }
 
     public Bill[] save(Bill... ts) {

@@ -1,4 +1,4 @@
-billRive.controller('billCtrl', function($location, $scope, billService, userService, Restangular,userFactory) {
+billRive.controller('billCtrl', function($location, $scope, billService, userService, Restangular,userFactory,billFactory) {
 
     $scope.groups = [];
     $scope.bills = [];
@@ -78,7 +78,8 @@ userFactory.getUser(6).success(function(data){
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
         $scope.bills.push(angular.copy($scope.bill));
-        $scope.bill = angular.copy(billService.getBillObj())
+        billFactory.addBill(6,angular.copy($scope.bill));
+        $scope.bill = angular.copy(billService.getBillObj());
         $location.url('/');
     };
 });

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -32,8 +33,8 @@ public class BillController extends GenericController{
 	private BillService billService;
 
   
-	@Autowired
-	private View jsonView_i;
+//	@Autowired
+//	private View jsonView_i;
         
         
         private static final String DATA_FIELD = "data";
@@ -41,8 +42,8 @@ public class BillController extends GenericController{
         private static final Logger logger_c = Logger.getLogger(BillController.class);
         
         
-    	@RequestMapping(value = "/rest/{userId}/bills", method = RequestMethod.GET)
-	public ModelAndView getBills(@PathVariable("userId") int userId) {
+    	@RequestMapping(value = "/user/{userId}/bills", method = RequestMethod.GET)
+	public @ResponseBody List<Bill> getBills(@PathVariable("userId") int userId) {
 		List<Bill> bills = new ArrayList<Bill>();
                 logger_c.info("Value of userId is  "+userId);
 		
@@ -52,7 +53,7 @@ public class BillController extends GenericController{
 //                        logger_c.info("Value of Bills ArrayList after service call is  "+bills.getFirst().toString());
 		} catch (Exception e) {
 			String sMessage = "Error getting all bills. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+			return bills;
 		}
               
 //        Bill bill = new Bill((long)1,"Walmart", new DateTime(2013,2,3,1,1), userId, "Sample Notes", null, userId);
@@ -65,56 +66,56 @@ public class BillController extends GenericController{
                 logger_c.info("Value of Bills ArrayList is  ");
 
 		logger_c.debug("Returing Bills: " + bills.toString());
-		return new ModelAndView(jsonView_i, DATA_FIELD, bills);
+		return bills;
 	}
         
         
-        	@RequestMapping(value = "/rest/{userId}/bills/{billId}", method = RequestMethod.GET)
-	public ModelAndView getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId) {
+        	@RequestMapping(value = "/user/{userId}/bill/{billId}", method = RequestMethod.GET)
+	public @ResponseBody Bill getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId) {
 		Bill bill = null;
 
 		
 		if (isEmpty(billId_p) || billId_p.length() < 5) {
 			String sMessage = "Error invoking getBill - Invalid bill Id parameter";
-			return createErrorResponse(sMessage);
+			return bill;
 		}
 
 		try {
 			bill = null;//billService.getBillById(billId_p);
 		} catch (Exception e) {
 			String sMessage = "Error invoking getBill. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+			return bill;
 		}
 
 		logger_c.debug("Returing Bill: " + bill.toString());
-		return new ModelAndView(jsonView_i, DATA_FIELD, bill);
+		return bill;
 	}
                 
                 
-        @RequestMapping(value = { "/rest/{userId}/bills/" }, method = { RequestMethod.POST })
-	public ModelAndView createBill(@RequestBody Bill bill_p,@PathVariable("userId") int userId,
+        @RequestMapping(value = { "/user/{userId}/bill/" }, method = { RequestMethod.POST })
+	public void addBill(@RequestBody Bill bill_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 		Bill createdBill;
 		logger_c.debug("Creating Bill: " + bill_p.toString());
 
 		try {
-			createdBill = billService.createBill(bill_p);
+			createdBill = billService.addBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new bill. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+//			return null;
 		}
 
 		/* set HTTP response code */
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
 		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/bills/" + bill_p.getId());
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/user/{userId}/bill/" + bill_p.getId());
 
 		/**
 		 * Return the view
 		 */
-		return new ModelAndView(jsonView_i, DATA_FIELD, createdBill);
+//		return new ModelAndView(jsonView_i, DATA_FIELD, createdBill);
 	}
 
 	/**
@@ -124,8 +125,8 @@ public class BillController extends GenericController{
 	 *            the bill_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/{userId}/bill/{billId}" }, method = { RequestMethod.PUT })
-	public ModelAndView updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
+	@RequestMapping(value = { "/user/{userId}/bill/{billId}" }, method = { RequestMethod.PUT })
+	public void updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Bill: " + bill_p.toString());
@@ -133,7 +134,7 @@ public class BillController extends GenericController{
 		/* validate bill Id parameter */
 		if (isEmpty(billId_p) || billId_p.length() < 5) {
 			String sMessage = "Error updating bill - Invalid bill Id parameter";
-			return createErrorResponse(sMessage);
+//			return createErrorResponse(sMessage);
 		}
 
 		Bill bill = null;
@@ -142,11 +143,11 @@ public class BillController extends GenericController{
 			bill = billService.updateBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error updating bill. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+//			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
 
 		httpResponse_p.setStatus(HttpStatus.OK.value());
-		return new ModelAndView(jsonView_i, DATA_FIELD, bill);
+//		return new ModelAndView(jsonView_i, DATA_FIELD, bill);
 	}
 
 	/**
@@ -156,8 +157,8 @@ public class BillController extends GenericController{
 	 *            the bill id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/rest/{userId}/bills/{billId}", method = RequestMethod.DELETE)
-	public ModelAndView removeBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
+	@RequestMapping(value = "/user/{userId}/bill/{billId}", method = RequestMethod.DELETE)
+	public void deleteBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Deleting Bill Id: " + billId_p.toString());
@@ -165,26 +166,26 @@ public class BillController extends GenericController{
 		/* validate bill Id parameter */
 		if (isEmpty(billId_p) || billId_p.length() < 5) {
 			String sMessage = "Error deleting bill - Invalid bill Id parameter";
-			return createErrorResponse(sMessage);
+//			return createErrorResponse(sMessage);
 		}
 
 		try {
 			billService.deleteBill(billId_p);
 		} catch (Exception e) {
 			String sMessage = "Error invoking getBills. [%1$s]";
-			return createErrorResponse(String.format(sMessage, e.toString()));
+//			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
 
 		httpResponse_p.setStatus(HttpStatus.OK.value());
-		return new ModelAndView(jsonView_i, DATA_FIELD, null);
+//		return new ModelAndView(jsonView_i, DATA_FIELD, null);
 	}
         
         public static boolean isEmpty(String s_p) {
 		return (null == s_p) || s_p.trim().length() == 0;
 	}
         
-        	private ModelAndView createErrorResponse(String sMessage) {
-		return new ModelAndView(jsonView_i, ERROR_FIELD, sMessage);
+        	private String createErrorResponse(String sMessage) {
+		return sMessage;
 	}
                 
                   public BillService getBillService() {
