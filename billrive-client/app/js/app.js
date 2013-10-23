@@ -1,10 +1,10 @@
 'use strict';
 
-var billRive = angular.module('billRive', ['ngRoute','restangular']);
+var billRive = angular.module('billRive', ['ngRoute','restangular','ngResource']);
 //angular.module('billRive', ['restangular']);
 
 //billRive.config(function(RestangularProvider) {
-//    RestangularProvider.setBaseUrl('http://localhost:8080/billrive-service');
+//    RestangularProvider.setBaseUrl('http://localhost:8082/billrive-service');
 //
 //});
 

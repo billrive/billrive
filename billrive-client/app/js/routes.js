@@ -13,7 +13,7 @@ billRive.config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/login'});
 
     //$routeProvider.otherwise({redirectTo: '/bills/list'});
-//     RestangularProvider.setBaseUrl('http://localhost:8080/billrive-service');
+//     RestangularProvider.setBaseUrl('http://localhost:8082/billrive-service');
      
   }]);
   
@@ -23,6 +23,6 @@ billRive.config(['$routeProvider', function($routeProvider) {
 //});
 
 billRive.config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://localhost:8080/billrive-service');
+    RestangularProvider.setBaseUrl('http://localhost:8082/billrive-service');
 
     });
