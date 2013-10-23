@@ -48,7 +48,7 @@ public class BillController extends GenericController{
 		
                 //int userId=5;
 		try {
-			bills = billService.getBills(userId);
+			bills = null;//billService.getBills(userId);
 //                        logger_c.info("Value of Bills ArrayList after service call is  "+bills.getFirst().toString());
 		} catch (Exception e) {
 			String sMessage = "Error getting all bills. [%1$s]";
@@ -80,7 +80,7 @@ public class BillController extends GenericController{
 		}
 
 		try {
-			bill = billService.getBillById(billId_p);
+			bill = null;//billService.getBillById(billId_p);
 		} catch (Exception e) {
 			String sMessage = "Error invoking getBill. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
