@@ -16,6 +16,8 @@ import com.uhsarp.billrive.services.BillService;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -61,7 +63,7 @@ public class BillServiceImpl implements BillService {
     public Bill getBillById(Long id) {
         return (Bill) genericDao.get(id);
     }
-
+@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
     public Bill addBill(Bill bill_p) {
         
          billDAO.save(bill_p);

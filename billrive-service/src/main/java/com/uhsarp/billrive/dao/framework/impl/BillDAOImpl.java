@@ -14,6 +14,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -57,11 +58,13 @@ public class BillDAOImpl  implements BillDAO{
     }
 
     @Override
-	@Transactional
+@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
     public Bill save(Bill bill) {
         bill.getBillSimpleEntry().setBillId(null);
         if (bill.getId() == null) {
 			em.persist(bill);
+                        em.flush();
+                        em.close();
 			return bill;
 		} else {
 			return em.merge(bill);
