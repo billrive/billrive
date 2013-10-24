@@ -1,5 +1,5 @@
 billRive.factory('billFactory', function ($http) {
-    var url = 'http://localhost\:8082/billrive-service/user/';
+    var url = 'http://localhost\:8080/billrive-service/user/';
             return {
                 addBill: function (userId,Bill) {
                     return $http.post(url+userId+"/bill/", Bill);

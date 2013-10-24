@@ -1,5 +1,5 @@
 billRive.factory('userFactory', function ($http) {
-    var url = 'http://localhost\:8082/billrive-service/user/';
+    var url = 'http://localhost\:8080/billrive-service/user/';
             return {
                 getUsers: function () {
                     return $http.get(url);

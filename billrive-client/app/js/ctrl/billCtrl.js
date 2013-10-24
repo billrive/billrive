@@ -79,8 +79,8 @@ userFactory.getUser(6).success(function(data){
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
         $scope.bills.push(angular.copy($scope.bill));
         billFactory.addBill(6,angular.copy($scope.bill));
-        $scope.bill = angular.copy(billService.getBillObj());
-        $location.url('/');
+//        $scope.bill = angular.copy(billService.getBillObj());
+//        $location.url('/');
     };
 });
 

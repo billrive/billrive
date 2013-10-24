@@ -2,7 +2,7 @@ billRive.factory('billService',function($http){
    var factory = {};
    var user={};
 
-    $http({ method: 'GET', url: 'http://localhost:8082/billrive-service/user/6' }).
+    $http({ method: 'GET', url: 'http://localhost:8080/billrive-service/user/6' }).
   success(function (data, status, headers, config) {
     user=angular.copy(data.data);
   }).

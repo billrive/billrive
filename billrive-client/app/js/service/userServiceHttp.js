@@ -1,4 +1,5 @@
 billRive.factory('userService', function($http,Restangular) {
+    var user = {};
 //  var factory = {};
 //  var user=null;//= Restangular.one("user",6).get();
 //  
@@ -20,6 +21,8 @@ billRive.factory('userService', function($http,Restangular) {
         // The then function here is an opportunity to modify the response
 //        console.log(response);
         // The return value gets picked up by the then in the controller.
+//        return response;
+        user = response;
         return response;
       });
       // Return the promise to the controller
