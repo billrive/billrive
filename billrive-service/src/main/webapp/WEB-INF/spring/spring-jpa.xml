@@ -22,9 +22,9 @@ class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
 <property name="persistenceUnitName" value="billrivePersistenceUnit"/> 
 </bean> 
 
-    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+<!--    <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
+    </bean>-->
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
@@ -39,6 +39,6 @@ class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
           class="org.springframework.orm.jpa.JpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory"/>
 
-    <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>
+    <!--<tx:annotation-driven mode="aspectj" transaction-manager="transactionManager"/>-->
 
 </beans>

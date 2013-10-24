@@ -11,18 +11,25 @@ import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.UserDAO;
 import com.uhsarp.billrive.domain.User;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Prashanth Batchu
  */
 @Repository("userDAO")
-public class UserDAOImpl  extends JpaConfig implements UserDAO{
+@Transactional()
+public class UserDAOImpl  implements UserDAO{
 
+    @PersistenceContext
+	private EntityManager em;
+    
     public User find(Long id) {
-     User user = (User) this.getEntityManager().createQuery("select u from User u  WHERE u.id="+id);
+     User user = (User) em.createQuery("select u from User u  WHERE u.id="+id);
         
         return user;
     }
@@ -118,7 +125,7 @@ public class UserDAOImpl  extends JpaConfig implements UserDAO{
     public User getUserByUserId(Long userId) {
       
         
-          Query q =  this.getEntityManager().createQuery("select u from User u  WHERE u.id="+userId);    
+          Query q =  em.createQuery("select u from User u  WHERE u.id="+userId);    
       User user = (User) q.getSingleResult();
         return user;
         

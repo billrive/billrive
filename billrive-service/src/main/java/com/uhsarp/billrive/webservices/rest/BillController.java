@@ -103,6 +103,8 @@ public class BillController extends GenericController{
 			createdBill = billService.addBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new bill. [%1$s]";
+                        System.out.println(e);
+                        e.printStackTrace();
 //			return null;
 		}
 

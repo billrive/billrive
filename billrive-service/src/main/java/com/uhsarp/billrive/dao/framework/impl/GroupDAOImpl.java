@@ -11,16 +11,23 @@ import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.domain.Group;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Prashanth Batchu
  */
 @Repository("groupDAO")
-public class GroupDAOImpl extends JpaConfig implements GroupDAO{
+@Transactional()
+public class GroupDAOImpl implements GroupDAO{
 
+     @PersistenceContext
+	private EntityManager em;
+     
     public Group find(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
@@ -34,7 +41,7 @@ public class GroupDAOImpl extends JpaConfig implements GroupDAO{
    
     public Long findGroupId(Long userId) {
       
-        List<Long> groupIds= (List<Long>) this.getEntityManager().createNativeQuery("SELECT groups_id FROM billrivedb.usergroupmap where id="+userId).getResultList();
+        List<Long> groupIds= (List<Long>) em.createNativeQuery("SELECT groups_id FROM billrivedb.usergroupmap where id="+userId).getResultList();
         Long groupId = groupIds.get(0).longValue();
         return  groupId;
     }
@@ -128,7 +135,7 @@ public class GroupDAOImpl extends JpaConfig implements GroupDAO{
     }
 
     public Group findGroupByGroupId(Long groupId) {
-      Query q =  this.getEntityManager().createQuery("select g from Group g  WHERE g.id="+groupId);    
+      Query q =  em.createQuery("select g from Group g  WHERE g.id="+groupId);    
       
       Group group = (Group) q.getSingleResult();
         return group;

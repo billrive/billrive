@@ -11,15 +11,23 @@ import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.BillDAO;
 import com.uhsarp.billrive.domain.Bill;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Prashanth Batchu
  */
 @Repository("billDAO")
-public class BillDAOImpl extends JpaConfig  implements BillDAO{
+@Transactional
+public class BillDAOImpl  implements BillDAO{
+//public class BillDAOImpl extends JpaConfig  implements BillDAO{
 
+        @PersistenceContext
+	private EntityManager em;
+    
     public Bill find(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -48,13 +56,16 @@ public class BillDAOImpl extends JpaConfig  implements BillDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Bill save(Bill t) {
-        this.getEntityManager().getTransaction().begin();
-        this.getEntityManager().persist(t);
-         this.getEntityManager().getTransaction().commit();
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-         //returning null for now till I figure out if I need to pull the data that I just saved and return it.
-         return null;
+    @Override
+	@Transactional
+    public Bill save(Bill bill) {
+        bill.getBillSimpleEntry().setBillId(null);
+        if (bill.getId() == null) {
+			em.persist(bill);
+			return bill;
+		} else {
+			return em.merge(bill);
+		}
     }
 
     public Bill[] save(Bill... ts) {
@@ -118,7 +129,8 @@ public class BillDAOImpl extends JpaConfig  implements BillDAO{
     }
 
     public List<Bill> getBillsByGroupId(Long groupId) {
-       return this.getEntityManager().createQuery("select t from Bill t WHERE t.groupId = :groupId")
+       return em.createQuery("select t from Bill t WHERE t.groupId = :groupId")
+//       return this.getEntityManager().createQuery("select t from Bill t WHERE t.groupId = :groupId")
                 .setParameter("groupId", groupId)
                 .getResultList();
           

@@ -13,10 +13,10 @@ import org.springframework.stereotype.Component;
  * @author Prashanth Batchu
  */
 
-@Component("jpaConfig")
+//@Component("jpaConfig")
 public class JpaConfig {
     
-  @Resource(name="entityManager")
+//  @Resource(name="entityManager")
   private  EntityManager entityManager;
 
     public EntityManager getEntityManager() {
