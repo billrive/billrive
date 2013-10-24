@@ -4,7 +4,7 @@
  */
 package com.uhsarp.billrive.services;
 
-import com.uhsarp.billrive.dao.GenericDao;
+//import com.uhsarp.billrive.dao.GenericDao;
 import com.uhsarp.billrive.domain.Payment;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service("PaymentService")
 public class PaymentService {
 //    @Resource(name= "neo4jDAO")
-    GenericDao genericDAO;
+//    GenericDao genericDAO;
     
         public Payment createPayment(int userId, Payment paymentObj)
     {

@@ -5,7 +5,6 @@
 package com.uhsarp.billrive.services;
 
 
-import com.uhsarp.billrive.dao.GenericDao;
 import com.uhsarp.billrive.domain.Group;
 import java.util.ArrayList;
 import java.util.List;

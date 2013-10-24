@@ -4,7 +4,7 @@
  */
 package com.uhsarp.billrive.services;
 
-import com.uhsarp.billrive.dao.GenericDao;
+
 import com.uhsarp.billrive.domain.Friend;
 import java.util.List;
 import javax.annotation.Resource;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service("friendService")
 public class FriendService {
 //   @Resource(name= "genericDao")
-    GenericDao genericDao;
+//    GenericDao genericDao;
 
     public List<Friend> getFriends() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

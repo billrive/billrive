@@ -32,7 +32,7 @@ class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
     <bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
 
     <!-- Read in DAOs from the JPA package -->
-    <context:component-scan base-package="com.uhsarp.billrive.dao" />
+    <context:component-scan base-package="com.uhsarp.billrive.dao.framework.impl" />
 
     <!-- Transaction Config -->
     <bean id="transactionManager"

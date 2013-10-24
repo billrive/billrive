@@ -4,8 +4,8 @@
  */
 package com.uhsarp.billrive.services.impl;
 
-import com.uhsarp.billrive.dao.GenericDao;
-import com.uhsarp.billrive.dao.MySqlDao;
+//import com.uhsarp.billrive.dao.GenericDao;
+//import com.uhsarp.billrive.dao.MySqlDao;
 import com.uhsarp.billrive.dao.framework.BillDAO;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.dao.framework.UserDAO;
@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class BillServiceImpl implements BillService {
     
 //    @Resource(name="genericDao")
-    GenericDao genericDao;
+//    GenericDao genericDao;
     
 //    @Resource(name="billDao")
 //    BillDao billDao;
@@ -41,7 +41,7 @@ public class BillServiceImpl implements BillService {
     @Resource(name="userDAO")
     UserDAO userDAO;
 //    @Autowired
-    MySqlDao mySqlDao;
+//    MySqlDao mySqlDao;
     public List<Bill> getBills(Long userId) {
          User user = (User) userDAO.getUserByUserId(userId);
         
@@ -61,7 +61,7 @@ public class BillServiceImpl implements BillService {
     }
 
     public Bill getBillById(Long id) {
-        return (Bill) genericDao.get(id);
+        return null;//(Bill) genericDao.get(id);
     }
 @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
     public Bill addBill(Bill bill_p) {

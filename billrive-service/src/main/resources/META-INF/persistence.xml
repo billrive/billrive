@@ -15,6 +15,7 @@
         <class>com.uhsarp.billrive.domain.UserIdAndLiableCost</class>
         <class>com.uhsarp.billrive.domain.Group</class>
         <class>com.uhsarp.billrive.domain.User</class>
+        <class>com.uhsarp.billrive.domain.UserBare</class>
         <class>com.uhsarp.billrive.domain.Friend</class>
         <class>com.uhsarp.billrive.domain.Payment</class>
         <class>com.uhsarp.billrive.domain.Balance</class>
