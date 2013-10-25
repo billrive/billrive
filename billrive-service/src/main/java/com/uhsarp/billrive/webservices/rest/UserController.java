@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
+//@RequestMapping(value = "/user")
 public class UserController extends GenericController{
     
     	@Autowired
@@ -54,6 +55,26 @@ public class UserController extends GenericController{
 		return user;
 	}
         
+        @RequestMapping(value = "/user", method = RequestMethod.POST)
+	public @ResponseBody User addUser() {
+            
+		User user = new User();
+//                logger_c.info("Value of userId is  "+userId);
+		try {
+//			user = userService.getUserByUserId(userId);
+
+		} catch (Exception e) {
+                       e.printStackTrace();
+			String sMessage = "Error getting all users. [%1$s]";
+			return null;                  
+                     
+		}
+ 
+                logger_c.info("Value of Users ArrayList is  ");
+
+		logger_c.debug("Returing Users: " + user.toString());
+		return user;
+	}
 
                 
         public UserService getUserService() {
