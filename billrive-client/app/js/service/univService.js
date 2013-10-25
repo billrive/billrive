@@ -1,4 +1,4 @@
-billRive.factory('univService', function($http,$q) {
+billRive.factory('univService', function($http, $q) {
     var url = 'http://localhost\:8080/billrive-service/user/';
 
     var billObj = {
@@ -47,29 +47,25 @@ billRive.factory('univService', function($http,$q) {
     };
     var deffered = $q.defer();
     var user = {};
-    
-    
+
+
     var currUserId = null;
-//userAndLiableCost Object Structure
+
     var userAndLiableCost =
             {userId: null, liableCost: null};
 
     return {
-        getUser:function(){
+        getUser: function() {
             return user;
         },
-        
         getUserFromHttp: function(userId) {
-    $http.get(url+userId)
-    .success(function (d) {
-      user = d;
-      console.log(d);
-      deffered.resolve();
-    });
-    return deffered.promise;
-  },
-        addUser: function(User) {
-            return $http.post(url, User);
+            $http.get(url + userId)
+                    .success(function(d) {
+                        user = d;
+                        console.log(d);
+                        deffered.resolve();
+                    });
+            return deffered.promise;
         },
         deleteUser: function(User) {
             return $http.delete(url + User.Id);
@@ -77,9 +73,8 @@ billRive.factory('univService', function($http,$q) {
         addUser: function(User) {
             return $http.put(url + User.Id, User);
         },
-        
-        
         addBill: function(groupId, Bill) {
+            user.groups[0].bills.push(Bill);
             return $http.post(url + userId + "/bill/", Bill);
         },
         deleteBill: function(billId) {
@@ -91,6 +86,9 @@ billRive.factory('univService', function($http,$q) {
         getBillObj: function() {
             return billObj;
         },
+        getBillItemEntryObjt: function() {
+            return billItemEntryObj;
+        },
         getUserAndLiableCost: function() {
             return userAndLiableCost;
         },
@@ -101,7 +99,7 @@ billRive.factory('univService', function($http,$q) {
             return simpleUserIdAndLiableCostObj;
         },
         setCurrUserId: function(userId) {
-            currUserId=userId;
+            currUserId = userId;
         },
         getCurrUserId: function() {
             return currUserId;

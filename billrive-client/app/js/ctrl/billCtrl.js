@@ -3,25 +3,15 @@ billRive.controller('billCtrl', function($location, $scope, univService) {
     $scope.groups = [];
     $scope.bills = [];
     $scope.emptySpace = " ";
-    
-
-//univService.getUser(6).success(function(data){
-//     $scope.user = data;
-//    $scope.bills = $scope.user.groups[0].bills;
-//        $scope.groups = $scope.user.groups;
-//});
-
-//$scope.user=univService.getUser(6);
-//$scope.bills = $scope.user.groups[0].bills;
-
 univService.getUserFromHttp(6).then(function() {
     $scope.user = univService.getUser();
     $scope.bills = $scope.user.groups[0].bills;
+    $scope.groups=$scope.user.groups;
   });
 
     $scope.bill = angular.copy(univService.getBillObj());
     $scope.setBillGroup = function() {
-        $scope.bill.billSimpleEntry = angular.copy(billService.getBillSimpleEntryObj());
+        $scope.bill.billSimpleEntry = angular.copy(univService.getBillSimpleEntryObj());
         var $groupId = $scope.bill.groupId;
 
         var $selectedGroupMembers;
@@ -35,7 +25,7 @@ univService.getUserFromHttp(6).then(function() {
         }
         var simpleUserIdAndLiableCostObj = null;
         for (i = 0; i < $selectedGroupMembers.length; i++) {
-            simpleUserIdAndLiableCostObj = billService.getSimpleUserIdAndLiableCostObj();
+            simpleUserIdAndLiableCostObj = univService.getSimpleUserIdAndLiableCostObj();
             simpleUserIdAndLiableCostObj.userId = $selectedGroupMembers[i].id;
             simpleUserIdAndLiableCostObj.user.fName = $selectedGroupMembers[i].fName;
             simpleUserIdAndLiableCostObj.user.lName = $selectedGroupMembers[i].lName;
@@ -67,16 +57,16 @@ univService.getUserFromHttp(6).then(function() {
     };
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
-        $scope.bills.push(angular.copy($scope.bill));
-        billService.addBill(6,angular.copy($scope.bill));
-//        $scope.bill = angular.copy(billService.getBillObj());
+//        $scope.bills.push(angular.copy($scope.bill));
+        univService.addBill($scope.bill.groupId,angular.copy($scope.bill));
+        $scope.bill = angular.copy(univService.getBillObj());
 //        $location.url('/');
     };
 });
 
 
 
-billRive.controller('BillEditCtrl', function($scope, billService, $location, $routeParams) {
+billRive.controller('BillEditCtrl', function($scope, univService, $location, $routeParams) {
     $scope.bill = $scope.bills[$routeParams.id];
     console.log("in billedit ctrl");
     $scope.editBill = function() {
