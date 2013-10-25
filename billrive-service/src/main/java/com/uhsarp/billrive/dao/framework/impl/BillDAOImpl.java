@@ -10,9 +10,12 @@
  import com.googlecode.genericdao.search.SearchResult;
  import com.uhsarp.billrive.dao.framework.BillDAO;
  import com.uhsarp.billrive.domain.Bill;
+import com.uhsarp.billrive.webservices.rest.BillController;
  import java.util.List;
  import javax.persistence.EntityManager;
  import javax.persistence.PersistenceContext;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
  import org.springframework.stereotype.Repository;
  import org.springframework.transaction.annotation.Propagation;
  import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +29,8 @@
  public class BillDAOImpl  implements BillDAO{
  //public class BillDAOImpl extends JpaConfig  implements BillDAO{
  
-         @PersistenceContext
+      private static final Logger logger_c = Logger.getLogger(BillController.class);
+        @PersistenceContext
  	private EntityManager em;
      
      public Bill find(Long id) {
@@ -60,9 +64,14 @@
   
  @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
      public Bill save(Bill bill) {
-         bill.getBillSimpleEntry().setBillId(null);
+//         bill.getBillSimpleEntry().setBillId(null);
          if (bill.getId() == null) {
-                         em.persist(bill);
+                        try{
+                            em.persist(bill);
+                        }
+                        catch(Exception e){
+                        logger_c.debug(e);
+                        }
                         
  			return bill;
  		} else {

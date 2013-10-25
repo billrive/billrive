@@ -1,4 +1,4 @@
-billRive.controller('billCtrl', function($location, $scope, billService, userService, Restangular,userFactory,billFactory) {
+billRive.controller('billCtrl', function($location, $scope, billService, userService, Restangular,userFactory) {
 
     $scope.groups = [];
     $scope.bills = [];
@@ -20,7 +20,7 @@ billRive.controller('billCtrl', function($location, $scope, billService, userSer
 //      var temp = response;
 //    });
 
-// $scope.user = userService.getUser();
+// $scope.user = userService.getUser(billFactory);
 //        $scope.bills = user.groups[0].bills;
 //        $scope.groups = user.groups;
 userFactory.getUser(6).success(function(data){
@@ -78,7 +78,7 @@ userFactory.getUser(6).success(function(data){
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
         $scope.bills.push(angular.copy($scope.bill));
-        billFactory.addBill(6,angular.copy($scope.bill));
+        billService.addBill(6,angular.copy($scope.bill));
 //        $scope.bill = angular.copy(billService.getBillObj());
 //        $location.url('/');
     };

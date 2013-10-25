@@ -41,12 +41,10 @@ public class Bill implements GenericObject {
     private Long groupId;
     private BigDecimal  billTotal;
    
-//    @OneToOne(cascade=CascadeType.ALL,mappedBy="billId",fetch = FetchType.EAGER)
     @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
     private BillSimpleEntry billSimpleEntry;
    
-    //@Transient
     @OneToMany(cascade=CascadeType.ALL,mappedBy="billId")
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<BillItemEntry> billItemEntry= new ArrayList();
