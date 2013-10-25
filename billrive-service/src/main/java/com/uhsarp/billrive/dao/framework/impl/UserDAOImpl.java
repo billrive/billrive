@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Prashanth Batchu
  */
 @Repository("userDAO")
-@Transactional()
+@Transactional
 public class UserDAOImpl  implements UserDAO{
 
     @PersistenceContext

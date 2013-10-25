@@ -18,6 +18,9 @@ Permgen Error:
 Add the following VM options to resolve the error (can be added as startup env args in Netbeans)
 -Xms256m -Xmx512m -XX:MaxPermSize=512m -XX:PermSize=128m
 
+JRebel:
+-Xms256m -Xmx512m -XX:MaxPermSize=512m -XX:PermSize=128m -javaagent:c:/dev/jrebel/jrebel.jar -Drebel.remoting_plugin=true
+
 billrive-client
 Currently a Angular JS Seeded project.
 

@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.uhsarp.billrive.services.UserService;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
 
 /**
  *
@@ -57,7 +60,7 @@ public class UserController extends GenericController{
 	}
         
         @RequestMapping( method = RequestMethod.POST)
-	public @ResponseBody User addUser(@RequestBody User user_p) {
+	public @ResponseBody User addUser(@RequestBody User user_p,HttpServletResponse httpResponse_p, WebRequest request_p) {
             
 		User user = new User();
 //                logger_c.info("Value of userId is  "+userId);
@@ -70,10 +73,10 @@ public class UserController extends GenericController{
 			return null;                  
                      
 		}
- 
-                logger_c.info("Value of Users ArrayList is  ");
+            httpResponse_p.setStatus(HttpStatus.CREATED.value());
 
-		logger_c.debug("Returing Users: " + user.toString());
+		/* set location of created resource */
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/user" + user.getId());
 		return user;
 	}
 
