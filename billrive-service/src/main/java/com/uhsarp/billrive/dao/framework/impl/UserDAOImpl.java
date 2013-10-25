@@ -59,7 +59,10 @@ public class UserDAOImpl  implements UserDAO{
     }
 
     public User save(User t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        em.persist(t);
+        //This needs to be updated so that we can actually get the just added obj from the db instead.
+        return t;
     }
 
     public User[] save(User... ts) {

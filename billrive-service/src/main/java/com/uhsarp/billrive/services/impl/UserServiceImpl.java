@@ -32,8 +32,9 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    public User createUser(User bill_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User addUser(User user_p) {
+       User userCreated= userDAO.save(user_p);
+        return userCreated;
     }
 
     public User updateUser(User bill_p) {

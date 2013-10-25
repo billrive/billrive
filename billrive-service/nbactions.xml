@@ -29,4 +29,11 @@
                 <goal>package</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-dependency:analyze</actionName>
+            <displayName>dependency:analyze</displayName>
+            <goals>
+                <goal>dependency:analyze</goal>
+            </goals>
+        </action>
     </actions>

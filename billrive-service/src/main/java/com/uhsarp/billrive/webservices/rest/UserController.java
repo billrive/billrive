@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.uhsarp.billrive.services.UserService;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-//@RequestMapping(value = "/user")
+@RequestMapping(value = "/user")
 public class UserController extends GenericController{
     
     	@Autowired
@@ -34,7 +35,7 @@ public class UserController extends GenericController{
         private static final Logger logger_c = LoggerFactory.getLogger(UserController.class);
         
         
-    	@RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
+    	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
 	public @ResponseBody User getUser(@PathVariable("userId") Long userId) {
             
 		User user = new User();
@@ -55,13 +56,13 @@ public class UserController extends GenericController{
 		return user;
 	}
         
-        @RequestMapping(value = "/user", method = RequestMethod.POST)
-	public @ResponseBody User addUser() {
+        @RequestMapping( method = RequestMethod.POST)
+	public @ResponseBody User addUser(@RequestBody User user_p) {
             
 		User user = new User();
 //                logger_c.info("Value of userId is  "+userId);
 		try {
-//			user = userService.getUserByUserId(userId);
+			user = userService.addUser(user_p);
 
 		} catch (Exception e) {
                        e.printStackTrace();
