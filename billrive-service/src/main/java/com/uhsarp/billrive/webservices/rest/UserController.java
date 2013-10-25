@@ -2,10 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.uhsarp.billrive.webservices.rest;
 
 import com.uhsarp.billrive.domain.User;
-import com.uhsarp.billrive.services.UserService;
-import com.uhsarp.billrive.webservices.rest.GenericController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import javax.servlet.http.HttpServletResponse;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.uhsarp.billrive.services.UserService;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.WebRequest;
 
 /**
  *
@@ -25,7 +21,6 @@ import org.springframework.web.context.request.WebRequest;
  */
 
 @Controller
-
 public class UserController extends GenericController{
     
     	@Autowired
@@ -59,40 +54,7 @@ public class UserController extends GenericController{
 		return user;
 	}
         
-    /**
-     *
-     * @param user_p
-     * @param httpResponse_p
-     * @param request_p
-     */
-    @RequestMapping(value = "/user/", method = { RequestMethod.POST })
-	public void addUser(@RequestBody User user_p,
-			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
-		User createdUser;
-		logger_c.debug("Creating User: " + user_p.toString());
-
-		try {
-			createdUser = userService.addUser(user_p);
-		} catch (Exception e) {
-			String sMessage = "Error creating new user. [%1$s]";
-                        //just for testing the logging framework. sout will be removed.
-                        System.out.println(e);
-                        e.printStackTrace();
-//			return null;
-		}
-
-		/* set HTTP response code */
-		httpResponse_p.setStatus(HttpStatus.CREATED.value());
-
-		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/user/{userId}/user/" + user_p.getId());
-
-		/**
-		 * Return the view
-		 */
-//		return new ModelAndView(jsonView_i, DATA_FIELD, createdUser);
-	}
                 
         public UserService getUserService() {
         return userService;

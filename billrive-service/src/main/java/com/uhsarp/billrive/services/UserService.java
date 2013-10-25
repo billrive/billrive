@@ -15,10 +15,11 @@ public interface UserService {
     
      List<User> getUsers(Long userId);
      User getUserByUserId(Long id);
+
+     User createUser(User bill_p);
+
      User updateUser(User bill_p);
 
      void deleteUser(String billId_p);
-
-    public User addUser(User user_p);
     
 }

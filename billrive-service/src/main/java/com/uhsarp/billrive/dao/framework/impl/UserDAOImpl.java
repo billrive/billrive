@@ -58,15 +58,8 @@ public class UserDAOImpl  implements UserDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public User save(User user) {
-      
-         if (user.getId() == null) {
-                         em.persist(user);
-                        
- 			return user;
- 		} else {
- 			return em.merge(user);
- 		}
+    public User save(User t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public User[] save(User... ts) {

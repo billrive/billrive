@@ -43,10 +43,5 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String billId_p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public User addUser(User user_p) {
-        userDAO.save(user_p);
-        return null;
-    }
     
 }
