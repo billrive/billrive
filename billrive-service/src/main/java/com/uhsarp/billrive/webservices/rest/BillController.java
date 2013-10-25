@@ -92,7 +92,7 @@ public class BillController extends GenericController{
 	}
                 
                 
-        @RequestMapping(value = { "/user/{userId}/bill/" }, method = { RequestMethod.POST })
+        @RequestMapping(value = { "/user/{userId}/bill" }, method = { RequestMethod.POST })
 	public void addBill(@RequestBody Bill bill_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 

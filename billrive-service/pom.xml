@@ -164,17 +164,17 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>1.7.3</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>${jackson.mapper.version}</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-core</artifactId>
     <version>${com.fasterxml.jackson-version}</version>
@@ -188,7 +188,7 @@
     <groupId>com.fasterxml.jackson.datatype</groupId>
     <artifactId>jackson-datatype-joda</artifactId>
     <version>${com.fasterxml.jackson-version}</version>
-</dependency>   
+</dependency>   -->
 <!--       <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
@@ -221,11 +221,11 @@
             <artifactId>junit</artifactId>
             <version>${jUnit}</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>${commonsCollections}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -252,11 +252,11 @@
             <version>4.2.3.Final</version>
         </dependency>
             
-        <dependency>
+<!--        <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>1.6.2</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time-hibernate</artifactId>
@@ -282,11 +282,11 @@
             <version>1.2.0</version> <!-- use current version -->
         </dependency>
         <!-- This second one includes the Hibernate Entity Manager plugin for the framework -->
-        <dependency>
+<!--        <dependency>
             <groupId>com.googlecode.genericdao</groupId>
             <artifactId>search-jpa-hibernate</artifactId>
-            <version>1.2.0</version> <!-- use current version -->
-        </dependency>
+            <version>1.2.0</version>  use current version 
+        </dependency>-->
         
             
 <!--        <dependency>
@@ -307,6 +307,12 @@
             <version>1.0.3.RELEASE</version>
         </dependency>
             -->
-                        
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>
