@@ -1,4 +1,4 @@
-billRive.controller('billCtrl', function($location, $scope, billService, userService, Restangular,userFactory) {
+billRive.controller('billCtrl', function($location, $scope, billService, Restangular,userFactory) {
 
     $scope.groups = [];
     $scope.bills = [];

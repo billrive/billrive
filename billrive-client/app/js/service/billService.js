@@ -23,7 +23,6 @@ billRive.factory('billService', function($http) {
         ],
         "itemDescriptionId": 2
     };
-//billFinances Object Structure 
 
     var simpleUserIdAndLiableCostObj = {
         "userId": null,
@@ -39,12 +38,6 @@ billRive.factory('billService', function($http) {
     };
 
     var billItemEntryObj = {
-        "userId": null,
-        "liableCost": null,
-        "billItemEntryID": null
-    };
-
-    var billItemEntryObj = {
         "id": null,
         "itemDescription": null,
         "billId": null,
@@ -53,50 +46,9 @@ billRive.factory('billService', function($http) {
         ]
     };
 
-    var billFinancesObj = {
-        "billPayerId": null,
-        "billItemEntry": billItemEntryObj,
-        "billTotal": null
-    };
-
-//billItemEntry Object Structure
-    var billItemEntryObj =
-            {
-                "itemDescriptionId": null,
-                "itemDescription": "",
-                "userIdAndLiableCost": userAndLiableCost
-            };
-
 //userAndLiableCost Object Structure
     var userAndLiableCost =
             {userId: null, liableCost: null};
-
-    var payers = [
-        {id: 1, name: 'John Doe'},
-        {id: 2, name: 'Kristen Stewart'},
-        {id: 3, name: 'Trevor Pott'},
-        {id: 4, name: 'Hilda Hess'},
-        {id: 5, name: 'Gavin Mays'}
-    ];
-
-    var friends = [
-        {id: 1, groups: [1, 2, 5], name: 'John Doe'},
-        {id: 2, groups: [1, 2, 3, 4, 5], name: 'Kris Stewart'},
-        {id: 3, groups: [1, 3, 5], name: 'Trevor Potts'},
-        {id: 4, groups: [1], name: 'Hilda Hess'},
-        {id: 5, groups: [4, 5], name: 'Gavin Mays'}
-    ];
-
-
-    var groups = [
-        {id: 1, users: [1, 2, 3, 4], name: 'SLC Roommates', isActive: 'true'},
-        {id: 2, users: [1, 2], name: 'Denver Old Buddies', isActive: 'false'},
-        {id: 3, users: [2, 3], name: 'Ski Club', isActive: 'true'},
-        {id: 4, users: [2, 5], name: 'Family', isActive: 'false'},
-        {id: 5, users: [1, 2, 3, 5], name: 'India', isActive: 'true'}
-    ];
-
-    var groupFriendRel = [{groupId: '1', friendId: '5'}];
 
     return {
         addBill: function(userId, Bill) {
@@ -120,17 +72,8 @@ billRive.factory('billService', function($http) {
         getBillObj: function() {
             return billObj;
         },
-        billItemEntryObj: function() {
-            return billItemEntry;
-        },
         getUserAndLiableCost: function() {
             return userAndLiableCost;
-        },
-        getBillFinances: function() {
-            return billFinances;
-       },
-        getUser: function() {
-            return user;
         },
         getBillSimpleEntryObj: function() {
             return billSimpleEntryObj;
