@@ -62,7 +62,7 @@ import org.apache.log4j.Priority;
      }
  
   
- @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+ @Transactional
      public Bill save(Bill bill) {
 //         bill.getBillSimpleEntry().setBillId(null);
          if (bill.getId() == null) {

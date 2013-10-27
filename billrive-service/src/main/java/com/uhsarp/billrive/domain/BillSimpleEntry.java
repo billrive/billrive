@@ -19,13 +19,13 @@ public class BillSimpleEntry  implements GenericObject{
     
 	@Id
         @GeneratedValue(strategy = GenerationType.AUTO)  
-        private Long billId;
+        private Long id;
         @Column(columnDefinition="TEXT")
 	private String itemDescription;//napkin
     
-//        private Long billId;
+//        private Long id;
 //        @OneToMany(fetch=FetchType.EAGER,targetEntity = SimpleUserIdAndLiableCost.class, cascade = CascadeType.ALL,mappedBy="billSimpleEntryId")
-//        @JoinColumn(name = "billId", referencedColumnName = "billSimpleEntryId")
+//        @JoinColumn(name = "id", referencedColumnName = "billSimpleEntryId")
 //        @Transient
          @OneToMany(cascade=CascadeType.ALL,mappedBy="billSimpleEntryId",fetch = FetchType.EAGER)
 	private List<SimpleUserIdAndLiableCost> simpleUserIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();
@@ -40,7 +40,7 @@ public class BillSimpleEntry  implements GenericObject{
     }
 
     public BillSimpleEntry(Long itemDescriptionId, String itemDescription,  List<SimpleUserIdAndLiableCost> userIdAndLiableCost) {
-        this.billId = itemDescriptionId;
+        this.id = itemDescriptionId;
         this.itemDescription = itemDescription;
        
         this.simpleUserIdAndLiableCost = userIdAndLiableCost;
@@ -51,11 +51,11 @@ public class BillSimpleEntry  implements GenericObject{
 
 	
     public Long getItemDescriptionId() {
-        return billId;
+        return id;
     }
 
     public void setItemDescriptionId(Long itemDescriptionId) {
-        this.billId = itemDescriptionId;
+        this.id = itemDescriptionId;
     }
 
     public String getItemDescription() {
@@ -105,19 +105,19 @@ public class BillSimpleEntry  implements GenericObject{
 //	}
 
     //    public Long getBillId() {
-    //        return billId;
+    //        return id;
     //    }
     //
-    //    public void setBillId(Long billId) {
-    //        this.billId = billId;
+    //    public void setBillId(Long id) {
+    //        this.id = id;
     //    }
     //   
     public Long getBillId() {
-        return billId;
+        return id;
     }
 
-    public void setBillId(Long billId) {
-        this.billId = billId;
+    public void setBillId(Long id) {
+        this.id = id;
     }
 
     public List<SimpleUserIdAndLiableCost> getSimpleUserIdAndLiableCost() {

@@ -56,8 +56,8 @@ public class BillController extends GenericController{
 			return bills;
 		}
               
-//        Bill bill = new Bill((long)1,"Walmart", new DateTime(2013,2,3,1,1), userId, "Sample Notes", null, userId);
-//        Bill bill1 = new Bill((long)2,"Costco", new DateTime(2014,2,3,1,1), userId, "Second sample Notes", null, userId);
+//        Bill bill = new Bill((long)1,"Walmart", new Date(2013,2,3,1,1), userId, "Sample Notes", null, userId);
+//        Bill bill1 = new Bill((long)2,"Costco", new Date(2014,2,3,1,1), userId, "Second sample Notes", null, userId);
 //        logger_c.info("Value of bill is  "+bill.getTitle());
 //        bills.add(bill);
 //        bills.add(bill1);

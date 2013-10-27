@@ -7,14 +7,11 @@ package com.uhsarp.billrive.domain;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-import org.hibernate.annotations.Type;
-
-import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -32,17 +29,20 @@ public class Bill implements GenericObject {
     @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
     private String title;//walmart
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private DateTime billDate;
+//    //@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDate")
+//    @DateFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date billDate;
     private Long billPayerId;
     private String notes;
     private Long billCreaterId;
     private Long groupId;
     private BigDecimal  billTotal;
-   
+//    private Long billSimpleEntryId;
+    
     @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
-    @PrimaryKeyJoinColumn
+//    @PrimaryKeyJoinColumn
+     @JoinColumn(name="billSimpleEntryId")
     private BillSimpleEntry billSimpleEntry;
    
     @OneToMany(cascade=CascadeType.ALL,mappedBy="billId")
@@ -53,8 +53,8 @@ public class Bill implements GenericObject {
     public Bill() {
     }
 
-//    public Bill(String title, DateTime date, Long billPayerId, String notes, BillFinances billFinances, Long billCreaterId, Long groupId) {
-    public Bill(String title, DateTime date, Long billPayerId, String notes,  Long userId, Long groupId) {
+//    public Bill(String title, Date date, Long billPayerId, String notes, BillFinances billFinances, Long billCreaterId, Long groupId) {
+    public Bill(String title, Date date, Long billPayerId, String notes,  Long userId, Long groupId) {
         this.title = title;
         this.billDate = date;
         this.billPayerId = billPayerId;
@@ -84,12 +84,12 @@ public class Bill implements GenericObject {
      */
 //    @JsonSerialize(using = CustomDateSerializer.class)
 //    @JsonSerialize(using = CustomDateSerializer.class)
-//    @DateTimeFormat(iso =  DateTimeFormat.ISO.DATE_TIME )
-    public DateTime getBillDate() {
+//    @DateFormat(iso =  DateFormat.ISO.DATE_TIME )
+    public Date getBillDate() {
         return billDate;
     }
 
-    public void setBillDate(DateTime billDate) {
+    public void setBillDate(Date billDate) {
         this.billDate = billDate;
     }
 
@@ -155,6 +155,14 @@ public class Bill implements GenericObject {
     public void setBillTotal(BigDecimal  billTotal) {
         this.billTotal = billTotal;
     }
+
+//    public Long getBillSimpleEntryId() {
+//        return billSimpleEntryId;
+//    }
+//
+//    public void setBillSimpleEntryId(Long billSimpleEntryId) {
+//        this.billSimpleEntryId = billSimpleEntryId;
+//    }
     
     
     

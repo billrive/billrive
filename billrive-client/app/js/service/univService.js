@@ -75,7 +75,7 @@ billRive.factory('univService', function($http, $q) {
         },
         addBill: function(groupId, Bill) {
             user.groups[0].bills.push(Bill);
-            return $http.post(url + userId + "/bill/", Bill);
+            return $http.post(url + "6" + "/bill/", Bill);
         },
         deleteBill: function(billId) {
             return $http.delete(url + billId);

@@ -4,14 +4,15 @@
  */
 package com.uhsarp.billrive.domain;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.annotations.Type;
-import org.joda.time.DateTime;
+import javax.persistence.Temporal;
+
 
 /**
  *
@@ -30,8 +31,9 @@ public class Payment  implements GenericObject{
     private long groupId;
     @Column(columnDefinition="TEXT")
     private String notes;
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    DateTime payDate;
+    //@Type(type="org.jadira.usertype.dateandtime.joda.PersistentDate")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    Date payDate;
 
     public long getPayerId() {
         return payerId;
@@ -65,11 +67,11 @@ public class Payment  implements GenericObject{
         this.notes = notes;
     }
 
-    public DateTime getPayDate() {
+    public Date getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(DateTime payDate) {
+    public void setPayDate(Date payDate) {
         this.payDate = payDate;
     }
 
