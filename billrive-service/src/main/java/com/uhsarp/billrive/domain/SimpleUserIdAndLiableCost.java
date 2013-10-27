@@ -30,17 +30,10 @@ public class SimpleUserIdAndLiableCost  implements GenericObject {
 private UserBare user;
         @Basic
 @Column(columnDefinition = "BIT", length = 1)
-    private boolean isActive;
+    private Boolean isActive;
 
     public SimpleUserIdAndLiableCost() {
         
-    }
-  
-
-    public SimpleUserIdAndLiableCost(Long userId, BigDecimal  liableCost, Long billItemEntryID) {
-        this.userId = userId;
-        this.liableCost = liableCost;
-        this.billSimpleEntryId = billItemEntryID;
     }
 
     public Long getUserId() {
@@ -75,32 +68,21 @@ private UserBare user;
         this.billSimpleEntryId = billSimpleEntryId;
     }
 
-        public UserBare getUser() {
-            return user;
-        }
-    
-        public void setUser(UserBare user) {
-            this.user = user;
-        }
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-    
-    
+    public UserBare getUser() {
+        return user;
+    }
 
-    public boolean isIsActive() {
+    public void setUser(UserBare user) {
+        this.user = user;
+    }
+
+    public Boolean isIsActive() {
         return isActive;
     }
 
-    public void setIsActive(boolean isActive) {
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
-    
-    
-    
+  
 }
 
