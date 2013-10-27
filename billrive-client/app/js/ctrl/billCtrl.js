@@ -59,9 +59,12 @@ univService.getUserFromHttp(6).then(function() {
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
 //        $scope.bills.push(angular.copy($scope.bill));
+console.log($scope.bill);
+//console.log(JSON.stringify($scope.bill));
+$scope.bill.billDate=Date.parse($scope.bill.billDate);
         univService.addBill($scope.bill.groupId,angular.copy($scope.bill));
 //        $scope.bill = angular.copy(univService.getBillObj());
-//        $location.url('/');
+        $location.url('/');
     };
     $scope.deleteBill = function(billId) {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
