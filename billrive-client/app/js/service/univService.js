@@ -17,11 +17,12 @@ billRive.factory('univService', function($http, $q) {
     };
 
     var billSimpleEntryObj = {
-        "billId": null,
+        "id": null,
         "itemDescription": null,
         "simpleUserIdAndLiableCost": [
-        ],
-        "itemDescriptionId": 2
+        ]
+//        ,
+//        "itemDescriptionId": 2
     };
 
     var simpleUserIdAndLiableCostObj = {

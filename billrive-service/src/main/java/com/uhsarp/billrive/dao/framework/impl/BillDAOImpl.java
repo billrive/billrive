@@ -1,8 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              /*
-  * To change this template, choose Tools | Templates
-  * and open the template in the editor.
-  */
- package com.uhsarp.billrive.dao.framework.impl;
+package com.uhsarp.billrive.dao.framework.impl;
  
  import com.googlecode.genericdao.search.ExampleOptions;
  import com.googlecode.genericdao.search.Filter;
@@ -15,9 +11,7 @@ import com.uhsarp.billrive.webservices.rest.BillController;
  import javax.persistence.EntityManager;
  import javax.persistence.PersistenceContext;
 import org.apache.log4j.Logger;
-import org.apache.log4j.Priority;
  import org.springframework.stereotype.Repository;
- import org.springframework.transaction.annotation.Propagation;
  import org.springframework.transaction.annotation.Transactional;
  
  /**

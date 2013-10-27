@@ -67,7 +67,7 @@ CREATE TABLE `bill` (
   KEY `fk_bill_user1_idx` (`billPayerId`),
   CONSTRAINT `fk_bill_groups` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_bill_user` FOREIGN KEY (`billPayerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ CREATE TABLE `bill` (
 
 LOCK TABLES `bill` WRITE;
 /*!40000 ALTER TABLE `bill` DISABLE KEYS */;
-INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56',50.00,2),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54',35.70,4),(5,'Travel',6,NULL,4,6,'2013-08-14 02:09:54',50.00,5);
+INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56',50.00,2),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54',35.70,4),(5,'Travel',6,NULL,4,6,'2013-08-14 02:09:54',50.00,5),(11,'rent',6,NULL,3,NULL,NULL,100.00,6),(12,'445',6,NULL,3,NULL,NULL,100.00,7);
 /*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,10 +119,10 @@ DROP TABLE IF EXISTS `billsimpleentry`;
 CREATE TABLE `billsimpleentry` (
   `itemTitle` varchar(200) DEFAULT NULL,
   `itemDescription` text,
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   KEY `fk_bill_idx` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ CREATE TABLE `billsimpleentry` (
 
 LOCK TABLES `billsimpleentry` WRITE;
 /*!40000 ALTER TABLE `billsimpleentry` DISABLE KEYS */;
-INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4),('simple',NULL,5);
+INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4),('simple',NULL,5),(NULL,NULL,6),(NULL,NULL,7);
 /*!40000 ALTER TABLE `billsimpleentry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +214,7 @@ CREATE TABLE `simpleuseridandliablecost` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_simpleuseridandliablecost_user1_idx` (`userId`),
   CONSTRAINT `fk_simpleuseridandliablecost_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +223,7 @@ CREATE TABLE `simpleuseridandliablecost` (
 
 LOCK TABLES `simpleuseridandliablecost` WRITE;
 /*!40000 ALTER TABLE `simpleuseridandliablecost` DISABLE KEYS */;
-INSERT INTO `simpleuseridandliablecost` VALUES (10,6,20.00,2,1),(11,7,20.00,2,1),(12,8,10.00,2,1),(13,6,15.70,4,1),(14,7,20.00,4,1);
+INSERT INTO `simpleuseridandliablecost` VALUES (10,6,20.00,2,1),(11,7,20.00,2,1),(12,8,10.00,2,1),(13,6,15.70,4,1),(14,7,20.00,4,1),(15,6,1.00,2,1),(16,7,1.00,2,1),(17,8,1.00,2,1),(18,6,5.00,NULL,1),(19,7,5.00,NULL,1),(20,8,5.00,NULL,1),(21,6,44.00,NULL,1),(22,7,45.00,NULL,1),(23,8,545.00,NULL,1);
 /*!40000 ALTER TABLE `simpleuseridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +243,7 @@ CREATE TABLE `user` (
   `email` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,7 +252,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (6,'Prashanth','Batchu',NULL,NULL,'me@prashu.net'),(7,'Jayanth','Kondaveti',NULL,NULL,'jayanthk4u@gmail.com'),(8,'Karthik','Kathari',NULL,NULL,'kkathari@gmail.com');
+INSERT INTO `user` VALUES (6,'Prashanth','Batchu',NULL,NULL,'me@prashu.net'),(7,'Jayanth','Kondaveti',NULL,NULL,'jayanthk4u@gmail.com'),(8,'Karthik','Kathari',NULL,NULL,'kkathari@gmail.com'),(9,'Prashanth','Batchu',NULL,NULL,NULL),(10,'Jayanth','Kondaveti',NULL,NULL,NULL),(11,'Karthik','Kathari',NULL,NULL,NULL),(12,'Prashanth','Batchu',NULL,NULL,NULL),(13,'Jayanth','Kondaveti',NULL,NULL,NULL),(14,'Karthik','Kathari',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -356,4 +356,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-26 20:56:50
+-- Dump completed on 2013-10-26 21:51:13
