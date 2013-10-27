@@ -1,5 +1,6 @@
-billRive.controller('billCtrl', function($location, $scope, univService) {
-
+billRive.controller('billCtrl', function($location, $scope, univService,$routeParams) {
+//$locationProvider.html5Mode(true);
+$scope.edit=$routeParams.groupId;
     $scope.groups = [];
     $scope.bills = [];
     $scope.emptySpace = " ";
@@ -65,10 +66,15 @@ univService.getUserFromHttp(6).then(function() {
     $scope.deleteBill = function(billId) {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
 //        $scope.bills.push(angular.copy($scope.bill));
-        univService.deleteBill(billId);
+        univService.deleteBill(billId).success(function(data){
+            
+            $location.url('/');
+        });
 //        $scope.bill = angular.copy(univService.getBillObj());
-//        $location.url('/');
+        
+//        $scope.$apply()
     };
+    console.log(JSON.stringify($routeParams));
 });
 
 

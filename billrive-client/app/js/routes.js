@@ -1,8 +1,9 @@
 billRive.config(['$routeProvider', function($routeProvider) {
+//        $locationProvider.html5Mode(true);
 //billRive.config(['$routeProvider', function($routeProvider,RestangularProvider) {
     $routeProvider.when('/bills/list', {templateUrl: 'partials/bills/list.html',controller: 'billCtrl'});
     $routeProvider.when('/bills/add', {templateUrl: 'partials/bills/add.html', controller: 'billCtrl'});
-    $routeProvider.when('/bills/edit/:id', {templateUrl: 'partials/bills/edit.html', controller: 'billCtrl'});
+    $routeProvider.when('/bills/edit/:groupId/:billId', {templateUrl: 'partials/bills/edit.html', controller: 'billCtrl'});
     $routeProvider.when('/bills/equalsplit', {templateUrl: 'partials/forms/EqualSplit.html', controller: 'billCtrl'});
     $routeProvider.when('/listFriends', {templateUrl: 'partials/listFriends.html', controller: 'friendCtrl'});
     $routeProvider.when('/groups/list',{templateUrl: 'partials/groups/list.html', controller: 'userCtrl'});
@@ -23,7 +24,7 @@ billRive.config(['$routeProvider', function($routeProvider) {
 //    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 //});
 
-billRive.config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://localhost:8080/billrive-service');
-
-    });
+//billRive.config(function(RestangularProvider) {
+//    RestangularProvider.setBaseUrl('http://localhost:8080/billrive-service');
+//
+//    });
