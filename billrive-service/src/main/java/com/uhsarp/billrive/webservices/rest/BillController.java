@@ -162,6 +162,7 @@ public class BillController extends GenericController{
 	@RequestMapping(value = "/user/{userId}/bill/{billId}", method = RequestMethod.DELETE)
 	public void deleteBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
+            Boolean deleted=false;
 
 		logger_c.debug("Deleting Bill Id: " + billId_p.toString());
 
@@ -172,13 +173,15 @@ public class BillController extends GenericController{
 		}
 
 		try {
-			billService.deleteBill(Long.parseLong(billId_p));
+			 deleted = billService.deleteBill(Long.parseLong(billId_p));
 		} catch (Exception e) {
 			String sMessage = "Error invoking getBills. [%1$s]";
 //			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
-
+                if(deleted)
 		httpResponse_p.setStatus(HttpStatus.OK.value());
+                else
+                    httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 //		return new ModelAndView(jsonView_i, DATA_FIELD, null);
 	}
         

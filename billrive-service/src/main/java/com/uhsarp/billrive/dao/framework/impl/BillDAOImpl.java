@@ -92,6 +92,9 @@ import org.apache.log4j.Logger;
          
          Query q =  em.createQuery("delete from Bill b  WHERE b.id="+billId);    
         int deleted = q.executeUpdate();
+        if(deleted>0)
+            return true;
+        else
          return false;
      }
  

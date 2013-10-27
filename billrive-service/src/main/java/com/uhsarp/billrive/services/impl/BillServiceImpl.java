@@ -74,8 +74,11 @@ public class BillServiceImpl implements BillService {
     }
 
     public Boolean deleteBill(Long billId_p) {
-        billDAO.removeById(billId_p);
-        return null;
+       Boolean deleted= billDAO.removeById(billId_p);
+       if(deleted)
+           return true;
+       else
+            return false;
     }
 
 
