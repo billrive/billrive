@@ -32,7 +32,7 @@
             </td>
           </tr>-->
           <tr ng-repeat="ibill in user.groups[0].bills | filter:query | orderBy:'date'">
-            <td>{{ ibill.billDate}}</td>
+            <td>{{ ibill.billDate | date:'MM/dd/yyyy'}}</td>
             <td>{{ ibill.title }}</td>
             <td>${{ ibill.billTotal }}
             <!--asdfasdfsdf-->

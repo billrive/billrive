@@ -84,10 +84,10 @@ public class Bill implements GenericObject {
      *
      * @return
      */
-//    @JsonSerialize(using = CustomDateSerializer.class)
-//    @JsonSerialize(using = CustomDateSerializer.class)
+//    //@JsonSerialize(using = CustomDateSerializer.class)
+//    //@JsonSerialize(using = CustomDateSerializer.class)
 //    @DateFormat(iso =  DateFormat.ISO.DATE_TIME )
-    @JsonSerialize(using = CustomDateSerializer.class)
+    //@JsonSerialize(using = CustomDateSerializer.class)
     public Date getBillDate() {
         return billDate;
     }

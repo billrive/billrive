@@ -69,7 +69,7 @@ public class Payment  implements GenericObject{
         this.notes = notes;
     }
 
-    @JsonSerialize(using = CustomDateSerializer.class)
+    //@JsonSerialize(using = CustomDateSerializer.class)
     public Date getPayDate() {
         return payDate;
     }
