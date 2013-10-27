@@ -1,4 +1,4 @@
-User:
+/*User:
 
 {
     "id": null,
@@ -87,3 +87,19 @@ Bill without billsimpleentry
    ],
    "userId":null
 }
+
+/*
+INSERT INTO `billrivedb`.`usergroupmap` (`user_id`, `groups_id`) VALUES ('6', '3');
+INSERT INTO `billrivedb`.`usergroupmap` (`user_id`, `groups_id`) VALUES ('7', '3');
+INSERT INTO `billrivedb`.`usergroupmap` (`user_id`, `groups_id`) VALUES ('8', '3');
+INSERT INTO `billrivedb`.`usergroupmap` (`user_id`, `groups_id`) VALUES ('6', '4');
+INSERT INTO `billrivedb`.`usergroupmap` (`user_id`, `groups_id`) VALUES ('7', '4');
+INSERT INTO `billrivedb`.`usergroupmap` (`user_id`, `groups_id`) VALUES ('6', '5');
+INSERT INTO `billrivedb`.`usergroupmap` (`user_id`, `groups_id`) VALUES ('8', '5');
+ 
+ 
+ drop database billrivedb;
+create database billrivedb;
+ *
+ *
+ **/
