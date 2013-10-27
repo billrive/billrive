@@ -32,12 +32,13 @@
             </td>
           </tr>-->
           <tr ng-repeat="ibill in user.groups[0].bills | filter:query | orderBy:'date'">
-            <td>{{ ibill.date}}</td>
+            <td>{{ ibill.billDate}}</td>
             <td>{{ ibill.title }}</td>
             <td>${{ ibill.billTotal }}
             <!--asdfasdfsdf-->
             <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">
-                    {{simplecost.userId}} - {{simplecost.liableCost}}
+                <!--{{simplecost}}-->
+                    {{simplecost.user.fName}} <!-- {{simplecost.user.lName}}--> owes ${{simplecost.liableCost}}
                 </p></td>
             <td>
                 

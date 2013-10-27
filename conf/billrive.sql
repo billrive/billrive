@@ -223,7 +223,7 @@ CREATE TABLE `simpleuseridandliablecost` (
 
 LOCK TABLES `simpleuseridandliablecost` WRITE;
 /*!40000 ALTER TABLE `simpleuseridandliablecost` DISABLE KEYS */;
-INSERT INTO `simpleuseridandliablecost` VALUES (10,6,1.00,2,1),(11,7,1.00,2,1),(12,8,1.00,2,1),(13,6,10.00,5,1),(14,7,10.00,5,1);
+INSERT INTO `simpleuseridandliablecost` VALUES (10,6,20.00,2,1),(11,7,20.00,2,1),(12,8,10.00,2,1),(13,6,15.70,4,1),(14,7,20.00,4,1);
 /*!40000 ALTER TABLE `simpleuseridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -356,4 +356,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-26 20:43:23
+-- Dump completed on 2013-10-26 20:56:50
