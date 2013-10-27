@@ -4,6 +4,7 @@
  */
 package com.uhsarp.billrive.domain;
 
+import com.uhsarp.billrive.web.utils.CustomDateSerializer;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 
 /**
@@ -67,6 +69,7 @@ public class Payment  implements GenericObject{
         this.notes = notes;
     }
 
+    @JsonSerialize(using = CustomDateSerializer.class)
     public Date getPayDate() {
         return payDate;
     }
