@@ -172,7 +172,7 @@ public class BillController extends GenericController{
 		}
 
 		try {
-			billService.deleteBill(billId_p);
+			billService.deleteBill(Long.parseLong(billId_p));
 		} catch (Exception e) {
 			String sMessage = "Error invoking getBills. [%1$s]";
 //			return createErrorResponse(String.format(sMessage, e.toString()));

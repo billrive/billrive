@@ -21,5 +21,5 @@ public interface BillService {
 
      Bill updateBill(Bill bill_p);
 
-     void deleteBill(String billId_p);
+     Boolean deleteBill(Long billId_p);
 }

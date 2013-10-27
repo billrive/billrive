@@ -62,6 +62,13 @@ univService.getUserFromHttp(6).then(function() {
 //        $scope.bill = angular.copy(univService.getBillObj());
 //        $location.url('/');
     };
+    $scope.deleteBill = function(billId) {
+//        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
+//        $scope.bills.push(angular.copy($scope.bill));
+        univService.deleteBill(billId);
+//        $scope.bill = angular.copy(univService.getBillObj());
+//        $location.url('/');
+    };
 });
 
 

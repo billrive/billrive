@@ -6,10 +6,12 @@ package com.uhsarp.billrive.dao.framework.impl;
  import com.googlecode.genericdao.search.SearchResult;
  import com.uhsarp.billrive.dao.framework.BillDAO;
  import com.uhsarp.billrive.domain.Bill;
+import com.uhsarp.billrive.domain.User;
 import com.uhsarp.billrive.webservices.rest.BillController;
  import java.util.List;
  import javax.persistence.EntityManager;
  import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.apache.log4j.Logger;
  import org.springframework.stereotype.Repository;
  import org.springframework.transaction.annotation.Transactional;
@@ -78,15 +80,19 @@ import org.apache.log4j.Logger;
      }
  
      public boolean remove(Bill t) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated  methods, choose Tools | Templates.
+        
+         return false;
      }
  
      public void remove(Bill... ts) {
          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated  methods, choose Tools | Templates.
      }
  
-     public boolean removeById(Long id) {
-         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated  methods, choose Tools | Templates.
+     public boolean removeById(Long billId) {
+         
+         Query q =  em.createQuery("delete from Bill b  WHERE b.id="+billId);    
+        int deleted = q.executeUpdate();
+         return false;
      }
  
      public void removeByIds(Long... ids) {

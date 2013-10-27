@@ -10,7 +10,6 @@ import com.uhsarp.billrive.dao.framework.BillDAO;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.dao.framework.UserDAO;
 import com.uhsarp.billrive.domain.Bill;
-import com.uhsarp.billrive.domain.Group;
 import com.uhsarp.billrive.domain.User;
 import com.uhsarp.billrive.services.BillService;
 import java.util.List;
@@ -74,8 +73,9 @@ public class BillServiceImpl implements BillService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void deleteBill(String billId_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean deleteBill(Long billId_p) {
+        billDAO.removeById(billId_p);
+        return null;
     }
 
 
