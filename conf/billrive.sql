@@ -60,13 +60,14 @@ CREATE TABLE `bill` (
   `billCreaterId` bigint(20) DEFAULT NULL,
   `billDate` timestamp NULL DEFAULT NULL,
   `billTotal` decimal(10,2) DEFAULT NULL,
+  `billSimpleEntryId` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_bill_groups1_idx` (`groupId`),
   KEY `fk_bill_user1_idx` (`billPayerId`),
   CONSTRAINT `fk_bill_groups` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_bill_user` FOREIGN KEY (`billPayerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +76,7 @@ CREATE TABLE `bill` (
 
 LOCK TABLES `bill` WRITE;
 /*!40000 ALTER TABLE `bill` DISABLE KEYS */;
-INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56',50.00),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54',35.70),(5,'Travel',6,NULL,4,6,'2013-08-14 02:09:54',50.00);
+INSERT INTO `bill` VALUES (2,'Walmart',6,NULL,3,6,'2013-07-19 16:12:56',50.00,2),(4,'Costco',6,'Costo bill',3,6,'2013-08-14 02:09:54',35.70,4),(5,'Travel',6,NULL,4,6,'2013-08-14 02:09:54',50.00,5);
 /*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,9 +119,9 @@ DROP TABLE IF EXISTS `billsimpleentry`;
 CREATE TABLE `billsimpleentry` (
   `itemTitle` varchar(200) DEFAULT NULL,
   `itemDescription` text,
-  `billId` bigint(20) NOT NULL,
-  PRIMARY KEY (`billId`),
-  KEY `fk_bill_idx` (`billId`)
+  `id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_bill_idx` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -355,4 +356,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-12 15:25:28
+-- Dump completed on 2013-10-26 20:43:23
