@@ -96,20 +96,20 @@ public class BillController extends GenericController{
 	public void addBill(@RequestBody Bill bill_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
-		Bill createdBill;
+		Bill createdBill=null;
 		logger_c.debug("Creating Bill: " + bill_p.toString());
 
 		try {
 			createdBill = billService.addBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new bill. [%1$s]";
-                        System.out.println(e);
-                        e.printStackTrace();
-//			return null;
 		}
 
 		/* set HTTP response code */
+                if(createdBill!=null)
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
+                else
+                    httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 
 		/* set location of created resource */
 		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/user/{userId}/bill/" + bill_p.getId());

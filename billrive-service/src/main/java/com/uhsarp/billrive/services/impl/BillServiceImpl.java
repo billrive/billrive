@@ -65,8 +65,8 @@ public class BillServiceImpl implements BillService {
 @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
     public Bill addBill(Bill bill_p) {
         
-         billDAO.save(bill_p);
-        return null;
+        return billDAO.save(bill_p);
+      
     }
 
     public Bill updateBill(Bill bill_p) {

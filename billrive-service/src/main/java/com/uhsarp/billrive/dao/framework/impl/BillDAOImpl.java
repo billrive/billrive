@@ -60,7 +60,6 @@ import org.apache.log4j.Logger;
   
  @Transactional
      public Bill save(Bill bill) {
-//         bill.getBillSimpleEntry().setBillId(null);
          if (bill.getId() == null) {
                         try{
                             em.persist(bill);
@@ -70,9 +69,8 @@ import org.apache.log4j.Logger;
                         }
                         
  			return bill;
- 		} else {
+ 		} 
  			return em.merge(bill);
- 		}
      }
  
      public Bill[] save(Bill... ts) {

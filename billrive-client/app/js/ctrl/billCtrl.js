@@ -1,6 +1,8 @@
 billRive.controller('billCtrl', function($location, $scope, univService,$routeParams) {
 //$locationProvider.html5Mode(true);
-$scope.edit=$routeParams.groupId;
+
+$scope.editGroupId=$routeParams.groupId;
+$scope.editBillId=$routeParams.billId;
     $scope.groups = [];
     $scope.bills = [];
     $scope.emptySpace = " ";
@@ -8,9 +10,19 @@ univService.getUserFromHttp(6).then(function() {
     $scope.user = univService.getUser();
     $scope.bills = $scope.user.groups[0].bills;
     $scope.groups=$scope.user.groups;
-  });
+    
+    if($scope.editGroupId!=null && $scope.editBillId!=null)
+    {
+        $scope.bill =  angular.copy($scope.bills[$scope.editBillId]);
+          $scope.simpleCalculateSum();
+    }
+    else{
 
     $scope.bill = angular.copy(univService.getBillObj());
+    }
+  });
+  
+
     $scope.setBillGroup = function() {
         $scope.bill.billSimpleEntry = angular.copy(univService.getBillSimpleEntryObj());
         var $groupId = $scope.bill.groupId;
@@ -59,8 +71,8 @@ univService.getUserFromHttp(6).then(function() {
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
 //        $scope.bills.push(angular.copy($scope.bill));
-console.log($scope.bill);
-//console.log(JSON.stringify($scope.bill));
+//console.log($scope.bill);
+console.log(JSON.stringify($scope.bill));
 $scope.bill.billDate=Date.parse($scope.bill.billDate);
         univService.addBill($scope.bill.groupId,angular.copy($scope.bill));
 //        $scope.bill = angular.copy(univService.getBillObj());
