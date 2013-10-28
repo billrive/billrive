@@ -1,5 +1,5 @@
 billRive.factory('univService', function($http, $q) {
-    var url = 'http://localhost\:8080/billrive-service/user/';
+    var url = 'http://localhost\:8082/billrive-service/user/';
 
     var billObj = {
         "id": null,
@@ -74,7 +74,7 @@ billRive.factory('univService', function($http, $q) {
         addUser: function(User) {
             return $http.put(url + User.Id, User);
         },
-        addBill: function(groupId, Bill) {
+        addBill: function(Bill) {
             user.groups[0].bills.push(Bill);
             return $http.post(url + "6" + "/bill/", Bill);
         },
