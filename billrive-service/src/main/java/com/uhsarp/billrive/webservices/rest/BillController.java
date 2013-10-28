@@ -122,15 +122,17 @@ public class BillController extends GenericController{
 			String sMessage = "Error updating bill - Invalid bill Id parameter";
 		}
 
-		Bill bill = null;
+		Bill mergedBill = null;
 
 		try {
-			bill = billService.updateBill(bill_p);
+			mergedBill = billService.updateBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error updating bill. [%1$s]";
 		}
-
+                if(mergedBill!=null)
 		httpResponse_p.setStatus(HttpStatus.OK.value());
+                else
+                    httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 	}
 
 	/**

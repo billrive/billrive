@@ -1,6 +1,4 @@
 billRive.controller('billCtrl', function($location, $scope, univService,$routeParams) {
-//$locationProvider.html5Mode(true);
-
 $scope.editGroupId=$routeParams.groupId;
 $scope.editBillId=$routeParams.billId;
     $scope.groups = [];
@@ -70,35 +68,23 @@ univService.getUserFromHttp(6).then(function() {
     };
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
-//        $scope.bills.push(angular.copy($scope.bill));
-//console.log($scope.bill);
 console.log(JSON.stringify($scope.bill));
 $scope.bill.billDate=Date.parse($scope.bill.billDate);
         univService.addBill($scope.bill.groupId,angular.copy($scope.bill));
-//        $scope.bill = angular.copy(univService.getBillObj());
         $location.url('/');
     };
     $scope.deleteBill = function(billId) {
-//        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
-//        $scope.bills.push(angular.copy($scope.bill));
         univService.deleteBill(billId).success(function(data){
             
             $location.url('/');
         });
-//        $scope.bill = angular.copy(univService.getBillObj());
-        
-//        $scope.$apply()
+    };
+    
+    $scope.editBill = function() {
+       univService.editBill($scope.bill.id,$scope.bill).success(function(data){
+            $scope.bill = angular.copy(univService.getBillObj());
+            $location.url('/');
+        });
     };
     console.log(JSON.stringify($routeParams));
-});
-
-
-
-billRive.controller('BillEditCtrl', function($scope, univService, $location, $routeParams) {
-    $scope.bill = $scope.bills[$routeParams.id];
-    console.log("in billedit ctrl");
-    $scope.editBill = function() {
-        $scope.bills[$routeParams.id] = $scope.bill;
-        $scope.bill = [];
-    };
 });

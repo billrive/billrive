@@ -82,7 +82,7 @@ billRive.factory('univService', function($http, $q) {
             return $http.delete(url + "6" + "/bill/"+billId);
         },
         editBill: function(billId, Bill) {
-            return $http.put(url + billId, Bill);
+            return $http.put(url + "6" + "/bill/"+billId, Bill);
         },
         getBillObj: function() {
             return billObj;

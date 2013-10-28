@@ -70,7 +70,7 @@ public class BillServiceImpl implements BillService {
     }
 
     public Bill updateBill(Bill bill_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return  billDAO.merge(bill_p);
     }
 
     public Boolean deleteBill(Long billId_p) {
