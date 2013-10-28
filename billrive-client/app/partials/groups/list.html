@@ -15,7 +15,7 @@
     </div>
         <div><h4>Active Groups<h4></div>
         <tbody>  
-          <tr ng-repeat="igroup in tmpActGroups | filter:ActiveGroupFilter | orderBy:'date'">
+          <tr ng-repeat="igroup in user.groups | filter:query | orderBy:'date'">
            
             <td>{{ igroup.name }}</td>
           
