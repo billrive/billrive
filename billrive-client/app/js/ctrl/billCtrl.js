@@ -74,14 +74,14 @@ $scope.bill.billDate=Date.parse($scope.bill.billDate);
         $location.url('/');
     };
     $scope.deleteBill = function(billId) {
-        univService.deleteBill(billId).success(function(data){
+        univService.deleteBill(billId).then(function(data){
             
             $location.url('/');
         });
     };
     
     $scope.editBill = function() {
-       univService.editBill($scope.bill.id,$scope.bill).success(function(data){
+       univService.editBill($scope.bill.id,$scope.bill).then(function(data){
             $scope.bill = angular.copy(univService.getBillObj());
             $location.url('/');
         });
