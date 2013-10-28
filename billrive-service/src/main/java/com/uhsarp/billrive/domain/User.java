@@ -34,13 +34,13 @@ public class User  implements GenericObject {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Group> groups = new ArrayList<Group>();
     
-//    @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
+    @ManyToMany(cascade = CascadeType.ALL,targetEntity = Friend.class)
 //    @Transient
-//    @JoinTable(name = "userfriendmap", 
-//            joinColumns = { @JoinColumn(name = "user_id")}, 
-//            inverseJoinColumns={@JoinColumn(name="friend_id")})
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//    private List<Friend> friends = new ArrayList<Friend>();
+    @JoinTable(name = "userfriendmap", 
+            joinColumns = { @JoinColumn(name = "user_id")}, 
+            inverseJoinColumns={@JoinColumn(name="friend_id")})
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Friend> friends = new ArrayList<Friend>();
  
     public User(){
     	
@@ -110,13 +110,13 @@ public class User  implements GenericObject {
         this.groups = groups;
     }
 
-//    public List<Friend> getFriends() {
-//        return friends;
-//    }
-//
-//    public void setFriends(List<Friend> friends) {
-//        this.friends = friends;
-//    }
+    public List<Friend> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<Friend> friends) {
+        this.friends = friends;
+    }
 	
   
 }

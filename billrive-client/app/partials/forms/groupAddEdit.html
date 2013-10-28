@@ -1,6 +1,6 @@
 <div class="span4" style="padding-right:10px; border-right: 1px solid #ccc;">
                 <label>Group Name</label>
-                <input type="text" class="span8" ng-model="tmpGroup.name"  placeholder="New Group"/>
+                <input type="text" class="span8" ng-model="group.name"  placeholder="New Group"/>
                 <!--<div>{{$scope.newGroup.name}}</div>-->
 
 
@@ -9,6 +9,7 @@
 </div>
 
 <div class="span8">
+     <label>Group Membership</label>
 <!--             <div class="span3">
                     <input ng-change='listActUsers()' type="checkbox" ng-model="user.enabled" />
                 
@@ -26,12 +27,12 @@
 
 <ul class="unstyled"> 
 
-        <li ng-repeat="friend in tmpFriends " > 
+        <li ng-repeat="friend in user.friends " > 
             <div class="row-fluid">
 
                 <div class="span3">
                     <input ng-change='setNewGroupMembership()' type="checkbox" ng-model="friend.addToGroup" />
-                    <span  class="done-{{!friend.addToGroup}}"> {{friend.name}}</span>
+                    <span  class="done-{{!friend.addToGroup}}"> {{friend.fName}} {{friend.lName}}</span>
                 </div>
 <!--                <div class="span3">
                      ng-required='user.enabled' 
@@ -42,6 +43,6 @@
 
     </ul>
     <!--{{friends}}-->
-    {{tmpGroup}}
+    {{group}}
     <!--{{tmpFriends}}-->
 </div>

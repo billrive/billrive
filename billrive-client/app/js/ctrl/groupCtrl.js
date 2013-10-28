@@ -18,12 +18,12 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
   });
     $scope.GroupEditEnv=function(){
         
-            for (i = 0; i < $scope.tmpFriends.length; i++) {
-            $scope.tmpFriends[i].addToGroup = false;         
+            for (i = 0; i < $scope.groups.length; i++) {
+            $scope.groups[i].addToGroup = false;         
         }
     for (i = 0; i < $scope.tmpGroup.users.length; i++) {
         indx =   $scope.tmpGroup.users[i]-1;
-        $scope.tmpFriends[indx].addToGroup = true;        
+        $scope.groups[indx].addToGroup = true;        
     }
     
     
@@ -47,22 +47,22 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
     
      $scope.setNewGroupMembership=function(){
         
-        for (i = 0; i < $scope.tmpFriends.length; i++) {
-            if ($scope.tmpFriends[i].addToGroup === false)
+        for (i = 0; i < $scope.groups.length; i++) {
+            if ($scope.groups[i].addToGroup === false)
                 {
-                    if($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id) > -1)
+                    if($scope.tmpGroup.users.indexOf($scope.groups[i].id) > -1)
                         {
-                            $scope.tmpGroup.users.splice($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id),1);
+                            $scope.tmpGroup.users.splice($scope.tmpGroup.users.indexOf($scope.groups[i].id),1);
                             //Delete the friend id from users array of newGroup
                         }
                    
                 }
              else
                  {
-                      if($scope.tmpGroup.users.indexOf($scope.tmpFriends[i].id) <= -1)
+                      if($scope.tmpGroup.users.indexOf($scope.groups[i].id) <= -1)
                         {
                            
-                            $scope.tmpGroup.users.push($scope.tmpFriends[i].id); 
+                            $scope.tmpGroup.users.push($scope.groups[i].id); 
                             
                                 //Add the friend id from users array of newGroup
                         }
