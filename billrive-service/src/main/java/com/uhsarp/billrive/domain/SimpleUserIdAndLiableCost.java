@@ -12,28 +12,23 @@ import javax.persistence.*;
  * @author Prashanth Batchu
  */
 @Entity
-@Table(name="simpleuseridandliablecost")
-//@SecondaryTable(name = "user", pkJoinColumns=@PrimaryKeyJoinColumn(name="id", referencedColumnName="userId"))
-public class SimpleUserIdAndLiableCost  implements GenericObject {
-    private  Long userId;
-    private  BigDecimal  liableCost;
-     @Id
-     @GeneratedValue(strategy = GenerationType.AUTO)  
+@Table(name = "simpleuseridandliablecost")
+public class SimpleUserIdAndLiableCost implements GenericObject {
+
+    private Long userId;
+    private BigDecimal liableCost;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long billSimpleEntryId;
-//    @Column(table="user", name="fName")
-//    private String fName;
-//    @Column(table="user", name="lName")
-//    private String lName;
-@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER )
-@JoinColumn(name ="userId",referencedColumnName = "id",insertable=false, updatable=false)
-private UserBare user;
-        @Basic
-@Column(columnDefinition = "BIT", length = 1)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId", referencedColumnName = "id", insertable = false, updatable = false)
+    private UserBare user;
+    @Basic
+    @Column(columnDefinition = "BIT", length = 1)
     private Boolean isActive;
 
     public SimpleUserIdAndLiableCost() {
-        
     }
 
     public Long getUserId() {
@@ -83,6 +78,4 @@ private UserBare user;
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
-  
 }
-

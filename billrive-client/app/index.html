@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="lib/bootstrap-datepicker/css/datepicker.css"/>
     </head>
     <body>
-    <!--<body ng-controller="billController">-->
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -20,7 +19,8 @@
                     <a class="brand" href="#"><i class="icon-home"></i> BillRive</a>
 
 
-                    <ul class="nav nav-pills" ng-show="loggedIn">
+                    <ul class="nav nav-pills">
+                    <!--<ul class="nav nav-pills" ng-show="loggedIn">-->
                         <li  class="dropdown">
                             <a  class="dropdown-toggle active"
                                 data-toggle="dropdown">
@@ -36,10 +36,7 @@
                             </ul>
                         </li>
                         <li><a href="#/listFriends"><i class="icon-heart"></i>&nbsp;Friends</a></li>
-                        <!--<li><a href="#/listGroups"><i class="icon-tags"></i>&nbsp;Groups</a></li>-->
-                        
-                        
-                         <li  class="dropdown">
+                        <li  class="dropdown">
                             <a  class="dropdown-toggle active"
                                 data-toggle="dropdown">
                                 <i class="icon-th-list"></i>&nbsp;Groups
@@ -56,14 +53,13 @@
 
                     </ul>
 
-                    <ul class="nav nav-pills pull-right" ng-show="loggedIn">
-
-                        <li><a href="#"><i class="icon-user"></i> {{loggedInUser.name}}</a></li>
+                    <ul class="nav nav-pills pull-right">
+                    <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
+                        
+                        <li><a href="#"><i class="icon-user"></i> Bruce Wayne</a></li>
                         <li><a href="#"><i class="icon-wrench"></i> Settings</a></li>
                         <li><a href="#"><i class="icon-info-sign"></i> Help</a></li>
                     </ul>
-
-
                 </div>
             </div>
         </div>
@@ -73,57 +69,31 @@
             <div class="row clearfix">
                 <div class="span8">
                     <div class="clearfix">
-                       
+
                         <div class="" ng-view>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--<script src="lib/jquery-2.0.0.js"></script>-->
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="lib/lodash.js"></script>
         <script src="lib/bootstrap/js/bootstrap.js"></script>
-         <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.js"></script>
-         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.js"></script>
-         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-resource.js"></script>
+        <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-resource.js"></script>
         <script src="lib/restangular.js"></script>
-        <!--<script type="text/javascript" src="http://cdn.jsdelivr.net/restangular/latest/restangular.js"></script>-->
-         <script src="js/app.js"></script>
-         <script src="js/routes.js"></script>
-        <!--<script src="js/services.js"></script> -->
+        <script src="js/app.js"></script>
+        <script src="js/routes.js"></script>
         <script src="js/ctrl/billCtrl.js"></script>
         <script src="js/ctrl/groupCtrl.js"></script>
         <script src="js/ctrl/userCtrl.js"></script>
         <script src="js/ctrl/friendCtrl.js"></script>
         <script src="js/ctrl/loginCtrl.js"></script>
-        
-        <!--<script src="js/service/billService.js"></script>-->
-        <!--<script src="js/service/billFactory.js"></script>-->
-        <!--<script src="js/service/groupService.js"></script>-->
-        <!--<script src="js/service/userService.js"></script>-->
-        <!--<script src="js/service/user.js"></script>-->
-        <!--<script src="js/service/userHttpService.js"></script>-->
         <script src="js/service/univService.js"></script>
-        <!--<script src="js/service/friendService.js"></script>-->
-        
-        
-        
-        <!--<script src="js/controllers.js"></script>-->
         <script src="js/filters.js"></script>
         <script src="js/directives.js"></script>
-        
-
-        
         <script src="lib/angular-strap.js"></script>
-        <!--underscore is for additional collection manipulation etc-->
-        <!--<script src="lib/underscore-1.4.4-min.js"></script>-->
-        <!--Moment is for parsing dates-->
-        <!--<script src="lib/moment-2.0.js"></script>-->
-        <!--FastClick is a simple, easy-to-use library for eliminating the 300ms delay between a physical tap and the firing of a click event on mobile browsers.-->
-        <!--<script src="lib/fastclick-0.6.0-min.js"></script>-->
-        <!--Bootstrap Datepicker-->
-       
     </body>
 </html>
