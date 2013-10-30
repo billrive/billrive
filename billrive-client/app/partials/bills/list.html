@@ -20,40 +20,27 @@
           </tr>
         </thead>
         <tbody>
-<!--          <tr ng-repeat="ibill in bills | filter:query">
-            <td>{{ ibill.date}}</td>
-{{ ibill.date.monthOfYear }}/{{ ibill.date.dayOfMonth}}/{{ ibill.date.yearOfCentury}}
-            <td>{{ ibill.title }}</td>
-            <td>${{ ibill.total }}</td>
-            <td>
-              <button class="btn btn-small" href="#editBill">
-                <i class="icon-edit"></i>&nbsp;Edit
-              </button>
-            </td>
-          </tr>-->
           <tr ng-repeat="ibill in user.groups[0].bills | filter:query | orderBy:'date'">
             <td>{{ ibill.billDate | date:'MM/dd/yyyy'}}</td>
             <td>{{ ibill.title }}</td>
             <td>${{ ibill.billTotal }}
-            <!--asdfasdfsdf-->
+            
             <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">
-                <!--{{simplecost}}-->
-                    {{simplecost.user.fName}} <!-- {{simplecost.user.lName}}--> owes ${{simplecost.liableCost}}
+               
+                    {{simplecost.user.fName}}  owes ${{simplecost.liableCost}}
                 </p></td>
             <td>
-                
-               
                <a ng-click='deleteBill(ibill.id)'><i class="icon-trash "></i></a>
               <a  href="#/bills/edit/0/{{$index}}"><i class="icon-pencil "></i></a>
-              <!--<a  href="#/bills/edit/0/{{ibill.id}}"><i class="icon-pencil "></i></a>-->
-               <!--<a ng-click='deleteBill(ibill.id)'href="#/bills/delete/{{ibill.id}}"><i class="icon-trash "></i></a>-->
-<!--              <a  href="#/bills/edit/{{$index}}"><i class="icon-pencil "></i></a>
-               <a href="#/bills/delete/{{$index}}"><i class="icon-trash "></i></a>-->
+              <a class="btn" ng-click="isCollapsed = !isCollapsed"><i class="icon-folder-open "></i> Details</a>
             </td>
           </tr>
         </tbody>
       </table>
-
+<button class="btn" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+	<div collapse="isCollapsed">
+		<div class="well well-large">Some content</div> 
+	</div>
 <!--{{user.groups[0].bills}}-->
 <!--{{user.groups[0].bills}}-->
 <!--{{examp}}-->

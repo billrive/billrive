@@ -1,5 +1,5 @@
 billRive.factory('univService', function($http, $q) {
-    var url = 'http://localhost\:8082/billrive-service/user/';
+    var url = 'http://localhost\:8080/billrive-service/user/';
 
     var billObj = {
         "id": null,

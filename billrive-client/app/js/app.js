@@ -1,6 +1,6 @@
 'use strict';
 
-var billRive = angular.module('billRive', ['ngRoute','restangular','ngResource','$strap.directives']);
+var billRive = angular.module('billRive', ['ngRoute','$strap.directives','ui.bootstrap']);
 //angular.module('billRive', ['restangular']);
 
 //billRive.config(function(RestangularProvider) {
