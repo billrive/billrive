@@ -54,7 +54,7 @@ billRive.factory('univService', function($http, $q) {
     "ownerId": null,
     "bills": null,
     "payments": null,
-    "users": null,
+    "users": [],
     "isActive": true, 
     "balances": null
 };
@@ -85,7 +85,7 @@ var friendObj= {
             $http.get(url + userId)
                     .success(function(d) {
                         user = d;
-                        console.log(d);
+//                        console.log(d);
                         deffered.resolve();
                     });
             return deffered.promise;

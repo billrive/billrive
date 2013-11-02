@@ -2,7 +2,8 @@
                 <label>Group Name</label>
                 <input type="text" class="span8" ng-model="group.name"  placeholder="New Group"/>
                 <!--<div>{{$scope.newGroup.name}}</div>-->
-
+<label>Description</label>
+                <textarea ng-model="group.description"></textarea>
 
          
   
@@ -31,6 +32,7 @@
             <div class="row-fluid">
 
                 <div class="span3">
+                <!--<div class="span3" ng-init="friend.addToGroup = true">-->
                     <input ng-change='setNewGroupMembership()' type="checkbox" ng-model="friend.addToGroup" />
                     <span  class="done-{{!friend.addToGroup}}"> {{friend.fName}} {{friend.lName}}</span>
                 </div>
@@ -42,7 +44,8 @@
         </li>
 
     </ul>
-    <!--{{friends}}-->
-    {{group}}
-    <!--{{tmpFriends}}-->
 </div>
+   user.friends: {{user.friends}}
+   Friend: {{friend}}
+    <!--{{group}}-->
+    <!--{{tmpFriends}}-->
