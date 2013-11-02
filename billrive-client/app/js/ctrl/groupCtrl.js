@@ -13,7 +13,7 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
 //    }
 //    else{
 //
-//    $scope.bill = angular.copy(univService.getBillObj());
+    $scope.group = angular.copy(univService.getGroupObj());
 //    }
   });
     $scope.GroupEditEnv=function(){

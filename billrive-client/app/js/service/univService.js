@@ -46,6 +46,28 @@ billRive.factory('univService', function($http, $q) {
         "userIdAndLiableCost": [
         ]
     };
+    
+    var groupObj={
+    "id": null,
+    "name": null,
+    "description": null,
+    "ownerId": null,
+    "bills": null,
+    "payments": null,
+    "users": null,
+    "isActive": true, 
+    "balances": null
+};
+
+var friendObj= {
+            "id": null,
+            "fName": null,
+            "lName": null,
+            "email": null,
+            "mName": null,
+            "title": null,
+            "userActive": null
+        };
     var deffered = $q.defer();
     var user = {};
 
@@ -105,6 +127,9 @@ billRive.factory('univService', function($http, $q) {
         getCurrUserId: function() {
             return currUserId;
         },
+         getGroupObj: function() {
+            return groupObj;
+        },
          addGroup: function(Group) {
             user.groups[0].groups.push(Group);
             return $http.post(url + currUserId + "/group/", Group);
@@ -114,6 +139,9 @@ billRive.factory('univService', function($http, $q) {
         },
         editGroup: function(groupId, Group) {
             return $http.put(url + currUserId + "/group/"+groupId, Group);
-        }
+        },
+          getFriendObj: function() {
+            return friendObj;
+        }       
     };
 });
