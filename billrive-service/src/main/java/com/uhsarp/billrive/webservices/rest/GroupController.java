@@ -4,9 +4,9 @@
  */
 package com.uhsarp.billrive.webservices.rest;
 
-import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.domain.Group;
 import com.uhsarp.billrive.services.GroupService;
+import static com.uhsarp.billrive.webservices.rest.GroupController.isEmpty;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
 /**
  *
@@ -46,7 +44,7 @@ public class GroupController extends GenericController {
 		List<Group> groups = null;
                 System.out.println("In Groups...Calling getGroups");
 		try {
-			groups = groupService.getGroups(userId);
+//			groups = groupService.getGroups(userId);
 		} catch (Exception e) {
 			String sMessage = "Error getting all groups. [%1$s]";
 			return groups;
@@ -68,7 +66,7 @@ public class GroupController extends GenericController {
 		}
 
 		try {
-			group = groupService.getGroupById(groupId_p);
+//			group = groupService.getGroupById(groupId_p);
 		} catch (Exception e) {
 			String sMessage = "Error invoking getGroup. [%1$s]";
 			return group;
@@ -78,53 +76,28 @@ public class GroupController extends GenericController {
 		return group;
 	}
                 
-                
-//        @RequestMapping(value = { "/rest/{userId}/{userId}/groups/" }, method = { RequestMethod.POST })
-//	public ModelAndView createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
-//			HttpServletResponse httpResponse_p, WebRequest request_p) {
-                
-        @RequestMapping(value = { "/rest/{userId}/groups/" }, method = { RequestMethod.POST })
-	public void createGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
+       @RequestMapping(value = { "/user/{userId}/group" }, method = { RequestMethod.POST })
+	public void addGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
-
-
-
-
-		Group createdGroup;
+		Group createdGroup=null;
 		logger_c.debug("Creating Group: " + group_p.toString());
 
 		try {
-			createdGroup = groupService.createGroup(userId, userId);
+			createdGroup = groupService.addGroup(group_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new group. [%1$s]";
-//			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
 
 		/* set HTTP response code */
+                if(createdGroup!=null)
 		httpResponse_p.setStatus(HttpStatus.CREATED.value());
+                else
+                    httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 
 		/* set location of created resource */
-//		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
-		/* set location of created resource */
-//		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/rest/{userId}/{userId}/groups/" + group_p.getGroupId());
+		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/user/{userId}/group/" + group_p.getId());
 
-
-
-
-
-
-
-
-
-
-
-
-
-		/**
-		 * Return the view
-		 */
-//		return new ModelAndView(jsonView_i, DATA_FIELD, createdGroup);
 	}
 
 	/**
@@ -134,8 +107,8 @@ public class GroupController extends GenericController {
 	 *            the group_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/rest/{userId}/{userId}/groups/{groupId}" }, method = { RequestMethod.PUT })
-	public Group updateGroup(@RequestBody Group group_p,@PathVariable("userId") int userId, @PathVariable("groupId") String groupId_p,
+	@RequestMapping(value = { "/user/{userId}/group/{groupId}" }, method = { RequestMethod.PUT })
+	public void editGroup(@RequestBody Group group_p, @PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Group: " + group_p.toString());
@@ -143,20 +116,19 @@ public class GroupController extends GenericController {
 		/* validate group Id parameter */
 		if (isEmpty(groupId_p) || groupId_p.length() < 5) {
 			String sMessage = "Error updating group - Invalid group Id parameter";
-			return null;
 		}
 
-		Group group = null;
+		Group mergedGroup = null;
 
 		try {
-			group = groupService.updateGroup(group_p);
+			mergedGroup = groupService.editGroup(group_p);
 		} catch (Exception e) {
 			String sMessage = "Error updating group. [%1$s]";
-			return group;
 		}
-
+                if(mergedGroup!=null)
 		httpResponse_p.setStatus(HttpStatus.OK.value());
-		return group;
+                else
+                    httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 	}
 
 	/**
@@ -166,9 +138,10 @@ public class GroupController extends GenericController {
 	 *            the group id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.DELETE)
-	public void removeGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
+	@RequestMapping(value = "/user/{userId}/group/{groupId}", method = RequestMethod.DELETE)
+	public void deleteGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
+            Boolean deleted=false;
 
 		logger_c.debug("Deleting Group Id: " + groupId_p.toString());
 
@@ -179,16 +152,20 @@ public class GroupController extends GenericController {
 		}
 
 		try {
-			groupService.deleteGroup(groupId_p);
+			 deleted = groupService.deleteGroup(Long.parseLong(groupId_p));
 		} catch (Exception e) {
 			String sMessage = "Error invoking getGroups. [%1$s]";
 //			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
-
+                if(deleted)
 		httpResponse_p.setStatus(HttpStatus.OK.value());
+                else
+                    httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 //		return new ModelAndView(jsonView_i, DATA_FIELD, null);
 	}
-        
+                
+                
+                
         public static boolean isEmpty(String s_p) {
 		return (null == s_p) || s_p.trim().length() == 0;
 	}

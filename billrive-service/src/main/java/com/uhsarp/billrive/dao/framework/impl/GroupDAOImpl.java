@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Prashanth Batchu
  */
 @Repository("groupDAO")
-@Transactional()
+@Transactional
 public class GroupDAOImpl implements GroupDAO{
 
      @PersistenceContext

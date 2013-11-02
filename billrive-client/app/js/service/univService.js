@@ -104,6 +104,16 @@ billRive.factory('univService', function($http, $q) {
         },
         getCurrUserId: function() {
             return currUserId;
-        }
+        },
+         addGroup: function(Group) {
+            user.groups[0].groups.push(Group);
+            return $http.post(url + "6" + "/group/", Group);
+        },
+        deleteGroup: function(groupId) {
+            return $http.delete(url + "6" + "/group/"+groupId);
+        },
+        editGroup: function(groupId, Group) {
+            return $http.put(url + "6" + "/group/"+groupId, Group);
+        },
     };
 });
