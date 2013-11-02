@@ -6,7 +6,6 @@ package com.uhsarp.billrive.dao.framework;
 
 import com.googlecode.genericdao.dao.jpa.GenericDAO;
 import com.uhsarp.billrive.domain.Group;
-import java.util.List;
 
 /**
  *

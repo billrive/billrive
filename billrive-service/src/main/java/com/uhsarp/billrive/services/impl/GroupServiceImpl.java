@@ -36,11 +36,15 @@ public class GroupServiceImpl implements GroupService{
     }
 
     public Group editGroup(Group group_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return  groupDAO.merge(group_p);
     }
 
     public Boolean deleteGroup(Long groupId_p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Boolean deleted= groupDAO.removeById(groupId_p);
+       if(deleted)
+           return true;
+       else
+            return false;
     }
    
 

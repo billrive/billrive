@@ -69,7 +69,7 @@ public class BillServiceImpl implements BillService {
       
     }
 
-    public Bill updateBill(Bill bill_p) {
+    public Bill editBill(Bill bill_p) {
     return  billDAO.merge(bill_p);
     }
 

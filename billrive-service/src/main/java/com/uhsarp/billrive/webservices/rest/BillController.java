@@ -112,7 +112,7 @@ public class BillController extends GenericController{
 	 * @return the model and view
 	 */
 	@RequestMapping(value = { "/user/{userId}/bill/{billId}" }, method = { RequestMethod.PUT })
-	public void updateBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
+	public void editBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
 		logger_c.debug("Updating Bill: " + bill_p.toString());
@@ -125,7 +125,7 @@ public class BillController extends GenericController{
 		Bill mergedBill = null;
 
 		try {
-			mergedBill = billService.updateBill(bill_p);
+			mergedBill = billService.editBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error updating bill. [%1$s]";
 		}

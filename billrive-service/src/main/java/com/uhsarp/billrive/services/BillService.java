@@ -19,7 +19,7 @@ public interface BillService {
 
      Bill addBill(Bill bill_p);
 
-     Bill updateBill(Bill bill_p);
+     Bill editBill(Bill bill_p);
 
      Boolean deleteBill(Long billId_p);
 }

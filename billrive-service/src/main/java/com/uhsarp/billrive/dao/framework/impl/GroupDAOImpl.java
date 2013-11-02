@@ -10,10 +10,12 @@ import com.googlecode.genericdao.search.ISearch;
 import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.domain.Group;
+import com.uhsarp.billrive.webservices.rest.BillController;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class GroupDAOImpl implements GroupDAO{
 
+     private static final Logger logger_c = Logger.getLogger(GroupDAOImpl.class);
+  
      @PersistenceContext
 	private EntityManager em;
      
@@ -41,7 +45,7 @@ public class GroupDAOImpl implements GroupDAO{
    
     public Long findGroupId(Long userId) {
       
-        List<Long> groupIds= (List<Long>) em.createNativeQuery("SELECT groups_id FROM billrivedb.usergroupmap where id="+userId).getResultList();
+        List<Long> groupIds= (List<Long>) em.createNativeQuery("SELECT groups_id FROM grouprivedb.usergroupmap where id="+userId).getResultList();
         Long groupId = groupIds.get(0).longValue();
         return  groupId;
     }
@@ -62,16 +66,29 @@ public class GroupDAOImpl implements GroupDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group merge(Group t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Group merge(Group group) {
+          if (group.getId()!= null) {
+            return em.merge(group);    
+    }
+       else
+           return null;
     }
 
     public Group[] merge(Group... ts) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Group save(Group t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Group save(Group group) {
+        if (group.getId() == null) {
+            try {
+                em.persist(group);
+            } catch (Exception e) {
+                logger_c.debug(e);
+            }
+
+            return group;
+        }
+        return em.merge(group);
     }
 
     public Group[] save(Group... ts) {
@@ -86,8 +103,14 @@ public class GroupDAOImpl implements GroupDAO{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public boolean removeById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean removeById(Long groupId) {
+             Query q = em.createQuery("delete from Group g  WHERE g.id=" + groupId);
+        int deleted = q.executeUpdate();
+        if (deleted > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void removeByIds(Long... ids) {

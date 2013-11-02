@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class BillDAOImpl implements BillDAO {
     //public class BillDAOImpl extends JpaConfig  implements BillDAO{
 
-    private static final Logger logger_c = Logger.getLogger(BillController.class);
+    private static final Logger logger_c = Logger.getLogger(BillDAOImpl.class);
     @PersistenceContext
     private EntityManager em;
 
