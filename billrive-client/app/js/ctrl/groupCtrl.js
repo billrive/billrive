@@ -3,12 +3,12 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
    
    univService.getUserFromHttp(6).then(function() {
     $scope.user = univService.getUser();
-    $scope.bills = $scope.user.groups[0].bills;
+    $scope.groups = $scope.user.groups[0].groups;
     $scope.groups=$scope.user.groups;
     
 //    if($scope.editGroupId!=null && $scope.editBillId!=null)
 //    {
-//        $scope.bill =  angular.copy($scope.bills[$scope.editBillId]);
+//        $scope.group =  angular.copy($scope.groups[$scope.editBillId]);
 //          $scope.simpleCalculateSum();
 //    }
 //    else{
@@ -52,5 +52,11 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
                 }
              }
         }
+    };
+    
+     $scope.addGroup = function() {
+console.log(JSON.stringify($scope.group));
+        univService.addGroup(angular.copy($scope.group));
+        $location.url('/');
     };
 });

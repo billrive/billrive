@@ -131,7 +131,7 @@ var friendObj= {
             return groupObj;
         },
          addGroup: function(Group) {
-            user.groups[0].groups.push(Group);
+//            user.groups[0].groups.push(Group);
             return $http.post(url + currUserId + "/group/", Group);
         },
         deleteGroup: function(groupId) {

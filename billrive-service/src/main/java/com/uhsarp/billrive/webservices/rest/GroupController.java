@@ -39,7 +39,7 @@ public class GroupController extends GenericController {
         private static final Logger logger_c = Logger.getLogger(GroupController.class);
         
         
-    	@RequestMapping(value = "/rest/{userId}/groups/", method = RequestMethod.GET)
+    	@RequestMapping(value = "/{userId}/groups/", method = RequestMethod.GET)
 	public @ResponseBody List<Group> getGroups(@PathVariable("userId") int userId) {
 		List<Group> groups = null;
                 System.out.println("In Groups...Calling getGroups");
@@ -55,7 +55,7 @@ public class GroupController extends GenericController {
 	}
         
         
-        	@RequestMapping(value = "/rest/{userId}/{userId}/groups/{groupId}", method = RequestMethod.GET)
+        	@RequestMapping(value = "/{userId}/{userId}/group/{groupId}", method = RequestMethod.GET)
 	public @ResponseBody Group getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
 		Group group = null;
 

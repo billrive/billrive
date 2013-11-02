@@ -87,5 +87,5 @@ $scope.bill.billDate=Date.parse($scope.bill.billDate);
             $location.url('/');
         });
     };
-    console.log(JSON.stringify($routeParams));
+//    console.log(JSON.stringify($routeParams));
 });
