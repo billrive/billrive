@@ -50,7 +50,7 @@ billRive.factory('univService', function($http, $q) {
     var user = {};
 
 
-    var currUserId = null;
+    var currUserId = 6;
 
     var userAndLiableCost =
             {userId: null, liableCost: null};
@@ -76,13 +76,13 @@ billRive.factory('univService', function($http, $q) {
         },
         addBill: function(Bill) {
             user.groups[0].bills.push(Bill);
-            return $http.post(url + "6" + "/bill/", Bill);
+            return $http.post(url + currUserId + "/bill/", Bill);
         },
         deleteBill: function(billId) {
-            return $http.delete(url + "6" + "/bill/"+billId);
+            return $http.delete(url + currUserId + "/bill/"+billId);
         },
         editBill: function(billId, Bill) {
-            return $http.put(url + "6" + "/bill/"+billId, Bill);
+            return $http.put(url + currUserId + "/bill/"+billId, Bill);
         },
         getBillObj: function() {
             return billObj;
@@ -107,13 +107,13 @@ billRive.factory('univService', function($http, $q) {
         },
          addGroup: function(Group) {
             user.groups[0].groups.push(Group);
-            return $http.post(url + "6" + "/group/", Group);
+            return $http.post(url + currUserId + "/group/", Group);
         },
         deleteGroup: function(groupId) {
-            return $http.delete(url + "6" + "/group/"+groupId);
+            return $http.delete(url + currUserId + "/group/"+groupId);
         },
         editGroup: function(groupId, Group) {
-            return $http.put(url + "6" + "/group/"+groupId, Group);
-        },
+            return $http.put(url + currUserId + "/group/"+groupId, Group);
+        }
     };
 });
