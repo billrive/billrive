@@ -1,7 +1,7 @@
 billRive.controller('billCtrl', function($location, $scope, univService,$routeParams) {
 $scope.editGroupId=$routeParams.groupId;
 $scope.editBillId=$routeParams.billId;
-$scope.isCollapsed = false;
+//$scope.isCollapsed = false;
     $scope.groups = [];
     $scope.bills = [];
     $scope.emptySpace = " ";

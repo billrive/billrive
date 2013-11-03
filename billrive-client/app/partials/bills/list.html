@@ -33,7 +33,7 @@
             <td>
                <a ng-click='deleteBill(ibill.id)'><i class="icon-trash "></i></a>
               <a  href="#/bills/edit/0/{{$index}}"><i class="icon-pencil "></i></a>
-              <a class="btn" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-folder-open "></i> Details</a>
+              <a class="btn" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-folder-open "></i> Details</a>
             </td>
             <td><div collapse="ibill.isCollapsed">
 		<div class="well well-large">   <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">
@@ -41,7 +41,7 @@
                     {{simplecost.user.fName}}  owes ${{simplecost.liableCost}}
                 </p></div> 
 	</div></td>
-       
+        <!--<td>{{ibill}}</td>-->
           </tr>
 <!--          <tr>
               <td><div collapse="ibill.isCollapsed">
