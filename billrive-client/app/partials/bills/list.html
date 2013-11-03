@@ -32,9 +32,12 @@
                         <td class="span2">${{ ibill.billTotal }}
                         </td>
                         <td class="span4">
-                            <a ng-click='deleteBill(ibill.id)'><i class="icon-trash "></i></a>
-                            <a  href="#/bills/edit/0/{{$index}}"><i class="icon-pencil "></i></a>
-                            <a class="btn" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-folder-open "></i> Details</a>
+<!--                            <a ng-click='deleteBill(ibill.id)'><i class="icon-trash "></i></a>
+                            <a  href="#/bills/edit/0/{{$index}}"><i class="icon-pencil "></i></a>-->
+                            <a class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class=" icon-trash"></i> Delete</a>
+                            <a class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-edit"></i> Edit</a>
+                            <a class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class=" icon-resize-small"></i> Details</a>
+                            <!--<a class="btn" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-folder-open "></i> Details</a>-->
                         </td>    
                         </tr></table>
                 <table>
