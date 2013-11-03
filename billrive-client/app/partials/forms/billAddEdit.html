@@ -19,11 +19,11 @@
 
 
                 <label>Group</label>
-                <select ng-change="setBillGroup()" ng-model="bill.groupId" class="span8" ng-options="d.id as d.name for d in groups"></select>
+                <select  multiple="multiple" ng-change="setBillGroup()" ng-model="bill.groupId" class="span8" ng-options="d.id as d.name for d in groups"></select>
 
 
                 <label>Payer</label>
-                <select ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>
+                <select  multiple="multiple" ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>
 
                 <label>Notes</label>
                 <textarea ng-model="bill.notes"></textarea>
