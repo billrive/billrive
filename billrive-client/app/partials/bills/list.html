@@ -25,22 +25,35 @@
             <td>{{ ibill.title }}</td>
             <td>${{ ibill.billTotal }}
             
-            <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">
+<!--            <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">
                
                     {{simplecost.user.fName}}  owes ${{simplecost.liableCost}}
-                </p></td>
+                </p>-->
+            </td>
             <td>
                <a ng-click='deleteBill(ibill.id)'><i class="icon-trash "></i></a>
               <a  href="#/bills/edit/0/{{$index}}"><i class="icon-pencil "></i></a>
-              <a class="btn" ng-click="isCollapsed = !isCollapsed"><i class="icon-folder-open "></i> Details</a>
+              <a class="btn" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-folder-open "></i> Details</a>
             </td>
+            <td><div collapse="ibill.isCollapsed">
+		<div class="well well-large">   <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">
+               
+                    {{simplecost.user.fName}}  owes ${{simplecost.liableCost}}
+                </p></div> 
+	</div></td>
+       
           </tr>
+<!--          <tr>
+              <td><div collapse="ibill.isCollapsed">
+		<div class="well well-large">Some content</div> 
+	</div></td>
+          </tr>-->
         </tbody>
       </table>
-<button class="btn" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+<!--<button class="btn" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
 	<div collapse="isCollapsed">
 		<div class="well well-large">Some content</div> 
-	</div>
+	</div>-->
 <!--{{user.groups[0].bills}}-->
 <!--{{user.groups[0].bills}}-->
 <!--{{examp}}-->
