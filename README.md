@@ -4,6 +4,17 @@ billrive-service
 billrive-client
 -------------------
 
+What you Need:
+Git for Windows or Linux (git-scm.org) or Netbeans with GIT plugin installed
+Netbeans or Eclipse 
+Tomcat 7
+Netbeans chrome integration plugin (optional but preferred if you'd like to use Netbeans)
+Angular Batarang plugin for Chrome (optional)
+
+To get a copy of the code, Clone the GIT repository using Netbeans GIT plugin or through the native windows GIT plugin.
+
+git clone https://github.com/billrive/billrive.git
+
 Billrive Development Setup Guide
 Introduction:
 Billrive is comprised of two applications (for now)
