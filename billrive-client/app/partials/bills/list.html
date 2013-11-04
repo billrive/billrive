@@ -17,7 +17,7 @@
             <th align="left" class="span2">Date</th>
             <th  align="left" class="span2">Title</th>
             <th  align="left" class="span2">Bill Total</th>
-            <th  align="left" class="span4"></th>
+            <th  align="left" class="span4">Options</th>
 
         </tr>
     </thead>
@@ -34,9 +34,9 @@
                         <td class="span4">
 <!--                            <a ng-click='deleteBill(ibill.id)'><i class="icon-trash "></i></a>
                             <a  href="#/bills/edit/0/{{$index}}"><i class="icon-pencil "></i></a>-->
-                            <a class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class=" icon-trash"></i> Delete</a>
-                            <a class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-edit"></i> Edit</a>
-                            <a class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class=" icon-resize-small"></i> Details</a>
+                            <a ng-click='deleteBill(ibill.id)' class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class=" icon-trash"></i></a>
+                            <a href="#/bills/edit/0/{{$index}}" class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-edit"></i></a>
+                            <a class="btn btn-mini" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-eye-open"></i>&nbsp;details</a>
                             <!--<a class="btn" ng-init="ibill.isCollapsed = 'true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed"><i class="icon-folder-open "></i> Details</a>-->
                         </td>    
                         </tr></table>

@@ -1,0 +1,24 @@
+Bill
+ -(1:1) BillSimpleEntry
+	-(1:n)SimpleUserIDAndLiableCost
+ -(0:n) BillItemEntry
+	-(1:n)ItemUserIDAndLiableCost
+	
+	
+Walmart
+  - BillSimpleEntry ($17)
+	 -1:$11.5 (SimpleUserIDAndLiableCost)
+	 -2:$5.5 (SimpleUserIDAndLiableCost)
+	 -3:$1 (SimpleUserIDAndLiableCost)
+  -Milk(BillItemEntry) $3
+  	 -1:$1 (ItemUserIDAndLiableCost)
+	 -2:$1 (ItemUserIDAndLiableCost)
+	 -3:$1 (ItemUserIDAndLiableCost) 
+  -Soap(BillItemEntry) $5
+  	 -1:$1 (ItemUserIDAndLiableCost)
+	 -2:$0 (ItemUserIDAndLiableCost)
+	 -3:$0 (ItemUserIDAndLiableCost) 
+  -Fruits(BillItemEntry) $9
+  	 -1:$4.5 (ItemUserIDAndLiableCost)
+	 -2:$4.5 (ItemUserIDAndLiableCost)
+	 -3:$0 (ItemUserIDAndLiableCost) 

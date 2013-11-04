@@ -1,0 +1,16 @@
+billCtrl
+add(groupId)
+del(billId)
+edit(billId,Bill)
+
+groupCtrl
+add(userId)
+edit(groupId,Group) //Managing who is and isn't part of this group
+subscribeTo(groupId,userId)
+unscribeFrom(groupId,userId)
+
+friendCtrl
+Add a friend from FB to your Group
+Send a invite to your friend via email
+
+
