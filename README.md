@@ -22,20 +22,20 @@ billrive-service (Spring MVC, REST, JPA (Hibernate as provider), MySQL DB)
 billrive-client (Angular JS, Bootstrap, Underscore)
 
 Initial Setup:
-•	Recommended Tools for development: (The project is IDE neutral but this setup is tested and works best)
-o	Netbeans, MySQL Community Cluster, MySQL Workbench, JBOSS 6/7, Netbeans Chrome plugin,  Chrome Angular Batarang plugin. (Recent versions unless specified otherwise)
-•	Clone the repository to your computer. 
-o	git clone http://github.com/billrive/billrive.git
+-	Recommended Tools for development: (The project is IDE neutral but this setup is tested and works best)
+-	Netbeans, MySQL Community Cluster, MySQL Workbench, JBOSS 6/7, Netbeans Chrome plugin,  Chrome Angular Batarang plugin. (Recent versions unless specified otherwise)
+-	Clone the repository to your computer. 
+-	git clone http://github.com/billrive/billrive.git
 
 Setting up billrive-client:
-•	The billrive-client project is a Netbeans HTML5 project. So Netbeans identified the project and you can open it in Netbeans that way (File -> Open -> point to the downloaded billrive-client folder).
-•	Make sure that you have Netbeans Chrome plugin installed. Restart both Chrome and Netbeans.
-•	Now expand the billrive-client project -> app . Right click and hit "run". It should open it and show the client view in Chrome. If it doesn't, Right click on the project -> properties -> Run. In "Browser" drop down, select "Netbeans with Chrome Integration"
-•	Now retry running the index.html in the app folder.
-•	This setup enables setting up breakpoints for debugging javascript (Angular).
+-	The billrive-client project is a Netbeans HTML5 project. So Netbeans identified the project and you can open it in Netbeans that way (File -> Open -> point to the downloaded billrive-client folder).
+-	Make sure that you have Netbeans Chrome plugin installed. Restart both Chrome and Netbeans.
+-	Now expand the billrive-client project -> app . Right click and hit "run". It should open it and show the client view in Chrome. If it doesn't, Right click on the project -> properties -> Run. In "Browser" drop down, select "Netbeans with Chrome Integration"
+-	Now retry running the index.html in the app folder.
+-	This setup enables setting up breakpoints for debugging javascript (Angular).
 Setting up Application Server and the Database:
-•	The conf folder from the repository has all the configuration files needed for this project.
-•	Tomcat: 
+-	The conf folder from the repository has all the configuration files needed for this project.
+-	Tomcat: 
 To setup your Tomcat environment, replace your conf/server.xml and conf/context.xml with their equivalents in this repository (conf/tomcat folder). Use the conf/billrive.sql to populate your MySQL database. Match the connection details with that of those in conf/context.xml
 
 Debugging in Tomcat:
@@ -49,20 +49,20 @@ Add the following VM options to resolve the error (can be added as startup env a
 
 
 
-•	Download mysql jdbc driver jar and paste it in the lib folder.
-•	MySQL: Download MySQL. Start the server. Download MySQL Workbench. Open up MySql Workbench and create a connection to your localhost MySQL instance. Create a database titled 'billrivedb'.
-•	Use the conf/billrive.sql to populate the database.
+-	Download mysql jdbc driver jar and paste it in the lib folder.
+-	MySQL: Download MySQL. Start the server. Download MySQL Workbench. Open up MySql Workbench and create a connection to your localhost MySQL instance. Create a database titled 'billrivedb'.
+-	Use the conf/billrive.sql to populate the database.
 
 
 Setting up billrive-service:
-•	billrive-service is a maven project. You can open the project in Netbeans or import it into Eclipse.
-•	Install Maven, JDK 6/7 on your computer and run mvn install or package and deploy the application to the application server. The following REST url should output some sample JSON for the  bills object.
+-	billrive-service is a maven project. You can open the project in Netbeans or import it into Eclipse.
+-	Install Maven, JDK 6/7 on your computer and run mvn install or package and deploy the application to the application server. The following REST url should output some sample JSON for the  bills object.
 o	http://localhost:8080/billrive-service/rest/1/bills/
 
 
 Architecture
 BillRive-Service
-•	Spring MVC (REST) architecture. REST architecture following the guidelines from this video (http://www.youtube.com/watch?v=5WXYw4J4QOU).
+-	Spring MVC (REST) architecture. REST architecture following the guidelines from this video (http://www.youtube.com/watch?v=5WXYw4J4QOU).
 
 
 
