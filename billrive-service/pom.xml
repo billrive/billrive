@@ -18,7 +18,7 @@
 	</repositories>-->
     <properties>
         <releaseCandidate>1</releaseCandidate>
-        <spring.version>3.2.4.RELEASE</spring.version>
+        <spring.version>4.0.0.RELEASE</spring.version>
         <java.version>1.5</java.version>
        
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
