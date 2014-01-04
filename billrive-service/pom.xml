@@ -9,13 +9,24 @@
     <packaging>war</packaging>
     <groupId>com.uhsarp.billrive</groupId>
     <version>1.0</version>
-<!--    	<repositories>
-		<repository>
+    	<repositories>
+<!--		<repository>
 			<id>oss.sonatype.org</id>
 			<name>OSS Sonatype Staging</name>
 			<url>https://oss.sonatype.org/content/groups/staging</url>
-		</repository>
-	</repositories>-->
+		</repository>-->
+                <repository>
+    <id>com.springsource.repository.bundles.milestone</id>
+    <name>SpringSource Enterprise Bundle Repository - SpringSource Milestone Releases</name>
+    <url>http://repository.springsource.com/maven/bundles/milestone</url>
+</repository>
+
+<repository>
+    <id>com.springsource.repository.bundles.external</id>
+    <name>SpringSource Enterprise Bundle Repository - External Releases</name>
+    <url>http://repository.springsource.com/maven/bundles/external</url>
+</repository>
+	</repositories>
     <properties>
         <releaseCandidate>1</releaseCandidate>
         <spring.version>4.0.0.RELEASE</spring.version>
@@ -82,7 +93,37 @@
         <artifactId>slf4j-api</artifactId>
         <version>1.7.5</version>
         </dependency>-->
-            
+<!--            <dependency>
+    <groupId>org.springframework.javaconfig</groupId>
+    <artifactId>org.springframework.config.java</artifactId>
+    <version>1.0.0.M4</version>
+    <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>org.springframework.beans</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>org.springframework.context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>org.springframework.test</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>com.springsource.org.apache.commons.logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.log4j</groupId>
+                    <artifactId>com.springsource.org.apache.log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.sourceforge.cglib</groupId>
+                    <artifactId>com.springsource.net.sf.cglib</artifactId>
+                </exclusion>
+            </exclusions>
+          </dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -253,7 +294,7 @@
         <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
-        <version>1.5.8</version>
+        <version>${slf4j}</version>
         <scope>runtime</scope>
     </dependency>
         <dependency>
@@ -261,11 +302,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j}</version>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
             <version>${cglib}</version>
-        </dependency>-->
+        </dependency>
 <!--        <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
@@ -326,17 +367,17 @@
             
         </dependency>
         
-        <dependency>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-social-core</artifactId>
-            <version>1.0.3.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-social-facebook-web</artifactId>
-            <version>1.0.3.RELEASE</version>
-        </dependency>
-            -->
+    <dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-core</artifactId>
+        <version>1.0.3.RELEASE</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-facebook-web</artifactId>
+        <version>1.0.3.RELEASE</version>
+    </dependency>
+        -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>

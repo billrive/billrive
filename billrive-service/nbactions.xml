@@ -36,4 +36,14 @@
                 <goal>dependency:analyze</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-clean package -DskipTests -X</actionName>
+            <displayName>clean package -DskipTests -X</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>package</goal>
+                <goal>-DskipTests</goal>
+                <goal>-X</goal>
+            </goals>
+        </action>
     </actions>
