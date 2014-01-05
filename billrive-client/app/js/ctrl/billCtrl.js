@@ -82,8 +82,11 @@ $scope.bill.billDate=Date.parse($scope.bill.billDate);
     };
     
     $scope.editBill = function() {
+//        console.log($scope.bill);
+        delete $scope.bill.isCollapsed;
        univService.editBill($scope.bill.id,$scope.bill).then(function(data){
             $scope.bill = angular.copy(univService.getBillObj());
+            
             $location.url('/');
         });
     };
