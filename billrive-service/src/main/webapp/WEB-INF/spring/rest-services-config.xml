@@ -8,15 +8,15 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-							http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 							http://www.springframework.org/schema/oxm
-							http://www.springframework.org/schema/oxm/spring-oxm-4.0.xsd
+							http://www.springframework.org/schema/oxm/spring-oxm-3.1.xsd
 							http://www.springframework.org/schema/util
-  							http://www.springframework.org/schema/util/spring-util-4.0.xsd
+  							http://www.springframework.org/schema/util/spring-util-3.1.xsd
 http://www.springframework.org/schema/tx
-                           http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+                           http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <mvc:annotation-driven/>
     <context:component-scan base-package="com.uhsarp.billrive.webservices.rest" />
@@ -24,10 +24,5 @@ http://www.springframework.org/schema/tx
     <context:component-scan base-package="com.uhsarp.billrive.dao" />
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
      <import resource="spring-jpa.xml"/>
-     
-       <bean class="com.uhsarp.billrive.config.ApplicationConfig"/>
-
-    <!-- be sure to include the JavaConfig bean post-processor -->
-    <bean class="org.springframework.config.java.process.ConfigurationPostProcessor"/>
      <tx:annotation-driven/>
 </beans>

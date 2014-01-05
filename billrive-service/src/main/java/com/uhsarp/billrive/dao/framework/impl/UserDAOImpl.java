@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDAOImpl  implements UserDAO{
 
     @PersistenceContext
-    private EntityManager em;
+	private EntityManager em;
     
     public User find(Long id) {
      User user = (User) em.createQuery("select u from User u  WHERE u.id="+id);
