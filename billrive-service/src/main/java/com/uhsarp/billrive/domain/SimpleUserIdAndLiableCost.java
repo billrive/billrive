@@ -21,7 +21,7 @@ public class SimpleUserIdAndLiableCost implements GenericObject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long billSimpleEntryId;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "userId", referencedColumnName = "id", insertable = false, updatable = false)
     private UserBare user;
     @Basic

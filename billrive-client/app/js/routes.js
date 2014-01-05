@@ -5,6 +5,7 @@ billRive.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/bills/add', {templateUrl: 'partials/bills/add.html', controller: 'billCtrl'});
     $routeProvider.when('/bills/edit/:groupId/:billId', {templateUrl: 'partials/bills/edit.html', controller: 'billCtrl'});
     $routeProvider.when('/friends/list', {templateUrl: 'partials/friends/list.html', controller: 'friendCtrl'});
+    $routeProvider.when('/bills/edit/:friendId/:billId', {templateUrl: 'partials/friends/edit.html', controller: 'friendCtrl'});
     $routeProvider.when('/friends/add', {templateUrl: 'partials/friends/add.html', controller: 'friendCtrl'});
     $routeProvider.when('/groups/list',{templateUrl: 'partials/groups/list.html', controller: 'groupCtrl'});
     $routeProvider.when('/groups/add', {templateUrl: 'partials/groups/add.html', controller: 'groupCtrl'});
