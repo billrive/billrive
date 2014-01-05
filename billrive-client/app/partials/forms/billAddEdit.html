@@ -23,7 +23,8 @@
 
 
                 <label>Payer</label>
-                <select  multiple="multiple" ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>
+                <select  ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>
+<!--                <select  multiple="multiple" ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>-->
 
                 <label>Notes</label>
                 <textarea ng-model="bill.notes"></textarea>
