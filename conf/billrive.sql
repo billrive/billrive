@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `billrivedb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `billrivedb`;
--- MySQL dump 10.13  Distrib 5.6.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.11, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: billrivedb
 -- ------------------------------------------------------
@@ -67,7 +67,7 @@ CREATE TABLE `bill` (
   KEY `fk_bill_user1_idx` (`billPayerId`),
   CONSTRAINT `fk_bill_groups` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_bill_user` FOREIGN KEY (`billPayerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ CREATE TABLE `bill` (
 
 LOCK TABLES `bill` WRITE;
 /*!40000 ALTER TABLE `bill` DISABLE KEYS */;
-INSERT INTO `bill` VALUES (5,'Travel',6,NULL,4,6,'2013-08-14 02:09:54',50.00,5),(22,'',NULL,NULL,NULL,NULL,'2013-10-01 06:00:00',NULL,NULL),(27,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(30,'Rent',6,NULL,3,NULL,'2013-10-02 06:00:00',900.00,23),(31,'Olive Garden',7,NULL,3,NULL,'2013-09-03 06:00:00',75.00,24),(32,'Rent (Sept)',6,NULL,3,NULL,'2013-09-01 06:00:00',900.00,25),(33,'Groceries (Costco)',8,NULL,3,NULL,'2013-08-03 06:00:00',50.00,26);
+INSERT INTO `bill` VALUES (5,'Travel',6,NULL,4,6,'2013-08-14 02:09:54',50.00,5),(22,'',NULL,NULL,NULL,NULL,'2013-10-01 06:00:00',NULL,NULL),(27,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(30,'Rent',6,NULL,3,NULL,'2013-10-02 06:00:00',900.00,23),(33,'',NULL,NULL,NULL,NULL,NULL,NULL,NULL),(35,'Sprouts Farmers market',6,'Return Organic milk bottle',3,NULL,'2013-12-30 07:00:00',30.00,28),(36,'Movies',7,NULL,3,NULL,'2014-01-01 07:00:00',30.00,29);
 /*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +96,7 @@ CREATE TABLE `billitementry` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_billitementry_bill1_idx` (`billId`),
   CONSTRAINT `fk_billitementry_bill` FOREIGN KEY (`billId`) REFERENCES `bill` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `billsimpleentry` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   KEY `fk_bill_idx` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `billsimpleentry` (
 
 LOCK TABLES `billsimpleentry` WRITE;
 /*!40000 ALTER TABLE `billsimpleentry` DISABLE KEYS */;
-INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4),('simple',NULL,5),(NULL,NULL,6),(NULL,NULL,7),(NULL,NULL,8),(NULL,NULL,9),(NULL,NULL,10),(NULL,NULL,11),(NULL,NULL,12),(NULL,NULL,13),(NULL,NULL,14),(NULL,NULL,15),(NULL,NULL,16),(NULL,NULL,17),(NULL,NULL,18),(NULL,NULL,19),(NULL,NULL,20),(NULL,NULL,21),(NULL,NULL,22),(NULL,NULL,23),(NULL,NULL,24),(NULL,NULL,25),(NULL,NULL,26);
+INSERT INTO `billsimpleentry` VALUES ('simple',NULL,2),('simpe',NULL,4),('simple',NULL,5),(NULL,NULL,6),(NULL,NULL,7),(NULL,NULL,8),(NULL,NULL,9),(NULL,NULL,10),(NULL,NULL,11),(NULL,NULL,12),(NULL,NULL,13),(NULL,NULL,14),(NULL,NULL,15),(NULL,NULL,16),(NULL,NULL,17),(NULL,NULL,18),(NULL,NULL,19),(NULL,NULL,20),(NULL,NULL,21),(NULL,NULL,22),(NULL,NULL,23),(NULL,NULL,24),(NULL,NULL,25),(NULL,NULL,26),(NULL,NULL,27),(NULL,NULL,28),(NULL,NULL,29),(NULL,NULL,30),(NULL,NULL,36);
 /*!40000 ALTER TABLE `billsimpleentry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +149,7 @@ CREATE TABLE `groups` (
   `isActive` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +158,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (3,'SLC',NULL,6,1),(4,'Office-IHC',NULL,6,1),(5,'Friends',NULL,6,1);
+INSERT INTO `groups` VALUES (3,'SLC',NULL,6,1),(4,'Office-IHC',NULL,6,1),(5,'Friends',NULL,6,1),(6,'Shiny New Group','no description for this pool ol',NULL,1);
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,7 +213,7 @@ CREATE TABLE `simpleuseridandliablecost` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_simpleuseridandliablecost_user1_idx` (`userId`),
   CONSTRAINT `fk_simpleuseridandliablecost_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -222,7 +222,7 @@ CREATE TABLE `simpleuseridandliablecost` (
 
 LOCK TABLES `simpleuseridandliablecost` WRITE;
 /*!40000 ALTER TABLE `simpleuseridandliablecost` DISABLE KEYS */;
-INSERT INTO `simpleuseridandliablecost` VALUES (10,6,20.00,2,1),(11,7,20.00,2,1),(12,8,10.00,2,1),(13,6,15.70,4,1),(14,7,20.00,4,1),(15,6,1.00,2,1),(16,7,1.00,2,1),(17,8,1.00,2,1),(18,6,5.00,NULL,1),(19,7,5.00,NULL,1),(20,8,5.00,NULL,1),(21,6,44.00,NULL,1),(22,7,45.00,NULL,1),(23,8,545.00,NULL,1),(24,6,20.00,NULL,1),(25,7,20.00,NULL,1),(26,8,20.00,NULL,1),(27,6,500.00,NULL,1),(28,7,500.00,NULL,1),(29,8,0.00,NULL,0),(30,6,20.00,NULL,1),(31,7,20.00,NULL,1),(32,8,20.00,NULL,1),(33,6,20.00,11,1),(34,7,20.00,11,1),(35,8,20.00,11,1),(36,6,5.00,12,1),(37,7,5.00,12,1),(38,8,5.00,12,1),(39,6,20.00,13,1),(40,7,20.00,13,1),(41,8,20.00,13,1),(42,6,20.00,14,1),(43,7,20.00,14,1),(44,8,20.00,14,1),(45,6,20.00,15,1),(46,7,20.00,15,1),(47,8,20.00,15,1),(48,6,20.00,16,1),(49,7,20.00,16,1),(50,8,20.00,16,1),(51,6,20.00,17,1),(52,7,20.00,17,1),(53,8,20.00,17,1),(54,6,5.00,18,1),(55,7,5.00,18,1),(56,8,5.00,18,1),(57,6,2.00,19,1),(58,7,2.00,19,1),(59,8,2.00,19,1),(60,6,33.33,20,1),(61,7,33.33,20,1),(62,8,33.38,20,1),(63,6,20.00,21,1),(64,7,20.00,21,1),(65,8,20.00,21,1),(66,6,20.00,22,1),(67,7,20.00,22,1),(68,8,20.00,22,1),(69,6,300.00,23,1),(70,7,300.00,23,1),(71,8,300.00,23,1),(72,6,25.00,24,1),(73,7,30.00,24,1),(74,8,20.00,24,1),(75,6,300.00,25,1),(76,7,300.00,25,1),(77,8,300.00,25,1),(78,6,25.00,26,1),(79,7,25.00,26,1),(80,8,0.00,26,0);
+INSERT INTO `simpleuseridandliablecost` VALUES (10,6,20.00,2,1),(11,7,20.00,2,1),(12,8,10.00,2,1),(13,6,15.70,4,1),(14,7,20.00,4,1),(15,6,1.00,2,1),(16,7,1.00,2,1),(17,8,1.00,2,1),(18,6,5.00,NULL,1),(19,7,5.00,NULL,1),(20,8,5.00,NULL,1),(21,6,44.00,NULL,1),(22,7,45.00,NULL,1),(23,8,545.00,NULL,1),(24,6,20.00,NULL,1),(25,7,20.00,NULL,1),(26,8,20.00,NULL,1),(27,6,500.00,NULL,1),(28,7,500.00,NULL,1),(29,8,0.00,NULL,0),(30,6,20.00,NULL,1),(31,7,20.00,NULL,1),(32,8,20.00,NULL,1),(33,6,20.00,11,1),(34,7,20.00,11,1),(35,8,20.00,11,1),(36,6,5.00,12,1),(37,7,5.00,12,1),(38,8,5.00,12,1),(39,6,20.00,13,1),(40,7,20.00,13,1),(41,8,20.00,13,1),(42,6,20.00,14,1),(43,7,20.00,14,1),(44,8,20.00,14,1),(45,6,20.00,15,1),(46,7,20.00,15,1),(47,8,20.00,15,1),(48,6,20.00,16,1),(49,7,20.00,16,1),(50,8,20.00,16,1),(51,6,20.00,17,1),(52,7,20.00,17,1),(53,8,20.00,17,1),(54,6,5.00,18,1),(55,7,5.00,18,1),(56,8,5.00,18,1),(57,6,2.00,19,1),(58,7,2.00,19,1),(59,8,2.00,19,1),(60,6,33.33,20,1),(61,7,33.33,20,1),(62,8,33.38,20,1),(63,6,20.00,21,1),(64,7,20.00,21,1),(65,8,20.00,21,1),(66,6,20.00,22,1),(67,7,20.00,22,1),(68,8,20.00,22,1),(69,6,300.00,23,1),(70,7,300.00,23,1),(71,8,300.00,23,1),(72,6,25.00,24,1),(73,7,30.00,24,1),(74,8,20.00,24,1),(75,6,300.00,25,1),(76,7,300.00,25,1),(77,8,300.00,25,1),(78,6,25.00,26,1),(79,7,25.00,26,1),(80,8,0.00,26,0),(81,6,10.00,27,1),(82,7,10.00,27,1),(83,8,10.00,27,1),(84,6,10.00,28,1),(85,7,10.00,28,1),(86,8,10.00,28,1),(87,6,10.00,29,1),(88,7,10.00,29,1),(89,8,10.00,29,1),(90,6,300.00,30,1),(91,7,300.00,30,1),(92,8,300.00,30,1),(108,6,3.00,36,1),(109,7,3.00,36,1),(110,8,3.00,36,1);
 /*!40000 ALTER TABLE `simpleuseridandliablecost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,7 +242,7 @@ CREATE TABLE `user` (
   `email` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,7 +251,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (6,'Bruce','Wayne',NULL,NULL,'me@prashu.net'),(7,'Peter','Parker',NULL,NULL,'jayanthk4u@gmail.com'),(8,'Clark','Kent',NULL,NULL,'kkathari@gmail.com'),(60,'Bruce','Wayne',NULL,NULL,NULL),(61,'Peter','Parker',NULL,NULL,NULL),(62,'Clark','Kent',NULL,NULL,NULL),(63,'Bruce','Wayne',NULL,NULL,NULL),(64,'Peter','Parker',NULL,NULL,NULL),(65,'Clark','Kent',NULL,NULL,NULL),(66,'Bruce','Wayne',NULL,NULL,NULL),(67,'Peter','Parker',NULL,NULL,NULL),(68,'Clark','Kent',NULL,NULL,NULL),(69,'Bruce','Wayne',NULL,NULL,NULL),(70,'Peter','Parker',NULL,NULL,NULL),(71,'Clark','Kent',NULL,NULL,NULL);
+INSERT INTO `user` VALUES (6,'Bruce','Wayne',NULL,NULL,'me@prashu.net'),(7,'Peter','Parker',NULL,NULL,'jayanthk4u@gmail.com'),(8,'Clark','Kent',NULL,NULL,'kkathari@gmail.com');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -333,7 +333,7 @@ CREATE TABLE `useridandliablecost` (
   KEY `fk_useridandliablecost_userId_idx` (`userId`),
   CONSTRAINT `fk_useridandliablecost_billitementry` FOREIGN KEY (`billItemEntryId`) REFERENCES `billitementry` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_useridandliablecost_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -354,4 +354,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-27 21:54:27
+-- Dump completed on 2014-01-06  7:28:20
