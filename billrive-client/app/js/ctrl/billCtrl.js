@@ -69,7 +69,7 @@ univService.getUserFromHttp(6).then(function() {
     };
     $scope.addBill = function() {
 //        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
-console.log(JSON.stringify($scope.bill));
+//console.log(JSON.stringify($scope.bill));
 $scope.bill.billDate=Date.parse($scope.bill.billDate);
         univService.addBill(angular.copy($scope.bill));
         $location.url('/');

@@ -84,7 +84,7 @@ public class GroupController extends GenericController {
 		logger_c.debug("Creating Group: " + group_p.toString());
 
 		try {
-			createdGroup = groupService.addGroup(group_p);
+//			createdGroup = groupService.addGroup(group_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new group. [%1$s]";
 		}
