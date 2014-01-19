@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `billrivedb` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `billrivedb`;
+CREATE DATABASE  IF NOT EXISTS `billrivedbtest` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `billrivedbtest`;
 -- MySQL dump 10.13  Distrib 5.6.11, for Win32 (x86)
 --
 -- Host: 127.0.0.1    Database: billrivedb
