@@ -150,4 +150,12 @@ public class BillDAOImpl implements BillDAO {
 
 
     }
+
+    public Bill getBillByBillId(Long billId) {
+    
+        return (Bill) em.createQuery("select t from Bill t WHERE t.id = :billId")
+                //       return this.getEntityManager().createQuery("select t from Bill t WHERE t.groupId = :groupId" 
+                .setParameter("billId", billId)
+                .getSingleResult();
+    }
 }

@@ -17,4 +17,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 public interface BillDAO extends GenericDAO<Bill,Long> {
     List<Bill> getBillsByGroupId(Long groupId);
+    Bill getBillByBillId(Long billId);
 }

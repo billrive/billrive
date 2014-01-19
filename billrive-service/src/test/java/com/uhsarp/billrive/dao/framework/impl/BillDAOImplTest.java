@@ -54,7 +54,26 @@ public class BillDAOImplTest {
     public void tearDown() {
     }
 
+ 
+    @Test
+    public void testGetBillsByGroupId() {
+        System.out.println("getBillsByGroupId");
+        Long groupId = 4L;
+        List<Bill> result = billDAO.getBillsByGroupId(groupId);
+        assertEquals(1, result.size());
+        assertEquals("Travel", result.get(0).getTitle());
+       
+    }
+    @Test
+    public void testGetBillByBillId() {
+        System.out.println("getBillByBillId");
+        Long billId = 5L;
+        Bill result = billDAO.getBillByBillId(billId);
+        assertEquals("Travel", result.getTitle());
+       
+    }
     
+       
     /**
      * Test of save method, of class BillDAOImpl.
      */
@@ -289,14 +308,5 @@ public class BillDAOImplTest {
 //    /**
 //     * Test of getBillsByGroupId method, of class BillDAOImpl.
 //     */
-    @Test
-    public void testGetBillsByGroupId() {
-        System.out.println("getBillsByGroupId");
-        Long groupId = 4L;
-        List<Bill> result = billDAO.getBillsByGroupId(groupId);
-        assertEquals(1, result.size());
-        assertEquals("Travel", result.get(0).getTitle());
-       
-    }
     
 }

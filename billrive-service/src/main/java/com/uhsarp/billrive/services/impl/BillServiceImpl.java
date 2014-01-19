@@ -60,7 +60,8 @@ public class BillServiceImpl implements BillService {
     }
 
     public Bill getBillById(Long id) {
-        return null;//(Bill) genericDao.get(id);
+      return  billDAO.getBillByBillId(id);
+//         null;//(Bill) genericDao.get(id);
     }
 @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
     public Bill addBill(Bill bill_p) {
