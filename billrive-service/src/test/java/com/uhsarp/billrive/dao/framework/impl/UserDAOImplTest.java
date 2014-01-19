@@ -53,11 +53,10 @@ public class UserDAOImplTest {
     public void tearDown() {
     }
 
-       @Test
+    @Test
     public void testGetUserByUserId() {
         System.out.println("getUserByUserId");
         Long userId = 6L;
-        User expResult = null;
         User result = userDao.getUserByUserId(userId);
         assertEquals("Bruce", result.getfName());
         assertEquals("Wayne", result.getlName());
