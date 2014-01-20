@@ -24,7 +24,7 @@
             
               
 
-<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!--<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
     <property name="url" value="jdbc:mysql://localhost:3306/billrivedbtest" />
     <property name="username" value="root" />
@@ -37,8 +37,11 @@
   <property name="loadTimeWeaver">
     <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
   </property>
- </bean>
-
+ </bean>-->
+ <bean id="entityManagerFactory" 
+class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> 
+<property name="persistenceUnitName" value="billrivePersistenceUnitTest"/> 
+</bean> 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
     <!-- Database LOB Handling -->
