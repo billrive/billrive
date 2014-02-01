@@ -8,8 +8,6 @@ package com.uhsarp.billrive.webservices.rest;
 
 
 import com.uhsarp.billrive.domain.User;
-import com.uhsarp.billrive.services.UserService;
-import javax.servlet.http.HttpServletResponse;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,16 +16,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.request.WebRequest;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 /**
  *
  * @author Uhsarp
@@ -46,7 +43,7 @@ public class UserControllerTest {
    UserController userController;
     
     @Autowired
-  private WebApplicationContext wac;
+    private WebApplicationContext wac;
     
     @BeforeClass
     public static void setUpClass() {
@@ -69,13 +66,17 @@ public class UserControllerTest {
      * Test of getUser method, of class UserController.
      */
     @Test
-    public void testGetUser() {
+    public void testGetUser() throws Exception {
         System.out.println("getUser");
         Long userId = 6L;
         User expResult = null;
         User result = userController.getUser(userId);
         assertEquals("Bruce", result.getfName());
         
+           this.mockMvc.perform(get("/user/6").accept(MediaType.parseMediaType("application/json;charset=UTF-8")))
+          .andExpect(status().isOk())
+          .andExpect(content().contentType("application/json;charset=UTF-8"));
+//          .andExpect(jsonPath("$.name").value("Lee"));
 //         this.mockMvc.perform(get("/foo").accept("application/json"))
 //        .andExpect(status().isOk())
 //        .andExpect(content().mimeType("application/json"));
