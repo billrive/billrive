@@ -75,13 +75,11 @@ public class UserControllerTest {
         
            this.mockMvc.perform(get("/user/6").accept(MediaType.parseMediaType("application/json;charset=UTF-8")))
           .andExpect(status().isOk())
-          .andExpect(content().contentType("application/json;charset=UTF-8"));
-//          .andExpect(jsonPath("$.name").value("Lee"));
+          .andExpect(content().contentType("application/json;charset=UTF-8"))
+          .andExpect(jsonPath("$.fName").value("Bruce"));
 //         this.mockMvc.perform(get("/foo").accept("application/json"))
 //        .andExpect(status().isOk())
 //        .andExpect(content().mimeType("application/json"));
-
-
     }
 
     /**
