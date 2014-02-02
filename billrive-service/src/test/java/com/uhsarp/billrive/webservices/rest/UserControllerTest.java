@@ -80,7 +80,7 @@ public class UserControllerTest {
 //         this.mockMvc.perform(get("/foo").accept("application/json"))
 //        .andExpect(status().isOk())
 //        .andExpect(content().mimeType("application/json"));
-    }
+    }   
 
     /**
      * Test of addUser method, of class UserController.
