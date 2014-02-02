@@ -399,6 +399,9 @@
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-facebook-web</artifactId>
 	<version>1.0.3.RELEASE</version>
+        
+        
+        
 </dependency>
             
             
@@ -418,6 +421,11 @@
 </dependency>
             
             
-         
+         <dependency>
+	<groupId>org.springframework.data</groupId>
+	<artifactId>spring-data-jpa</artifactId>
+	<version>1.4.3.RELEASE</version>
+</dependency>
+            
     </dependencies>
 </project>

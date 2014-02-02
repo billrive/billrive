@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 /**
  *
- * @author Uhsarp
+ * @author Prashanth Batchu
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration

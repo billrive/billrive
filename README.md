@@ -1,17 +1,44 @@
 BillRive
+
+BillRive is an Open Source Bill sharing application meant to promote Community Learning.
+This project aims to help fill the knowledge gaps of folks who are either new to Enterprise Web
+Development, have been working in the Software Engineering field but have some knowledge gaps, or those
+who are new to the scene and want to explore and learn using this project as a guide.
+
+It could be that you want to learn about ORM paradigm (JPA/Hibernate) or Dependency Injection (Spring),
+or understand RESTful Web Services, or simply understand how a modern Web framework like Angular JS works.
+This project helps you achieve those goals while working in a Community environment where the only goal is
+share what you learn with the others and learn what you can from others.
+
+The members of this project meet once a week to discuss their  progress, challenges and what they
+would like to work on for the following week to continue their journey of learning.
+
+BillRive comprises of two sub projects. 
+The service is client agnostic and can serve any Web, Mobile
+and other applications. It is built around the principles of REST architecture.
+The client application is a modern Web Application which is designed using the MVC pattern, 
+Dependency Injection (You heard it right!)
 -------------------
-billrive-service
+billrive-service 
 billrive-client
 -------------------
 
-What you Need:
-Git for Windows or Linux (git-scm.org) or Netbeans with GIT plugin installed
-Netbeans or Eclipse 
-Tomcat 7
-Netbeans chrome integration plugin (optional but preferred if you'd like to use Netbeans)
-Angular Batarang plugin for Chrome (optional)
+Installation Instructions
 
-To get a copy of the code, Clone the GIT repository using Netbeans GIT plugin or through the native windows GIT plugin.
+Basically, you will need to do the following
+
+-Setup the Application Server
+-Setup the Database
+-Setup your Development Environment
+
+What you Need:
+-Version Control: Git for Windows or Linux (git-scm.org) or Netbeans with GIT plugin installed
+-IDE: Netbeans or Eclipse 
+-Application Server: Tomcat 7
+-Debugging: Netbeans chrome integration plugin (optional but preferred if you'd like to use Netbeans)
+-Debugging: Angular Batarang plugin for Chrome (optional)
+
+To get a copy of the source code, Clone the GIT repository using Netbeans GIT plugin or through the native windows GIT plugin.
 
 git clone https://github.com/billrive/billrive.git
 
@@ -36,7 +63,8 @@ Setting up billrive-client:
 Setting up Application Server and the Database:
 -	The conf folder from the repository has all the configuration files needed for this project.
 -	Tomcat: 
-To setup your Tomcat environment, replace your conf/server.xml and conf/context.xml with their equivalents in this repository (conf/tomcat folder). Use the conf/billrive.sql to populate your MySQL database. Match the connection details with that of those in conf/context.xml
+To setup your Tomcat environment, replace your conf/server.xml and conf/context.xml with their equivalents in this repository (conf/tomcat folder). Use the conf/billrive.sql to populate your MySQL database. Match the connection details with that of those in conf/context.xml.
+Also execute the database script in 'billrive-service/src/test/resources/billrive-test.sql' to populate the database used for running the Tests.
 
 Debugging in Tomcat:
 Starting Tomcat in Debug mode from Netbeans doesn't work.

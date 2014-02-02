@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 @Entity
 @Table(name = "balance")

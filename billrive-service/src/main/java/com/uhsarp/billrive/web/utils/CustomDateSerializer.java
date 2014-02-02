@@ -14,7 +14,7 @@ import org.codehaus.jackson.map.SerializerProvider;
 
 /**
  *
- * @author uhsarp
+ * @author Prashanth Batchu
  */
 public class CustomDateSerializer extends JsonSerializer<Date> {  
     @Override

@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
- * @author Uhsarp
+ * @author Prashanth Batchu
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:billrive-context-test.xml")
