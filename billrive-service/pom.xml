@@ -9,13 +9,18 @@
     <packaging>war</packaging>
     <groupId>com.uhsarp.billrive</groupId>
     <version>1.0</version>
-<!--    	<repositories>
+    	<repositories>
 		<repository>
+			<id>org.springframework</id>
+			<name>Spring</name>
+			<url>http://repo.spring.io/libs-milestone</url>
+		</repository>
+<!--		<repository>
 			<id>oss.sonatype.org</id>
 			<name>OSS Sonatype Staging</name>
 			<url>https://oss.sonatype.org/content/groups/staging</url>
-		</repository>
-	</repositories>-->
+		</repository>-->
+	</repositories>
     <properties>
         <releaseCandidate>1</releaseCandidate>
         <spring.version>3.2.4.RELEASE</spring.version>
@@ -378,8 +383,10 @@
         <dependency>
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-core</artifactId>
-	<version>1.0.3.RELEASE</version>
-</dependency>
+	<version>1.1.0.M4</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
 
 <dependency>
 	<groupId>org.springframework.social</groupId>
@@ -392,7 +399,7 @@
       <dependency>
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-facebook</artifactId>
-	<version>1.0.3.RELEASE</version>
+	<version>1.1.0.M4</version>
 </dependency>
 
 <dependency>

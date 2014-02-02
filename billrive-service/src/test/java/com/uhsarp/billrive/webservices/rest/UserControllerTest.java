@@ -24,6 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 /**
  *
@@ -72,10 +73,11 @@ public class UserControllerTest {
         User expResult = null;
         User result = userController.getUser(userId);
         assertEquals("Bruce", result.getfName());
-        
+        //More examples - http://spring.io/guides/tutorials/rest/2/
            this.mockMvc.perform(get("/user/6").accept(MediaType.parseMediaType("application/json;charset=UTF-8")))
           .andExpect(status().isOk())
           .andExpect(content().contentType("application/json;charset=UTF-8"))
+          .andDo(print())
           .andExpect(jsonPath("$.fName").value("Bruce"));
 //         this.mockMvc.perform(get("/foo").accept("application/json"))
 //        .andExpect(status().isOk())
