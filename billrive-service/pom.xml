@@ -9,18 +9,18 @@
     <packaging>war</packaging>
     <groupId>com.uhsarp.billrive</groupId>
     <version>1.0</version>
-    	<repositories>
+<!--    	<repositories>
 		<repository>
 			<id>org.springframework</id>
 			<name>Spring</name>
 			<url>http://repo.spring.io/libs-milestone</url>
 		</repository>
-<!--		<repository>
+		<repository>
 			<id>oss.sonatype.org</id>
 			<name>OSS Sonatype Staging</name>
 			<url>https://oss.sonatype.org/content/groups/staging</url>
-		</repository>-->
-	</repositories>
+		</repository>
+	</repositories>-->
     <properties>
         <releaseCandidate>1</releaseCandidate>
         <spring.version>3.2.4.RELEASE</spring.version>
@@ -380,7 +380,7 @@
             <artifactId>spring-social-config</artifactId>
             <version>1.1.0.BUILD-SNAPSHOT</version>
         </dependency>-->
-        <dependency>
+<!--        <dependency>
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-core</artifactId>
 	<version>1.1.0.M4</version>
@@ -395,7 +395,7 @@
 </dependency>
             
           
-        <!-- Spring Social Facebook -->
+         Spring Social Facebook 
       <dependency>
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-facebook</artifactId>
@@ -413,20 +413,20 @@
             
             
  
-        <!-- Spring Social Twitter -->
+         Spring Social Twitter 
        <dependency>
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-twitter</artifactId>
 	<version>1.0.5.RELEASE</version>
 </dependency>
 
-<!--Spring Social Test-->
+Spring Social Test
 <dependency>
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-test</artifactId>
 	<version>1.0.3.RELEASE</version>
 </dependency>
-            
+            -->
             
          <dependency>
 	<groupId>org.springframework.data</groupId>
