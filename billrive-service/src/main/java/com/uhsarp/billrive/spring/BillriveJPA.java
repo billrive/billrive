@@ -6,7 +6,10 @@
 
 package com.uhsarp.billrive.spring;
 
+import com.uhsarp.billrive.webservices.rest.UserController;
 import javax.sql.DataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,6 +34,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories //(basePackages = { "com.uhsarp.billrive.domain" })
 public class BillriveJPA {
     
+    private static final Logger logger = LoggerFactory.getLogger(BillriveJPA.class);
     
      @Bean
     public DataSource dataSource() {
@@ -47,7 +51,7 @@ public class BillriveJPA {
 
     } catch (Exception e) {
 //        logger.error(e.getMessage());
-        System.out.println(e);
+       logger.error(e.getMessage());
     }
     return ds;
     }

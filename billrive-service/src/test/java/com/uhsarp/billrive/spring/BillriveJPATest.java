@@ -7,6 +7,8 @@
 package com.uhsarp.billrive.spring;
 
 import javax.sql.DataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -30,6 +32,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories //(basePackages = { "com.uhsarp.billrive.domain" })
 public class BillriveJPATest {
     
+     private static final Logger logger = LoggerFactory.getLogger(BillriveJPATest.class);
     
      @Bean
     public DataSource dataSource() {
@@ -45,8 +48,8 @@ public class BillriveJPATest {
         ds.setUrl("jdbc:mysql://localhost:3306/billrivedbtest");
 
     } catch (Exception e) {
-//        logger.error(e.getMessage());
-        System.out.println(e);
+        logger.error(e.getMessage());
+//        System.out.println(e);
     }
     return ds;
     }
