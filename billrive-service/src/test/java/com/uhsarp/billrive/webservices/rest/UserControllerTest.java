@@ -8,12 +8,15 @@ package com.uhsarp.billrive.webservices.rest;
 
 
 import com.uhsarp.billrive.domain.User;
+import com.uhsarp.billrive.spring.BillriveConfigTest;
+import com.uhsarp.billrive.spring.BillriveJPATest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -30,9 +33,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  *
  * @author Prashanth Batchu
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("classpath:billrive-context-test.xml")
+@ContextConfiguration(classes={BillriveConfigTest.class,BillriveJPATest.class})
 public class UserControllerTest {
     
     public UserControllerTest() {

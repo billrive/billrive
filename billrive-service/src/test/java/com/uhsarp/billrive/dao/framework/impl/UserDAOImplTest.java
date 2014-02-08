@@ -6,19 +6,17 @@
 
 package com.uhsarp.billrive.dao.framework.impl;
 
-import com.googlecode.genericdao.search.ExampleOptions;
-import com.googlecode.genericdao.search.Filter;
-import com.googlecode.genericdao.search.ISearch;
-import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.UserDAO;
 import com.uhsarp.billrive.domain.User;
-import java.util.List;
+import com.uhsarp.billrive.spring.BillriveConfigTest;
+import com.uhsarp.billrive.spring.BillriveJPATest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -28,8 +26,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  * @author Prashanth Batchu
  */
+//@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:billrive-context-test.xml")
+@ContextConfiguration(classes={BillriveConfigTest.class,BillriveJPATest.class})
 public class UserDAOImplTest {
     
     @Autowired
