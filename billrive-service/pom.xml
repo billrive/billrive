@@ -24,7 +24,7 @@
     <properties>
         <releaseCandidate>1</releaseCandidate>
         <!--<spring.version>3.2.6.RELEASE</spring.version>-->
-        <spring.version>4.0.0.RELEASE</spring.version>
+        <spring.version>4.0.1.RELEASE</spring.version>
         <java.version>1.5</java.version>
        
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -130,6 +130,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
+             <!--<scope>runtime</scope>-->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -339,9 +340,10 @@
 </dependency>-->
 <dependency>
 	<groupId>javax.servlet</groupId>
-	<artifactId>servlet-api</artifactId>
-	<version>3.0-alpha-1</version>
+	<artifactId>javax.servlet-api</artifactId>
+	<version>3.0.1</version>
 </dependency>
+            
             
             
         <dependency>
@@ -453,6 +455,17 @@
             <artifactId>spring-data-jpa</artifactId>
             <version>1.4.3.RELEASE</version>
         </dependency>
-            
+<!--            <dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-servlet_3.0_spec</artifactId>
+			<version>1.0</version>
+			<scope>test</scope>
+		</dependency>-->
+<!--                <dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>servlet-api</artifactId>
+	<version>2.5</version>
+        <scope>test</scope>
+</dependency>-->
     </dependencies>
 </project>

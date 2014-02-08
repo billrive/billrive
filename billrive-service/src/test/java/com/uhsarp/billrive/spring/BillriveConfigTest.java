@@ -21,6 +21,7 @@ import org.springframework.context.annotation.Import;
 //@EnableTransactionManagement //substitute for  <tx:annotation-driven/>
 //@ComponentScan({"com.uhsarp.billrive.webservices.rest", "com.uhsarp.billrive.services,com.uhsarp.billrive.dao"})
 @ComponentScan(basePackages = {"com.uhsarp.billrive.services","com.uhsarp.billrive.dao"})
+//@ComponentScan(basePackages = {"com.uhsarp.billrive.services","com.uhsarp.billrive.dao","com.uhsarp.billrive.webservices.rest"})
 public class BillriveConfigTest {
     
 //    @Bean

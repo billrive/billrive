@@ -10,6 +10,8 @@ package com.uhsarp.billrive.webservices.rest;
 import com.uhsarp.billrive.domain.User;
 import com.uhsarp.billrive.spring.BillriveConfigTest;
 import com.uhsarp.billrive.spring.BillriveJPATest;
+import com.uhsarp.billrive.spring.restservlet.BillriveRestServletTest;
+import javax.servlet.ServletContext;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,22 +23,28 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 import org.springframework.web.context.WebApplicationContext;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
 /**
  *
  * @author Prashanth Batchu
  */
-@Ignore
+//@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes={BillriveConfigTest.class,BillriveJPATest.class})
+//@ContextConfiguration(classes={BillriveConfigTest.class,BillriveJPATest.class})
+@ContextHierarchy({
+    @ContextConfiguration(classes = {BillriveConfigTest.class,BillriveJPATest.class}),
+    @ContextConfiguration(classes = BillriveRestServletTest.class)
+})
 public class UserControllerTest {
     
     public UserControllerTest() {
@@ -50,6 +58,8 @@ public class UserControllerTest {
     @Autowired
     private WebApplicationContext wac;
     
+    @Autowired
+    ServletContext context;
     @BeforeClass
     public static void setUpClass() {
     }
@@ -60,7 +70,8 @@ public class UserControllerTest {
     
     @Before
     public void setUp() {
-          this.mockMvc  = webAppContextSetup(this.wac).build();
+//          this.mockMvc  = webAppContextSetup(this.wac).build();
+        mockMvc = MockMvcBuilders.<StandaloneMockMvcBuilder>webAppContextSetup(wac).build();
     }
     
     @After
@@ -70,6 +81,7 @@ public class UserControllerTest {
     /**
      * Test of getUser method, of class UserController.
      */
+    @Ignore
     @Test
     public void testGetUser() throws Exception {
         System.out.println("getUser");
