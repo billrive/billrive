@@ -7,6 +7,8 @@
 package com.uhsarp.billrive.spring;
 
 
+import com.thetransactioncompany.cors.CORSFilter;
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -43,5 +45,11 @@ public class Initializer implements WebApplicationInitializer {
         container.addServlet("dispatcher", new DispatcherServlet(dispatcherContext));
       dispatcher.setLoadOnStartup(1);
       dispatcher.addMapping("/");
+      
+      FilterRegistration.Dynamic corsFilter = container.addFilter("CORS", CORSFilter.class);
+      corsFilter.setInitParameter("cors.supportedMethods", "GET, HEAD, POST, PUT, DELETE, OPTIONS");
+      corsFilter.setInitParameter("cors.supportedHeaders", "Content-Type, X-Requested-With, Origin, Accept");
+      corsFilter.addMappingForUrlPatterns(null, false, "/*");;
+      
     }
  }
