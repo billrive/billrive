@@ -7,7 +7,6 @@
 package com.uhsarp.billrive.spring;
 
 
-import com.uhsarp.billrive.spring.restservlet.BillriveRestServlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;

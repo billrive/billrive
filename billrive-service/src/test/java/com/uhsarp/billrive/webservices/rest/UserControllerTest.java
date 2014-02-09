@@ -10,7 +10,7 @@ package com.uhsarp.billrive.webservices.rest;
 import com.uhsarp.billrive.domain.User;
 import com.uhsarp.billrive.spring.BillriveConfigTest;
 import com.uhsarp.billrive.spring.BillriveJPATest;
-import com.uhsarp.billrive.spring.restservlet.BillriveRestServletTest;
+import com.uhsarp.billrive.spring.BillriveRestServletTest;
 import javax.servlet.ServletContext;
 import org.junit.After;
 import org.junit.AfterClass;
