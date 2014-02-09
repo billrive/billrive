@@ -8,6 +8,7 @@ package com.uhsarp.billrive.spring.restservlet;
 
 import com.uhsarp.billrive.spring.BillriveConfig;
 import com.uhsarp.billrive.spring.BillriveJPA;
+import com.uhsarp.billrive.spring.security.SecurityConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -22,7 +23,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan(basePackages = {"com.uhsarp.billrive.webservices.rest"})
 //@EnableTransactionManagement //substitute for  <tx:annotation-driven/>
 //@ComponentScan({"com.uhsarp.billrive.webservices.rest", "com.uhsarp.billrive.services","com.uhsarp.billrive.dao"})
-@Import({BillriveConfig.class,BillriveJPA.class})
+//@Import({BillriveConfig.class,BillriveJPA.class/*,SecurityConfig.class*/})
 public class BillriveRestServlet{
     
 //    @Bean

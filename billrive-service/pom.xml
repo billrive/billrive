@@ -57,9 +57,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.4</version>
                 <configuration>
-                    <warName>${context.path}</warName>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <!--<warName>${context.path}</warName>-->
                 </configuration>
             </plugin>
         </plugins>
@@ -222,7 +223,13 @@
         <dependency>
             <groupId>com.thetransactioncompany</groupId>
             <artifactId>cors-filter</artifactId>
-            <version>1.6</version>
+            <version>1.9.2</version>
+           <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         
 <!--        <dependency>
@@ -349,13 +356,20 @@
 	<artifactId>geronimo-servlet_3.0_spec</artifactId>
 	<version>1.0</version>
 </dependency>-->
-<dependency>
+<!--<dependency>
 	<groupId>javax.servlet</groupId>
 	<artifactId>javax.servlet-api</artifactId>
 	<version>3.0.1</version>
+    <type>jar</type>
+    <scope>provided</scope>
+</dependency>-->
+            
+            <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.0.1</version>
+    <scope>provided</scope>
 </dependency>
-            
-            
             
         <dependency>
             <groupId>org.hsqldb</groupId>
@@ -461,22 +475,23 @@
         </dependency>
             
             
--->        <dependency>
+        -->        
+        <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>1.4.3.RELEASE</version>
         </dependency>
-<!--            <dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-servlet_3.0_spec</artifactId>
-			<version>1.0</version>
-			<scope>test</scope>
-		</dependency>-->
-<!--                <dependency>
-	<groupId>javax.servlet</groupId>
-	<artifactId>servlet-api</artifactId>
-	<version>2.5</version>
-        <scope>test</scope>
-</dependency>-->
+        <!--            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-servlet_3.0_spec</artifactId>
+                <version>1.0</version>
+                <scope>test</scope>
+        </dependency>-->
+        <!--                <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+                <scope>test</scope>
+        </dependency>-->
     </dependencies>
 </project>
