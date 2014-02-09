@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,7 @@ public class GroupController extends GenericController {
         private static final Logger logger_c = Logger.getLogger(GroupController.class);
         
         
-    	@RequestMapping(value = "/{userId}/groups/", method = RequestMethod.GET)
+    	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/{userId}/groups/", method = RequestMethod.GET)
 	public @ResponseBody List<Group> getGroups(@PathVariable("userId") int userId) {
 		List<Group> groups = null;
                 System.out.println("In Groups...Calling getGroups");
@@ -55,7 +56,7 @@ public class GroupController extends GenericController {
 	}
         
         
-        	@RequestMapping(value = "/{userId}/{userId}/group/{groupId}", method = RequestMethod.GET)
+        	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/{userId}/{userId}/group/{groupId}", method = RequestMethod.GET)
 	public @ResponseBody Group getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
 		Group group = null;
 
@@ -76,7 +77,7 @@ public class GroupController extends GenericController {
 		return group;
 	}
                 
-       @RequestMapping(value = { "/user/{userId}/group" }, method = { RequestMethod.POST })
+       @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/user/{userId}/group" }, method = { RequestMethod.POST })
 	public void addGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
@@ -107,7 +108,7 @@ public class GroupController extends GenericController {
 	 *            the group_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/user/{userId}/group/{groupId}" }, method = { RequestMethod.PUT })
+	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/user/{userId}/group/{groupId}" }, method = { RequestMethod.PUT })
 	public void editGroup(@RequestBody Group group_p, @PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
@@ -138,7 +139,7 @@ public class GroupController extends GenericController {
 	 *            the group id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/user/{userId}/group/{groupId}", method = RequestMethod.DELETE)
+	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/group/{groupId}", method = RequestMethod.DELETE)
 	public void deleteGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
             Boolean deleted=false;

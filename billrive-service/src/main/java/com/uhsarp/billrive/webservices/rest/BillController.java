@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,7 +42,7 @@ public class BillController extends GenericController{
         private static final Logger logger_c = Logger.getLogger(BillController.class);
         
         
-    	@RequestMapping(value = "/user/{userId}/bills", method = RequestMethod.GET)
+    	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/bills", method = RequestMethod.GET)
 	public @ResponseBody List<Bill> getBills(@PathVariable("userId") int userId) {
 		List<Bill> bills = new ArrayList<Bill>();
                 logger_c.info("Value of userId is  "+userId);
@@ -59,7 +60,7 @@ public class BillController extends GenericController{
 	}
         
         
-        	@RequestMapping(value = "/user/{userId}/bill/{billId}", method = RequestMethod.GET)
+        	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/bill/{billId}", method = RequestMethod.GET)
 	public @ResponseBody Bill getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId) {
 		Bill bill = null;
 
@@ -81,7 +82,7 @@ public class BillController extends GenericController{
 	}
                 
                 
-        @RequestMapping(value = { "/user/{userId}/bill" }, method = { RequestMethod.POST })
+        @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/user/{userId}/bill" }, method = { RequestMethod.POST })
 	public void addBill(@RequestBody Bill bill_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
@@ -112,7 +113,7 @@ public class BillController extends GenericController{
 	 *            the bill_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = { "/user/{userId}/bill/{billId}" }, method = { RequestMethod.PUT })
+	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/user/{userId}/bill/{billId}" }, method = { RequestMethod.PUT })
 	public void editBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
 
@@ -143,7 +144,7 @@ public class BillController extends GenericController{
 	 *            the bill id_p
 	 * @return the model and view
 	 */
-	@RequestMapping(value = "/user/{userId}/bill/{billId}", method = RequestMethod.DELETE)
+	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/bill/{billId}", method = RequestMethod.DELETE)
 	public void deleteBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
             Boolean deleted=false;

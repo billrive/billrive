@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.uhsarp.billrive.services.UserService;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ import org.springframework.web.context.request.WebRequest;
  */
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user")
 public class UserController extends GenericController{
     
     	@Autowired
@@ -39,7 +40,7 @@ public class UserController extends GenericController{
         private static final Logger logger_c = LoggerFactory.getLogger(UserController.class);
         
         
-    	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/{userId}", method = RequestMethod.GET)
 	public @ResponseBody User getUser(@PathVariable("userId") Long userId) {
             
 		User user = new User();
@@ -60,7 +61,7 @@ public class UserController extends GenericController{
 		return user;
 	}
         
-        @RequestMapping( method = RequestMethod.POST)
+        @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE,  method = RequestMethod.POST)
 	public @ResponseBody User addUser(@RequestBody User user_p,HttpServletResponse httpResponse_p, WebRequest request_p) {
             
 		User user = new User();

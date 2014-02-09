@@ -8,7 +8,6 @@ package com.uhsarp.billrive.spring;
 
 import com.uhsarp.billrive.spring.BillriveConfig;
 import com.uhsarp.billrive.spring.BillriveJPA;
-import com.uhsarp.billrive.spring.security.SecurityConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

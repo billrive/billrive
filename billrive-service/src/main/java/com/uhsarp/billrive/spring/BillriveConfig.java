@@ -8,7 +8,8 @@ package com.uhsarp.billrive.spring;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
  *
@@ -20,8 +21,9 @@ import org.springframework.context.annotation.Import;
 //@Import(BillriveJPA.class)
 //@EnableTransactionManagement //substitute for  <tx:annotation-driven/>
 //@ComponentScan({"com.uhsarp.billrive.webservices.rest", "com.uhsarp.billrive.services,com.uhsarp.billrive.dao"})
+@EnableWebSecurity
 @ComponentScan(basePackages = {"com.uhsarp.billrive.services","com.uhsarp.billrive.dao"})
-public class BillriveConfig {
+public class BillriveConfig extends WebSecurityConfigurerAdapter {
     
 //    @Bean
 //    public DefaultAnnotationHandlerMapping defaultAnnotationHandlerMapping(){
