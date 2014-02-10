@@ -21,9 +21,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 //@Import(BillriveJPA.class)
 //@EnableTransactionManagement //substitute for  <tx:annotation-driven/>
 //@ComponentScan({"com.uhsarp.billrive.webservices.rest", "com.uhsarp.billrive.services,com.uhsarp.billrive.dao"})
-@EnableWebSecurity
+
 @ComponentScan(basePackages = {"com.uhsarp.billrive.services","com.uhsarp.billrive.dao"})
-public class BillriveConfig extends WebSecurityConfigurerAdapter {
+public class BillriveConfig {
     
 //    @Bean
 //    public DefaultAnnotationHandlerMapping defaultAnnotationHandlerMapping(){

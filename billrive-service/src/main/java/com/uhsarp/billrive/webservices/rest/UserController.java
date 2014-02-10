@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.uhsarp.billrive.services.UserService;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,7 +43,7 @@ public class UserController extends GenericController{
         
         
     	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/{userId}", method = RequestMethod.GET)
-	public @ResponseBody User getUser(@PathVariable("userId") Long userId) {
+	public @ResponseBody HttpEntity<User> getUser(@PathVariable("userId") Long userId) {
             
 		User user = new User();
                 logger_c.info("Value of userId is  "+userId);
@@ -58,7 +60,7 @@ public class UserController extends GenericController{
                 logger_c.info("Value of Users ArrayList is  ");
 
 		logger_c.debug("Returing Users: " + user.toString());
-		return user;
+		 return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
         
         @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE,  method = RequestMethod.POST)

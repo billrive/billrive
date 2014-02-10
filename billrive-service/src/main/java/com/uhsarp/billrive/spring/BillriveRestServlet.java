@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
  *
@@ -23,12 +24,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 //@EnableTransactionManagement //substitute for  <tx:annotation-driven/>
 //@ComponentScan({"com.uhsarp.billrive.webservices.rest", "com.uhsarp.billrive.services","com.uhsarp.billrive.dao"})
 //@Import({BillriveConfig.class,BillriveJPA.class/*,SecurityConfig.class*/})
-public class BillriveRestServlet{
-    
-//    @Bean
-//    public DefaultAnnotationHandlerMapping defaultAnnotationHandlerMapping(){
-//        
-//        return new DefaultAnnotationHandlerMapping();
-//    }
+public class BillriveRestServlet {
     
 }

@@ -12,24 +12,44 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
-
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
+
 
 /**
  *
  * @author Prashanth Batchu
  */
-public class Initializer implements WebApplicationInitializer {
+public class Initializer implements WebApplicationInitializer  /*extends
+        AbstractAnnotationConfigDispatcherServletInitializer */ {
 
+//
+//    @Override
+//    protected Class<?>[] getRootConfigClasses() {
+//         return new Class[] {BillriveConfig.class,BillriveJPA.class};
+//    }
+//
+//    @Override
+//    protected Class<?>[] getServletConfigClasses() {
+//        return new Class[] {BillriveRestServlet.class};
+//    }
+//
+//    @Override
+//    protected String[] getServletMappings() {
+//        return new String[] { "/" };
+//    }
+    
+   
+    @Override
     public void onStartup(ServletContext container) throws ServletException {
-     
+    
       // Create the 'root' Spring application context
       AnnotationConfigWebApplicationContext rootContext =
         new AnnotationConfigWebApplicationContext();
-      rootContext.register(BillriveConfig.class,BillriveJPA.class);
+      rootContext.register(BillriveConfig.class,BillriveJPA.class,SecurityConfig.class);
 
       // Manage the lifecycle of the root application context
       container.addListener(new ContextLoaderListener(rootContext));
@@ -49,7 +69,12 @@ public class Initializer implements WebApplicationInitializer {
       FilterRegistration.Dynamic corsFilter = container.addFilter("CORS", CORSFilter.class);
       corsFilter.setInitParameter("cors.supportedMethods", "GET, HEAD, POST, PUT, DELETE, OPTIONS");
       corsFilter.setInitParameter("cors.supportedHeaders", "Content-Type, X-Requested-With, Origin, Accept");
-      corsFilter.addMappingForUrlPatterns(null, false, "/*");;
+      corsFilter.addMappingForUrlPatterns(null, false, "/*");
+      
+    
+       FilterRegistration.Dynamic  springSecurityFilterChain = container.addFilter("springSecurityFilterChain", DelegatingFilterProxy.class);
+       springSecurityFilterChain.addMappingForUrlPatterns(null, false, "/*");
       
     }
  }
+    

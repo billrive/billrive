@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.H2;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -44,6 +45,9 @@ public class BillriveJPA {
 
 
     try {
+        
+        
+    
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         ds.setUsername("root");
         ds.setPassword("");
