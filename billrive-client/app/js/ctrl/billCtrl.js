@@ -5,6 +5,7 @@ $scope.editBillId=$routeParams.billId;
     $scope.groups = [];
     $scope.bills = [];
     $scope.emptySpace = " ";
+//auth.setCredentials('user','password');
 univService.getUserFromHttp(6).then(function() {
     $scope.user = univService.getUser();
     $scope.bills = $scope.user.groups[0].bills;
@@ -68,7 +69,7 @@ univService.getUserFromHttp(6).then(function() {
         $scope.simpleCalculateSum();
     };
     $scope.addBill = function() {
-//        $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
+          $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
 //console.log(JSON.stringify($scope.bill));
 $scope.bill.billDate=Date.parse($scope.bill.billDate);
         univService.addBill(angular.copy($scope.bill));

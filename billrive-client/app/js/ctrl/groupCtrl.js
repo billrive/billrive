@@ -55,7 +55,7 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
     };
     
      $scope.addGroup = function() {
-console.log(JSON.stringify($scope.group));
+        console.log(JSON.stringify($scope.group));
         univService.addGroup(angular.copy($scope.group));
         $location.url('/');
     };

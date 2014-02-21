@@ -82,6 +82,9 @@ var friendObj= {
             return user;
         },
         getUserFromHttp: function(userId) {
+            
+            
+            $http.defaults.headers.common.Authorization = 'Basic '+'user:hari';
             $http.get(url + userId)
                     .success(function(d) {
                         user = d;
