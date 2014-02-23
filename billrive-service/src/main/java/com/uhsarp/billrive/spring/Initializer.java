@@ -69,9 +69,13 @@ public class Initializer implements WebApplicationInitializer  /*extends
       FilterRegistration.Dynamic corsFilter = container.addFilter("CORS", CORSFilter.class);
       //corsFilter.setInitParameter("cors.allowGenericHttpRequests ", "true");
       corsFilter.setInitParameter("cors.supportedMethods", "GET, HEAD, POST, PUT, DELETE, OPTIONS");
-      corsFilter.setInitParameter("cors.supportedHeaders", "Content-Type, X-Requested-With, Origin, Accept");
+      corsFilter.setInitParameter("cors.supportedHeaders", "Accept, Origin, X-Requested-With, Content-Type, Last-Modified");
+      corsFilter.setInitParameter("cors.supportsCredentials ", "false");
+//      corsFilter.setInitParameter("cors.supportedHeaders", "Content-Type, X-Requested-With, Origin, Accept");
       //corsFilter.setInitParameter("cors.allowOrigin ", "http://localhost:8383");
       corsFilter.addMappingForUrlPatterns(null, false, "/*");
+      
+      
 
       //FilterRegistration.Dynamic customCorsFilter = container.addFilter("CUSTOMCORS", SimpleCORSFilter.class);
       //customCorsFilter.addMappingForUrlPatterns(null, false, "/*");
@@ -79,6 +83,11 @@ public class Initializer implements WebApplicationInitializer  /*extends
        FilterRegistration.Dynamic  springSecurityFilterChain = container.addFilter("springSecurityFilterChain", DelegatingFilterProxy.class);
        springSecurityFilterChain.addMappingForUrlPatterns(null, false, "/*");
       
+       
+       //Native Tomcat CORS Filter
+       
+//       FilterRegistration.Dynamic tomcatCORSFilter = container.addFilter("",CorsFilter.class);
+       
     }
  }
     
