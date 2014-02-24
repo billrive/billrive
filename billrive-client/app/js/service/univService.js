@@ -1,7 +1,6 @@
 billRive.factory('univService', function($http, $q, Base64) {
     var url = 'http://localhost\:8080/billrive-service/user/';
-$http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('admin' + ':' + 'password');
-    var billObj = {
+   var billObj = {
         "id": null,
         "title": "",
         "billDate": null,
@@ -82,16 +81,32 @@ var friendObj= {
             return user;
         },
         getUserFromHttp: function(userId) {
-//            $http.defaults.headers.common = {"Access-Control-Request-Headers": "accept, origin, authorization"}; //you probably don't need this line.  This lets me connect to my server on a different domain
-    
             
-//            $http.defaults.headers.common.Authorization = 'Basic '+'user:hari';
-            $http.get(url + userId)
-                    .success(function(d) {
-                        user = d;
+            
+                  $http({method: 'GET', url: url + userId, headers: {'Authorization': 'Basic ' + Base64.encode('admin' + ':' + 'password')}}).
+    success(function(data, status, headers, config) {
+       user = data;
 //                        console.log(d);
                         deffered.resolve();
-                    });
+      // this callback will be called asynchronously
+      // when the response is available
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
+//    
+//    
+//            $http.defaults.headers.common = {"Access-Control-Request-Headers": "accept, origin, authorization"}; //you probably don't need this line.  This lets me connect to my server on a different domain
+//    $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('admin' + ':' + 'password');
+            
+//            $http.defaults.headers.common.Authorization = 'Basic '+'user:hari';
+//            $http.get(url + userId)
+//                    .success(function(d) {
+//                        user = d;
+////                        console.log(d);
+//                        deffered.resolve();
+//                    });
             return deffered.promise;
         },
         deleteUser: function(User) {
