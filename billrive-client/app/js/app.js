@@ -30,3 +30,9 @@ var billRive = angular.module('billRive', ['ngRoute','$strap.directives','ui.boo
 //    };
 //    });
 //});
+
+
+billRive.config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+ }]);

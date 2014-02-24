@@ -66,7 +66,9 @@ public class Initializer implements WebApplicationInitializer  /*extends
       dispatcher.setLoadOnStartup(1);
       dispatcher.addMapping("/");
       
-      FilterRegistration.Dynamic corsFilter = container.addFilter("CORS", CORSFilter.class);
+//      FilterRegistration.Dynamic corsFilter = container.addFilter("CORS", com.uhsarp.billrive.spring.CORSFilter.class);
+//      corsFilter.addMappingForUrlPatterns(null, false, "/*");
+      FilterRegistration corsFilter = container.addFilter("CORS", CORSFilter.class);
       //corsFilter.setInitParameter("cors.allowGenericHttpRequests ", "true");
       corsFilter.setInitParameter("cors.supportedMethods", "GET, HEAD, POST, PUT, DELETE, OPTIONS");
       corsFilter.setInitParameter("cors.supportedHeaders", "Accept, Origin, X-Requested-With, Content-Type, Last-Modified");

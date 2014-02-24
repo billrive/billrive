@@ -83,6 +83,7 @@ var friendObj= {
         getUserFromHttp: function(userId) {
             
             
+//                  $http({method: 'GET', url: "http://localhost:8080/examples/servlets/helloworld.html", headers: {'Authorization': 'Basic ' + Base64.encode('admin' + ':' + 'password')}}).
                   $http({method: 'GET', url: url + userId, headers: {'Authorization': 'Basic ' + Base64.encode('admin' + ':' + 'password')}}).
     success(function(data, status, headers, config) {
        user = data;
