@@ -71,7 +71,7 @@ public class Initializer implements WebApplicationInitializer  /*extends
       FilterRegistration corsFilter = container.addFilter("CORS", CORSFilter.class);
       //corsFilter.setInitParameter("cors.allowGenericHttpRequests ", "true");
       corsFilter.setInitParameter("cors.supportedMethods", "GET, HEAD, POST, PUT, DELETE, OPTIONS");
-      corsFilter.setInitParameter("cors.supportedHeaders", "Accept, Origin, X-Requested-With, Content-Type, Last-Modified");
+      corsFilter.setInitParameter("cors.supportedHeaders", "Accept, Origin, X-Requested-With, Content-Type, Last-Modified, Authorization");
       corsFilter.setInitParameter("cors.supportsCredentials ", "false");
 //      corsFilter.setInitParameter("cors.supportedHeaders", "Content-Type, X-Requested-With, Origin, Accept");
       //corsFilter.setInitParameter("cors.allowOrigin ", "http://localhost:8383");

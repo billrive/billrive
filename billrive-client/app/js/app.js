@@ -1,6 +1,12 @@
 'use strict';
 
 var billRive = angular.module('billRive', ['ngRoute','$strap.directives','ui.bootstrap']);
+
+
+billRive.config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+ }]);
 //angular.module('billRive', ['restangular']);
 
 //billRive.config(function(RestangularProvider) {
@@ -32,7 +38,3 @@ var billRive = angular.module('billRive', ['ngRoute','$strap.directives','ui.boo
 //});
 
 
-billRive.config(['$httpProvider', function ($httpProvider) {
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
- }]);
