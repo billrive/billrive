@@ -74,7 +74,8 @@ public class Initializer implements WebApplicationInitializer  /*extends
       corsFilter.setInitParameter("cors.supportedHeaders", "Accept, Origin, X-Requested-With, Content-Type, Last-Modified, Authorization");
       corsFilter.setInitParameter("cors.supportsCredentials ", "false");
 //      corsFilter.setInitParameter("cors.supportedHeaders", "Content-Type, X-Requested-With, Origin, Accept");
-      //corsFilter.setInitParameter("cors.allowOrigin ", "http://localhost:8383");
+      corsFilter.setInitParameter("cors.allowOrigin ", "*");
+//      corsFilter.setInitParameter("cors.allowOrigin ", "http://localhost:8383");
       corsFilter.addMappingForUrlPatterns(null, false, "/*");
       
       
