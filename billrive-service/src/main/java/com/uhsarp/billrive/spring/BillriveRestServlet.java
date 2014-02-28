@@ -17,9 +17,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.uhsarp.billrive.webservices.rest"})
-//@EnableTransactionManagement //substitute for  <tx:annotation-driven/>
-//@ComponentScan({"com.uhsarp.billrive.webservices.rest", "com.uhsarp.billrive.services","com.uhsarp.billrive.dao"})
-//@Import({BillriveConfig.class,BillriveJPA.class/*,SecurityConfig.class*/})
 public class BillriveRestServlet {
     
 }
