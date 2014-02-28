@@ -1,51 +1,54 @@
-<div class="span4" style="padding-right:10px; border-right: 1px solid #ccc;">
-                <label>Group Name</label>
-                <input type="text" class="span8" ng-model="group.name"  placeholder="New Group"/>
-                <!--<div>{{$scope.newGroup.name}}</div>-->
-<label>Description</label>
-                <textarea ng-model="group.description"></textarea>
-
-         
-  
+<div class="col-md-4" style="padding-right: 10px; border-right: 1px solid #ccc;">
+    <label>Group Name</label>
+    <input type="text" class="col-md-8" ng-model="group.name"
+    placeholder="New Group" />
+    <!--<div>{{$scope.newGroup.name}}</div>-->
+    <label>Description</label>
+    <textarea ng-model="group.description"></textarea>
 </div>
+<div class="col-md-8">
+    <label>Group Membership</label>
+    <!-- <div class="col-md-3">
 
-<div class="span8">
-     <label>Group Membership</label>
-<!--             <div class="span3">
                     <input ng-change='listActUsers()' type="checkbox" ng-model="user.enabled" />
+
                 
+
                 </div>-->
-  
-<!--   <table class="table table-striped">
+    <!-- <table class="table table-striped">
+
+
 
         <tbody>  
+
           <tr ng-repeat="friend in friends ">
+
            
+
             <td>{{ friend.name }}</td>
+
           </tr>
+
         </tbody>
+
       </table>-->
-
-<ul class="unstyled"> 
-
-        <li ng-repeat="friend in user.friends " > 
-            <div class="row-fluid">
-
-                <div class="span3">
-                <!--<div class="span3" ng-init="friend.addToGroup = true">-->
-                    <input ng-change='setNewGroupMembership()' type="checkbox" ng-model="friend.addToGroup" />
-                    <span  class="done-{{!friend.addToGroup}}"> {{friend.fName}} {{friend.lName}}</span>
+    <ul class="unstyled">
+        <li ng-repeat="friend in user.friends ">
+            <div class="row">
+                <div class="col-md-3">
+                    <!--<div class="col-md-3" ng-init="friend.addToGroup=t rue">-->
+                    <input ng-change="setNewGroupMembership()" type="checkbox" ng-model="friend.addToGroup"
+                    /> <span class="done-{{!friend.addToGroup}}"> {{friend.fName}} {{friend.lName}}</span>
                 </div>
-<!--                <div class="span3">
-                     ng-required='user.enabled' 
-                    <input  ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="span6" placeholder="0.00" />
-                </div>  -->
-            </div>  
-        </li>
+                <!-- <div class="col-md-3">
 
+                     ng-required='user.enabled' 
+
+                    <input  ng-disabled="!user.enabled" ng-change='simpleCalculateSum()' type="text" ng-model='user.liableCost' class="col-md-6" placeholder="0.00" />
+
+                </div>  --></div>
+        </li>
     </ul>
-</div>
-   user.friends: {{user.friends}}
-   Friend: {{friend}}
-    <!--{{group}}-->
-    <!--{{tmpFriends}}-->
+</div>user.friends: {{user.friends}} Friend: {{friend}}
+<!--{{group}}-->
+<!--{{tmpFriends}}-->

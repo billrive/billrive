@@ -1,40 +1,36 @@
 <br />
-<div> <ul class="unstyled"> 
-
-        <li ng-repeat="simpleUserIdAndLiableCost in bill.billSimpleEntry.simpleUserIdAndLiableCost " > 
-            <div class="row-fluid">
-
-                <div class="span3">
-                    <input ng-change='simpleFriendEnabled()' type="checkbox" ng-model="simpleUserIdAndLiableCost.isActive" />
-                    <span  class="done-{{!simpleUserIdAndLiableCost.isActive}}"> {{simpleUserIdAndLiableCost.user.fName}}&nbsp;{{simpleUserIdAndLiableCost.user.lName}}</span>
+<div>
+    <ul class="unstyled">
+        <li ng-repeat="simpleUserIdAndLiableCost in bill.billSimpleEntry.simpleUserIdAndLiableCost ">
+            <div class="row">
+                <div class="col-md-3">
+                    <input ng-change="simpleFriendEnabled()" type="checkbox" ng-model="simpleUserIdAndLiableCost.isActive"
+                    /> <span class="done-{{!simpleUserIdAndLiableCost.isActive}}"> {{simpleUserIdAndLiableCost.user.fName}}&nbsp;{{simpleUserIdAndLiableCost.user.lName}}</span>
                 </div>
-                <div class="span3">
-                     <!--{{billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error}}-->
-                     <!--<span ng-show="billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error.float">
+                <div class="col-md-3">
+                    <!--{{billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error}}-->
+                    <!--<span ng-show="billsdfsdfsdfsdfsdf.xcvxcvxcvxcvxcvxcv.$error.float">
+
             This is not a valid float number!</span>-->
                     <!-- ng-required='simpleUserIdAndLiableCost.enabled' -->
-                    <input name="input" ng-disabled="!simpleUserIdAndLiableCost.isActive" ng-change='simpleCalculateSum()' type="text" ng-model='simpleUserIdAndLiableCost.liableCost' class="span6" placeholder="0.00" smart-float required/>
-                    
-                     
-                 
-                </div>  
-            </div>  
-        </li>
-
-    </ul>
-    <hr width="250" size="1">
-    <ul class="unstyled">
-        <li > 
-
-            <div class="row-fluid">
-
-                <div class="span3">
-
-                    Calculated Total
+                    <input name="input" ng-disabled="!simpleUserIdAndLiableCost.isActive"
+                    ng-change="simpleCalculateSum()" type="text" ng-model="simpleUserIdAndLiableCost.liableCost"
+                    class="col-md-6" placeholder="0.00" smart-float="smart-float" required="required"
+                    />
                 </div>
-                <div class="span3">
-                    <input type="text" disabled ng-model='simpleCalculatedTotal' class="span6" placeholder="0.00" />
-                </div>  
-            </div>  
-        </li></ul>
+            </div>
+        </li>
+    </ul>
+    <hr width="250" size="1" />
+    <ul class="unstyled">
+        <li>
+            <div class="row">
+                <div class="col-md-3">Calculated Total</div>
+                <div class="col-md-3">
+                    <input type="text" disabled="disabled" ng-model="simpleCalculatedTotal"
+                    class="col-md-6" placeholder="0.00" />
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>

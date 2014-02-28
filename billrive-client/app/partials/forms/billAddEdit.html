@@ -1,54 +1,52 @@
-
-            <div class="span4" style="padding-right:10px; border-right: 1px solid #ccc;">
-
-                <label>Bill Total</label>
-                <input type="text" class="span8" ng-model="bill.billTotal"  placeholder="100.00">
-
-                 <label>Date</label>
-                <div class="control-group input-append">
-                    <!--<input type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy" bs-datepicker>-->
-                    <input id="dp5" convertDateToMilliSec ng-model="bill.billDate" class="span8" type="text" data-date-format="mm/dd/yyyy"  placeholder="Pick a Date" bs-datepicker>
-                    <!--<input id="dp5" convertDateToMilliSec ng-model="bill.billDate" class="span8" type="text" data-date-format="mm/dd/yyyy"  placeholder="Pick a Date" bs-datepicker>-->
-                    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
-                </div>
-
-
-
-                <label>Title</label>
-                <input type="text" class="span8" ng-model="bill.title" placeholder="Rent">
-
-
-                <label>Group</label>
-                <select ng-change="setBillGroup()" ng-model="bill.groupId" class="span8" ng-options="d.id as d.name for d in groups"></select>
-
-
-                <label>Payer</label>
-                <select  ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>
-<!--                <select  multiple="multiple" ng-model="bill.billPayerId" class="span8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>-->
-
-                <label>Notes</label>
-                <textarea ng-model="bill.notes"></textarea>
-
-            </div>
-            <div class="span8">
-
-                <div class="btn-group">
-                    <ul class="dropdown-menu">
-                        <!-- dropdown menu links -->
-                    </ul>
-                    <button class="btn btn-small"><i class="icon-book"></i>&nbsp;simple</button><button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#/bills/equalsplit">Equal Split</a></li>
-                        <li><a href="#">Percentage</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Custom</a></li>
-                    </ul>
-                    <button class="btn btn-small"><i class="icon-list-alt"></i>&nbsp;advanced</button>
-                     
-                </div>
-
-                <div class="" ng-include="'partials/bills/simple.html'" id="editModal"></div>
-                
-            </div>
+<div class="col-md-4" style="padding-right: 10px; border-right: 1px solid #ccc;">
+    <label>Bill Total</label>
+    <input type="text" class="col-md-8" ng-model="bill.billTotal"
+    placeholder="100.00" />
+    <label>Date</label>
+    <div class="control-group input-group">
+        <!--<input type="text" ng-model="datepicker.date" data-date-format="dd/mm/yyyy"
+        bs-datepicker>-->
+        <input id="dp5" convertdatetomillisec="convertDateToMilliSec" ng-model="bill.billDate"
+        class="col-md-8" type="text" data-date-format="mm/dd/yyyy" placeholder="Pick a Date"
+        bs-datepicker="bs-datepicker" />
+        <!--<input id="dp5" convertDateToMilliSec ng-model="bill.billDate" class="col-md-8"
+        type="text" data-date-format="mm/dd/yyyy" placeholder="Pick a Date" bs-datepicker>-->
+        <button type="button" class="btn btn-default" data-toggle="datepicker"><i class="glyphicon glyphicon-calendar"></i>
+        </button>
+    </div>
+    <label>Title</label>
+    <input type="text" class="col-md-8" ng-model="bill.title"
+    placeholder="Rent" />
+    <label>Group</label>
+    <select ng-change="setBillGroup()" ng-model="bill.groupId"
+    class="col-md-8" ng-options="d.id as d.name for d in groups"></select>
+    <label>Payer</label>
+    <select ng-model="bill.billPayerId" class="col-md-8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>
+    <!-- <select multiple="multiple" ng-model="bill.billPayerId"
+    class="col-md-8" ng-options="c.userId as c.user.fName+emptySpace+c.user.lName
+    for c in bill.billSimpleEntry.simpleUserIdAndLiableCost"></select>-->
+    <label>Notes</label>
+    <textarea ng-model="bill.notes"></textarea>
+</div>
+<div class="col-md-8">
+    <div class="btn-group">
+        <ul class="dropdown-menu">
+            <!-- dropdown menu links -->
+        </ul>
+        <button class="btn btn-sm"><i class="glyphicon glyphicon-book"></i>&nbsp;simple</button>
+        <button class="btn btn-sm dropdown-toggle"
+        data-toggle="dropdown"> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#/bills/equalsplit">Equal Split</a>
+            </li>
+            <li><a href="#">Percentage</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#">Custom</a>
+            </li>
+        </ul>
+        <button class="btn btn-sm"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;advanced</button>
+    </div>
+    <div class="" ng-include="'partials/bills/simple.html'" id="editModal"></div>
+</div>

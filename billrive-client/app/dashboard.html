@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" ng-app="billRive">
+    <head>
+        <meta charset="utf-8">
+        <title>BillRive</title>
+        <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="lib/bootstrap-datepicker/css/datepicker.css"/>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top navbar-default">
+    <div class="navbar-header"><a class="navbar-brand" href="#"><i class="glyphicon glyphicon-home"></i> BillRive</a>
+        <a
+        class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-bar"></span>
+ <span class="glyphicon glyphicon-bar"></span>
+            <span
+            class="glyphicon glyphicon-bar"></span>
+                </a>
+    </div>
+    <div class="container">
+        <div class="container">
+            <ul class="nav nav-pills navbar-nav">
+                <!--<ul class="nav nav-pills" ng-show="loggedIn">-->
+                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+
+                                <i class="glyphicon glyphicon-th-list"></i>&nbsp;Bills
+
+                                <b class="caret"></b>
+
+                            </a>
+                    <ul class="dropdown-menu">
+                        <!-- links -->
+                        <li><a tabindex="-1" href="#/bills/add">Add</a>
+                        </li>
+                        <li><a tabindex="-1" href="#/bills/list">List</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+
+                                <i class="glyphicon glyphicon-heart"></i>&nbsp;Friends
+
+                                <b class="caret"></b>
+
+                            </a>
+                    <ul class="dropdown-menu">
+                        <!-- links -->
+                        <li><a tabindex="-1" href="#/friends/add">Add</a>
+                        </li>
+                        <li><a tabindex="-1" href="#/friends/list">List</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li><a href="#/listFriends"><i class="glyphicon glyphicon-heart"></i>&nbsp;Friends</a></li>-->
+                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+
+                                <i class="glyphicon glyphicon-th-list"></i>&nbsp;Groups
+
+                                <b class="caret"></b>
+
+                            </a>
+                    <ul class="dropdown-menu">
+                        <!-- links -->
+                        <li><a tabindex="-1" href="#/groups/add">Add</a>
+                        </li>
+                        <li><a tabindex="-1" href="#/groups/list">List</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills pull-right navbar-nav">
+                <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
+                <li><a href="#"><i class="glyphicon glyphicon-user"></i> Bruce Wayne</a>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Help</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-8">
+            <div class="clearfix">
+                <div class="" ng-view="ng-view"></div>
+            </div>
+        </div>
+    </div>
+</div>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="lib/lodash.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.js"></script>
+        <script src="lib/restangular.js"></script>
+        <!--<script src="lib/Base64.js"></script>-->
+        <script src="js/app.js"></script>
+        <script src="js/routes.js"></script>
+        <script src="js/ctrl/billCtrl.js"></script>
+        <script src="js/ctrl/groupCtrl.js"></script>
+        <script src="js/ctrl/userCtrl.js"></script>
+        <script src="js/ctrl/friendCtrl.js"></script>
+        <script src="js/ctrl/loginCtrl.js"></script>
+        <script src="js/service/univService.js"></script>
+        <!--<script src="js/service/auth.js"></script>-->
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
+        <script src="lib/angular-strap.js"></script>
+        <script src="lib/ui-bootstrap-tpls-0.6.0.js"></script>
+    </body>
+</html>

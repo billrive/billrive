@@ -8,88 +8,69 @@
         <link rel="stylesheet" href="lib/bootstrap-datepicker/css/datepicker.css"/>
     </head>
     <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
+        <div class="navbar navbar-fixed-top navbar-default">
+            <div class="navbar-header"><a class="navbar-brand" href="#"><i class="glyphicon glyphicon-home"></i> BillRive</a>
+                <a
+                    class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-bar"></span>
+                    <span class="glyphicon glyphicon-bar"></span>
+                    <span
+                        class="glyphicon glyphicon-bar"></span>
+                </a>
+            </div>
+            <div class="container">
                 <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#"><i class="icon-home"></i> BillRive</a>
-
-
-                    <ul class="nav nav-pills">
-                    <!--<ul class="nav nav-pills" ng-show="loggedIn">-->
-                        <li  class="dropdown">
-                            <a  class="dropdown-toggle active"
-                                data-toggle="dropdown">
-                                <i class="icon-th-list"></i>&nbsp;Bills
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- links -->
-                                <li><a tabindex="-1" href="#/bills/add">Add</a></li>
-                                <li><a tabindex="-1" href="#/bills/list">List</a></li>
-                                <li class="divider"></li>
-                                <li><a tabindex="-1" href="#">Reports</a></li>
-                            </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a>
                         </li>
-                        <li  class="dropdown">
-                            <a  class="dropdown-toggle active"
-                                data-toggle="dropdown">
-                                <i class="icon-heart"></i>&nbsp;Friends
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- links -->
-                                <li><a tabindex="-1" href="#/friends/add">Add</a></li>
-                                <li><a tabindex="-1" href="#/friends/list">List</a></li>
-                                <li class="divider"></li>
-                                <li><a tabindex="-1" href="#">Reports</a></li>
-                            </ul>
+                        <li><a href="#about">About</a>
                         </li>
-                        <!--<li><a href="#/listFriends"><i class="icon-heart"></i>&nbsp;Friends</a></li>-->
-                        <li  class="dropdown">
-                            <a  class="dropdown-toggle active"
-                                data-toggle="dropdown">
-                                <i class="icon-th-list"></i>&nbsp;Groups
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- links -->
-                                <li><a tabindex="-1" href="#/groups/add">Add</a></li>
-                                <li><a tabindex="-1" href="#/groups/list">List</a></li>
-                                <li class="divider"></li>
-                                <li><a tabindex="-1" href="#">Reports</a></li>
-                            </ul>
+                        <li><a href="#contact">Contact</a>
                         </li>
-
                     </ul>
-
-                    <ul class="nav nav-pills pull-right">
-                    <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
-                        
-                        <li><a href="#"><i class="icon-user"></i> Bruce Wayne</a></li>
-                        <li><a href="#"><i class="icon-wrench"></i> Settings</a></li>
-                        <li><a href="#"><i class="icon-info-sign"></i> Help</a></li>
+                    <ul class="nav nav-pills pull-right navbar-nav">
+                        <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
+                        <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Help</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-
-
         <div class="container">
-            <div class="row clearfix">
-                <div class="span8">
-                    <div class="clearfix">
+            <div class="col-md-13">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h1>Bill sharing made easy!</h1>
+                    <p class="lead">With your friends or roommates.
+                        <!-- <br> All you get is this text and a mostly barebones HTML document -->.</p>
+                </div>
+                <div class="col-sm-3">Sign-in-form
+                    <form class="form-signin" role="form">
 
-                        <div class="" ng-view>
-                        </div>
-                    </div>
+                        <h2 class="form-signin-heading">Please sign in</h2>
+
+                        <input type="email" class="form-control"
+
+                               placeholder="Email address" required autofocus> <input
+
+                               type="password" class="form-control" placeholder="Password"
+
+                               required> <label label-default class="checkbox"> <input
+
+                                type="checkbox" value="remember-me"> Remember me
+
+                        </label>
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+
+                            in</button>
+
+                    </form>
                 </div>
             </div>
         </div>
+        </div>
+        <!-- /.container -->
+
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="lib/lodash.js"></script>
         <script src="lib/bootstrap/js/bootstrap.js"></script>

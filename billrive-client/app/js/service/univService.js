@@ -1,5 +1,5 @@
 billRive.factory('univService', function($http, $q, Base64) {
-    var url = 'http://localhost\:8080/billrive-service/user/';
+    var url = 'http://localhost\:8081/billrive-service/user/';
    var billObj = {
         "id": null,
         "title": "",
@@ -84,7 +84,7 @@ var friendObj= {
             
             
 //                  $http({method: 'GET', url: "http://localhost:8080/examples/servlets/helloworld.html", headers: {'Authorization': 'Basic ' + Base64.encode('admin' + ':' + 'password')}}).
-                  $http({method: 'GET', url: url + userId, headers: {'Authorization': 'Basic ' + Base64.encode('admin' + ':' + 'password')}}).
+                  $http({method: 'GET', url: url + userId, headers: {'Authorization': 'Basic ' + Base64.encode('me@prashu.net' + ':' + 'password')}}).
     success(function(data, status, headers, config) {
        user = data;
 //                        console.log(d);
