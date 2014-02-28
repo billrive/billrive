@@ -9,82 +9,95 @@
     </head>
     <body>
         <div class="navbar navbar-fixed-top navbar-default">
-            <div class="navbar-header"><a class="navbar-brand" href="#"><i class="glyphicon glyphicon-home"></i> BillRive</a>
-                <a
-                    class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-bar"></span>
-                    <span class="glyphicon glyphicon-bar"></span>
-                    <span
-                        class="glyphicon glyphicon-bar"></span>
+    <div class="navbar-header"><a class="navbar-brand" href="#"><i class="glyphicon glyphicon-home"></i> BillRive</a>
+        <a
+        class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="glyphicon glyphicon-bar"></span>
+ <span class="glyphicon glyphicon-bar"></span>
+            <span
+            class="glyphicon glyphicon-bar"></span>
                 </a>
-            </div>
-            <div class="container">
-                <div class="container">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a>
-                        </li>
-                        <li><a href="#about">About</a>
-                        </li>
-                        <li><a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-pills pull-right navbar-nav">
-                        <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
-                        <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Help</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="col-md-13">
-            <div class="row">
-              
-                <div class="col-sm-9">
-                  
-                    
-                   
-<!--    <img style="float: left;" src="img/clipart-0081.png" class="img-responsive"
-    />
-    <div class="content-heading">
-        <h3>Bill sharing made easy! </h3>
     </div>
-    <p style="clear: both;">With your friends or roommates</p>
- -->
-                    
-<!--                    <img src="img/clipart-0081.png" />
-                  
--->                   <h1>Bill sharing made easy!</h1>
-    <p class="lead">With your friends or roommates.</p>
+    <div class="container">
+        <div class="container">
+            <ul class="nav nav-pills navbar-nav">
+                <!--<ul class="nav nav-pills" ng-show="loggedIn">-->
+                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
-                </div>
-                <div class="col-sm-3">
-                    <form class="form-signin" role="form">
+                                <i class="glyphicon glyphicon-th-list"></i>&nbsp;Bills
 
-                        <h2 class="form-signin-heading">Please sign in</h2>
+                                <b class="caret"></b>
 
-                        <input type="email" class="form-control"
+                            </a>
+                    <ul class="dropdown-menu">
+                        <!-- links -->
+                        <li><a tabindex="-1" href="#/bills/add">Add</a>
+                        </li>
+                        <li><a tabindex="-1" href="#/bills/list">List</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
-                               placeholder="Email address" required autofocus> <input
+                                <i class="glyphicon glyphicon-heart"></i>&nbsp;Friends
 
-                               type="password" class="form-control" placeholder="Password"
+                                <b class="caret"></b>
 
-                               required> <label label-default class="checkbox"> <input
+                            </a>
+                    <ul class="dropdown-menu">
+                        <!-- links -->
+                        <li><a tabindex="-1" href="#/friends/add">Add</a>
+                        </li>
+                        <li><a tabindex="-1" href="#/friends/list">List</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li><a href="#/listFriends"><i class="glyphicon glyphicon-heart"></i>&nbsp;Friends</a></li>-->
+                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
-                                type="checkbox" value="remember-me"> Remember me
+                                <i class="glyphicon glyphicon-th-list"></i>&nbsp;Groups
 
-                        </label>
+                                <b class="caret"></b>
 
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-
-                            in</button>
-
-                    </form>
-                </div>
+                            </a>
+                    <ul class="dropdown-menu">
+                        <!-- links -->
+                        <li><a tabindex="-1" href="#/groups/add">Add</a>
+                        </li>
+                        <li><a tabindex="-1" href="#/groups/list">List</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills pull-right navbar-nav">
+                <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
+                <li><a href="#"><i class="glyphicon glyphicon-user"></i> Bruce Wayne</a>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Help</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-8">
+            <div class="clearfix">
+                <div class="" ng-view="ng-view"></div>
             </div>
         </div>
-        </div>
-        <!-- /.container -->
-
+    </div>
+</div>
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="lib/lodash.js"></script>
         <script src="lib/bootstrap/js/bootstrap.js"></script>
