@@ -25,6 +25,11 @@ public class User  implements GenericObject {
     private String mName;
     private String title;
     private String email;
+    private String password;
+    @Column(columnDefinition = "BIT", length = 1)
+    private boolean enabled;
+  
+    
 //    @Transient
 //    private List<Bill> bills = new ArrayList<Bill>();
     @ManyToMany(cascade = CascadeType.ALL)
@@ -117,6 +122,23 @@ public class User  implements GenericObject {
     public void setFriends(List<Friend> friends) {
         this.friends = friends;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 	
+    
   
 }
