@@ -1,6 +1,6 @@
 billRive.controller('loginCtrl', function($scope, $rootScope, $location, billService) {
     //reset before showing login page
-    $scope.user = {username: '', password: ''};
+    $scope.user = {email: '', password: ''};
     $rootScope.loggedIn = true;
     $rootScope.loggedInUser = {name: 'user', username: 'password'};
 
