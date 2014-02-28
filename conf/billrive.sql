@@ -273,7 +273,7 @@ DROP TABLE IF EXISTS `user_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_role` (
-  `id` bigint(20) unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `userId` bigint(20) NOT NULL,
   `role` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -391,7 +391,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-27 17:56:55
+-- Dump completed on 2014-02-27 23:00:49
 CREATE DATABASE  IF NOT EXISTS `billrivedb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `billrivedb`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
@@ -655,7 +655,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (6,'Bruce','Wayne',NULL,NULL,'me@prashu.net',NULL,1),(7,'Peter','Parker',NULL,NULL,'jayanthk4u@gmail.com',NULL,1),(8,'Clark','Kent',NULL,NULL,'kkathari@gmail.com',NULL,1);
+INSERT INTO `user` VALUES (6,'Bruce','Wayne',NULL,NULL,'me@prashu.net','password',1),(7,'Peter','Parker',NULL,NULL,'jayanthk4u@gmail.com','password',1),(8,'Clark','Kent',NULL,NULL,'kkathari@gmail.com','password',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -667,14 +667,14 @@ DROP TABLE IF EXISTS `user_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_role` (
-  `id` bigint(20) unsigned NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `userId` bigint(20) NOT NULL,
   `role` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_user_role` (`userId`),
   KEY `fk_user_role_idx` (`userId`),
   CONSTRAINT `fk_userId` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -683,6 +683,7 @@ CREATE TABLE `user_role` (
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
+INSERT INTO `user_role` VALUES (1,6,'ROLE_USER'),(2,7,'ROLE_USER'),(3,8,'ROLE_USER');
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -785,4 +786,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-27 17:56:56
+-- Dump completed on 2014-02-27 23:00:50
