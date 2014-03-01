@@ -1,5 +1,5 @@
 billRive.factory('univService', function($http, $q, Base64) {
-    var url = 'http://localhost\:8081/billrive-service/user/';
+    var url = 'http://localhost\:8080/billrive-service/user/';
    var billObj = {
         "id": null,
         "title": "",
@@ -175,8 +175,8 @@ var friendObj= {
             });
 //            return serverResponseCode;
         },
-        setUser: function(user) {
-            this.user=user;
+        setUser: function(user_received) {
+            user=angular.copy(user_received);
         }
     };
 });

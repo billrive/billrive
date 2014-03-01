@@ -10,7 +10,7 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
         
     $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
     .success(function(data, status, headers, config) {
-        univService.setUser(data);
+        univService.setUser(angular.copy(data));
        $location.path('/bills/list'); 
        
     }).
