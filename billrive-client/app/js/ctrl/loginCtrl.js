@@ -1,6 +1,7 @@
 billRive.controller('loginCtrl', function($scope, $rootScope, $location, univService,Auth) {
     //reset before showing login page
     $scope.user = {email: '', password: ''};
+    $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
     $scope.errorMsg="";
     $scope.login = function() {
         Auth.setCredentials($scope.user.email,$scope.user.password);
@@ -16,7 +17,18 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
     error(function(data, status, headers, config) {
         Auth.clearCredentials();
         univService.setIsUserLoggedIn(false);
-     $scope.errorMsg=status+ ":Invalid Email/Password";//+" "+"<pre>"+headers+"</pre>";
+        if(status==401)
+          $scope.errorMsg=status+ ":Invalid Email/Password";
+         else
+             if(status=404)
+                 $scope.errorMsg=status+ ":Service is currently unreachable";
+         else
+             if(status=500)
+                 $scope.errorMsg=status+ ":Service is currently experiencing difficulties";
+         else
+             $scope.errorMsg=status+ ":We are currently experiencing technical difficulties";
+        
+        //+" "+"<pre>"+headers+"</pre>";
     });
   
 //   if ( $scope.serverResponse == 200) {

@@ -1,4 +1,5 @@
 billRive.controller('billCtrl', function($location, $scope, univService,$routeParams) {
+     $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
 $scope.editGroupId=$routeParams.groupId;
 $scope.editBillId=$routeParams.billId;
 //$scope.isCollapsed = false;

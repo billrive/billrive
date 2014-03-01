@@ -19,9 +19,9 @@
     </div>
     <div class="container">
         <div class="container">
-            <ul class="nav nav-pills navbar-nav">
+            <ul ng-controller="userCtrl" class="nav nav-pills navbar-nav">
                 <!--<ul class="nav nav-pills" ng-show="loggedIn">-->
-                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+                <li ng-show="isUserLoggedIn" class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
                                 <i class="glyphicon glyphicon-th-list"></i>&nbsp;Bills
 
@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+                <li ng-show="isUserLoggedIn"class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
                                 <i class="glyphicon glyphicon-heart"></i>&nbsp;Friends
 
@@ -58,7 +58,7 @@
                     </ul>
                 </li>
                 <!--<li><a href="#/listFriends"><i class="glyphicon glyphicon-heart"></i>&nbsp;Friends</a></li>-->
-                <li class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+                <li ng-show="isUserLoggedIn" class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
                                 <i class="glyphicon glyphicon-th-list"></i>&nbsp;Groups
 
@@ -79,9 +79,9 @@
             </ul>
             <ul class="nav nav-pills pull-right navbar-nav">
                 <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
-                <li><a href="#"><i class="glyphicon glyphicon-user"></i> Bruce Wayne</a>
+                <li ng-show="isUserLoggedIn"><a href="#"><i class="glyphicon glyphicon-user"></i> Bruce Wayne</a>
                 </li>
-                <li><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
+                <li ng-show="isUserLoggedIn"><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
                 </li>
                 <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Help</a>
                 </li>
@@ -89,10 +89,14 @@
         </div>
     </div>
 </div>
+        <div ng-controller="loginCtrl">
+            
+        </div>
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-8">
             <div class="clearfix">
+               
                 <div class="" ng-view="ng-view"></div>
             </div>
         </div>
