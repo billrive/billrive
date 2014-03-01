@@ -8,12 +8,14 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
         
     $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
     .success(function(data, status, headers, config) {
-        univService.setUser(angular.copy(data));
+       univService.setUser(angular.copy(data));
+       univService.setIsUserLoggedIn(true);
        $location.path('/bills/list'); 
        
     }).
     error(function(data, status, headers, config) {
         Auth.clearCredentials();
+        univService.setIsUserLoggedIn(false);
      $scope.errorMsg=status+ ":Invalid Email/Password";//+" "+"<pre>"+headers+"</pre>";
     });
   
