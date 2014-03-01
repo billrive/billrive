@@ -21,26 +21,27 @@
 
                 </div>
                 <div class="col-sm-3">
-                    <form class="form-signin" role="form">
+                    <form name="loginForm" class="form-signin" role="form">
 
                         <h2 class="form-signin-heading">Please sign in</h2>
 
-                        <input ng-model="email" type="email" class="form-control"
+                        <input ng-model="user.email" name="email" type="email" class="form-control"
 
                                placeholder="Email address" required autofocus> <input
 
-                               ng-model="password" type="password" class="form-control" placeholder="Password"
+                               ng-model="user.password" name="password" type="password" required class="form-control" placeholder="Password" ng-minlength="6" ng-maxlength="25"
 
-                               required> <label label-default class="checkbox"> <input
+                               required> <label label-default class="checkbox"><input
 
                                 type="checkbox" value="remember-me"> Remember me
 
                         </label>
                         
-                        <button class="btn btn-lg btn-primary btn-block" ng-click="login()">Sign
+                        <button ng-disabled="!loginForm.$valid" class="btn btn-lg btn-primary btn-block" ng-click="login()">Sign
 
                             in</button>
 <span>{{errorMsg}}</span>
+
                     </form>
                 </div>
             </div>
