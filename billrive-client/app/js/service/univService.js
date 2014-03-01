@@ -1,4 +1,4 @@
-billRive.factory('univService', function($http, $q, Base64) {
+billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
     var isUserLoggedIn = false;
     var url = 'http://localhost\:8080/billrive-service/user/';
     var deffered = $q.defer();
@@ -184,7 +184,11 @@ billRive.factory('univService', function($http, $q, Base64) {
             isUserLoggedIn = loggedIn_status;
         },
         getIsUserLoggedIn: function(){
-            return isUserLoggedIn;
+         console.log($cookieStore.get('authdata'));
+           if($cookieStore.get('authdata')===undefined)
+            return false;
+        else
+            return true;
         }
     };
 });

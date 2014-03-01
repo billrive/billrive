@@ -18,10 +18,10 @@
                 </a>
     </div>
     <div class="container">
-        <div class="container">
-            <ul ng-controller="userCtrl" class="nav nav-pills navbar-nav">
+        <div class="container" ng-controller="userCtrl">
+            <ul  class="nav nav-pills navbar-nav">
                 <!--<ul class="nav nav-pills" ng-show="loggedIn">-->
-                <li ng-show="isUserLoggedIn" class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+                <li ng-show="isUserLoggedIn()" class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
                                 <i class="glyphicon glyphicon-th-list"></i>&nbsp;Bills
 
@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                 </li>
-                <li ng-show="isUserLoggedIn"class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+                <li ng-show="isUserLoggedIn()"class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
                                 <i class="glyphicon glyphicon-heart"></i>&nbsp;Friends
 
@@ -58,7 +58,7 @@
                     </ul>
                 </li>
                 <!--<li><a href="#/listFriends"><i class="glyphicon glyphicon-heart"></i>&nbsp;Friends</a></li>-->
-                <li ng-show="isUserLoggedIn" class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
+                <li ng-show="isUserLoggedIn()" class="dropdown"> <a class="dropdown-toggle active" data-toggle="dropdown">
 
                                 <i class="glyphicon glyphicon-th-list"></i>&nbsp;Groups
 
@@ -79,9 +79,9 @@
             </ul>
             <ul class="nav nav-pills pull-right navbar-nav">
                 <!--<ul class="nav nav-pills pull-right" ng-show="loggedIn">-->
-                <li ng-show="isUserLoggedIn"><a href="#"><i class="glyphicon glyphicon-user"></i> Bruce Wayne</a>
+                <li ng-show="isUserLoggedIn()"><a href="#"><i class="glyphicon glyphicon-user"></i> Bruce Wayne</a>
                 </li>
-                <li ng-show="isUserLoggedIn"><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
+                <li ng-show="isUserLoggedIn()"><a href="#"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
                 </li>
                 <li><a href="#"><i class="glyphicon glyphicon-info-sign"></i> Help</a>
                 </li>
@@ -89,9 +89,9 @@
         </div>
     </div>
 </div>
-        <div ng-controller="loginCtrl">
-            
-        </div>
+<!--        <div ng-controller="userCtrl">
+            Value:{{isUserLoggedIn()}}
+        </div>-->
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-8">
