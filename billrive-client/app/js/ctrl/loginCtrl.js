@@ -1,11 +1,11 @@
-billRive.controller('loginCtrl', function($scope, $rootScope, $location, univService) {
+billRive.controller('loginCtrl', function($scope, $rootScope, $location, univService,Auth) {
     //reset before showing login page
     $scope.user = {email: '', password: ''};
     $rootScope.loggedIn = true;
     $rootScope.loggedInUser = {name: 'user', username: 'password'};
     $scope.errorMsg="";
     $scope.login = function() {
-        
+        Auth.setCredentials($scope.user.email,$scope.user.password);
         $scope.serverResponse="";
         
     $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
@@ -15,6 +15,7 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
        
     }).
     error(function(data, status, headers, config) {
+        Auth.clearCredentials();
      $scope.errorMsg=status+ ":Invalid Email/Password";//+" "+"<pre>"+headers+"</pre>";
     });
   

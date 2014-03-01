@@ -1,6 +1,6 @@
 'use strict';
 
-var billRive = angular.module('billRive', ['ngRoute','$strap.directives','ui.bootstrap']);
+var billRive = angular.module('billRive', ['ngRoute','$strap.directives','ui.bootstrap','ngCookies']);
 
 
 billRive.config(['$httpProvider', function ($httpProvider) {

@@ -1,6 +1,6 @@
-services.factory('Auth', ['Base64', '$cookieStore', '$http', function (Base64, $cookieStore, $http) {
+billRive.factory('Auth', ['Base64', '$cookieStore', '$http', function (Base64, $cookieStore, $http) {
     // initialize to whatever is in the cookie, if anything
-    $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookieStore.get('authdata');
+//    $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookieStore.get('authdata');
  
     return {
         setCredentials: function (username, password) {

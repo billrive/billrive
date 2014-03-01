@@ -84,7 +84,8 @@ var friendObj= {
             
             
 //                  $http({method: 'GET', url: "http://localhost:8080/examples/servlets/helloworld.html", headers: {'Authorization': 'Basic ' + Base64.encode('admin' + ':' + 'password')}}).
-                  $http({method: 'GET', url: url + userId, headers: {'Authorization': 'Basic ' + Base64.encode('me@prashu.net' + ':' + 'password')}}).
+                  $http({method: 'GET', url: url + userId}).
+//                  $http({method: 'GET', url: url + userId, headers: {'Authorization': 'Basic ' + Base64.encode('me@prashu.net' + ':' + 'password')}}).
     success(function(data, status, headers, config) {
        user = data;
 //                        console.log(d);
@@ -93,6 +94,7 @@ var friendObj= {
       // when the response is available
     }).
     error(function(data, status, headers, config) {
+        
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
@@ -169,8 +171,8 @@ var friendObj= {
             var serverResponseCode="";
  return $http({
      method: 'GET', 
-     url: url+"6", 
-     headers: {'Authorization': 'Basic ' + encodedAuth}
+     url: url+"6" 
+//    , headers: {'Authorization': 'Basic ' + encodedAuth}
  
             });
 //            return serverResponseCode;
