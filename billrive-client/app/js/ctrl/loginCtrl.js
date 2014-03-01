@@ -1,8 +1,6 @@
 billRive.controller('loginCtrl', function($scope, $rootScope, $location, univService,Auth) {
     //reset before showing login page
     $scope.user = {email: '', password: ''};
-    $rootScope.loggedIn = true;
-    $rootScope.loggedInUser = {name: 'user', username: 'password'};
     $scope.errorMsg="";
     $scope.login = function() {
         Auth.setCredentials($scope.user.email,$scope.user.password);
@@ -27,4 +25,10 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
 //    } 
         //$scope.loginError = true; //set this when login returns error
     };
+    
+      $scope.logout = function() {
+          Auth.clearCredentials();
+          $location.path('/'); 
+      };
+      
 });
