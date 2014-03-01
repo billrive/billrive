@@ -6,7 +6,7 @@ $scope.editBillId=$routeParams.billId;
     $scope.bills = [];
     $scope.emptySpace = " ";
 //auth.setCredentials('user','password');
-univService.getUserFromHttp(6).then(function() {
+
     $scope.user = univService.getUser();
     $scope.bills = $scope.user.groups[0].bills;
     $scope.groups=$scope.user.groups;
@@ -20,7 +20,21 @@ univService.getUserFromHttp(6).then(function() {
 
     $scope.bill = angular.copy(univService.getBillObj());
     }
-  });
+//univService.getUserFromHttp(6).then(function() {
+//    $scope.user = univService.getUser();
+//    $scope.bills = $scope.user.groups[0].bills;
+//    $scope.groups=$scope.user.groups;
+//    
+//    if($scope.editGroupId!=null && $scope.editBillId!=null)
+//    {
+//        $scope.bill =  angular.copy($scope.bills[$scope.editBillId]);
+//          $scope.simpleCalculateSum();
+//    }
+//    else{
+//
+//    $scope.bill = angular.copy(univService.getBillObj());
+//    }
+//  });
   
 
     $scope.setBillGroup = function() {

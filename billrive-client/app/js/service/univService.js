@@ -174,6 +174,9 @@ var friendObj= {
  
             });
 //            return serverResponseCode;
+        },
+        setUser: function(user) {
+            this.user=user;
         }
     };
 });

@@ -10,10 +10,12 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
         
     $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
     .success(function(data, status, headers, config) {
+        univService.setUser(data);
        $location.path('/bills/list'); 
+       
     }).
     error(function(data, status, headers, config) {
-     $scope.errorMsg=status+ ":Invalid Email/Password";
+     $scope.errorMsg=status+ ":Invalid Email/Password";//+" "+"<pre>"+headers+"</pre>";
     });
   
 //   if ( $scope.serverResponse == 200) {
