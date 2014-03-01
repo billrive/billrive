@@ -184,7 +184,7 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
             isUserLoggedIn = loggedIn_status;
         },
         getIsUserLoggedIn: function(){
-         console.log($cookieStore.get('authdata'));
+//         console.log($cookieStore.get('authdata'));
            if($cookieStore.get('authdata')===undefined)
             return false;
         else

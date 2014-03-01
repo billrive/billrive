@@ -14,9 +14,11 @@
                                   
                 -->                   <h1>Bill sharing made easy!</h1>
                 <p class="lead">While laundry and doing dishes isn't.</p>
+                 <!--Value:{{isUserLoggedIn()}}-->
             </div>
-            <div class="col-sm-3">
-                <form name="loginForm" class="form-signin" role="form">
+            <div  class="col-sm-3">
+                
+                <form ng-show="!isUserLoggedIn()" name="loginForm" class="form-signin" role="form">
 
                     <h2 class="form-signin-heading">Please sign in</h2>
 

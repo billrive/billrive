@@ -1,4 +1,4 @@
-billRive.controller('loginCtrl', function($scope, $rootScope, $location, univService,Auth) {
+billRive.controller('loginCtrl', function($scope, $location, univService,Auth,$cookieStore) {
     //reset before showing login page
     $scope.user = {email: '', password: ''};
     $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
@@ -44,5 +44,13 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
           Auth.clearCredentials();
           $location.path('/'); 
       };
+      
+      $scope.isUserLoggedIn = function(){
+//         console.log($cookieStore.get('authdata'));
+           if($cookieStore.get('authdata')===undefined)
+            return false;
+        else
+            return true;
+        };
       
 });
