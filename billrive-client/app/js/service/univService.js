@@ -162,7 +162,19 @@ var friendObj= {
         },
           getFriendObj: function() {
             return friendObj;
-        }       
+        },
+        authenticateAndGetUserFromHttp: function(email,password) {
+            
+            var encodedAuth = Base64.encode(email + ':' + password);
+            var serverResponseCode="";
+ return $http({
+     method: 'GET', 
+     url: url+"6", 
+     headers: {'Authorization': 'Basic ' + encodedAuth}
+ 
+            });
+//            return serverResponseCode;
+        }
     };
 });
 

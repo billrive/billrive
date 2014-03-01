@@ -3,14 +3,25 @@ billRive.controller('loginCtrl', function($scope, $rootScope, $location, univSer
     $scope.user = {email: '', password: ''};
     $rootScope.loggedIn = true;
     $rootScope.loggedInUser = {name: 'user', username: 'password'};
-
+    $scope.errorMsg="";
     $scope.login = function() {
-        console.log(" I am here ");
-        //make a service call to get these details
-        $rootScope.loggedIn = true;
-        $rootScope.loggedInUser = {name: 'Teja Kantamneni', username: 'tkantamneni'};
-        $location.path('/bills/list');
         
+        $scope.serverResponse="";
+        
+    $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
+    .success(function(data, status, headers, config) {
+       $location.path('/bills/list'); 
+    }).
+    error(function(data, status, headers, config) {
+     $scope.errorMsg=status+ ":Invalid Email/Password";
+    });
+  
+//   if ( $scope.serverResponse == 200) {
+//              
+//       }
+//  else{
+//       errorMsg=$scope.serverResponse+ ":Invalid Email/Password";
+//    } 
         //$scope.loginError = true; //set this when login returns error
     };
 });
