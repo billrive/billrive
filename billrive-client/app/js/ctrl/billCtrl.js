@@ -1,4 +1,4 @@
-billRive.controller('billCtrl', function($location, $scope, univService,$routeParams) {
+billRive.controller('billCtrl', function($location, $scope, univService,$routeParams,Auth) {
      $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
 $scope.editGroupId=$routeParams.groupId;
 $scope.editBillId=$routeParams.billId;
@@ -6,9 +6,43 @@ $scope.editBillId=$routeParams.billId;
     $scope.groups = [];
     $scope.bills = [];
     $scope.emptySpace = " ";
-//auth.setCredentials('user','password');
-
-    $scope.user = univService.getUser();
+     $scope.user = univService.getUser();
+    if(jQuery.isEmptyObject($scope.user)){
+        
+        univService.authenticateAndGetUserFromHttp()
+    .success(function(data, status, headers, config) {
+       univService.setUser(angular.copy(data));
+//       univService.setIsUserLoggedIn(true);
+//       $location.path('/bills/list'); 
+$scope.user=data;
+       init();
+    }).
+    error(function(data, status, headers, config) {
+//        Auth.clearCredentials();
+        univService.setIsUserLoggedIn(false);
+        if(status==401)
+          $scope.errorMsg=status+ ":Invalid Email/Password";
+         else
+             if(status=404)
+                 $scope.errorMsg=status+ ":Service is currently unreachable";
+         else
+             if(status=500)
+                 $scope.errorMsg=status+ ":Service is currently experiencing difficulties";
+         else
+             $scope.errorMsg=status+ ":We are currently experiencing technical difficulties";
+        $location.path('/')
+        //+" "+"<pre>"+headers+"</pre>";
+    });
+       
+        
+    }
+    else
+    {
+        init();
+    }
+    
+    function init(){
+      
     $scope.bills = $scope.user.groups[0].bills;
     $scope.groups=$scope.user.groups;
     
@@ -20,6 +54,7 @@ $scope.editBillId=$routeParams.billId;
     else{
 
     $scope.bill = angular.copy(univService.getBillObj());
+    }
     }
 //univService.getUserFromHttp(6).then(function() {
 //    $scope.user = univService.getUser();

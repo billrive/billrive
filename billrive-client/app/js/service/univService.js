@@ -165,14 +165,21 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
         getFriendObj: function() {
             return friendObj;
         },
-        authenticateAndGetUserFromHttp: function(email, password) {
+        authenticateAndGetUserFromHttp: function() {
+            
+       
+//        authenticateAndGetUserFromHttp: function(email, password) {
 
-            var encodedAuth = Base64.encode(email + ':' + password);
-            var serverResponseCode = "";
+       var encodedAuth = $cookieStore.get('authdata');
+       if(encodedAuth===undefined)
+                return null;
+//        else
+//            return true;
+//            var serverResponseCode = "";
             return $http({
                 method: 'GET',
                 url: url + "6"
-//    , headers: {'Authorization': 'Basic ' + encodedAuth}
+    , headers: {'Authorization': 'Basic ' + encodedAuth}
 
             });
 //            return serverResponseCode;

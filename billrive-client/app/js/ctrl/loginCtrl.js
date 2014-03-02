@@ -1,13 +1,14 @@
 billRive.controller('loginCtrl', function($scope, $location, univService,Auth,$cookieStore) {
     //reset before showing login page
     $scope.user = {email: '', password: ''};
-    $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
+//    $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
     $scope.errorMsg="";
     $scope.login = function() {
         Auth.setCredentials($scope.user.email,$scope.user.password);
         $scope.serverResponse="";
         
-    $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
+    $scope.serverResponse= univService.authenticateAndGetUserFromHttp()
+//    $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
     .success(function(data, status, headers, config) {
        univService.setUser(angular.copy(data));
        univService.setIsUserLoggedIn(true);

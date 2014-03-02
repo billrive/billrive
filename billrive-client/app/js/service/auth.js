@@ -5,7 +5,7 @@ billRive.factory('Auth', ['Base64', '$cookieStore', '$http', function (Base64, $
     return {
         setCredentials: function (username, password) {
             var encoded = Base64.encode(username + ':' + password);
-            $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
+//            $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
             $cookieStore.put('authdata', encoded);
         },
         clearCredentials: function () {
