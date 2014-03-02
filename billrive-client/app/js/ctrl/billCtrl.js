@@ -20,17 +20,17 @@ $scope.user=data;
     error(function(data, status, headers, config) {
 //        Auth.clearCredentials();
         univService.setIsUserLoggedIn(false);
-        if(status==401)
+        if(status===401)
           $scope.errorMsg=status+ ":Invalid Email/Password";
          else
-             if(status=404)
+             if(status===404)
                  $scope.errorMsg=status+ ":Service is currently unreachable";
          else
-             if(status=500)
+             if(status===500)
                  $scope.errorMsg=status+ ":Service is currently experiencing difficulties";
          else
              $scope.errorMsg=status+ ":We are currently experiencing technical difficulties";
-        $location.path('/')
+        $location.path('/');
         //+" "+"<pre>"+headers+"</pre>";
     });
        

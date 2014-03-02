@@ -1,4 +1,4 @@
-billRive.controller('userCtrl', function(univService,$scope,$cookieStore) {
+billRive.controller('userCtrl', function(univService,$scope,$cookieStore,Auth,$location) {
 //  $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
   $scope.isUserLoggedIn = function(){
 //         console.log($cookieStore.get('authdata'));
@@ -8,7 +8,10 @@ billRive.controller('userCtrl', function(univService,$scope,$cookieStore) {
             return true;
         };
   
-  
+   $scope.logout = function() {
+          Auth.clearCredentials();
+          $location.path('/'); 
+      };
   
 //console.log($scope.isUserLoggedIn);
 });
