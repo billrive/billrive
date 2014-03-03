@@ -655,7 +655,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (6,'Bruce','Wayne',NULL,NULL,'me@prashu.net','password',1),(7,'Peter','Parker',NULL,NULL,'jayanthk4u@gmail.com','password',1),(8,'Clark','Kent',NULL,NULL,'kkathari@gmail.com','password',1);
+INSERT INTO `user` VALUES (6,'Bruce','Wayne',NULL,NULL,'john@doe.com','password',1),(7,'Peter','Parker',NULL,NULL,'jayanthk4u@gmail.com','password',1),(8,'Clark','Kent',NULL,NULL,'kkathari@gmail.com','password',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
