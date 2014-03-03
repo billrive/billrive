@@ -10,10 +10,16 @@ billRive.controller('loginCtrl', function($scope, $location, univService,Auth,$c
     $scope.serverResponse= univService.authenticateAndGetUserFromHttp()
 //    $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
     .success(function(data, status, headers, config) {
+        if(!jQuery.isEmptyObject(data)){
        univService.setUser(angular.copy(data));
        univService.setIsUserLoggedIn(true);
        $location.path('/bills/list'); 
-       
+        }
+        else
+        {
+              Auth.clearCredentials();
+              $scope.errorMsg=status+ ":Unknown error. Paging Chuck Norris for help.";
+        }
     }).
     error(function(data, status, headers, config) {
         Auth.clearCredentials();
@@ -22,7 +28,7 @@ billRive.controller('loginCtrl', function($scope, $location, univService,Auth,$c
           $scope.errorMsg=status+ ":Invalid Email/Password";
          else
              if(status===404)
-                 $scope.errorMsg=status+ ":Service is currently unreachable";
+                 $scope.errorMsg=status+ ":Service is currently unreachable. Dev Tip: Check Port settings in univService";
          else
              if(status===500)
                  $scope.errorMsg=status+ ":Service is currently experiencing difficulties";
