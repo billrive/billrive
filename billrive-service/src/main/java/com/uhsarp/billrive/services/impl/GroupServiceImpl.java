@@ -8,7 +8,6 @@ package com.uhsarp.billrive.services.impl;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.domain.Group;
 import com.uhsarp.billrive.services.GroupService;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ import org.springframework.stereotype.Service;
 @Service("groupService")
 public class GroupServiceImpl implements GroupService{
     
-   @Resource(name= "groupDAO")
+   @Resource(name="groupDAO")
    GroupDAO groupDAO;
 
    //Returns the list of Gropus for a particular userId 
@@ -33,6 +32,10 @@ public class GroupServiceImpl implements GroupService{
         
     }
 
+    public List<Long> getUsersInGroup(Long groupId) {
+        return groupDAO.findUsersByGroupId(groupId);
+    }
+ 
     public Group getGroupById(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

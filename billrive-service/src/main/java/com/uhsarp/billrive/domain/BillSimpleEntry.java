@@ -27,7 +27,7 @@ public class BillSimpleEntry  implements GenericObject{
 //        @OneToMany(fetch=FetchType.EAGER,targetEntity = SimpleUserIdAndLiableCost.class, cascade = CascadeType.ALL,mappedBy="billSimpleEntryId")
 //        @JoinColumn(name = "id", referencedColumnName = "billSimpleEntryId")
 //        @Transient
-         @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+         @OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval=true)
          @JoinColumn(name="billSimpleEntryId")
 	private List<SimpleUserIdAndLiableCost> simpleUserIdAndLiableCost = new ArrayList<SimpleUserIdAndLiableCost>();
         

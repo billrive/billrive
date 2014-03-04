@@ -28,7 +28,15 @@ public class SimpleUserIdAndLiableCost implements GenericObject {
     @Column(columnDefinition = "BIT", length = 1)
     private Boolean isActive;
 
+    private BigDecimal liableCostDiff;
+
     public SimpleUserIdAndLiableCost() {
+    }
+
+    public SimpleUserIdAndLiableCost(Long userId, BigDecimal liableCost, Boolean isActive) {
+        this.userId = userId;
+        this.liableCost = liableCost;
+        this.isActive = isActive;
     }
 
     public Long getUserId() {
@@ -45,6 +53,14 @@ public class SimpleUserIdAndLiableCost implements GenericObject {
 
     public void setLiableCost(BigDecimal liableCost) {
         this.liableCost = liableCost;
+    }
+
+    public BigDecimal getLiableCostDiff() {
+        return liableCostDiff;
+    }
+
+    public void setLiableCostDiff(BigDecimal liableCostDiff) {
+        this.liableCostDiff = liableCostDiff;
     }
 
     public Long getId() {
@@ -78,4 +94,5 @@ public class SimpleUserIdAndLiableCost implements GenericObject {
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
+    
 }

@@ -140,16 +140,16 @@ public class BillController extends GenericController{
 	/**
 	 * Deletes the bill with the given bill id.
 	 *
-	 * @param billId_p
-	 *            the bill id_p
+	 * @param bill_p
+	 *            the bill_p
 	 * @return the model and view
 	 */
 	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/bill/{billId}", method = RequestMethod.DELETE)
-	public void deleteBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
+	public void deleteBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
-            Boolean deleted=false;
+                Boolean deleted=false;
 
-		logger_c.debug("Deleting Bill Id: " + billId_p.toString());
+		logger_c.debug("Deleting Bill: " + bill_p.toString());
 
 		/* validate bill Id parameter */
 		if (isEmpty(billId_p) || billId_p.length() < 5) {
@@ -158,7 +158,7 @@ public class BillController extends GenericController{
 		}
 
 		try {
-			 deleted = billService.deleteBill(Long.parseLong(billId_p));
+			 deleted = billService.deleteBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error invoking getBills. [%1$s]";
 //			return createErrorResponse(String.format(sMessage, e.toString()));

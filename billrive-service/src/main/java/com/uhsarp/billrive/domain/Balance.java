@@ -22,7 +22,6 @@ public class Balance implements GenericObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
-    private Long groupId;
     private Long userId_gets;
     private Long userId_gives;
     private BigDecimal  amount;
@@ -33,14 +32,6 @@ public class Balance implements GenericObject {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
     }
 
     public Long getUserId_gets() {

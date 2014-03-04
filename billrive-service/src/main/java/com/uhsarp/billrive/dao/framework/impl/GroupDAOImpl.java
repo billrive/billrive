@@ -11,6 +11,8 @@ import com.googlecode.genericdao.search.SearchResult;
 import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.domain.Group;
 import com.uhsarp.billrive.webservices.rest.BillController;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -45,7 +47,7 @@ public class GroupDAOImpl implements GroupDAO{
    
     public Long findGroupId(Long userId) {
       
-        List<Long> groupIds= (List<Long>) em.createNativeQuery("SELECT groups_id FROM grouprivedb.usergroupmap where id="+userId).getResultList();
+        List<Long> groupIds= (List<Long>) em.createNativeQuery("SELECT groups_id FROM billrivedbtest.usergroupmap where id="+userId).getResultList();
         Long groupId = groupIds.get(0).longValue();
         return  groupId;
     }
@@ -169,6 +171,17 @@ public class GroupDAOImpl implements GroupDAO{
       List groups = q.getResultList();
       return groups;
         
+    }
+    
+    public List<Long> findUsersByGroupId(Long groupId) {
+        List<Number> tempList = (List<Number>)em.createNativeQuery("SELECT user_id FROM billrivedbtest.usergroupmap u WHERE u.groups_id = :groupId")
+                .setParameter("groupId", groupId)
+                .getResultList();
+        List<Long> userIds = new ArrayList<Long>();
+        for(Iterator<Number> i = tempList.iterator(); i.hasNext();) {
+            userIds.add(i.next().longValue());
+        }
+        return userIds;
     }
     
 }

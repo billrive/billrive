@@ -34,12 +34,10 @@ public class BillriveJPA {
         DriverManagerDataSource ds = new DriverManagerDataSource();
 
         try {
-
             ds.setDriverClassName("com.mysql.jdbc.Driver");
             ds.setUsername("root");
-            ds.setPassword("");
+            ds.setPassword("1234");
             ds.setUrl("jdbc:mysql://localhost:3306/billrivedb");
-
         } catch (Exception e) {
             logger.error(e.getMessage());
         }

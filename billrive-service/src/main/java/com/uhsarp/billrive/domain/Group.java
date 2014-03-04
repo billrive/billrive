@@ -47,10 +47,7 @@ public class Group implements GenericObject {
     @Basic
     @Column(columnDefinition = "BIT", length = 1)
     private boolean isActive;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "groupId")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Balance> balances = new ArrayList<Balance>();
-
+    
     public Group() {
     }
 
@@ -132,13 +129,4 @@ public class Group implements GenericObject {
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
-
-    public List<Balance> getBalances() {
-        return balances;
-    }
-
-    public void setBalances(List<Balance> balances) {
-        this.balances = balances;
-    }
-  
 }

@@ -11,9 +11,11 @@ import com.uhsarp.billrive.dao.framework.GroupDAO;
 import com.uhsarp.billrive.dao.framework.UserDAO;
 import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.domain.User;
+import com.uhsarp.billrive.services.BalanceService;
 import com.uhsarp.billrive.services.BillService;
 import java.util.List;
 import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,6 +41,9 @@ public class BillServiceImpl implements BillService {
     
     @Resource(name="userDAO")
     UserDAO userDAO;
+    
+    @Autowired
+    BalanceService balanceService;
 //    @Autowired
 //    MySqlDao mySqlDao;
     public List<Bill> getBills(Long userId) {
@@ -65,20 +70,36 @@ public class BillServiceImpl implements BillService {
     }
 @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
     public Bill addBill(Bill bill_p) {
-        
+        balanceService.updateBalances
+            (
+            bill_p.getBillPayerId(),
+            bill_p.getBillSimpleEntry().getSimpleUserIdAndLiableCost(), 
+            BalanceService.OPERATION.OP_ADD_BILL
+            );
         return billDAO.save(bill_p);
-      
     }
 
     public Bill editBill(Bill bill_p) {
-    return  billDAO.merge(bill_p);
+        balanceService.updateBalances
+            (
+            bill_p.getBillPayerId(),
+            bill_p.getBillSimpleEntry().getSimpleUserIdAndLiableCost(), 
+            BalanceService.OPERATION.OP_EDIT_BILL
+            );
+        return  billDAO.merge(bill_p);
     }
 
-    public Boolean deleteBill(Long billId_p) {
-       Boolean deleted= billDAO.removeById(billId_p);
-       if(deleted)
-           return true;
-       else
+    public Boolean deleteBill(Bill bill_p) {
+        balanceService.updateBalances
+            (
+            bill_p.getBillPayerId(),
+            bill_p.getBillSimpleEntry().getSimpleUserIdAndLiableCost(), 
+            BalanceService.OPERATION.OP_DEL_BILL
+            );
+        Boolean deleted= billDAO.removeById(bill_p.getId());
+        if(deleted)
+            return true;
+        else
             return false;
     }
 

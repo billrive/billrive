@@ -21,5 +21,5 @@ public interface BillService {
 
      Bill editBill(Bill bill_p);
 
-     Boolean deleteBill(Long billId_p);
+     Boolean deleteBill(Bill bill_p);
 }
