@@ -17,7 +17,7 @@
         <h4>Active Groups<h4></h4></h4>
     </div>
     <tbody>
-        <tr ng-repeat="igroup in user.groups | filter:query | orderBy:'date'">
+        <tr ng-repeat="igroup in group | filter:query | orderBy:'date'">
             <td>{{ igroup.name }}</td>
             <td>
                 <!-- <a href="#/groups/edit/{{$index}}"><i class="glyphicon glyphicon-pencil "></i></a>--> <a class="btn btn-default  btn-success" href="#/groups/edit/{{igroup.id}}">&nbsp;Edit</a>

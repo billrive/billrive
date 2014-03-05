@@ -1,21 +1,11 @@
-billRive.controller('groupCtrl', function($scope, univService, $location, $routeParams) {
+billRive.controller('groupCtrl', function($scope, univService,groupService, $location, $routeParams) {
     
    
-   univService.getUserFromHttp(6).then(function() {
-    $scope.user = univService.getUser();
-    $scope.groups = $scope.user.groups[0].groups;
-    $scope.groups=$scope.user.groups;
+   groupService.getGroupsFromHttp(6).then(function() {
     
-//    if($scope.editGroupId!=null && $scope.editBillId!=null)
-//    {
-//        $scope.group =  angular.copy($scope.groups[$scope.editBillId]);
-//          $scope.simpleCalculateSum();
-//    }
-//    else{
-//
-    $scope.group = angular.copy(univService.getGroupObj());
-//    }
-  });
+       $scope.group = groupService.getGroups();
+    
+    });
     
      $scope.setNewGroupMembership=function(){
         

@@ -23,8 +23,14 @@ public class GroupServiceImpl implements GroupService{
    @Resource(name= "groupDAO")
    GroupDAO groupDAO;
 
-    public List<Group> getGroups(Long userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   //Returns the list of Gropus for a particular userId 
+   public List<Group> getGroups(Long userId) {
+       
+       List<Group> grps;
+       grps = groupDAO.getGroups(userId);
+        
+       return grps;
+        
     }
 
     public Group getGroupById(Long id) {

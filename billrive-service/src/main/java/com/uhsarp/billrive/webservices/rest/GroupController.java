@@ -7,6 +7,7 @@ package com.uhsarp.billrive.webservices.rest;
 import com.uhsarp.billrive.domain.Group;
 import com.uhsarp.billrive.services.GroupService;
 import static com.uhsarp.billrive.webservices.rest.GroupController.isEmpty;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -26,6 +27,7 @@ import org.springframework.web.context.request.WebRequest;
  * @author Prashanth Batchu
  */
 @RestController
+@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/group")
 public class GroupController extends GenericController {
     
     	@Autowired
@@ -42,10 +44,10 @@ public class GroupController extends GenericController {
         
     	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/{userId}/groups/", method = RequestMethod.GET)
 	public @ResponseBody List<Group> getGroups(@PathVariable("userId") int userId) {
-		List<Group> groups = null;
+		List<Group> groups = new ArrayList<Group>();
                 System.out.println("In Groups...Calling getGroups");
 		try {
-//			groups = groupService.getGroups(userId);
+			groups = groupService.getGroups((Long.valueOf(userId)));
 		} catch (Exception e) {
 			String sMessage = "Error getting all groups. [%1$s]";
 			return groups;

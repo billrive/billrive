@@ -163,5 +163,12 @@ public class GroupDAOImpl implements GroupDAO{
       Group group = (Group) q.getSingleResult();
         return group;
     }
+
+    public List<Group> getGroups(Long userId) {
+      Query q = em.createQuery(" select distinct g from Group g where g.ownerId="+userId);
+      List groups = q.getResultList();
+      return groups;
+        
+    }
     
 }
