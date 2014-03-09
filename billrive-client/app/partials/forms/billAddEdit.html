@@ -1,4 +1,5 @@
-<div class="col-md-4" style="padding-right: 10px; border-right: 1px solid #ccc;">
+<div class="col-md-4" style="padding-right: 10px;">
+<!--<div class="col-md-4" style="padding-right: 10px; <!-- border-right: 1px solid #ccc-->;">-->
     <div class='form-group'>
         <label>Bill Total</label>
         <input type="text" class="form-control" ng-model="bill.billTotal"
@@ -39,23 +40,21 @@
 </div>
 <div class="col-md-5">
     <div class="btn-group">
-        <ul class="dropdown-menu">
-            <!-- dropdown menu links -->
-        </ul>
-        <button class="btn btn-sm"><i class="glyphicon glyphicon-book"></i>&nbsp;simple</button>
-        <button class="btn btn-sm dropdown-toggle"
-                data-toggle="dropdown"> <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            <li><a href="#/bills/equalsplit">Equal Split</a>
-            </li>
-            <li><a href="#">Percentage</a>
-            </li>
-            <li class="divider"></li>
-            <li><a href="#">Custom</a>
-            </li>
-        </ul>
-        <button class="btn btn-sm"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;advanced</button>
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <i class="glyphicon glyphicon-book"></i>&nbsp;Simple <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#/bills/equalsplit">Equal Split</a></li>
+    <li><a href="#">Percentage</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Custom</a></li>
+  </ul>
+</div>
+    <div class="btn-group">
+               
+        <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+<i class="glyphicon glyphicon-list-alt"></i>&nbsp;Advanced<span class="caret"></span>
+  </button>
     </div>
     <div class="" ng-include="'partials/bills/simple.html'" id="editModal"></div>
 </div>
