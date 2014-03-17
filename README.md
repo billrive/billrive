@@ -32,11 +32,11 @@ Basically, you will need to do the following
 -Setup your Development Environment
 
 What you Need:
--Version Control: Git for Windows or Linux (git-scm.org) or Netbeans with GIT plugin installed
--IDE: Netbeans or Eclipse 
--Application Server: Tomcat 7
--Debugging: Netbeans chrome integration plugin (optional but preferred if you'd like to use Netbeans)
--Debugging: Angular Batarang plugin for Chrome (optional)
+-	Version Control: Git for Windows or Linux (git-scm.org) or Netbeans with GIT plugin installed
+-	IDE: Netbeans or Eclipse 
+-	Application Server: Tomcat 7
+-	Debugging: Netbeans chrome integration plugin (optional but preferred if you'd like to use Netbeans)
+-	Debugging: Angular Batarang plugin for Chrome (optional)
 
 To get a copy of the source code, Clone the GIT repository using Netbeans GIT plugin or through the native windows GIT plugin.
 
