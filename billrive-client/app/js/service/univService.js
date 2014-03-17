@@ -178,7 +178,7 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
 //            var serverResponseCode = "";
             return $http({
                 method: 'GET',
-                url: url + "6"
+                url: url
     , headers: {'Authorization': 'Basic ' + encodedAuth}
 
             });
