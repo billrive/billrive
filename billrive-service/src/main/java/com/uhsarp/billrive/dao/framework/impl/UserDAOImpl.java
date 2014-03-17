@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository("userDAO")
 @Transactional
-public class UserDAOImpl  implements UserDAO{
+ public class UserDAOImpl  implements UserDAO{
 
     @PersistenceContext
 	private EntityManager em;
@@ -133,6 +133,11 @@ public class UserDAOImpl  implements UserDAO{
         return user;
         
     }
-
+    public User getUserByUserName(String userName){
+        
+        Query q =  em.createQuery("select u from User u  WHERE u.email='"+userName+"'");    
+        User user = (User) q.getSingleResult();
+        return user;
+    }
   
 }

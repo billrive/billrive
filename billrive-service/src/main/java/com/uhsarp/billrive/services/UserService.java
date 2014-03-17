@@ -21,5 +21,7 @@ public interface UserService {
      User updateUser(User bill_p);
 
      void deleteUser(String billId_p);
+     
+     User getUserByUserName(String userName);
     
 }

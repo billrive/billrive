@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService {
         User user = userDAO.getUserByUserId(id);
         return user;
     }
+    
+    public User getUserByUserName(String name) {
+        
+        User user = userDAO.getUserByUserName(name);
+        return user;
+    }
 
     public User addUser(User user_p) {
        User userCreated= userDAO.save(user_p);
