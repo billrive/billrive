@@ -44,7 +44,8 @@ public class BillriveJPATest {
     try {
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         ds.setUsername("root");
-        ds.setPassword("1234");
+        ds.setPassword("");
+//        ds.setPassword("1234");
         ds.setUrl("jdbc:mysql://localhost:3306/billrivedbtest");
 
     } catch (Exception e) {
