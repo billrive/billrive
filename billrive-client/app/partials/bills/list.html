@@ -15,14 +15,14 @@
         <span class="glyphicon glyphicon-search"></span>
     </button>
 </div>
-<table class="table table-hover table-condensed">
+<table class="table table-hover">
     <!--<table class="table">-->
     <thead>
         <tr>
             <th align="left" >Date</th>
             <th align="left" >Title</th>
             <th align="left" >Bill Total</th>
-            <th align="left">Options</th>
+            <!--<th align="left">Options</th>-->
         </tr>
     </thead>
     <tbody>
@@ -30,13 +30,13 @@
                         <td width="150px">{{ ibill.billDate | date:'MM/dd/yyyy'}}</td>
                         <td>{{ ibill.title}}</td>
                         <td>${{ ibill.billTotal}}</td>
-                        <td></td>
+                        <!--<td></td>-->
         </tr>
         <tr ng-show="!ibill.isCollapsed" ng-repeat-end>
             <td >
                 Description of the bill goes here.{{ibill.description}}
             </td>
-            <td colspan="2">
+            <td colspan="1">
                 <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">{{simplecost.user.fName}} owes ${{simplecost.liableCost}}</p>
             </td>
             <td>  

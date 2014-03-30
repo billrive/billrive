@@ -33,8 +33,7 @@ $scope.user=data;
         $location.path('/');
         //+" "+"<pre>"+headers+"</pre>";
     });
-       
-        
+             
     }
     else
     {
