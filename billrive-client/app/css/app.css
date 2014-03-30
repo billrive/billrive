@@ -69,4 +69,6 @@ body {
   text-decoration: line-through;
   color: grey;
 }
-
+table {
+    table-layout:fixed;
+}
