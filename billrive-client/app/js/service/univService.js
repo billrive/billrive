@@ -80,6 +80,11 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
         getUser: function() {
             return user;
         },
+        
+        getUserName: function() {
+            return (user.fName + ' ' + user.lName);
+        },
+        
         getUserFromHttp: function(userId) {
 
 
@@ -118,24 +123,41 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
         addUser: function(User) {
             return $http.put(url + User.Id, User);
         },
+        setHeader : function(op) {
+            var encodedAuth = $cookieStore.get('authdata');
+            var config = {
+                headers: {
+                    'Authorization': 'Basic ' + encodedAuth
+                }
+            };
+            if(op === 'deleteBill') {
+                config.headers['Content-Type'] = 'application/json';
+            }
+            return config;
+        },
         addBill: function(Bill) {
             user.groups[0].bills.push(Bill);
-//            return $http.post(url + currUserId + "/bill/", Bill);
-
-var encodedAuth = $cookieStore.get('authdata');
-var postUrl = url + currUserId + '/bill/';
-return $http({
-                method: 'POST',
-                url: postUrl,
-                data: Bill,
-                headers: {'Authorization': 'Basic ' + encodedAuth}
-            });
+//            var data = {
+//                'Bill': Bill
+//            };
+            var config = this.setHeader('addBill');
+            return $http.post(url + currUserId + "/bill/", Bill, config);
         },
         deleteBill: function(billId) {
-            return $http.delete(url + currUserId + "/bill/" + billId);
+//            var data = {
+//                'billId': billId
+//            };
+            var config = this.setHeader('deleteBill');
+            config['data'] = billId;
+            return $http.delete(url + currUserId + "/bill/" + billId, config);
         },
         editBill: function(billId, Bill) {
-            return $http.put(url + currUserId + "/bill/" + billId, Bill);
+//            var data = {
+//                'Bill': Bill,
+//                'billId': billId
+//            };
+            var config = this.setHeader('editBill');
+            return $http.put(url + currUserId + "/bill/" + billId, Bill, config);
         },
         getBillObj: function() {
             return billObj;
@@ -208,7 +230,6 @@ return $http({
         }
     };
 });
-
 
 billRive.factory('Base64', function() {
     var keyStr = 'ABCDEFGHIJKLMNOP' +

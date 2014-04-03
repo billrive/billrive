@@ -5,7 +5,10 @@
 package com.uhsarp.billrive.webservices.rest;
 
 import com.uhsarp.billrive.domain.Bill;
+import com.uhsarp.billrive.domain.BillSimpleEntry;
+import com.uhsarp.billrive.domain.SimpleUserIdAndLiableCost;
 import com.uhsarp.billrive.services.BillService;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
@@ -90,7 +93,8 @@ public class BillController extends GenericController{
 		logger_c.debug("Creating Bill: " + bill_p.toString());
 
 		try {
-			createdBill = billService.addBill(bill_p);
+			bill_p.setBillCreaterId((long)userId);
+                        createdBill = billService.addBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new bill. [%1$s]";
 		}
@@ -127,6 +131,19 @@ public class BillController extends GenericController{
 		Bill mergedBill = null;
 
 		try {
+                        BillSimpleEntry billSimpleEntry_p = bill_p.getBillSimpleEntry();
+                        List<SimpleUserIdAndLiableCost> theList = billSimpleEntry_p.getSimpleUserIdAndLiableCost();
+                        BigDecimal userCount = new BigDecimal(theList.size());
+                        BigDecimal newTotal = bill_p.getBillTotal();
+                        BigDecimal newLiableCost = newTotal.divide(userCount);
+
+                        //Update the liable costs
+                        for(SimpleUserIdAndLiableCost s : theList) {
+                            BigDecimal liableCostDiff = newLiableCost.subtract(s.getLiableCost());
+                            s.setLiableCost(newLiableCost);
+                            s.setLiableCostDiff(liableCostDiff);
+                        }
+                        billSimpleEntry_p.setSimpleUserIdAndLiableCost(theList);
 			mergedBill = billService.editBill(bill_p);
 		} catch (Exception e) {
 			String sMessage = "Error updating bill. [%1$s]";
@@ -145,11 +162,12 @@ public class BillController extends GenericController{
 	 * @return the model and view
 	 */
 	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/bill/{billId}", method = RequestMethod.DELETE)
-	public void deleteBill(@RequestBody Bill bill_p, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
+	public void deleteBill(@RequestBody Long billId, @PathVariable("billId") String billId_p,@PathVariable("userId") int userId,
 								   HttpServletResponse httpResponse_p) {
                 Boolean deleted=false;
 
-		logger_c.debug("Deleting Bill: " + bill_p.toString());
+                Bill bill_p = billService.getBillById(billId);
+		logger_c.debug("Deleting Bill with : " + bill_p.toString());
 
 		/* validate bill Id parameter */
 		if (isEmpty(billId_p) || billId_p.length() < 5) {

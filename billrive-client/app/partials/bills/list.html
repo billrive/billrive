@@ -44,7 +44,7 @@
                 <a href="#/bills/edit/0/{{$index}}" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;
                             </a>
                             
-                            <a ng-click="ibill.isCollapsed = !ibill.isCollapsed" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;</a>
+                            <a ng-click="ibill.isCollapsed = !ibill.isCollapsed; deleteBill(ibill.id)" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;</a>
                             
 <!--                            <a class="btn btn-xs btn-success" ng-init="ibill.isCollapsed = 'true'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;</a>-->
                             <!--<a

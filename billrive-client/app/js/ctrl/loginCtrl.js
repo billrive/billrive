@@ -13,6 +13,8 @@ billRive.controller('loginCtrl', function($scope, $location, univService,Auth,$c
         if(!jQuery.isEmptyObject(data)){
        univService.setUser(angular.copy(data));
        univService.setIsUserLoggedIn(true);
+       var userName = data.fName + ' ' + data.lName;
+       $cookieStore.put('userName', userName);
        $location.path('/bills/list'); 
         }
         else

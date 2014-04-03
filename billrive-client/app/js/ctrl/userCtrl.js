@@ -12,7 +12,8 @@ billRive.controller('userCtrl', function(univService,$scope,$cookieStore,Auth,$l
           Auth.clearCredentials();
           $location.path('/'); 
       };
-  
+   
+    $scope.userName = $cookieStore.get('userName');
 //console.log($scope.isUserLoggedIn);
 });
 
