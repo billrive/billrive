@@ -58,7 +58,7 @@ public class BillDAOImplTest {
         System.out.println("getBillsByGroupId");
         Long groupId = 4L;
         List<Bill> result = billDAO.getBillsByGroupId(groupId);
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
         assertEquals("Travel", result.get(0).getTitle());
        
     }

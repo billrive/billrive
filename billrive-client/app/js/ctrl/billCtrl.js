@@ -48,13 +48,15 @@ $scope.user=data;
     if($scope.editGroupId!=null && $scope.editBillId!=null)
     {
         $scope.bill =  angular.copy($scope.bills[$scope.editBillId]);
-          $scope.simpleCalculateSum();
+//          $scope.simpleCalculateSum();
     }
     else{
 
     $scope.bill = angular.copy(univService.getBillObj());
     }
+    
     }
+    
 //univService.getUserFromHttp(6).then(function() {
 //    $scope.user = univService.getUser();
 //    $scope.bills = $scope.user.groups[0].bills;
@@ -120,9 +122,10 @@ $scope.user=data;
     $scope.addBill = function() {
           $scope.bills.push(jQuery.extend(true, {}, $scope.bill));
 //console.log(JSON.stringify($scope.bill));
-$scope.bill.billDate=Date.parse($scope.bill.billDate);
+$scope.bill.billDate=1380693600000;//Date.parse($scope.bill.billDate);
+//$scope.bill.billDate=Date.parse($scope.bill.billDate);
         univService.addBill(angular.copy($scope.bill));
-        $location.url('/');
+        $location.url('/list');
     };
     $scope.deleteBill = function(billId) {
         univService.deleteBill(billId).then(function(data){

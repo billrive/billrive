@@ -15,6 +15,7 @@
         <span class="glyphicon glyphicon-search"></span>
     </button>
 </div>
+<div class="table-responsive">
 <table class="table table-hover">
     <!--<table class="table">-->
     <thead>
@@ -32,7 +33,7 @@
                         <td>${{ ibill.billTotal}}</td>
                         <!--<td></td>-->
         </tr>
-        <tr ng-show="!ibill.isCollapsed" ng-repeat-end>
+        <tr ng-click="ibill.isCollapsed = !ibill.isCollapsed" ng-show="!ibill.isCollapsed" ng-repeat-end>
             <td >
                 Description of the bill goes here.{{ibill.description}}
             </td>
@@ -45,7 +46,7 @@
                             
                             <a ng-click="ibill.isCollapsed = !ibill.isCollapsed" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;</a>
                             
-                            <a class="btn btn-xs btn-success" ng-init="ibill.isCollapsed = 'true'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;</a>
+<!--                            <a class="btn btn-xs btn-success" ng-init="ibill.isCollapsed = 'true'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;</a>-->
                             <!--<a
                             class="btn btn-default" ng-init="ibill.isCollapsed=' true'" ng-click="ibill.isCollapsed=!
                             ibill.isCollapsed"><i class="glyphicon glyphicon-folder-open "></i> Details</a>-->
@@ -62,7 +63,7 @@
               </tr>-->
     </tbody>
 </table>
-
+</div>
 <!--<button class="btn btn-default" ng-click="isCollapsed=! isCollapsed">Toggle collapse</button>
 
     <div collapse="isCollapsed">

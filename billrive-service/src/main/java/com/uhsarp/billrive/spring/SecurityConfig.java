@@ -40,7 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").hasRole("USER")
                 .anyRequest().anonymous()
                 .and()
+                .csrf().disable()
                 .httpBasic();
+        
     }
 
 }

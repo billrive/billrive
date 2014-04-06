@@ -120,7 +120,16 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
         },
         addBill: function(Bill) {
             user.groups[0].bills.push(Bill);
-            return $http.post(url + currUserId + "/bill/", Bill);
+//            return $http.post(url + currUserId + "/bill/", Bill);
+
+var encodedAuth = $cookieStore.get('authdata');
+var postUrl = url + currUserId + '/bill/';
+return $http({
+                method: 'POST',
+                url: postUrl,
+                data: Bill,
+                headers: {'Authorization': 'Basic ' + encodedAuth}
+            });
         },
         deleteBill: function(billId) {
             return $http.delete(url + currUserId + "/bill/" + billId);
