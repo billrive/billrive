@@ -1,4 +1,4 @@
-billRive.controller('loginCtrl', function($scope, $location, univService,Auth,$cookieStore) {
+billRive.controller('loginCtrl', function($rootScope, $scope, $location, univService,Auth,$cookieStore) {
     //reset before showing login page
     $scope.user = {email: '', password: ''};
 //    $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
@@ -11,16 +11,17 @@ billRive.controller('loginCtrl', function($scope, $location, univService,Auth,$c
 //    $scope.serverResponse= univService.authenticateAndGetUserFromHttp($scope.email,$scope.password)
     .success(function(data, status, headers, config) {
         if(!jQuery.isEmptyObject(data)){
-       univService.setUser(angular.copy(data));
-       univService.setIsUserLoggedIn(true);
-       var userName = data.fName + ' ' + data.lName;
-       $cookieStore.put('userName', userName);
-       $location.path('/bills/list'); 
+            univService.setUser(angular.copy(data));
+            univService.setIsUserLoggedIn(true);
+            $rootScope.$broadcast('SetUser', data);
+//            var userName = data.fName + ' ' + data.lName;
+//            $cookieStore.put('userName', userName);
+            $location.path('/bills/list'); 
         }
         else
         {
-              Auth.clearCredentials();
-              $scope.errorMsg=status+ ":Unknown error. Paging Chuck Norris for help.";
+            Auth.clearCredentials();
+            $scope.errorMsg=status+ ":Unknown error. Paging Chuck Norris for help.";
         }
     }).
     error(function(data, status, headers, config) {

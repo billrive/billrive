@@ -1,4 +1,4 @@
-billRive.controller('userCtrl', function(univService,$scope,$cookieStore,Auth,$location) {
+billRive.controller('userCtrl', function(univService,$rootScope, $scope,$cookieStore,Auth,$location) {
 //  $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
   $scope.isUserLoggedIn = function(){
 //         console.log($cookieStore.get('authdata'));
@@ -13,7 +13,12 @@ billRive.controller('userCtrl', function(univService,$scope,$cookieStore,Auth,$l
           $location.path('/'); 
       };
    
-    $scope.userName = $cookieStore.get('userName');
+   $scope.userName = univService.getUser();
+   $rootScope.$on('SetUser', function(event, data){
+       $scope.userName = data.fName + ' ' + data.lName;
+       univService.setUser(angular.copy(data));
+   });
+//    $scope.userName = univService.getUser();
 //console.log($scope.isUserLoggedIn);
 });
 
