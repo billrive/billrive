@@ -27,26 +27,24 @@
                 <td>${{ ibill.billTotal}}</td>
                 <!--<td></td>-->
             </tr>
-            <tr ng-click="ibill.isCollapsed = !ibill.isCollapsed" ng-show="!ibill.isCollapsed" ng-repeat-end>
+            <tr ng-show="!ibill.isCollapsed" ng-repeat-end>
+            <!--<tr ng-click="ibill.isCollapsed = !ibill.isCollapsed" ng-show="!ibill.isCollapsed" ng-repeat-end>-->
                 <td >
                     Description of the bill goes here.{{ibill.description}}
                 </td>
                 <td colspan="1">
                     <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">{{simplecost.user.fName}} owes ${{simplecost.liableCost}}</p>
                 </td>
-                <td> 
-                    <div class="bill-options">
+                <td ng-init="ibill.deleteConfirm = 'true'"> 
+                    <div ng-show="ibill.deleteConfirm" class="bill-options" >
                     <a href="#/bills/edit/0/{{$index}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
                     </a>
-                    <a ng-click="ibill.isCollapsed = !ibill.isCollapsed;
-                        deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a>
+                    <a  ng-click="ibill.deleteConfirm = !ibill.deleteConfirm;" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a>
                     </div>
-                    <div class="delete-confirm">
+                    <div ng-show="!ibill.deleteConfirm" class="delete-confirm">
                       Confirm Delete?
-                      <p><a ng-click="ibill.isCollapsed = !ibill.isCollapsed;
-                        deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Yes</a>
-                         <a ng-click="ibill.isCollapsed = !ibill.isCollapsed;
-                             deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Cancel</a></p>
+                      <p><a ng-click="deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Yes</a>
+                         <a ng-click="ibill.deleteConfirm = !ibill.deleteConfirm;" class="btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Cancel</a></p>
                     </div>
                 </td>
             </tr>
