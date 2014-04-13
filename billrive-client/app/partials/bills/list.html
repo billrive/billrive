@@ -1,8 +1,3 @@
-<!-- <div class="container">
-
-  <div class="row">
-
-    <div class="col-md-8 col-lg-offset-2">-->
 <div>
     <h4>Bills</h4>
 </div>
@@ -16,68 +11,45 @@
     </button>
 </div>
 <div class="table-responsive">
-<table class="table table-hover">
-    <!--<table class="table">-->
-    <thead>
-        <tr>
-            <th align="left" >Date</th>
-            <th align="left" >Title</th>
-            <th align="left" >Bill Total</th>
-            <!--<th align="left">Options</th>-->
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat-start="ibill in user.groups[0].bills| filter:query | orderBy:'date'"   ng-init="ibill.isCollapsed=' true'" ng-click="ibill.isCollapsed=!ibill.isCollapsed">
-                        <td width="150px">{{ ibill.billDate | date:'MM/dd/yyyy'}}</td>
-                        <td>{{ ibill.title}}</td>
-                        <td>${{ ibill.billTotal}}</td>
-                        <!--<td></td>-->
-        </tr>
-        <tr ng-click="ibill.isCollapsed = !ibill.isCollapsed" ng-show="!ibill.isCollapsed" ng-repeat-end>
-            <td >
-                Description of the bill goes here.{{ibill.description}}
-            </td>
-            <td colspan="1">
-                <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">{{simplecost.user.fName}} owes ${{simplecost.liableCost}}</p>
-            </td>
-            <td>  
-                <a href="#/bills/edit/0/{{$index}}" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i>&nbsp;
-                            </a>
-                            
-                            <a ng-click="ibill.isCollapsed = !ibill.isCollapsed; deleteBill(ibill.id)" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;</a>
-                            
-<!--                            <a class="btn btn-xs btn-success" ng-init="ibill.isCollapsed = 'true'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;</a>-->
-                            <!--<a
-                            class="btn btn-default" ng-init="ibill.isCollapsed=' true'" ng-click="ibill.isCollapsed=!
-                            ibill.isCollapsed"><i class="glyphicon glyphicon-folder-open "></i> Details</a>-->
-            </td>
-        </tr>
-        <!-- <tr>
-
-                  <td><div collapse="ibill.isCollapsed">
-
-                    <div class="well well-large">Some content</div> 
-
-            </div></td>
-
-              </tr>-->
-    </tbody>
-</table>
-</div>
-<!--<button class="btn btn-default" ng-click="isCollapsed=! isCollapsed">Toggle collapse</button>
-
-    <div collapse="isCollapsed">
-
-            <div class="well well-large">Some content</div> 
-
-    </div>-->
-<!--{{user.groups[0].bills}}-->
-<!--{{user.groups[0].bills}}-->
-<!--{{examp}}-->
-
-<!--<div>
-                                        <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">{{simplecost.user.fName}} owes ${{simplecost.liableCost}}</p>
-                                    </div>
-									-->
-									
-								
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th align="left" >Date</th>
+                <th align="left" >Title</th>
+                <th align="left" >Bill Total</th>
+                <!--<th align="left">Options</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="ibill in user.groups[0].bills| filter:query | orderBy:'date'"   ng-init="ibill.isCollapsed = ' true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed">
+                <td width="150px">{{ ibill.billDate | date:'MM/dd/yyyy'}}</td>
+                <td>{{ ibill.title}}</td>
+                <td>${{ ibill.billTotal}}</td>
+                <!--<td></td>-->
+            </tr>
+            <tr ng-click="ibill.isCollapsed = !ibill.isCollapsed" ng-show="!ibill.isCollapsed" ng-repeat-end>
+                <td >
+                    Description of the bill goes here.{{ibill.description}}
+                </td>
+                <td colspan="1">
+                    <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">{{simplecost.user.fName}} owes ${{simplecost.liableCost}}</p>
+                </td>
+                <td> 
+                    <div class="bill-options">
+                    <a href="#/bills/edit/0/{{$index}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                    </a>
+                    <a ng-click="ibill.isCollapsed = !ibill.isCollapsed;
+                        deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a>
+                    </div>
+                    <div class="delete-confirm">
+                      Confirm Delete?
+                      <p><a ng-click="ibill.isCollapsed = !ibill.isCollapsed;
+                        deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Yes</a>
+                         <a ng-click="ibill.isCollapsed = !ibill.isCollapsed;
+                             deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Cancel</a></p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>						
