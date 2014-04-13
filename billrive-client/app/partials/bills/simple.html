@@ -13,7 +13,7 @@
 
             This is not a valid float number!</span>-->
                     <!-- ng-required='simpleUserIdAndLiableCost.enabled' -->
-                    <input  ng-disabled="!simpleUserIdAndLiableCost.isActive" ng-change="simpleCalculateSum()" type="text" ng-model="simpleUserIdAndLiableCost.liableCost" class="col-md-6" placeholder="0.00" smart-float="smart-float" required="required" />
+                    <input  ng-init="simpleCalculateSum()" ng-disabled="!simpleUserIdAndLiableCost.isActive" ng-change="simpleCalculateSum()" type="text" ng-model="simpleUserIdAndLiableCost.liableCost" class="col-md-6" placeholder="0.00" smart-float="smart-float" required="required" />
                 </div>
             </div>
         </li>
