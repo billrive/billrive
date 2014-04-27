@@ -1,3 +1,54 @@
+<div>
+    <h4>Groups</h4>
+</div>
+<a class="btn btn-success" href="#/groups/add"><i class="glyphicon glyphicon-plus-sign icon-white"></i>&nbsp;New Group</a>
+<div class="input-group pull-right col-xs-5 col-sm-3">
+    <input type="search" ng-model="query" class="form-control" name="q" autocomplete="off"
+           placeholder="Search" tabindex="1" />
+     <div class="input-group-btn"><button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span>
+         </button></div>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th align="left" >Group</th>
+                <th align="left" >Description</th>
+                
+                <!--<th align="left">Options</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="igroup in groups | filter:query | orderBy:'date'"   ng-init="igroup.isCollapsed = ' true'" ng-click="igroup.isCollapsed = !igroup.isCollapsed">
+                <td width="150px">{{ igroup.name }}</td>
+                <td>{{igroup.description}}</td>
+                
+                <!--<td></td>-->
+            </tr>
+            <tr ng-show="!igroup.isCollapsed" ng-repeat-end>
+            <!--<tr ng-click="igroup.isCollapsed = !igroup.isCollapsed" ng-show="!igroup.isCollapsed" ng-repeat-end>-->
+                <td >
+                    <p ng-repeat="user in igroup.users">{{user.fName}} {{user.lName}}</p>
+                </td>
+               
+                <td ng-init="igroup.deactivateConfirm = 'true'"> 
+                    <div ng-show="igroup.deactivateConfirm" class="bill-options" >
+                    <a href="#/groups/edit/{{igroup.id}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                    </a>
+                    <a  ng-click="igroup.deactivateConfirm = !igroup.deactivateConfirm;" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Deactivate</a>
+                    </div>
+                    <div ng-show="!igroup.deactivateConfirm" class="delete-confirm">
+                      Confirm Deactivate?
+                      <p><a ng-click="deleteBill(igroup.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Yes</a>
+                         <a ng-click="igroup.deactivateConfirm = !igroup.deactivateConfirm;" class="btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Cancel</a></p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -17,7 +68,7 @@
         <h4>Active Groups<h4></h4></h4>
     </div>
     <tbody>
-        <tr ng-repeat="igroup in group | filter:query | orderBy:'date'">
+        <tr ng-repeat="igroup in groups | filter:query | orderBy:'date'">
             <td>{{ igroup.name }}</td>
             <td>
                 <!-- <a href="#/groups/edit/{{$index}}"><i class="glyphicon glyphicon-pencil "></i></a>--> <a class="btn btn-default  btn-success" href="#/groups/edit/{{igroup.id}}">&nbsp;Edit</a>
