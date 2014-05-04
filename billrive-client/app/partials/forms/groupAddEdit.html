@@ -14,7 +14,7 @@
     <div class='form-group'>
         <label>Memberships</label>
         <ul class="list-unstyled col-md-4">
-            <li ng-repeat="friend in user.friends">
+            <li ng-repeat="friend in group.users">
                 <input ng-change="setNewGroupMembership()" type="checkbox" ng-model="friend.addToGroup"
                        /> <span class="done-{{!friend.addToGroup}}"> {{friend.fName}} {{friend.lName}}</span>
 

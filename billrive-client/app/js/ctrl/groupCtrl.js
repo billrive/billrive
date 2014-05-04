@@ -1,5 +1,6 @@
 billRive.controller('groupCtrl', function($scope, univService, $location, $routeParams) {
     
+    var groupIndex=$routeParams.groupIndex;
    
  $scope.user = univService.getUser();
     if(jQuery.isEmptyObject($scope.user)){
@@ -40,14 +41,35 @@ $scope.user=data;
     $scope.bills = $scope.user.groups[0].bills;
     $scope.groups=$scope.user.groups;
     
-    if($scope.editGroupId!=null && $scope.editGroupId!=null)
+    if(groupIndex!=null)
     {
-        $scope.bill =  angular.copy($scope.bills[$scope.editBillId]);
-//          $scope.simpleCalculateSum();
+        $scope.group =  angular.copy($scope.groups[groupIndex]);
+          for (var i = 0; i < $scope.group.users.length; i++) {
+             $scope.group.users[i].addToGroup=true;
+}
+
     }
     else{
-    $scope.group = univService.getGroupObj();
-    $scope.addGroupAddOwnerToJSON();
+    $scope.group = angular.copy(univService.getGroupObj());
+    
+    var addGroupAddOwnerToJSON = function() {
+       $scope.groupOwner={};
+       $scope.groupOwner.id=$scope.user.id;
+       $scope.groupOwner.fName=$scope.user.fName;
+       $scope.groupOwner.lName=$scope.user.lName;
+       $scope.groupOwner.email=$scope.user.email;
+       $scope.groupOwner.mName=$scope.user.mName;
+       $scope.groupOwner.title=$scope.user.title;
+       $scope.groupOwner.userActive=false;
+       $scope.groupOwner.addToGroup=true;
+       $scope.group.users.push(angular.copy($scope.groupOwner));
+       
+       for (var i = 0; i < $scope.user.friends.length; i++) {
+             $scope.group.users.push(angular.copy($scope.user.friends[i]));
+}
+    };
+    
+    addGroupAddOwnerToJSON();
 //    $scope.bill = angular.copy(univService.getBillObj());
     }
     
@@ -91,22 +113,14 @@ $scope.user=data;
     };
   
      $scope.addGroup = function() {
-         
+         for(var i=0;i<$scope.group.users.length;i++){
+            if(typeof($scope.group.users[i].addToGroup)=="undefined" || $scope.group.users[i].addToGroup==false)
+            delete $scope.group.users[i];
+         }
+        // console.log("hello");
         univService.addGroup(angular.copy($scope.group));
         $location.url('/groups/list');
     };
     
-     $scope.addGroupAddOwnerToJSON = function() {
-       $scope.groupOwner={};
-       $scope.groupOwner.id=$scope.user.id;
-       $scope.groupOwner.fName=$scope.user.fName;
-       $scope.groupOwner.lName=$scope.user.lName;
-       $scope.groupOwner.email=$scope.user.email;
-       $scope.groupOwner.mName=$scope.user.mName;
-       $scope.groupOwner.title=$scope.user.title;
-       $scope.groupOwner.userActive=false;
-       $scope.groupOwner.addToGroup=true;
-       $scope.group.users.push(angular.copy($scope.groupOwner));
-       
-    };
+     
 });

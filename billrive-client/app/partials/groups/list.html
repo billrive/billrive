@@ -34,7 +34,7 @@
                
                 <td ng-init="igroup.deactivateConfirm = 'true'"> 
                     <div ng-show="igroup.deactivateConfirm" class="bill-options" >
-                    <a href="#/groups/edit/{{igroup.id}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                    <a href="#/groups/edit/{{$index}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
                     </a>
                     <a  ng-click="igroup.deactivateConfirm = !igroup.deactivateConfirm;" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Deactivate</a>
                     </div>
