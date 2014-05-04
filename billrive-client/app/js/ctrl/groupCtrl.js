@@ -40,14 +40,15 @@ $scope.user=data;
     $scope.bills = $scope.user.groups[0].bills;
     $scope.groups=$scope.user.groups;
     
-    if($scope.editGroupId!=null && $scope.editBillId!=null)
+    if($scope.editGroupId!=null && $scope.editGroupId!=null)
     {
         $scope.bill =  angular.copy($scope.bills[$scope.editBillId]);
 //          $scope.simpleCalculateSum();
     }
     else{
-
-    $scope.bill = angular.copy(univService.getBillObj());
+    $scope.group = univService.getGroupObj();
+    $scope.addGroupAddOwnerToJSON();
+//    $scope.bill = angular.copy(univService.getBillObj());
     }
     
     }
@@ -88,10 +89,23 @@ $scope.user=data;
              }
         }
     };
-    
+  
      $scope.addGroup = function() {
-        console.log(JSON.stringify($scope.group));
         univService.addGroup(angular.copy($scope.group));
         $location.url('/');
+    };
+    
+     $scope.addGroupAddOwnerToJSON = function() {
+       $scope.groupOwner={};
+       $scope.groupOwner.id=$scope.user.id;
+       $scope.groupOwner.fName=$scope.user.fName;
+       $scope.groupOwner.lName=$scope.user.lName;
+       $scope.groupOwner.email=$scope.user.email;
+       $scope.groupOwner.mName=$scope.user.mName;
+       $scope.groupOwner.title=$scope.user.title;
+       $scope.groupOwner.userActive=false;
+       $scope.groupOwner.addToGroup=true;
+       $scope.group.users.push(angular.copy($scope.groupOwner));
+       
     };
 });
