@@ -80,8 +80,7 @@ public class GroupController extends GenericController {
 	}
                 
        @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/add" }, method = { RequestMethod.POST })
-	public void addGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
-			HttpServletResponse httpResponse_p, WebRequest request_p) {
+	public void addGroup(@RequestBody Group group_p, HttpServletResponse httpResponse_p, WebRequest request_p) {
 
 		Group createdGroup=null;
 		logger_c.debug("Creating Group: " + group_p.toString());
@@ -90,6 +89,7 @@ public class GroupController extends GenericController {
 			createdGroup = groupService.addGroup(group_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new group. [%1$s]";
+                        logger_c.error(e);
 		}
 
 		/* set HTTP response code */

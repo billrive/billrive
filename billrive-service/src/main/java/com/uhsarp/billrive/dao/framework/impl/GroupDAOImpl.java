@@ -83,7 +83,7 @@ public class GroupDAOImpl implements GroupDAO{
     public Group save(Group group) {
         if (group.getId() == null) {
             try {
-                em.persist(group);
+                em.merge(group);
             } catch (Exception e) {
                 logger_c.debug(e);
             }

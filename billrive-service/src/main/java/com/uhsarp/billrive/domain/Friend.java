@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name="\"user\"")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Friend  implements GenericObject{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)  
