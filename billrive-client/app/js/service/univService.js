@@ -1,6 +1,6 @@
 billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
     var isUserLoggedIn = false;
-    var url = 'http://localhost\:8080/billrive-service/user/';
+    var url = 'http://localhost\:8080/billrive-service';
     var deffered = $q.defer();
     var user = {};
     var currUserId = 6;
@@ -185,12 +185,14 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
         },
         addGroup: function(Group) {
 //            user.groups[0].groups.push(Group);
-            return $http.post(url + currUserId + "/group/", Group);
+ var config = this.setHeader('addGroup');
+            return $http.post(url + "/group/add", Group, config);
         },
         deleteGroup: function(groupId) {
             return $http.delete(url + currUserId + "/group/" + groupId);
         },
         editGroup: function(groupId, Group) {
+            var config = this.setHeader('editGroup');
             return $http.put(url + currUserId + "/group/" + groupId, Group);
         },
         getFriendObj: function() {
@@ -209,7 +211,7 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
 //            var serverResponseCode = "";
             return $http({
                 method: 'GET',
-                url: url
+                url: url+"/user/"
     , headers: {'Authorization': 'Basic ' + encodedAuth}
 
             });

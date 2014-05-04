@@ -79,7 +79,7 @@ public class GroupController extends GenericController {
 		return group;
 	}
                 
-       @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/user/{userId}/group" }, method = { RequestMethod.POST })
+       @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/add" }, method = { RequestMethod.POST })
 	public void addGroup(@RequestBody Group group_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
 
@@ -87,7 +87,7 @@ public class GroupController extends GenericController {
 		logger_c.debug("Creating Group: " + group_p.toString());
 
 		try {
-//			createdGroup = groupService.addGroup(group_p);
+			createdGroup = groupService.addGroup(group_p);
 		} catch (Exception e) {
 			String sMessage = "Error creating new group. [%1$s]";
 		}

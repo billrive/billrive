@@ -92,7 +92,7 @@ $scope.user=data;
   
      $scope.addGroup = function() {
         univService.addGroup(angular.copy($scope.group));
-        $location.url('/');
+//        $location.url('/');
     };
     
      $scope.addGroupAddOwnerToJSON = function() {
