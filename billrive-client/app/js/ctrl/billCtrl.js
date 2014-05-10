@@ -44,7 +44,8 @@ $scope.user=data;
       
     $scope.bills = $scope.user.groups[0].bills;
     $scope.groups=$scope.user.groups;
-    
+    $scope.selectedGroup=$scope.groups[0];
+//    $scope.groupsDropDownSelected = $scope.groups[0].name;
     if($scope.editGroupId!=null && $scope.editBillId!=null)
     {
         $scope.bill =  angular.copy($scope.bills[$scope.editBillId]);
@@ -144,4 +145,12 @@ $scope.bill.billDate=1380693600000;//Date.parse($scope.bill.billDate);
         });
     };
 //    console.log(JSON.stringify($routeParams));
+
+    $scope.changeSelectedGroupDropDown=function(userSelectedGroupDropDown){
+         for (var i = 0; i < $scope.groups.length; i++) {
+             if($scope.groups[i].id===userSelectedGroupDropDown)
+                 $scope.selectedGroup=$scope.groups[i];
+         }
+        
+    };
 });
