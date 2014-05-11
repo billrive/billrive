@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat-start="igroup in groups | filter:query | orderBy:'isActive'"   ng-init="igroup.isCollapsed = ' true'" ng-click="igroup.isCollapsed = !igroup.isCollapsed">
+            <tr ng-repeat-start="igroup in user.groups | filter:query | orderBy:'isActive'"   ng-init="igroup.isCollapsed = ' true'" ng-click="igroup.isCollapsed = !igroup.isCollapsed">
                 <td width="150px" class="done-{{!igroup.isActive}}">{{ igroup.name }}</td>
                 <td>{{igroup.description}}</td>
                 
@@ -34,7 +34,8 @@
                
                 <td ng-init="igroup.actDeactConfirm = 'true'"> 
                     <div ng-show="igroup.actDeactConfirm" class="bill-options" >
-                    <a href="#/groups/edit/{{$index}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                    <a href="#/groups/edit/{{igroup.id}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                    <!--<a href="#/groups/edit/{{$index}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit-->
                     </a>
                     <a  ng-click="igroup.actDeactConfirm = !igroup.actDeactConfirm;" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;<span ng-show="!done-{{!igroup.isActive}}">De</span>activate</a>
                     </div>

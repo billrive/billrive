@@ -9,7 +9,7 @@ billRive.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/friends/add', {templateUrl: 'partials/friends/add.html', controller: 'friendCtrl'});
     $routeProvider.when('/groups/list',{templateUrl: 'partials/groups/list.html', controller: 'groupCtrl'});
     $routeProvider.when('/groups/add', {templateUrl: 'partials/groups/add.html', controller: 'groupCtrl'});
-    $routeProvider.when('/groups/edit/:groupIndex', {templateUrl: 'partials/groups/edit.html', controller: 'groupCtrl'});
+    $routeProvider.when('/groups/edit/:editGroupId', {templateUrl: 'partials/groups/edit.html', controller: 'groupCtrl'});
     $routeProvider.when('/login', {templateUrl: 'partials/security/login.html', controller: 'loginCtrl'});
     $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'loginCtrl'});
     

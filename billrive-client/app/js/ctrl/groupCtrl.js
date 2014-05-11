@@ -1,7 +1,8 @@
 billRive.controller('groupCtrl', function($scope, univService, $location, $routeParams) {
     
-    var groupIndex=$routeParams.groupIndex;
-   
+    var editGroupId=$routeParams.editGroupId;
+    $scope.group=null;
+//    $scope.groups=null;
  $scope.user = univService.getUser();
     if(jQuery.isEmptyObject($scope.user)){
         
@@ -38,12 +39,18 @@ $scope.user=data;
     
     function init(){
       
-    $scope.bills = $scope.user.groups[0].bills;
-    $scope.groups=$scope.user.groups;
+//    $scope.bills = $scope.user.groups[0].bills;
+//    $scope.groups=$scope.user.groups;
     
-    if(groupIndex!=null)
+    if(editGroupId!=null)
     {
-        $scope.group =  angular.copy($scope.groups[groupIndex]);
+         $scope.group=null;
+         for (var i = 0; i < $scope.user.groups.length; i++) {
+             if($scope.user.groups[i].id==editGroupId){
+                  $scope.group=$scope.user.groups[i];     
+             }               
+}
+//        $scope.group =  angular.copy($scope.user.groups[editGroupId]);
           for (var i = 0; i < $scope.group.users.length; i++) {
              $scope.group.users[i].addToGroup=true;
 }
