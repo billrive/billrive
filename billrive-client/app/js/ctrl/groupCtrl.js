@@ -47,25 +47,31 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
             $scope.group = null;
             for (var i = 0; i < $scope.user.groups.length; i++) {
                 if ($scope.user.groups[i].id == editGroupId) {
-                    $scope.group = $scope.user.groups[i];
+                    $scope.group = angular.copy($scope.user.groups[i]);
 
                 }
             }
+            for (var i = 0; i < $scope.group.users.length; i++) {
+                $scope.group.users[i].addToGroup = true;
+            }
             var friendInGroupUserList =false;
+            var missingFriendinGroup={};
             for (var i = 0; i < $scope.user.friends.length; i++) {
                 for (var j = 0; j <$scope.group.users.length ; j++) {
                     if ($scope.group.users[j].id == $scope.user.friends[i].id) {
                        friendInGroupUserList=true;
                     }
                 }
-                if(!friendInGroupUserList)
-                   $scope.group.users.push(angular.copy($scope.user.friends[i]));    
+                if(!friendInGroupUserList){
+                    missingFriendinGroup=angular.copy($scope.user.friends[i]);
+                    missingFriendinGroup.addToGroup=false;
+                    $scope.group.users.push(missingFriendinGroup);                                   missingFriendinGroup={};
+               }
+               friendInGroupUserList=false;
             }
 
 //        $scope.group =  angular.copy($scope.user.groups[editGroupId]);
-            for (var i = 0; i < $scope.group.users.length; i++) {
-                $scope.group.users[i].addToGroup = true;
-            }
+            
 
         }
         else {
@@ -95,7 +101,7 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
     }
 
     $scope.setNewGroupMembership = function() {
-
+if(editGroupId==null){
         for (i = 0; i < $scope.user.friends.length; i++) {
             var match = false;
             //id is disabled
@@ -129,6 +135,7 @@ billRive.controller('groupCtrl', function($scope, univService, $location, $route
                 }
             }
         }
+    }
     };
 
     $scope.addGroup = function() {
