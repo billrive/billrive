@@ -29,19 +29,19 @@ public class Friend  implements GenericObject{
     String email;
     String mName;
     String title;
-    @Transient
-    boolean userActive;
+//    @Transient
+//    boolean userActive;
 
     public Friend() {
     }
 
-    public Friend(Long id, String firstName, String lastName, String emailId, boolean userActive) {
-        this.id = id;
-        this.fName = firstName;
-        this.lName = lastName;
-        this.email = emailId;
-        this.userActive = userActive;
-    }
+//    public Friend(Long id, String firstName, String lastName, String emailId, boolean userActive) {
+//        this.id = id;
+//        this.fName = firstName;
+//        this.lName = lastName;
+//        this.email = emailId;
+//        this.userActive = userActive;
+//    }
 
     public Long getId() {
         return id;
@@ -91,13 +91,13 @@ public class Friend  implements GenericObject{
         this.title = title;
     }
 
-    public boolean isUserActive() {
-        return userActive;
-    }
-
-    public void setUserActive(boolean userActive) {
-        this.userActive = userActive;
-    }
+//    public boolean isUserActive() {
+//        return userActive;
+//    }
+//
+//    public void setUserActive(boolean userActive) {
+//        this.userActive = userActive;
+//    }
 
     
 }
