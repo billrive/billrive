@@ -1,4 +1,5 @@
-billRive.controller('billCtrl', function($location, $scope, univService,$routeParams,Auth) {
+billRive.controller('billCtrl', function($location, $scope, univService,$routeParams,Auth,usSpinnerService) {
+    
      $scope.isUserLoggedIn = univService.getIsUserLoggedIn();
 $scope.editGroupId=$routeParams.groupId;
 $scope.editBillId=$routeParams.billId;
@@ -15,6 +16,7 @@ $scope.editBillId=$routeParams.billId;
 //       univService.setIsUserLoggedIn(true);
 //       $location.path('/bills/list'); 
 $scope.user=data;
+
        init();
     }).
     error(function(data, status, headers, config) {
@@ -55,7 +57,7 @@ $scope.user=data;
 
     $scope.bill = angular.copy(univService.getBillObj());
     }
-    
+    usSpinnerService.stop('bill-list-spinner');
     }
     
 //univService.getUserFromHttp(6).then(function() {
