@@ -1,6 +1,6 @@
 'use strict';
 
-var billRive = angular.module('billRive', ['ngRoute','ngCookies','mgcrea.ngStrap','mgcrea.ngStrap.tooltip','mgcrea.ngStrap.datepicker','mgcrea.ngStrap.helpers.dateParser']);
+var billRive = angular.module('billRive', ['ngRoute','ngCookies','mgcrea.ngStrap','mgcrea.ngStrap.tooltip','mgcrea.ngStrap.datepicker','mgcrea.ngStrap.helpers.dateParser','angularSpinner']);
 //var billRive = angular.module('billRive', ['ngRoute','mgcrea.ngStrap','ngCookies']);
 //var billRive = angular.module('billRive', ['ngRoute','mgcrea.ngStrap','ui.bootstrap','ngCookies']);
 
