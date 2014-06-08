@@ -72,3 +72,8 @@ body {
 table {
     table-layout:fixed;
 }
+billrive-spinner{
+    position:fixed;
+    top:50%;
+    left:40%
+}
