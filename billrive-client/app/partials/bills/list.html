@@ -97,6 +97,6 @@
     
 <!--<span us-spinner spinner-key="spinner-1" spinner-start-active="1"></span>-->
 <div ng-show="selectedGroup.bills.length==0" class="alert alert-info">There are no bills to display for this Group.</div>
-<div us-spinner spinner-key="bill-list-spinner" spinner-start-active="1" style="position:fixed;top:25%;left:40%"></div>
+<div ng-show="selectedGroup.bills.length==0" us-spinner spinner-key="bill-list-spinner" spinner-start-active="1" style="position:fixed;top:25%;left:40%"></div>
 </div>
 <!--{{selectedGroup}}-->
