@@ -128,7 +128,7 @@ usSpinnerService.stop('bill-list-spinner');
         $scope.bill.billDate = 1380693600000;//Date.parse($scope.bill.billDate);
 //$scope.bill.billDate=Date.parse($scope.bill.billDate);
         univService.addBill(angular.copy($scope.bill));
-        $location.url('/list');
+        $location.url('/bills/list');
     };
     $scope.deleteBill = function(billId) {
         univService.deleteBill(billId).then(function(data) {

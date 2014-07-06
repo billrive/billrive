@@ -141,7 +141,7 @@ billRive.factory('univService', function($http, $q, Base64,$cookieStore) {
 //                'Bill': Bill
 //            };
             var config = this.setHeader('addBill');
-            return $http.post(url + currUserId + "/bill/", Bill, config);
+            return $http.post(url+ "/user/"+currUserId+"/bill", Bill, config);
         },
         deleteBill: function(billId) {
 //            var data = {
