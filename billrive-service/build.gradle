@@ -1,0 +1,59 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.uhsarp.billrive'
+version = '1.0'
+
+description = """"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.5'
+    compile(group: 'log4j', name: 'log4j', version:'1.2.17') {
+exclude(module: 'jmxri')
+exclude(module: 'jmxtools')
+exclude(module: 'jms')
+    }
+    compile group: 'org.springframework', name: 'spring-core', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aop', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aspects', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-expression', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'4.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-test', version:'4.0.1.RELEASE'
+    compile group: 'org.aspectj', name: 'aspectjweaver', version:'1.7.4'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version:'1.9.13'
+    compile(group: 'com.thetransactioncompany', name: 'cors-filter', version:'1.9.2') {
+exclude(module: 'servlet-api')
+    }
+    compile group: 'junit', name: 'junit', version:'[4.11]'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'[1.7.5]'
+    compile group: 'javassist', name: 'javassist', version:'[3.12.1.GA]'
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'[4.2.3.Final]'
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.0-api', version:'1.0.1.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.3.Final'
+    compile group: 'com.googlecode.genericdao', name: 'dao', version:'1.2.0'
+    compile group: 'org.hsqldb', name: 'hsqldb', version:'2.3.1'
+    compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.13'
+    compile group: 'org.hamcrest', name: 'hamcrest-all', version:'1.3'
+    compile group: 'com.jayway.jsonpath', name: 'json-path', version:'0.9.1'
+    compile group: 'org.springframework.security', name: 'spring-security-core', version:'3.2.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-config', version:'3.2.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-taglibs', version:'3.2.0.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-web', version:'3.2.0.RELEASE'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.2.5'
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version:'1.4.3.RELEASE'
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.0.1'
+}
