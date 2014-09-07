@@ -22,15 +22,19 @@ repositories {
     maven { url "http://repo.spring.io/milestone" }*/
 }
 dependencies {
-    //compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.5'
-   /* compile(group: 'log4j', name: 'log4j', version:'1.2.17') {
+    /*compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.5'
+    compile(group: 'log4j', name: 'log4j', version:'1.2.17') {
 exclude(module: 'jmxri')
 exclude(module: 'jmxtools')
 exclude(module: 'jms')
     }*/
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.1.5.RELEASE'
-    compile("org.springframework.boot:spring-boot-starter-web:1.1.5.RELEASE")
-    compile("org.springframework.boot:spring-boot-starter:1.1.5.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:1.1.5.RELEASE"){
+        exclude(module: "spring-boot-starter-logging")
+    }
+    compile("org.springframework.boot:spring-boot-starter:1.1.5.RELEASE"){
+        exclude(module: "spring-boot-starter-logging")
+    }
 /*    compile("org.thymeleaf:thymeleaf-spring4")
     compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")*/
     testCompile("org.springframework.boot:spring-boot-starter-test:1.1.5.RELEASE")
@@ -56,7 +60,9 @@ exclude(module: 'servlet-api')
     compile group: 'org.hibernate', name: 'hibernate-core', version:'[4.2.3.Final]'
     compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.0-api', version:'1.0.1.Final'
     compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.2.3.Final'
-    compile group: 'com.googlecode.genericdao', name: 'dao', version:'1.2.0'
+    compile group: 'com.googlecode.genericdao', name: 'dao', version:'1.2.0'{
+        exclude:"slf4j-api"
+    }
     compile group: 'org.hsqldb', name: 'hsqldb', version:'2.3.1'
     compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.13'
     compile group: 'org.hamcrest', name: 'hamcrest-all', version:'1.3'
