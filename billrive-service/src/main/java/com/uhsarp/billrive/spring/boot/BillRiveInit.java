@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ImportResource;
 /**
  * Created by Uhsarp on 8/31/14.
  */
+@Configuration
 @ComponentScan(basePackages={"com.uhsarp.billrive.spring","com.uhsarp.billrive.domain","com.uhsarp.billrive.webservices.rest"})
 @EnableAutoConfiguration
 public class BillRiveInit {
