@@ -82,6 +82,7 @@ public class UserControllerTest {
      * Test of getUser method, of class UserController.
      */
 //    @Ignore
+    @Ignore
     @Test
     public void testGetUser() throws Exception {
         System.out.println("getUser");

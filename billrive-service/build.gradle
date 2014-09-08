@@ -19,7 +19,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-security")
     testCompile("org.springframework.boot:spring-boot-starter-test")
-
+    testCompile 'junit:junit:4.10'
 
     compile(group: 'com.googlecode.genericdao', name: 'dao', version:'1.2.0'){
         exclude(module: "slf4j-api")
@@ -30,5 +30,6 @@ dependencies {
     }
 
     compile group: 'junit', name: 'junit', version:'[4.11]'
+    compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.13'
 
 }

@@ -88,6 +88,7 @@ public class BillServiceImplTest {
 //    /**
 //     * Test of getBillById method, of class BillServiceImpl.
 //     */
+    @Ignore
     @Test
     public void testGetBillById() {
         System.out.println("getBillById");

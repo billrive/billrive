@@ -11,11 +11,9 @@ import com.uhsarp.billrive.domain.Bill;
 import com.uhsarp.billrive.spring.BillriveConfigTest;
 import com.uhsarp.billrive.spring.BillriveJPATest;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+
+import org.junit.*;
+
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +50,7 @@ public class BillDAOImplTest {
     public void tearDown() {
     }
 
- 
+    @Ignore
     @Test
     public void testGetBillsByGroupId() {
         System.out.println("getBillsByGroupId");
