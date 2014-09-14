@@ -50,7 +50,7 @@ public class BillDAOImplTest {
     public void tearDown() {
     }
 
-    @Ignore
+    //@Ignore
     @Test
     public void testGetBillsByGroupId() {
         System.out.println("getBillsByGroupId");

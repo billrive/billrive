@@ -14,9 +14,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  *
  * @author Prashanth Batchu
  */
-@Configuration
+/*@Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.uhsarp.billrive.webservices.rest"})
+@ComponentScan(basePackages = {"com.uhsarp.billrive.webservices.rest"})*/
 public class BillriveRestServlet {
     
 }

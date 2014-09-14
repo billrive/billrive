@@ -17,6 +17,7 @@ import org.springframework.web.servlet.DispatcherServlet;
  *
  * @author Prashanth Batchu
  */
+//This file is not used when running billrive as a "Spring Boot" app instead of a webapp!
 public class Initializer implements WebApplicationInitializer{
 
     @Override

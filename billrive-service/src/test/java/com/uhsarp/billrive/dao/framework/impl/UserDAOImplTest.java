@@ -52,7 +52,7 @@ public class UserDAOImplTest {
     public void tearDown() {
     }
 
-    @Ignore
+    //@Ignore
     @Test
     public void testGetUserByUserId() {
         System.out.println("getUserByUserId");
