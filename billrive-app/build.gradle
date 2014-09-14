@@ -2,11 +2,13 @@ buildscript {
     repositories { jcenter() }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.6.RELEASE")
+        classpath 'org.springframework:springloaded:1.2.0.RELEASE'
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'idea'
 
 repositories { jcenter()
     mavenCentral()
@@ -34,4 +36,11 @@ dependencies {
     compile group: 'junit', name: 'junit', version:'[4.11]'
     compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.13'
 
+}
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
 }

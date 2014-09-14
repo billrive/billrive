@@ -1,8 +1,8 @@
-/billrive-service/target/
+/billrive-app/target/
 /billrive-client/nbproject/private/
 /event360-client/nbproject/private/
 .idea
-/billrive-service/.idea
-/billrive-service/billrive-service.iml
-/billrive-service/build
-billrive-service/.gradle/
+/billrive-app/.idea
+/billrive-app/billrive-app.iml
+/billrive-app/build
+billrive-app/.gradle/
