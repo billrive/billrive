@@ -1,0 +1,30 @@
+<br />
+<div>
+    <ul class="unstyled">
+        <li ng-repeat="user in simpleUserCostMap ">
+            <div class="row">
+                <div class="col-md-3">
+                    <input ng-change="simpleFriendEnabled()" type="checkbox" ng-model="user.enabled"
+                    /> <span class="done-{{!user.enabled}}"> {{user.name}}</span>
+                </div>
+                <div class="col-md-3">
+                    <!-- ng-required='user.enabled' -->
+                    <input ng-disabled="!user.enabled" ng-change="simpleCalculateSum()" type="text"
+                    ng-model="user.liableCost" class="col-md-6" placeholder="0.00" />
+                </div>
+            </div>
+        </li>
+    </ul>
+    <hr width="250" size="1" />
+    <ul class="unstyled">
+        <li>
+            <div class="row">
+                <div class="col-md-3">Calculated Total</div>
+                <div class="col-md-3">
+                    <input type="text" disabled="disabled" ng-model="simpleCalculatedTotal"
+                    class="col-md-6" placeholder="0.00" />
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

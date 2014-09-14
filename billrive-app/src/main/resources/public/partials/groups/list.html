@@ -1,0 +1,68 @@
+<div>
+    <h4>Groups</h4>
+</div>
+<a class="btn btn-success" href="#/groups/add"><i class="glyphicon glyphicon-plus-sign icon-white"></i>&nbsp;New Group</a>
+<div class="input-group pull-right col-xs-5 col-sm-3">
+    <input type="search" ng-model="query" class="form-control" name="q" autocomplete="off"
+           placeholder="Search" tabindex="1" />
+     <div class="input-group-btn"><button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span>
+         </button></div>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th align="left" >Name</th>
+                <th align="left" >Description</th>
+                
+                <!--<th align="left">Options</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="igroup in user.groups | filter:query | orderBy:'isActive'"   ng-init="igroup.isCollapsed = ' true'" ng-click="igroup.isCollapsed = !igroup.isCollapsed">
+                <td width="150px" class="done-{{!igroup.isActive}}">{{ igroup.name }}</td>
+                <td>{{igroup.description}}</td>
+                
+                <!--<td></td>-->
+            </tr>
+            <tr ng-show="!igroup.isCollapsed" ng-repeat-end>
+            <!--<tr ng-click="igroup.isCollapsed = !igroup.isCollapsed" ng-show="!igroup.isCollapsed" ng-repeat-end>-->
+                <td >
+                    <p ng-repeat="user in igroup.users">{{user.fName}} {{user.lName}}</p>
+                </td>
+               
+                <td ng-init="igroup.actDeactConfirm = 'true'"> 
+                    <div ng-show="igroup.actDeactConfirm" class="bill-options" >
+                    <a href="#/groups/edit/{{igroup.id}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                    <!--<a href="#/groups/edit/{{$index}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit-->
+                    </a>
+                    <a  ng-click="igroup.actDeactConfirm = !igroup.actDeactConfirm;" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;<span ng-show="!done-{{!igroup.isActive}}">De</span>activate</a>
+                    </div>
+                    <div ng-show="!igroup.actDeactConfirm" class="delete-confirm">
+                      Confirm <span ng-show="!done-{{!igroup.isActive}}">de</span>activate?
+                      <p><a ng-click="deleteBill(igroup.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Yes</a>
+                         <a ng-click="igroup.actDeactConfirm = !igroup.actDeactConfirm;" class="btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Cancel</a></p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--<table>
+    <div>
+        <h4>Inactive Groups<h4></h4></h4>
+    </div>
+    <tbody>
+        <tr ng-repeat="igroup in tmpInActGroups | filter:query | orderBy:'date'">
+            <td>{{ igroup.name }}</td>
+            <td>
+                <a ng-click="/groups/activate/{{igroup.id}}" class="btn btn-xs btn-success"
+                href="#/groups/edit/{{$index}}"></i>&nbsp;Activate group</a> <a ng-click="activateGroup(igroup.id)" class="btn btn-xs btn-success"
+                href="#/groups/list">&nbsp;Activate group</a>
+            </td>
+        </tr>
+    </tbody>
+</table>-->
+<!--{{user.groups}}-->

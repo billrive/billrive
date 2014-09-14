@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="col-md-13">
+        <div class="row">
+            <div class="col-sm-9">
+                <!--    <img style="float: left;" src="img/clipart-0081.png" class="img-responsive"
+                    />
+                    <div class="content-heading">
+                        <h3>Bill sharing made easy! </h3>
+                    </div>
+                    <p style="clear: both;">With your friends or roommates</p>
+                -->
+
+                <!--                    <img src="img/clipart-0081.png" />
+                                  
+                -->                   <h1>Bill sharing made easy!</h1>
+                <p class="lead">While laundry and doing dishes aren't.</p>
+                 <!--Value:{{isUserLoggedIn()}}-->
+            </div>
+            <div  class="col-sm-3">
+                
+                <form ng-show="!isUserLoggedIn()" name="loginForm" class="form-signin" role="form">
+
+                    <h2 class="form-signin-heading">Please sign in</h2>
+
+                    <input ng-model="user.email" name="email" type="email" class="form-control" placeholder="Email address" required autofocus />
+                    <input ng-model="user.password" name="password" type="password" required class="form-control" placeholder="Password" ng-minlength="6" ng-maxlength="25" required /> 
+                    <label label-default class="checkbox">
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+
+                    <button  class="btn btn-lg btn-primary btn-block" ng-disabled="!loginForm.$valid" ng-click="login()">Sign in</button>
+                    <span>{{errorMsg}}</span>
+<!--{{user}}-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

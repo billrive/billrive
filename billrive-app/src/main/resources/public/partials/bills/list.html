@@ -1,0 +1,102 @@
+
+<div>
+    <h4>Bills</h4>
+</div>
+<a class="btn btn-success" href="#/bills/add"><i class="glyphicon glyphicon-plus-sign icon-white"></i>&nbsp;New Bill</a>
+
+<!-- <div>
+    
+     <ul  class="nav nav-pills navbar-nav">
+                <ul class="nav nav-pills" ng-show="loggedIn">
+                <li class="dropdown"> 
+                    <a class="dropdown-toggle active" data-toggle="dropdown">
+
+                                <i class="glyphicon glyphicon-th-list"></i>&nbsp;Select Group
+
+                                
+
+                            </a>
+                    <ul class="dropdown-menu">
+                         links 
+                        <li><a tabindex="-1" href="#/bills/add">Add</a>
+                        </li>
+                        <li><a tabindex="-1" href="#/bills/list">List</a>
+                        </li>
+                        <li><a tabindex="-1" href="#">Reports</a>
+                        </li>
+                    </ul>
+                </li>
+     </ul>
+</div>-->
+
+<div class="input-group pull-right col-xs-3 col-sm-3">
+    <input type="search" ng-model="query" class="form-control" name="q" autocomplete="off"
+           placeholder="Search" tabindex="1" />
+     <div class="input-group-btn"><button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span>
+         </button>
+     </div>
+</div>
+<div class="input-group pull-right  col-xs-3 col-sm-3">
+ <select 
+     class="form-control"
+         ng-change="changeSelectedGroupDropDown(groupsDropDownSelected)"
+         ng-model="groupsDropDownSelected"
+         ng-options="groupDropDown.id as groupDropDown.name for groupDropDown in user.groups"
+         
+         >
+  
+     
+</select>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-hover" >
+        <thead>
+            <tr>
+                <th align="left" >Date</th>
+                <th align="left" >Title</th>
+                <th align="left" >Bill Total</th>
+                <!--<th align="left">Options</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr ng-repeat-start="ibill in selectedGroup.bills| filter:query | orderBy:'date'"   ng-init="ibill.isCollapsed = ' true'" ng-click="ibill.isCollapsed = !ibill.isCollapsed">
+                <td width="150px">{{ ibill.billDate | date:'MM/dd/yyyy'}}</td>
+                <td>{{ ibill.title}}</td>
+                <td>${{ ibill.billTotal}}</td>
+                <!--<td></td>-->
+            </tr>
+            <tr ng-show="!ibill.isCollapsed" ng-repeat-end>
+            <!--<tr ng-click="ibill.isCollapsed = !ibill.isCollapsed" ng-show="!ibill.isCollapsed" ng-repeat-end>-->
+                <td >
+                    Description of the bill goes here.{{ibill.description}}
+                </td>
+                <td colspan="1">
+                    <p ng-repeat="simplecost in ibill.billSimpleEntry.simpleUserIdAndLiableCost">{{simplecost.user.fName}} owes ${{simplecost.liableCost}}</p>
+                </td>
+                <td ng-init="ibill.deleteConfirm = 'true'"> 
+                    <div ng-show="ibill.deleteConfirm" class="bill-options" >
+                    <a href="#/bills/edit/0/{{$index}}" class="btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit
+                    </a>
+                    <a  ng-click="ibill.deleteConfirm = !ibill.deleteConfirm;" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a>
+                    </div>
+                    <div ng-show="!ibill.deleteConfirm" class="delete-confirm">
+                      Confirm Delete?
+                      <p><a ng-click="deleteBill(ibill.id)" class="btn"><i class="glyphicon glyphicon-trash"></i>&nbsp;Yes</a>
+                         <a ng-click="ibill.deleteConfirm = !ibill.deleteConfirm;" class="btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;Cancel</a></p>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    
+    
+<!--<span us-spinner spinner-key="spinner-1" spinner-start-active="1"></span>-->
+<div ng-show="selectedGroup.bills.length==0" class="alert alert-info">There are no bills to display for this Group.</div>
+<div ng-show="selectedGroup.bills.length==0" us-spinner spinner-key="bill-list-spinner" spinner-start-active="1" style="position:fixed;top:25%;left:40%"></div>
+</div>
+<!--{{selectedGroup}}-->
