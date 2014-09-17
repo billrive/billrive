@@ -9,5 +9,5 @@ package com.uhsarp.billrive.webservices.rest;
  * @author Prashanth Batchu
  */
 public class GenericController {
-    
+
 }

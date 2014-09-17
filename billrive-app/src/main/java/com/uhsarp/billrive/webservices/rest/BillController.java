@@ -31,25 +31,25 @@ import org.springframework.web.context.request.WebRequest;
  */
 @RestController
 public class BillController extends GenericController{
-    
+
     	@Autowired
 	private BillService billService;
 
-  
+
 //	@Autowired
 //	private View jsonView_i;
-        
-        
+
+
         private static final String DATA_FIELD = "data";
 	private static final String ERROR_FIELD = "error";
         private static final Logger logger_c = Logger.getLogger(BillController.class);
-        
-        
+
+
     	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/bills", method = RequestMethod.GET)
 	public @ResponseBody List<Bill> getBills(@PathVariable("userId") int userId) {
 		List<Bill> bills = new ArrayList<Bill>();
                 logger_c.info("Value of userId is  "+userId);
-		
+
 		try {
 			bills = null;
 		} catch (Exception e) {
@@ -61,13 +61,13 @@ public class BillController extends GenericController{
 		logger_c.debug("Returing Bills: " + bills.toString());
 		return bills;
 	}
-        
-        
+
+
         	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/{userId}/bill/{billId}", method = RequestMethod.GET)
 	public @ResponseBody Bill getBill(@PathVariable("billId") String billId_p,@PathVariable("userId") int userId) {
 		Bill bill = null;
 
-		
+
 		if (isEmpty(billId_p) || billId_p.length() < 5) {
 			String sMessage = "Error invoking getBill - Invalid bill Id parameter";
 			return bill;
@@ -83,8 +83,8 @@ public class BillController extends GenericController{
 		logger_c.debug("Returing Bill: " + bill.toString());
 		return bill;
 	}
-                
-                
+
+
         @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/user/{userId}/bill" }, method = { RequestMethod.POST })
 	public void addBill(@RequestBody Bill bill_p,@PathVariable("userId") int userId,
 			HttpServletResponse httpResponse_p, WebRequest request_p) {
@@ -187,15 +187,15 @@ public class BillController extends GenericController{
                     httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 //		return new ModelAndView(jsonView_i, DATA_FIELD, null);
 	}
-        
+
         public static boolean isEmpty(String s_p) {
 		return (null == s_p) || s_p.trim().length() == 0;
 	}
-        
+
         	private String createErrorResponse(String sMessage) {
 		return sMessage;
 	}
-                
+
                   public BillService getBillService() {
         return billService;
     }

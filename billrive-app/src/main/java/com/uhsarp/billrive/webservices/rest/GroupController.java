@@ -29,19 +29,19 @@ import org.springframework.web.context.request.WebRequest;
 @RestController
 @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/group")
 public class GroupController extends GenericController {
-    
+
     	@Autowired
 	private GroupService groupService;
 
 //	@Autowired
 //	private View jsonView_i;
-        
-        
+
+
         private static final String DATA_FIELD = "data";
 	private static final String ERROR_FIELD = "error";
         private static final Logger logger_c = Logger.getLogger(GroupController.class);
-        
-        
+
+
     	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/{userId}/groups/", method = RequestMethod.GET)
 	public @ResponseBody List<Group> getGroups(@PathVariable("userId") int userId) {
 		List<Group> groups = new ArrayList<Group>();
@@ -56,13 +56,13 @@ public class GroupController extends GenericController {
 		logger_c.debug("Returing Groups: " + groups.toString());
 		return groups;
 	}
-        
-        
+
+
         	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/{userId}/{userId}/group/{groupId}", method = RequestMethod.GET)
 	public @ResponseBody Group getGroup(@PathVariable("groupId") String groupId_p,@PathVariable("userId") int userId) {
 		Group group = null;
 
-		
+
 		if (isEmpty(groupId_p) || groupId_p.length() < 5) {
 			String sMessage = "Error invoking getGroup - Invalid group Id parameter";
 			return group;
@@ -78,7 +78,7 @@ public class GroupController extends GenericController {
 		logger_c.debug("Returing Group: " + group.toString());
 		return group;
 	}
-                
+
        @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = { "/add" }, method = { RequestMethod.POST })
 	public void addGroup(@RequestBody Group group_p, HttpServletResponse httpResponse_p, WebRequest request_p) {
 
@@ -166,13 +166,13 @@ public class GroupController extends GenericController {
                     httpResponse_p.setStatus(HttpStatus.EXPECTATION_FAILED.value());
 //		return new ModelAndView(jsonView_i, DATA_FIELD, null);
 	}
-                
-                
-                
+
+
+
         public static boolean isEmpty(String s_p) {
 		return (null == s_p) || s_p.trim().length() == 0;
 	}
-        
+
         	private String createErrorResponse(String sMessage) {
 		return sMessage;
 	}

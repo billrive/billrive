@@ -31,89 +31,55 @@ import org.springframework.web.context.request.WebRequest;
  */
 
 @RestController
-@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user")
+@RequestMapping(value = "/user")
 public class UserController extends GenericController{
-    
+
     	@Autowired
 	private UserService userService;
+    private User user;
 
-  
-        private static final String DATA_FIELD = "data";
+     private static final String DATA_FIELD = "data";
 	private static final String ERROR_FIELD = "error";
-//        private static final Logger logger_c = Logger.getLogger(UserController.class);
         private static final Logger logger_c = LoggerFactory.getLogger(UserController.class);
-        
-        
-    	@RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-	public @ResponseBody HttpEntity<User> getUser() {
-            
-            
-                
-                //1. send the data for logged in user insted of client sending 6 or 7 for userId.
-                
+
+
+    	@RequestMapping(method = RequestMethod.GET)
+	public User getUser() {
+
                 org.springframework.security.core.userdetails.User userInMemory;
                 userInMemory = (org.springframework.security.core.userdetails.User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 String name = userInMemory.getUsername(); //get logged in username
-            
-                
-                //Get the userName from userService and match it with our user object.
-                User userTemp = new User();
+
+
                 try{
-                    userTemp = userService.getUserByUserName(name);
-                          
-                    
+                    user = userService.getUserByUserName(name);
+
+
                 }catch (Exception e) {
                        e.printStackTrace();
                        return null;
-                     
-		}
-                
-            
-		User user = new User();
-                try {
-                        logger_c.info("Value of userId  from logged in user is  "+userTemp.getId());
-			user = userTemp;//userService.getUserByUserId(userTemp.getId());
-                        
 
-		} catch (Exception e) {
-                       e.printStackTrace();
-			String sMessage = "Error getting all users. [%1$s]";
-			return null;                  
-                     
-		}
-//                if((userTemp.getId() != userId)){
-//                    //user id changed on the fly.
-//                    return new ResponseEntity(HttpStatus.UNAUTHORIZED);                    
-//                }
-                logger_c.info("Value of Users ArrayList is  ");
-
-		logger_c.debug("Returing Users: " + user.toString());
-		 return new ResponseEntity<User>(user, HttpStatus.OK);
+		            }
+            return user;
 	}
-        
-        @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE,  method = RequestMethod.POST)
-	public @ResponseBody User addUser(@RequestBody User user_p,HttpServletResponse httpResponse_p, WebRequest request_p) {
-            
-		User user = new User();
-//                logger_c.info("Value of userId is  "+userId);
+
+    @RequestMapping(method = RequestMethod.POST)
+	public User addUser(@RequestBody User user_p) {
+
 		try {
 			user = userService.addUser(user_p);
 
 		} catch (Exception e) {
                        e.printStackTrace();
 			String sMessage = "Error getting all users. [%1$s]";
-			return null;                  
-                     
-		}
-            httpResponse_p.setStatus(HttpStatus.CREATED.value());
+			return null;
 
-		/* set location of created resource */
-		httpResponse_p.setHeader("Location", request_p.getContextPath() + "/user" + user.getId());
+		}
 		return user;
 	}
 
-                
-        public UserService getUserService() {
+
+    public UserService getUserService() {
         return userService;
     }
 
