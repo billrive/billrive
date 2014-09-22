@@ -13,10 +13,8 @@ The service is client agnostic and can serve any Web, Mobile and other applicati
 
 The client application is a modern Web Application which is designed using the MVC pattern, Dependency Injection 
 
--------------------
 billrive-service(Spring Boot, MVC, REST, JPA (Hibernate as provider), MySQL DB)
 billrive-client (Angular JS, Bootstrap, Underscore)
--------------------
 
 
 Both the applications are currently bundled into one application titled "billrive-app"
@@ -36,7 +34,6 @@ To run,
 - Setup the MySQL Database. Execute conf/billrive.sql to populate the database tables
 - Match your database username/password in BillriveJPA.java
 - Run the app. From cmd/shell, type "gradlew bootRun". Make sure port 8080 is freed up before running this.
-
 
 
 Architecture
