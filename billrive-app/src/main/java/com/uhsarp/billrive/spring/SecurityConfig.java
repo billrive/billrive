@@ -17,8 +17,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  *
  * @author Prashanth Batchu
  */
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
