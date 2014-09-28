@@ -37,7 +37,7 @@ import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
  *
  * @author Prashanth Batchu
  */
-//@Ignore
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 //@ContextConfiguration(classes={BillriveConfigTest.class,BillriveJPATest.class})

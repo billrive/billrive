@@ -27,9 +27,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  * @author Prashanth Batchu
  */
-@Configuration
+/*@Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories //(basePackages = { "com.uhsarp.billrive.domain" })
+@EnableJpaRepositories*/ //(basePackages = { "com.uhsarp.billrive.domain" })
 public class BillriveJPATest {
     
      private static final Logger logger = LoggerFactory.getLogger(BillriveJPATest.class);
