@@ -19,7 +19,14 @@ import javax.persistence.Table;
 @Table(name = "balance")
 public class Balance implements GenericObject {
     
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3894084199989409840L;
+	/**
+	 * 
+	 */
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)  
     private Long id;
     private Long userId_gets;

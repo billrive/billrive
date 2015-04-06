@@ -37,7 +37,7 @@ import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
  *
  * @author Prashanth Batchu
  */
-//@Ignore
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 //@ContextConfiguration(classes={BillriveConfigTest.class,BillriveJPATest.class})
@@ -71,7 +71,7 @@ public class UserControllerTest {
     @Before
     public void setUp() {
 //          this.mockMvc  = webAppContextSetup(this.wac).build();
-        mockMvc = MockMvcBuilders.<StandaloneMockMvcBuilder>webAppContextSetup(wac).build();
+       // mockMvc = MockMvcBuilders.<StandaloneMockMvcBuilder>webAppContextSetup(wac).build();
     }
     
     @After

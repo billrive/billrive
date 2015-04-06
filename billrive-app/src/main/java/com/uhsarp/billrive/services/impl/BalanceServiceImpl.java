@@ -12,10 +12,8 @@ import com.uhsarp.billrive.domain.SimpleUserIdAndLiableCost;
 import com.uhsarp.billrive.services.BalanceService;
 import com.uhsarp.billrive.services.GroupService;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
-import static junit.framework.Assert.assertEquals;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -15,7 +15,7 @@ import java.util.Enumeration;
  *
  * @author Prashanth Batchu
  */
-@Configuration
+//@Configuration
 public class BillriveSpringBootExclusiveConfig {
 
    /* @Bean

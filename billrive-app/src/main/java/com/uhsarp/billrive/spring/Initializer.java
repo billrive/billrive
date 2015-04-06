@@ -20,13 +20,13 @@ import org.springframework.web.servlet.DispatcherServlet;
 //This file is not used when running billrive as a "Spring Boot" app instead of a webapp!
 public class Initializer implements WebApplicationInitializer{
 
-    @Override
+    //@Override
     public void onStartup(ServletContext container) throws ServletException {
     
       // Create the 'root' Spring application context
       AnnotationConfigWebApplicationContext rootContext =
         new AnnotationConfigWebApplicationContext();
-      rootContext.register(BillriveConfig.class,BillriveJPA.class,SecurityConfig.class);
+      rootContext.register(BillriveJPA.class,SecurityConfig.class);
 
       // Manage the lifecycle of the root application context
       container.addListener(new ContextLoaderListener(rootContext));

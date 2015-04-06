@@ -17,7 +17,11 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Entity
 @Table(name="\"user\"")
 public class User  implements GenericObject {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1474716892235471913L;
+	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String fName;

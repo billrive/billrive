@@ -26,7 +26,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  * @author Prashanth Batchu
  */
-//@Ignore
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={BillriveConfigTest.class,BillriveJPATest.class})
 public class UserDAOImplTest {
