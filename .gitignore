@@ -5,3 +5,6 @@ billrive-app/.idea
 billrive-app/billrive-app.iml
 billrive-app/build
 billrive-app/.gradle/
+billrive-app/.nb-gradle-properties
+billrive-app/.nb-gradle
+billrive-app/.settings/gradle
