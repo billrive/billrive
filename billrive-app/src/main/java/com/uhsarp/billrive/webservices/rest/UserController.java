@@ -31,7 +31,7 @@ import org.springframework.web.context.request.WebRequest;
  */
 
 @RestController
-@RequestMapping(value = "/user")
+//@RequestMapping(value = "/user")
 public class UserController extends GenericController{
 
     	@Autowired
@@ -42,8 +42,8 @@ public class UserController extends GenericController{
 	private static final String ERROR_FIELD = "error";
         private static final Logger logger_c = LoggerFactory.getLogger(UserController.class);
 
-
-    	@RequestMapping(method = RequestMethod.GET)
+    @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user", method = RequestMethod.GET)
+    	//@RequestMapping(method = RequestMethod.GET)
 	public User getUser() {
 
                 org.springframework.security.core.userdetails.User userInMemory;
@@ -63,7 +63,8 @@ public class UserController extends GenericController{
             return user;
 	}
 
-    @RequestMapping(method = RequestMethod.POST)
+   // @RequestMapping(method = RequestMethod.POST)
+   @RequestMapping( produces = MediaType.APPLICATION_JSON_VALUE, value = "/user/", method = RequestMethod.POST)
 	public User addUser(@RequestBody User user_p) {
 
 		try {
