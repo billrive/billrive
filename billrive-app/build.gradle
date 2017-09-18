@@ -38,10 +38,3 @@ dependencies {
     testCompile 'junit:junit:4.10'
 
 }
-
-idea {
-    module {
-        inheritOutputDirs = false
-        outputDir = file("$buildDir/classes/main/")
-    }
-}

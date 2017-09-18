@@ -1,6 +1,6 @@
 BillRive
 
-BillRive is an Open Source Java based application meant to promote Community Learning.
+BillRive is an Open Source Java based bill splitting application. This project is meant to be a learning platform for improving Software Engineering skills by testing various ideas around it.
 This project can be used as a test bed to help fill the knowledge gaps of folks who are either new to Enterprise Web Development, have been working in the Software Engineering field but have some knowledge gaps, or those who are new to the scene and want to explore and learn using this project as a guide.
 
 It could be that you want to learn about ORM paradigm (JPA/Hibernate) or Dependency Injection (Spring), or understand RESTful Web Services, or simply understand how a modern Web framework like Angular JS works.
