@@ -6,13 +6,13 @@
 
 package com.uhsarp.billrive.dao.framework;
 
-import com.googlecode.genericdao.dao.jpa.GenericDAO;
+import org.springframework.data.repository.CrudRepository;
 import com.uhsarp.billrive.domain.Payment;
 
 /**
  *
  * @author pperi
  */
-public interface PaymentDAO extends GenericDAO<Payment, Long> {
+public interface PaymentDAO extends CrudRepository<Payment, Long> {
     
 }

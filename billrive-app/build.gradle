@@ -1,40 +1,41 @@
 buildscript {
-    repositories { mavenCentral() }
+    repositories {
+        mavenCentral()
+    }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
-        classpath 'org.springframework:springloaded:1.2.5.RELEASE'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'spring-boot'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
 
-repositories { 
-    mavenCentral()
-    maven { url "http://repo.spring.io/snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
+jar {
+    baseName = 'billrive'
+    version =  '0.1.0'
 }
+
+repositories {
+    mavenCentral()
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+}
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
     compile("org.springframework.boot:spring-boot-starter-security")
-   // provided ('org.apache.tomcat.embed:tomcat-embed-jasper')
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-
-    testCompile 'junit:junit:4.10'
-
-    compile(group: 'com.googlecode.genericdao', name: 'dao', version:'1.2.0'){
-        exclude(module: "slf4j-api")
-    }
-    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version:'1.9.13'
-    compile(group: 'com.thetransactioncompany', name: 'cors-filter', version:'1.9.2') {
-        exclude(module: 'servlet-api')
-    }
-
     compile group: 'junit', name: 'junit', version:'[4.11]'
-    compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.13'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile 'junit:junit:4.10'
 
 }
 

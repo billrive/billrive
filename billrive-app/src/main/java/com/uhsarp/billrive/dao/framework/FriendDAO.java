@@ -4,13 +4,13 @@
  */
 package com.uhsarp.billrive.dao.framework;
 
-import com.googlecode.genericdao.dao.jpa.GenericDAO;
+import org.springframework.data.repository.CrudRepository;
 import com.uhsarp.billrive.domain.Friend;
 
 /**
  *
  * @author Prashanth Batchu
  */
-public interface FriendDAO extends GenericDAO<Friend,Long>{
+public interface FriendDAO extends CrudRepository<Friend,Long>{
     
 }

@@ -4,7 +4,7 @@
  */
 package com.uhsarp.billrive.dao.framework;
 import java.util.List;
-import com.googlecode.genericdao.dao.jpa.GenericDAO;
+import org.springframework.data.repository.CrudRepository;
 import com.uhsarp.billrive.domain.Group;
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Prashanth Batchu
  */
-public interface GroupDAO extends GenericDAO<Group,Long>{
+public interface GroupDAO extends CrudRepository<Group,Long>{
       Long findGroupId(Long userId);
       Group findGroupByGroupId(Long groupId);
       List<Group> getGroups(Long userId);

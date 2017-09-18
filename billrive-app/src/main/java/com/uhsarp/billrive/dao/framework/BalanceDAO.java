@@ -6,14 +6,15 @@
 
 package com.uhsarp.billrive.dao.framework;
 
-import com.googlecode.genericdao.dao.jpa.GenericDAO;
 import com.uhsarp.billrive.domain.Balance;
+import org.springframework.data.repository.CrudRepository;
+
 import java.util.List;
 
 /**
  *
  * @author pperi
  */
-public interface BalanceDAO extends GenericDAO<Balance, Long>{
+public interface BalanceDAO extends CrudRepository<Balance, Long>{
     List<Balance> getBalances(Long userId);
 }
